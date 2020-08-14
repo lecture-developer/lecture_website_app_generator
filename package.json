@@ -1,0 +1,20 @@
+{
+  "name": "lecture_website_app_generator",
+  "version": "1.0.0",
+  "description": "SaaS project to generate, maintenance and deploy academic lectures' websites and mobile applications.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teddy4445/lecture_website_app_generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teddy4445/lecture_website_app_generator/issues"
+  },
+  "homepage": "https://github.com/teddy4445/lecture_website_app_generator#readme"
+}
