@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/teddy4445/lecture_website_app_generator/issues"
   },
-  "homepage": "https://github.com/teddy4445/lecture_website_app_generator#readme"
+  "homepage": "https://github.com/teddy4445/lecture_website_app_generator#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.2",
+    "react-router-dom": "^5.2.0"
+  }
 }
