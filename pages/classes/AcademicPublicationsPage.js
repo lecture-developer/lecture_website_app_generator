@@ -1,6 +1,6 @@
-import IPage from "./IPage";
+import iPage from "./iPage";
 
-class AcademicPublicationsPage extends IPage {
+class AcademicPublicationsPage extends iPage {
   constructor(teachingPhilosophy, academicPublications) {
     super();
     this.teachingPhilosophy = teachingPhilosophy;

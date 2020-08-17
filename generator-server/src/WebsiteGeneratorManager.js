@@ -25,7 +25,7 @@ class WebsiteGeneratorManager {
   };
 
   loadWebsiteFromGithub = (url) => {
-
+    
   };
 
   loadWebsiteFromFile = () => {

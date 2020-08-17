@@ -1,4 +1,3 @@
-import iInfoBox from "./iInfoBox";
 import { publicationStatus } from '../../resources/constants';
 
 class AcademicPublication {

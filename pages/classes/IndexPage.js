@@ -1,6 +1,6 @@
-import IPage from "./IPage";
+import iPage from "./iPage";
 
-class IndexPage extends IPage {
+class IndexPage extends iPage {
   constructor(aboutText, featuredPublications, currentProjects) {
     super();
     this.aboutText = aboutText;

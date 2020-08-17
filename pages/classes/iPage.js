@@ -1,4 +1,4 @@
-class IPage {
+class iPage {
   constructor(SEOpage) {
     this.SEOpage = SEOpage;
   }
@@ -16,4 +16,4 @@ class IPage {
   }
 }
 
-export default IPage;
+export default iPage;

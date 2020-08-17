@@ -1,6 +1,6 @@
-import IPage from "./IPage";
+import iPage from "./iPage";
 
-class OpenResourcesPage extends IPage {
+class OpenResourcesPage extends iPage {
   constructor(letsWorkTogetherMessage, resources) {
     super();
     this.letsWorkTogetherMessage = letsWorkTogetherMessage;

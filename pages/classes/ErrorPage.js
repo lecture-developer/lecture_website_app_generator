@@ -1,6 +1,6 @@
-import IPage from "./IPage";
+import iPage from "./iPage";
 
-class ErorPage extends IPage {
+class ErorPage extends iPage {
   constructor(msg) {
     super();
     this.msg = msg;
