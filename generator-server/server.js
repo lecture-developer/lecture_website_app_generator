@@ -7,7 +7,7 @@ require('dotenv').config();
 
 const app = express();
 // Allows you to set port in the project properties
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 // Allows you to parse json
