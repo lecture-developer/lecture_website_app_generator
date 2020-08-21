@@ -1,30 +1,30 @@
-const path = require('path');
-const express = require('express');
-const cors = require('cors')
-const mongoose = require('mongoose')
+import express from 'express';
+import cors from 'cors';
+import dotnev from 'dotenv';
+import indexRouter from './src/routes/indexPage';
 
-require('dotenv').config();
+dotnev.config();
+
+// // Mongo setup
+// const uri = process.env.ATLAS_URI
+// mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true});
+// const connection = mongoose.connection;
+// connection.once('open', () => {
+//     console.log("MongoDB database connection established successfully");
+// })
 
 const app = express();
-// Allows you to set port in the project properties
-const port = process.env.PORT || 5000;
-
 app.use(cors());
-// Allows you to parse json
-app.use(express.json()) 
+app.use(express.json());
 
-// Mongo setup
-const uri = process.env.ATLAS_URI
-mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true});
-const connection = mongoose.connection;
-connection.once('open', () => {
-    console.log("MongoDB database connection established successfully");
-})
+// Index page routing
+app.use('/index', indexRouter);
 
-const userRouter = require('./routes/users');
-app.use('/users', userRouter);
+// const userRouter = require('./routes/users');
+// app.use('/users', userRouter);
 
-// Starts the server
-app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`)
-  })
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}`);
+});
