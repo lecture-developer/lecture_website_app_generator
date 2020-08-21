@@ -1,14 +1,18 @@
 export const publicationStatus = {
-  STATUS_A: 'status_a',
-  STATUS_B: 'status_b',
+  Submited: 's',
+  Accepted: 'a',
+  Published: 'p',
 };
 
 export const studentTypes = {
-  TYPE_A: 'type_a',
-  TYPE_B: 'type_b',
+  FirstDegree: 'b',
+  SecondDegreeProject: 'mp',
+  SecondDegreeThesis: 'mt',
+  ThirdDegree: 'p',
 };
 
 export const buttonTypes = {
-  TYPE_A: 'type_a',
-  TYPE_B: 'type_b',
+  Download: 'd',
+  View: 'v',
+  Cite: 'c',
 };
