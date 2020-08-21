@@ -32,7 +32,6 @@ const userSchema = new Schema({
  researchField: [String],
  officeAddress: [String],
  photo_link: String,
- photo_link: String,
 }, {
   timestamps: true,
 });

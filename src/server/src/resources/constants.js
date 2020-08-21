@@ -16,3 +16,9 @@ export const buttonTypes = {
   View: 'v',
   Cite: 'c',
 };
+
+
+export const githubLoginType = {
+  TOKEN: 't',
+  CRADENTIOALS: 'c',
+};
