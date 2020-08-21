@@ -15,7 +15,7 @@ const Display = (props) => {
   const _handleSubmit = async () => {
     try {
       const response = await axios.post('http://localhost:5000/index', data );
-      console.log(response.config.data);
+      console.log(response);
     } catch(err) {
       console.log('Error sending data to the backend: ', err);
     }
