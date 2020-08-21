@@ -10,7 +10,7 @@ function App() {
       <div className="container">
       <Navbar />
       <br/>
-      <Route path="/user" component={CreateUser} />
+      <Route path="/register" component={CreateUser} />
       </div>
     </Router>
   );

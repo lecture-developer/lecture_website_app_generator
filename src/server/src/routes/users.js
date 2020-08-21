@@ -1,49 +1,37 @@
 const router = require('express').Router();
-let User = require('../models/user.js');
-
-// Get all users
-router.route('/').get((req, res) => {
-  User.find()
-    .then(users => res.json(users))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
+const User = require('../models/user');
+const { required } = require('@hapi/joi');
+const {registerValidation, loginValidation} = require('./validation');
+const bcrypt = require('bcryptjs');
 
 // Add user
-router.route('/user/add').post((req, res) => {
-  const username = req.body.username;
-
-  const newUser = new User({username});
-
-  newUser.save()
-    .then(() => res.json('User added!'))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
-
-// Get user by id
-router.route('/:id').get((req, res) => {
-    User.findById(req.params.id)
-      .then(username => res.json(username))
-      .catch(err => res.status(400).json('Error: ' + err));
-  });
-
-// Delete user by id
-router.route('/:id').delete((req, res) => {
-    User.findByIdAndDelete(req.params.id)
-      .then(() => res.json('User deleted.'))
-      .catch(err => res.status(400).json('Error: ' + err));
-  });
-
-// Update user by id
-router.route('/update/:id').post((req, res) => {
-    User.findById(req.params.id)
-      .then(username => {
-        User.username = req.body.username;
+router.post('/register', async (req, res) => {
   
-        username.save()
-          .then(() => res.json('User updated!'))
-          .catch(err => res.status(400).json('Error: ' + err));
-      })
-      .catch(err => res.status(400).json('Error: ' + err));
-  });  
+  // Validate data
+  const {error} = registerValidation(req.body);
+  if(error) return res.status(400).send(error.details[0].message);
+
+  // Checking if user is already in db
+  const emailExist = await User.findOne({email: req.body.email});
+  if(emailExist) return res.status(400).send('Email already exists');
+
+  // Hash passwords
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
+  // Create new user
+  const newUser = new User({
+    name: req.body.name,
+    password: hashedPassword,
+    email: req.body.email
+  });
+  
+  try {
+    const savedUser = await newUser.save();
+    res.send(savedUser);
+  } catch(err) {
+    res.status(400).send(err);
+  }
+});
 
 module.exports = router;
