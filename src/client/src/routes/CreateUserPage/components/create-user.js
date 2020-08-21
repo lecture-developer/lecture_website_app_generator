@@ -1,53 +1,44 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class CreateUser extends Component {
-  constructor(props) {
-    super(props);
+const { useState } = React; 
 
-    this.onChangeUsername = this.onChangeUsername.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+export default function CreateUser(props) {
+  const [username, setUsername] = useState('');
 
-    this.state = {
-      username: ''
-    }
+  const onChangeUsername = (e) => {
+    setUsername(e.target.value)
   }
 
-  onChangeUsername(e) {
-    this.setState({
-      username: e.target.value
-    })
-  }
-
-  onSubmit(e) {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
     const user = {
-      username: this.state.username
+      username: username
     }
 
     console.log(user);
 
-    axios.post('http://localhost:3000/users/add', user)
-      .then(res => console.log(res.data));
-
-    this.setState({
-      username: ''
-    })
+    try {
+      const res = await axios.post('http://localhost:3000/users/add', user)
+      setUsername(res.data.username)
+      console.log(res.data)
+    }
+    catch (e) {
+      console.log('Error ' + e.data)
+    }
   }
-
-  render() {
-    return (
+  return (
       <div>
         <h3>Create New User</h3>
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={onSubmit}>
           <div className="form-group"> 
             <label>Username: </label>
             <input  type="text"
                 required
                 className="form-control"
-                value={this.state.username}
-                onChange={this.onChangeUsername}
+                value={username}
+                onChange={onChangeUsername}
                 />
           </div>
           <div className="form-group">
@@ -56,5 +47,4 @@ export default class CreateUser extends Component {
         </form>
       </div>
     )
-  }
 }

@@ -1,5 +1,7 @@
+ import User from './src/models/user'
+
 const path = require('path');
-const express = require('express');
+ const express = require('express'); 
 const cors = require('cors')
 const mongoose = require('mongoose')
 
@@ -26,5 +28,6 @@ app.use('/users', userRouter);
 
 // Starts the server
 app.listen(port, () => {
+    console.log(User.length)
     console.log(`Server is running on port: ${port}`)
   })
