@@ -1,17 +1,15 @@
 import express from 'express';
 import fs from 'fs';
+import { createJsonFilePath } from '../resources/methods';
 
 const router = express.Router();
-
-const createJsonFile = (name, data) => {
-
-}
 
 // Create data
 router.post('/', (req, res) => {
   const data = req.body;
+  const file = createJsonFilePath('index-data.json');
 
-  fs.writeFile('index-data.json', JSON.stringify(data), (err) => {
+  fs.writeFile(file, JSON.stringify(data), (err) => {
     if (err) res.send('Error creating the file: ', err);
     res.send('Successfully created the data file');
   });
