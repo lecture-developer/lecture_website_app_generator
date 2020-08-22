@@ -2,44 +2,53 @@ import React, { useState } from 'react';
 
 const ProjectsDetails = ({ updateData }) => {
 
-  const [state, setState] = useState({
+  const [details, setDetails] = useState([{
     name: '',
     description: '',
     link: '',
-  });
+  }]);
 
-  const _handleChange = (field) => (event) => {
+  const _handleChange = (field, index) => (event) => {
     const { value } = event.target;
-    setState(prevState => ({
-      ...prevState,
-      [field]: value
-    }));
 
-    if (_isAllDataValid()) {
-      updateData('currentProjects', state);
-      setState({ name: '', description: '', link: '' });
-    }
+    const newDetails = [ ...details ];
+    newDetails[index][field] = value;
+    setDetails(newDetails);
+
+    updateData('currentProjects', details);
+  }
+
+  const _handleAddRow = () => {
+    const newDetails = [ ...details ];
+    newDetails.push({ name: '', description: '', link: '' })
+    setDetails(newDetails);
   };
 
-  const _isAllDataValid = () => {
-    const values = Object.values(state);
-    for (const value of values) {
-      if (value.length === 0) return false;
-    }
-    return true;
+  const _handleRemoveRow = (index) => {
+    const newDetails = [ ...details ];
+    newDetails.splice(index, 1);
+    setDetails(newDetails);
   };
 
   return (
-    <div>
+    <div className='projects-container'>
       <h1> Current projects: </h1>
-      <label> Name </label>
-      <input type='text' onChange={_handleChange('name')} />
-      <label> Description </label>
-      <input type='text' onChange={_handleChange('description')} />
-      <label> Link </label>
-      <input type='text' onChange={_handleChange('link')} />
+      <button className='btn-add-row' onClick={_handleAddRow}> Add row </button>
+      {
+        details.map((item, index) => (
+          <div className='project-item' key={`${item}-${index}`}>
+            <label> Name </label>
+            <input type='text' onChange={_handleChange('name', index)} />
+            <label> Description </label>
+            <input type='text' onChange={_handleChange('description', index)} />
+            <label> Link </label>
+            <input type='text' onChange={_handleChange('link', index)} />
+            <button className='btn-remove-row' onClick={() => _handleRemoveRow(index)}> Delete </button>
+          </div>
+        ))
+      }
     </div>
-  )
-};
+  );
+}
 
 export default ProjectsDetails;

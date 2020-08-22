@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/GeneralDetails.css';
 
 const GeneralDetails = ({ updateData }) => {
 
@@ -7,12 +8,8 @@ const GeneralDetails = ({ updateData }) => {
   } 
 
   return (
-    <div>
+    <div className='general-details'>
       <h1> General details: </h1>
-      <label> Name </label>
-      <input type='text' onChange={_handleChange('name')} />
-      <label> Age </label>
-      <input type='text' onChange={_handleChange('age')} />
       <label> Biography </label>
       <input type='text' onChange={_handleChange('biography')} />
     </div>
