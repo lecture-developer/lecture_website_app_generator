@@ -34,7 +34,7 @@ const PublicationsDetails = ({ updateData }) => {
   return (
     <div className='publications-container'>
       <h1> Publications: </h1>
-      <button className='btn-add-row' onClick={_handleAddRow}> Add row </button>
+      <button className='btn-add-item' onClick={_handleAddRow}> Add publication </button>
       {
         details.map((item, index) => (
           <div className='publication-item' key={`${item}-${index}`}>

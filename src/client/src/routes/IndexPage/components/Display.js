@@ -32,14 +32,14 @@ const Display = (props) => {
   };
 
   return (
-    <form>
+    // <form>
       <div className='container'>
         <GeneralDetails updateData={_updateData} />
         <PublicationsDetails updateData={_updateData} />
         <ProjectsDetails updateData={_updateData} />
         <button id='submit' onClick={_handleSubmit}> Submit </button>
       </div>
-    </form>
+    // </form>
   );
 }
 
