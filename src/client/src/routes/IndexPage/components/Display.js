@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import DynamicFormSegment from './DynamicFormSegment';
 import StaticFormSegment from './StaticFormSegment';
-import '../styles/Display.css';
 import { generalFields, publicationsFields, projectsFields } from '../resources/fields';
+import '../styles/Display.css';
 
 const Display = (props) => {
   const [formValues, setFormValues] = useState({
@@ -20,7 +20,6 @@ const Display = (props) => {
   };
 
   const _handleSubmit = async () => {
-    console.log(formValues);
     try {
       const response = await axios.post('http://localhost:5000/index', formValues);
       console.log(response);
@@ -34,18 +33,19 @@ const Display = (props) => {
       <div className='container'>
         <StaticFormSegment
           title='General Details'
+          name='generalDetails'
           fields={generalFields}
           updateMainData={_updateData}
         />
         <DynamicFormSegment
           title='Featured Publications'
-          mainDataKey='featuredPublications'
+          name='featuredPublications'
           fields={publicationsFields}
           updateMainData={_updateData}
         />
         <DynamicFormSegment
           title='Current Projects'
-          mainDataKey='currentProjects'
+          name='currentProjects'
           fields={projectsFields}
           updateMainData={_updateData}
         />

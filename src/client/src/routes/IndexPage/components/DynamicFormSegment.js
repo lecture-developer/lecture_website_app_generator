@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { capitalize, arrayToObject } from '../resources/methods';
 
-const DynamicFormSegment = ({ title, mainDataKey, fields, updateMainData }) => {
+const DynamicFormSegment = ({ title, name, fields, updateMainData }) => {
+  // 'fields' is an array of strings
   const [values, setValues] = useState([ arrayToObject(fields)] );
 
   const _handleChange = (field, index) => (event) => {
@@ -11,7 +12,7 @@ const DynamicFormSegment = ({ title, mainDataKey, fields, updateMainData }) => {
     newValues[index][field] = value;
     setValues(newValues);
 
-    updateMainData(mainDataKey, values);
+    updateMainData(name, values);
   }
 
   const _handleAddRow = () => {
@@ -26,8 +27,8 @@ const DynamicFormSegment = ({ title, mainDataKey, fields, updateMainData }) => {
     setValues(newValues);
   };
 
-  const containerClassName = `div-${mainDataKey}`;
-  const rowClassName = `${mainDataKey}-row`;
+  const containerClassName = `div-${name}`;
+  const rowClassName = `${name}-row`;
 
   return (
     <div className={containerClassName}>
@@ -53,14 +54,3 @@ const DynamicFormSegment = ({ title, mainDataKey, fields, updateMainData }) => {
 }
 
 export default DynamicFormSegment;
-
-
-
-/*
- fields = {
-   Field1: '',
-   Field2: '',
-   ...
- }
- the names in 'fields' need to start with upper case 
-*/

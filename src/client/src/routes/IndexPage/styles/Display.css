@@ -11,6 +11,21 @@ button {
 
 #submit {
   margin-top: 20px;
+  font-size: 30px;
+}
+
+.div-generalDetails {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.div-generalDetails label {
+  padding: 5px;
+}
+
+.div-generalDetails label:hover {
+  background: red;
 }
 
 .featuredPublications-row {

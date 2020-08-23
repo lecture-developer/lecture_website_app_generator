@@ -1,20 +1,22 @@
 import React from 'react';
 import { capitalize } from '../resources/methods';
 
-const StaticFormSegment = ({ title, fields, updateMainData }) => {
+const StaticFormSegment = ({ title, name, fields, updateMainData }) => {
 
   const _handleChange = (field) => (event) => {
     updateMainData(field, event.target.value);
   };
 
+  const className = `div-${name}`;
+
   return (
-    <div className='general-details'>
+    <div className={className}>
       <h1> {title}: </h1>
       {
-        fields.map(name => (
-          <React.Fragment key={name}>
-            <label> {capitalize(name)}: </label>
-            <input type='text' onChange={_handleChange(name)} />
+        fields.map(field => (
+          <React.Fragment key={field}>
+            <label> {capitalize(field)}: </label>
+            <input type='text' onChange={_handleChange(field)} />
           </React.Fragment>
         ))
       }
