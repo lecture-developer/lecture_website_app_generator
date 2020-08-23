@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import GeneralDetails from './GeneralDetails';
-import ProjectsDetails from './ProjectsDetails';
-import PublicationsDetails from './PublicationsDetails';
+import DynamicFormSegment from './DynamicFormSegment';
+import StaticFormSegment from './StaticFormSegment';
 import '../styles/Display.css';
+import { generalFields, publicationsFields, projectsFields } from '../resources/fields';
 
 const Display = (props) => {
   const [formValues, setFormValues] = useState({
@@ -12,12 +12,10 @@ const Display = (props) => {
     currentProjects: [],
   });
   
-  // const detailsArraysNames = ['featuredPublications', 'currentProjects'];
-
-  const _updateData = (name, data) => {
+  const _updateData = (key, data) => {
     setFormValues(prevValues => ({
       ...prevValues,
-      [name]: data
+      [key]: data
     }));
   };
 
@@ -34,9 +32,23 @@ const Display = (props) => {
   return (
     // <form>
       <div className='container'>
-        <GeneralDetails updateData={_updateData} />
-        <PublicationsDetails updateData={_updateData} />
-        <ProjectsDetails updateData={_updateData} />
+        <StaticFormSegment
+          title='General Details'
+          fields={generalFields}
+          updateMainData={_updateData}
+        />
+        <DynamicFormSegment
+          title='Featured Publications'
+          mainDataKey='featuredPublications'
+          fields={publicationsFields}
+          updateMainData={_updateData}
+        />
+        <DynamicFormSegment
+          title='Current Projects'
+          mainDataKey='currentProjects'
+          fields={projectsFields}
+          updateMainData={_updateData}
+        />
         <button id='submit' onClick={_handleSubmit}> Submit </button>
       </div>
     // </form>
