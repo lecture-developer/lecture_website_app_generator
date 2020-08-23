@@ -5,7 +5,7 @@ const StaticFormSegment = ({ title, fields, updateMainData }) => {
 
   const _handleChange = (field) => (event) => {
     updateMainData(field, event.target.value);
-  } 
+  };
 
   return (
     <div className='general-details'>

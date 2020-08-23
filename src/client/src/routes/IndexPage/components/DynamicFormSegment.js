@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import { capitalize } from '../resources/methods';
+import { capitalize, arrayToObject } from '../resources/methods';
 
 const DynamicFormSegment = ({ title, mainDataKey, fields, updateMainData }) => {
-  const obj = {};
-  for (const key of fields) obj[key] = '';
-
-  const [values, setValues] = useState([obj]);
+  const [values, setValues] = useState([ arrayToObject(fields)] );
 
   const _handleChange = (field, index) => (event) => {
     const { value } = event.target;
@@ -18,27 +15,27 @@ const DynamicFormSegment = ({ title, mainDataKey, fields, updateMainData }) => {
   }
 
   const _handleAddRow = () => {
-    const obj = {};
-    for (const key of fields) obj[key] = '';
-
     const newValues = [ ...values ];
-    newValues.push(obj)
+    newValues.push(arrayToObject(fields));
     setValues(newValues);
   };
 
-  const _handleRemoveRow = (index) => {
+  const _handleRemoveRow = () => {
     const newValues = [ ...values ];
-    newValues.splice(index, 1);
+    newValues.pop();
     setValues(newValues);
   };
+
+  const containerClassName = `div-${mainDataKey}`;
+  const rowClassName = `${mainDataKey}-row`;
 
   return (
-    <div className='dynamic-segment-container'>
+    <div className={containerClassName}>
       <h1> {title}: </h1>
-      <button className='btn-add-item' onClick={_handleAddRow}> Add </button>
+      <button className='btn-add-row' onClick={_handleAddRow}> Add row </button>
       {
         values.map((obj, index) => (
-          <div className='dynamic-segment-item' key={`${obj}-${index}`}>
+          <div className={rowClassName} key={`${obj}-${index}`}>
             {
               Object.keys(obj).map(name => (
                 <React.Fragment key={`${obj}-${name}-${index}`}>
@@ -47,10 +44,10 @@ const DynamicFormSegment = ({ title, mainDataKey, fields, updateMainData }) => {
                 </React.Fragment>
               ))
             }
-            <button className='btn-remove-row' onClick={() => _handleRemoveRow(index)}> Delete </button>
           </div>
         ))
       }
+      <button className='btn-remove-row' onClick={_handleRemoveRow}> Delete row </button>
     </div>
   );
 }

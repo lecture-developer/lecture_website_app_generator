@@ -51,6 +51,7 @@ const Display = (props) => {
         />
         <button id='submit' onClick={_handleSubmit}> Submit </button>
       </div>
+      // <input type='submit' onClick={_handleSubmit} />
     // </form>
   );
 }
