@@ -28,7 +28,7 @@ function CreateUser(props) {
     console.log(user);
 
     try {
-      const res = await axios.post('http://localhost:3000/register', user);
+      const res = await axios.post('http://localhost:5000/users/register', user);
       setUsername(res.data.username);
       setEmail(res.data.email);
       setPassword(res.data.password);

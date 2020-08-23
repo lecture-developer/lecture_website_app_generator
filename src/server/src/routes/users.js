@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const User = require('../models/user');
-const {registerValidation, loginValidation} = require('./validation');
+const {registerValidation, loginValidation} = require('../../validation');
 const bcrypt = require('bcryptjs');
 
 router.get('/users', async (req,res) => {
@@ -15,7 +15,7 @@ router.get('/users', async (req,res) => {
 })
 // Add user
 router.post('/register', async (req, res) => {
-  console.log("i'm in register");
+  console.log(req.body);
   // Validate data
   const {error} = registerValidation(req.body);
   if(error) return res.status(400).send(error.details[0].message);
