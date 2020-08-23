@@ -21,11 +21,11 @@ mongoose.connect(uri, {useUnifiedTopology: true, useNewUrlParser: true, useCreat
     console.log("MongoDB database connection established successfully")
 );
 
-const userRouter = require('./src/routes/users.js');
+const userRouter = require('./src/routes/users');
 app.use('/users', userRouter);
 
 // Starts the server
 app.listen(port, () => {
-    console.log(User.length)
-    console.log(`Server is running on port: ${port}`)
+    console.log(User.length);
+    console.log(`Server is running on port: ${port}`);
   })

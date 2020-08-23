@@ -1,12 +1,21 @@
 const router = require('express').Router();
 const User = require('../models/user');
-const { required } = require('@hapi/joi');
 const {registerValidation, loginValidation} = require('./validation');
 const bcrypt = require('bcryptjs');
 
+router.get('/users', async (req,res) => {
+  console.log('in /');
+  try{
+    const res = User.find();
+    res.json(users);
+  } catch(err) {
+    res.status(400).send(err);
+  }
+
+})
 // Add user
 router.post('/register', async (req, res) => {
-  
+  console.log("i'm in register");
   // Validate data
   const {error} = registerValidation(req.body);
   if(error) return res.status(400).send(error.details[0].message);

@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
-const { useState } = React; 
-
-export default function CreateUser(props) {
+function CreateUser(props) {
+  
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,8 +21,8 @@ export default function CreateUser(props) {
 
     const user = {
       name: username,
-      email: email,
-      password: password
+      password: password,
+      email: email
     }
 
     console.log(user);
@@ -40,41 +39,51 @@ export default function CreateUser(props) {
     }
   }
   return (
-      <div>
+      <div className="col-md-12">
         <h3>Create New User</h3>
         <form onSubmit={onSubmit}>
           <div className="form-group"> 
-            <label>Username: </label>
-            <input  type="text"
-                required
-                className="form-control"
-                value={username}
-                onChange={onChangeUsername}
-                />
-            <br/>
-            <br/>
-            <label>Password: </label>
-            <input  type="text"
-                required
-                className="form-control"
-                value={username}
-                onChange={onChangePassword}
-                />
-            <br/>
-            <br/>
-            <label>Email: </label>
-            <input  type="text"
-                required
-                className="form-control"
-                value={username}
-                onChange={onChangeEmail}
-                />
-          </div>
-          <br/>
+            <label htmlFor="username">Username </label>
+            <input
+              required
+              type="text"
+              className="form-control"
+              name="username"
+              value={username}
+              onChange={onChangeUsername}
+            />
+            </div>
           <div className="form-group">
-            <input type="submit" value="Create User" className="btn btn-primary" />
+            <label htmlFor="password">Password </label>
+            <input  
+              type="text"
+              className="form-control"
+              name="passowrd"
+              required
+              value={password}
+              onChange={onChangePassword}
+            />
           </div>
-        </form>
-      </div>
-    )
-}
+          <div className="form-group">
+            <label htmlFor="email">Email </label>
+            <input  
+              required
+              type="text"
+              className="form-control"
+              name="email"
+              value={email}
+              onChange={onChangeEmail}
+            />
+          </div>
+          <div className="form-group">
+            <input 
+              type="submit" 
+              value="Create User" 
+              className="btn btn-primary" />
+          </div>
+          </form>
+        </div>
+    );
+    };
+
+export default CreateUser;
