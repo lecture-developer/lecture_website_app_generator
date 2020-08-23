@@ -11,7 +11,7 @@ function Navbar(props) {
         <Link to="/" className="nav-link">Users</Link>
         </li>
         <li className="navbar-item">
-        <Link to="/register" className="nav-link">Create User</Link>
+        <Link to="/users/register" className="nav-link">Create User</Link>
         </li>
       </ul>
       </div>

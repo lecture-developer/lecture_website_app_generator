@@ -9,6 +9,7 @@ router.get('/users', async (req,res) => {
     const res = User.find();
     res.json(users);
   } catch(err) {
+    console.log("failed to return user list");
     res.status(400).send(err);
   }
 
@@ -17,12 +18,12 @@ router.get('/users', async (req,res) => {
 router.post('/register', async (req, res) => {
   console.log(req.body);
   // Validate data
-  const {error} = registerValidation(req.body);
-  if(error) return res.status(400).send(error.details[0].message);
+  //const { error } = registerValidation(req.body);
+  //if(error) return res.status(400).send(error.details[0].message);
 
   // Checking if user is already in db
-  const emailExist = await User.findOne({email: req.body.email});
-  if(emailExist) return res.status(400).send('Email already exists');
+  //const emailExist = await User.findOne({email: req.body.email});
+  //if(emailExist) return res.status(400).send('Email already exists');
 
   // Hash passwords
   const salt = await bcrypt.genSalt(10);
@@ -39,6 +40,8 @@ router.post('/register', async (req, res) => {
     const savedUser = await newUser.save();
     res.send(savedUser);
   } catch(err) {
+    console.log("failed to save user");
+    console.log(err);
     res.status(400).send(err);
   }
 });
