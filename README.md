@@ -2,15 +2,15 @@
 SaaS project to generate, maintenance and deploy academic lectures' websites and mobile applications.
 
 ### Repo's in this project
-1. [Website and App generator repo[(https://github.com/teddy4445/lecture_website_app_generator)
+1. [Website and App Generator](https://github.com/teddy4445/lecture_website_app_generator)
 2. [Website Template](https://github.com/teddy4445/lecture_website_template)
-3. [Website Template](https://github.com/teddy4445/lecture_andorid_app_template)
+3. [Andorid App Template](https://github.com/teddy4445/lecture_andorid_app_template)
 
 ### Credits 
 
 
 ### License
-Inside this project we are using the following open-source projects:
+Inside this repo we are using the following open-source projects:
 1. [Node.js](https://github.com/nodejs/node)
 2. [react](https://github.com/facebook/react)
 3. [mongoose](https://github.com/Automattic/mongoose)
