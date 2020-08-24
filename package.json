@@ -24,7 +24,6 @@
     "@hapi/joi": "^17.1.1",
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
-    "bootstrap": "^4.5.2",
     "concurrently": "^5.3.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
