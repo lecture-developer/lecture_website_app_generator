@@ -19,8 +19,8 @@ function LoginUser(props) {
     e.preventDefault();
 
     const user = {
-      password: password,
-      email: email
+      email: email,
+      password: password
     }
 
     console.log(user);
