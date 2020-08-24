@@ -21,17 +21,21 @@
   },
   "homepage": "https://github.com/teddy4445/lecture_website_app_generator#readme",
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "axios": "^0.19.2",
+    "bcryptjs": "^2.4.3",
     "concurrently": "^5.3.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.10.0"
+    "mongoose": "^5.10.0",
+    "react-validation": "^3.0.7",
+    "validator": "^13.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.1",
-    "@babel/node": "^7.10.5",
+    "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.11.0",
     "nodemon": "^2.0.4"
   }

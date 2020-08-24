@@ -1,5 +1,7 @@
+ import User from './src/models/user'
+
 const path = require('path');
-const express = require('express');
+ const express = require('express'); 
 const cors = require('cors')
 const mongoose = require('mongoose')
 
@@ -15,16 +17,15 @@ app.use(express.json())
 
 // Mongo setup
 const uri = process.env.ATLAS_URI
-mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true});
-const connection = mongoose.connection;
-connection.once('open', () => {
-    console.log("MongoDB database connection established successfully");
-})
+mongoose.connect(uri, {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true}, () =>
+    console.log("MongoDB database connection established successfully")
+);
 
-const userRouter = require('./routes/users');
+const userRouter = require('./src/routes/users');
 app.use('/users', userRouter);
 
 // Starts the server
 app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`)
+    console.log(User.length);
+    console.log(`Server is running on port: ${port}`);
   })
