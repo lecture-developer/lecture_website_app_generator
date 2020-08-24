@@ -4,7 +4,7 @@ const {registerValidation, loginValidation} = require('../../validation');
 const bcrypt = require('bcryptjs');
 
 router.get('/users', async (req,res) => {
-  console.log('in /');
+  console.log('trying to return users list');
   try{
     const res = User.find();
     res.json(users);
@@ -16,7 +16,7 @@ router.get('/users', async (req,res) => {
 })
 // Add user
 router.post('/register', async (req, res) => {
-  console.log(req.body);
+  console.log("trying to register: " + req.body);
   // Validate data
   //const { error } = registerValidation(req.body);
   //if(error) return res.status(400).send(error.details[0].message);
@@ -44,6 +44,24 @@ router.post('/register', async (req, res) => {
     console.log(err);
     res.status(400).send(err);
   }
+});
+
+router.post('/login', async (req,res) => {
+  
+  console.log("trying to login user: " +req.body);
+  // Validate data
+  const {error} = loginValidation(req.body);
+  if(error) return res.status(400).send(error.details[0].message);
+
+  // Check if email address exists in db
+  const user = await User.findOne({email: req.body.email});
+  if (!user) return res.status(400).send('Email not found');
+
+  //Check if password is correct
+  const validPassword = await bcrypt.compare(req.body.password, user.password);
+  if(!validPassword) return res.status(400).send('Incorrect password');
+
+  res.send('Logged in!');
 });
 
 module.exports = router;
