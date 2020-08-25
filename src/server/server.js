@@ -1,5 +1,5 @@
- import User from './src/models/user'
-
+import User from './src/models/user'
+import mailgun from 'mailgun-js' 
 const path = require('path');
 const express = require('express'); 
 const cors = require('cors')
@@ -23,6 +23,23 @@ try {
     );
 } catch(err) {
     console.log("DB connection error: " + err);
+    try {
+        console.log("Trying to send email to admin about error...");
+        const mg = mailgun({apiKey: process.env.MAILGUN_APIKEY, domain: process.env.MAILGUN_DOMAIN});
+        const data = {
+          from: 'Excited User <me@samples.mailgun.org>',
+          to: 'eyalgolan96@gmail.com',
+          subject: 'DB connection failed',
+          html: `<h1>Hi,</h1>
+            <p>DB connection failed with error:</p>
+            <p>${err}</p>`
+        };
+        mg.messages().send(data, function (error, body) {
+          console.log(body);
+        });
+      } catch(err) {
+        console.log("Sending email failed with error: " + err);
+      }
 }
 
 const userRouter = require('./src/routes/users');

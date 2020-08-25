@@ -1,9 +1,11 @@
 const router = require('express').Router();
 import User from '../models/user'
-const {registerValidation, loginValidation} = require('../../validation');
+const { registerValidation, loginValidation } = require('../../validation');
 import bcrypt from 'bcryptjs'
 const { valid } = require('@hapi/joi');
 import mailgun from 'mailgun-js'
+import jwt from 'jsonwebtoken'
+import generateRegistrationEmail from '../resources/emails'
 require('dotenv').config();
 
 // Add user
@@ -34,25 +36,19 @@ router.post('/register', async (req, res) => {
     const savedUser = await newUser.save();
     try {
       console.log("Trying to send email to user");
+      const {name, email, password} = req.body;
+      const token = jwt.sign({name, email, password}, process.env.JWT_ACC_ACTIVATE, {expiresIn: '20m'});
       const mg = mailgun({apiKey: process.env.MAILGUN_APIKEY, domain: process.env.MAILGUN_DOMAIN});
-      const data = {
-        from: 'Excited User <me@samples.mailgun.org>',
-        to: 'eyalgolan96@gmail.com',
-        subject: 'Hi ' + newUser.name + ', please verify your Lecture Website App Generator account',
-        text: 'Hi,\n' +
-        'Thanks for using Lecture Website App Generator!\n' +
-        'Please confirm your email address by clicking on the link below.\n' +
-        'Happy generating,\n' +
-        'The Lecture Website App Generator team'
-      };
-      mg.messages().send(data, function (error, body) {
+      const data = generateRegistrationEmail(email, name, token);
+      console.log(data);
+      await mg.messages().send(data, function (error, body) {
         console.log(body);
       });
-    } catch(err) {
+    } catch (err) {
       console.log("Sending email failed with error: " + err);
     }
     res.send(savedUser);
-  } catch(err) {
+  } catch (err) {
     console.log("failed to save user");
     console.log(err);
     res.status(400).send(err);
@@ -91,6 +87,23 @@ router.post('/login', async (req,res) => {
   console.log("login process completed");
   res.send('Logged in!');
   console.log("logged in");
+});
+
+router.post('/activation', async (req,res) => {
+  console.log("Trying to activate user...");
+  const {token} = req.body;
+  if(token) {
+    jwt.verify(token, process.env.JWT_ACC_ACTIVATE, function(err, decodeToken) {
+      if(err) {
+        return res.status(400).json({error: 'Incorrect or expired link'})
+      }
+      const {name, email, password} = decodeToken;
+
+    })
+  }
+  else {
+    return res.json({error: "Activation error"});
+  }
 });
 
 module.exports = router;
