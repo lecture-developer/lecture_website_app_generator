@@ -8,10 +8,10 @@ function Navbar(props) {
       <div className="collpase navbar-collapse">
       <ul className="navbar-nav mr-auto">
         <li className="navbar-item">
-        <Link to="/users/login" className="nav-link">Login</Link>
+        <Link to="/users/login" className="nav-link">Sign In</Link>
         </li>
         <li className="navbar-item">
-        <Link to="/users/register" className="nav-link">Register</Link>
+        <Link to="/users/register" className="nav-link">Sign Up</Link>
         </li>
       </ul>
       </div>

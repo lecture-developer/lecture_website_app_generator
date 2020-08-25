@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function CreateUser(props) {
   
@@ -85,6 +86,8 @@ function CreateUser(props) {
               className="btn btn-primary" />
           </div>
           </form>
+          <h4>Or</h4>
+          <Link to="/users/login" className="nav-link">Sign In</Link>
         </div>
     );
     };
