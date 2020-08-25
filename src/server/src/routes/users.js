@@ -1,8 +1,10 @@
 const router = require('express').Router();
-const User = require('../models/user');
+import User from '../models/user'
 const {registerValidation, loginValidation} = require('../../validation');
-const bcrypt = require('bcryptjs');
+import bcrypt from 'bcryptjs'
 const { valid } = require('@hapi/joi');
+import mailgun from 'mailgun-js'
+require('dotenv').config();
 
 // Add user
 router.post('/register', async (req, res) => {
@@ -30,6 +32,25 @@ router.post('/register', async (req, res) => {
   
   try {
     const savedUser = await newUser.save();
+    try {
+      console.log("Trying to send email to user");
+      const mg = mailgun({apiKey: process.env.MAILGUN_APIKEY, domain: process.env.MAILGUN_DOMAIN});
+      const data = {
+        from: 'Excited User <me@samples.mailgun.org>',
+        to: 'eyalgolan96@gmail.com',
+        subject: 'Hi ' + newUser.name + ', please verify your Lecture Website App Generator account',
+        text: 'Hi,\n' +
+        'Thanks for using Lecture Website App Generator!\n' +
+        'Please confirm your email address by clicking on the link below.\n' +
+        'Happy generating,\n' +
+        'The Lecture Website App Generator team'
+      };
+      mg.messages().send(data, function (error, body) {
+        console.log(body);
+      });
+    } catch(err) {
+      console.log("Sending email failed with error: " + err);
+    }
     res.send(savedUser);
   } catch(err) {
     console.log("failed to save user");

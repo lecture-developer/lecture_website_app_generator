@@ -7,6 +7,7 @@ function CreateUser(props) {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  
   const onChangeUsername = (e) => {
     console.log(e);
     setUsername(e.target.value);
