@@ -10,7 +10,7 @@ dotenv.config();
 
 const router = express.Router();
 
-// Add user
+// Register user
 router.post("/register", async (req, res) => {
   console.log("trying to register user: ");
   console.log("name: " + req.body.name);
@@ -64,6 +64,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
+// Login user
 router.post("/login", async (req, res) => {
   console.log("trying to login user: " + req.body.email);
 
@@ -100,10 +101,12 @@ router.post("/login", async (req, res) => {
   console.log("logged in");
 });
 
+// Email activation after regestration
 router.post("/activation", async (req, res) => {
   console.log("Trying to activate user...");
   const token = req.body.token;
   console.log(token);
+  // Check if activation token is correct
   if (token) {
     try {
       const res = await jwt.verify(token, process.env.JWT_ACC_ACTIVATE);
