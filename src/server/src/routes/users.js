@@ -1,12 +1,14 @@
-const router = require('express').Router();
+import express from 'express'
 import User from '../models/user'
-const { registerValidation, loginValidation } = require('../../validation');
+import { registerValidation, loginValidation } from '../../validation'
 import bcrypt from 'bcryptjs'
-const { valid } = require('@hapi/joi');
 import mailgun from 'mailgun-js'
 import jwt from 'jsonwebtoken'
 import { generateRegistrationEmail } from '../resources/emails'
-require('dotenv').config();
+import dotenv from 'dotenv'
+dotenv.config();
+
+const router = express.Router();
 
 // Add user
 router.post('/register', async (req, res) => {
@@ -14,8 +16,8 @@ router.post('/register', async (req, res) => {
   console.log("name: " + req.body.name);
   console.log("email: " + req.body.email);
   // Validate data
-  //const { error } = registerValidation(req.body);
-  //if(error) return res.status(400).send(error.details[0].message);
+  const { error } = registerValidation(req.body);
+  if(error) return res.status(400).send(error.details[0].message);
 
   // Checking if user is already in db
   const emailExist = await User.findOne({email: req.body.email});
@@ -60,8 +62,8 @@ router.post('/login', async (req,res) => {
   console.log("trying to login user: " + req.body.email);
 
   // Validate data
-  //const {error} = loginValidation(req.body);
-  //if(error) return res.status(400).send(error.details[0].message);
+  const {error} = loginValidation(req.body);
+  if(error) return res.status(400).send(error.details[0].message);
 
   // Check if email address exists in db
   try{

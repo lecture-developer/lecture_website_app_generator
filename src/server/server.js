@@ -1,13 +1,12 @@
 import User from './src/models/user'
 import mailgun from 'mailgun-js' 
 import { generateDbConnectionFailedEmail } from './src/resources/emails'
-
-const path = require('path');
-const express = require('express'); 
-const cors = require('cors')
-const mongoose = require('mongoose')
-
-require('dotenv').config();
+import path from 'path'
+import express from 'express'; 
+import cors from 'cors'
+import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+dotenv.config();
 
 const app = express();
 // Allows you to set port in the project properties
