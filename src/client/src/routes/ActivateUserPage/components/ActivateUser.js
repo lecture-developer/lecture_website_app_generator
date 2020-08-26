@@ -24,7 +24,7 @@ const onActivate = async (e) => {
 function ActivateUser (props) {
     return (
         <div className="col-md-12">
-          <button onClick={onActivate}>Activate New User</button>
+          <button onClick={() => onActivate(props)}>Activate New User</button>
           </div>
           );
 };
