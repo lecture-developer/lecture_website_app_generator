@@ -1,4 +1,6 @@
-require('dotenv').config();
+import dotenv from 'dotenv'
+dotenv.config();
+
 export const generateRegistrationEmail = (email, name, token) => {
     return ({
         from: 'Lecture Website App Generator <me@samples.mailgun.org>',
