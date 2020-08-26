@@ -12,7 +12,7 @@ function ActivateUser (props) {
                 token: lastSegment
               }
             try{
-                const res = await axios.post('http://localhost:5000/users/activation', data);
+                await axios.post('http://localhost:5000/users/activation', data);
             } catch (err){
                 console.log(err);
             }  
