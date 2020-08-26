@@ -96,15 +96,13 @@ router.post('/activation', async (req,res) => {
   const token = req.body.token;
   console.log(token);
   if(token) {
-    const res = await jwt.verify(token, process.env.JWT_ACC_ACTIVATE, function(err, decodeToken) {
-      if(err) {
-        console.log(err);
-        return res.status(400).json({error: 'Incorrect or expired link'})
-      }
-      else{
-        console.log("Activation success");
-      }
-    })
+    try {
+      const res = await jwt.verify(token, process.env.JWT_ACC_ACTIVATE);
+      console.log("Activation success");
+    } catch(err) {
+      console.log(err);
+      return res.status(400).json({error: 'Incorrect or expired link'})
+    }
   }
   else {
     console.log("activation error");
