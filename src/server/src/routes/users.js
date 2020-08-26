@@ -5,7 +5,7 @@ import bcrypt from 'bcryptjs'
 const { valid } = require('@hapi/joi');
 import mailgun from 'mailgun-js'
 import jwt from 'jsonwebtoken'
-import generateRegistrationEmail from '../resources/emails'
+import { generateRegistrationEmail } from '../resources/emails'
 require('dotenv').config();
 
 // Add user

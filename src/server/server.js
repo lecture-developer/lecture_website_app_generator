@@ -1,5 +1,7 @@
 import User from './src/models/user'
 import mailgun from 'mailgun-js' 
+import { generateDbConnectionFailedEmail } from './src/resources/emails'
+
 const path = require('path');
 const express = require('express'); 
 const cors = require('cors')
@@ -17,6 +19,7 @@ app.use(express.json())
 
 // Mongo setup
 const uri = process.env.ATLAS_URI
+
 try {
     mongoose.connect(uri, {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true}, () =>
         console.log("DB connection established successfully")
@@ -26,14 +29,7 @@ try {
     try {
         console.log("Trying to send email to admin about error...");
         const mg = mailgun({apiKey: process.env.MAILGUN_APIKEY, domain: process.env.MAILGUN_DOMAIN});
-        const data = {
-          from: 'Excited User <me@samples.mailgun.org>',
-          to: 'eyalgolan96@gmail.com',
-          subject: 'DB connection failed',
-          html: `<h1>Hi,</h1>
-            <p>DB connection failed with error:</p>
-            <p>${err}</p>`
-        };
+        const data = generateDbConnectionFailedEmail(err);
         mg.messages().send(data, function (error, body) {
           console.log(body);
         });
