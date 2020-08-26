@@ -1,30 +1,46 @@
-import express from 'express';
-import cors from 'cors';
-import dotnev from 'dotenv';
-import indexRouter from './src/routes/indexPage';
-
-dotnev.config();
-
-// // Mongo setup
-// const uri = process.env.ATLAS_URI
-// mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true});
-// const connection = mongoose.connection;
-// connection.once('open', () => {
-//     console.log("MongoDB database connection established successfully");
-// })
+import User from './src/models/user'
+import mailgun from 'mailgun-js' 
+import { generateDbConnectionFailedEmail } from './src/resources/emails'
+import path from 'path'
+import express from 'express'; 
+import cors from 'cors'
+import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+import routers from './src/routes/'
+dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Mongo setup
+const uri = process.env.ATLAS_URI
+try {
+    mongoose.connect(uri, {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true}, () =>
+        console.log("DB connection established successfully"));
+
+} catch(err) {
+    console.log("DB connection error: " + err);
+    try {
+        console.log("Trying to send email to admin about error...");
+        const mg = mailgun({apiKey: process.env.MAILGUN_APIKEY, domain: process.env.MAILGUN_DOMAIN});
+        const data = generateDbConnectionFailedEmail(err);
+        mg.messages().send(data, function (error, body) {
+          console.log(body);
+        });
+      } catch(err) {
+        console.log("Sending email failed with error: " + err);
+      }
+}
+
+app.use('/users', routers.userRouter);
+
 // Index page routing
-app.use('/index', indexRouter);
+app.use('/index', routers.indexRouter);
 
-// const userRouter = require('./routes/users');
-// app.use('/users', userRouter);
+const port = process.env.PORT;
 
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Server is listening on port ${PORT}`);
-});
+// Starts the server
+app.listen(port, () => {
+    console.log(`Server is running on port: ${port}`);
+  })
