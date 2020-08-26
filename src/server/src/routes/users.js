@@ -91,17 +91,23 @@ router.post('/login', async (req,res) => {
 
 router.post('/activation', async (req,res) => {
   console.log("Trying to activate user...");
-  const {token} = req.body;
+  const token = req.body.token;
+  console.log(token);
   if(token) {
-    jwt.verify(token, process.env.JWT_ACC_ACTIVATE, function(err, decodeToken) {
+    const res = await jwt.verify(token, process.env.JWT_ACC_ACTIVATE, function(err, decodeToken) {
       if(err) {
+        console.log(err);
         return res.status(400).json({error: 'Incorrect or expired link'})
+      }
+      else{
+        console.log("Activation success");
       }
       const {name, email, password} = decodeToken;
 
     })
   }
   else {
+    console.log("activation error");
     return res.json({error: "Activation error"});
   }
 });
