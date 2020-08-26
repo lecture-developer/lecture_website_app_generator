@@ -1,27 +1,27 @@
-import express from 'express'
-import User from '../models/user'
-import { registerValidtion, loginValidation } from '../../validation'
-import bcrypt from 'bcryptjs'
-import mailgun from 'mailgun-js'
-import jwt from 'jsonwebtoken'
-import { generateRegistrationEmail } from '../resources/emails'
-import dotenv from 'dotenv'
+import express from "express";
+import User from "../models/user";
+import { registerValidtion, loginValidation } from "../../validation";
+import bcrypt from "bcryptjs";
+import mailgun from "mailgun-js";
+import jwt from "jsonwebtoken";
+import { generateRegistrationEmail } from "../resources/emails";
+import dotenv from "dotenv";
 dotenv.config();
 
 const router = express.Router();
 
 // Add user
-router.post('/register', async (req, res) => {
+router.post("/register", async (req, res) => {
   console.log("trying to register user: ");
   console.log("name: " + req.body.name);
   console.log("email: " + req.body.email);
   // Validate data
   const { error } = registerValidtion(req.body);
-  if(error) return res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).send(error.details[0].message);
 
   // Checking if user is already in db
-  const emailExist = await User.findOne({email: req.body.email});
-  if(emailExist) return res.status(400).send('Email already exists');
+  const emailExist = await User.findOne({ email: req.body.email });
+  if (emailExist) return res.status(400).send("Email already exists");
 
   // Hash passwords
   const salt = await bcrypt.genSalt(10);
@@ -31,16 +31,23 @@ router.post('/register', async (req, res) => {
   const newUser = new User({
     name: req.body.name,
     password: hashedPassword,
-    email: req.body.email
+    email: req.body.email,
   });
-  
+
   try {
     const savedUser = await newUser.save();
     try {
       console.log("Trying to send email to user");
-      const {name, email, password} = req.body;
-      const token = jwt.sign({name, email, password}, process.env.JWT_ACC_ACTIVATE, {expiresIn: '20m'});
-      const mg = mailgun({apiKey: process.env.MAILGUN_APIKEY, domain: process.env.MAILGUN_DOMAIN});
+      const { name, email, password } = req.body;
+      const token = jwt.sign(
+        { name, email, password },
+        process.env.JWT_ACC_ACTIVATE,
+        { expiresIn: "20m" }
+      );
+      const mg = mailgun({
+        apiKey: process.env.MAILGUN_APIKEY,
+        domain: process.env.MAILGUN_DOMAIN,
+      });
       const data = generateRegistrationEmail(email, name, token);
       console.log(data);
       await mg.messages().send(data, function (error, body) {
@@ -57,56 +64,57 @@ router.post('/register', async (req, res) => {
   }
 });
 
-router.post('/login', async (req,res) => {
-  
+router.post("/login", async (req, res) => {
   console.log("trying to login user: " + req.body.email);
 
   // Validate data
-  const {error} = loginValidation(req.body);
-  if(error) return res.status(400).send(error.details[0].message);
+  const { error } = loginValidation(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
 
   // Check if email address exists in db
-  try{
-    const user = await User.findOne({email: req.body.email});
+  try {
+    const user = await User.findOne({ email: req.body.email });
     console.log("According to the email, found user: " + user);
-    if (!user) return res.status(400).send('Email not found');
+    if (!user) return res.status(400).send("Email not found");
     console.log("passed search in db...");
     // Check if password is correct
     try {
-      const validPassword = await bcrypt.compare(req.body.password, user.password);
-      if(!validPassword) return res.status(400).send('Incorrect password');
+      const validPassword = await bcrypt.compare(
+        req.body.password,
+        user.password
+      );
+      if (!validPassword) return res.status(400).send("Incorrect password");
       console.log("passed password validation...");
-    } catch(err) {
+    } catch (err) {
       console.log("failed to validate user password during the login process");
       console.log(err);
       res.status(400).send(err);
     }
-  } catch(err) {
+  } catch (err) {
     console.log("failed to find user during the login process");
     console.log(err);
     res.status(400).send(err);
   }
   console.log("login process completed");
-  res.send('Logged in!');
+  res.send("Logged in!");
   console.log("logged in");
 });
 
-router.post('/activation', async (req,res) => {
+router.post("/activation", async (req, res) => {
   console.log("Trying to activate user...");
   const token = req.body.token;
   console.log(token);
-  if(token) {
+  if (token) {
     try {
       const res = await jwt.verify(token, process.env.JWT_ACC_ACTIVATE);
       console.log("Activation success");
-    } catch(err) {
+    } catch (err) {
       console.log(err);
-      return res.status(400).json({error: 'Incorrect or expired link'})
+      return res.status(400).json({ error: "Incorrect or expired link" });
     }
-  }
-  else {
+  } else {
     console.log("activation error");
-    return res.json({error: "Activation error"});
+    return res.json({ error: "Activation error" });
   }
 });
 

@@ -1,8 +1,7 @@
-import React from 'react';
-import { capitalize } from '../resources/methods';
+import React from "react";
+import { capitalize } from "../resources/methods";
 
 const StaticFormSegment = ({ title, name, fields, updateMainData }) => {
-
   const _handleChange = (field) => (event) => {
     updateMainData(field, event.target.value);
   };
@@ -12,16 +11,14 @@ const StaticFormSegment = ({ title, name, fields, updateMainData }) => {
   return (
     <div className={className}>
       <h1> {title}: </h1>
-      {
-        fields.map(field => (
-          <React.Fragment key={field}>
-            <label> {capitalize(field)}: </label>
-            <input type='text' onChange={_handleChange(field)} />
-          </React.Fragment>
-        ))
-      }
+      {fields.map((field) => (
+        <React.Fragment key={field}>
+          <label> {capitalize(field)}: </label>
+          <input type="text" onChange={_handleChange(field)} />
+        </React.Fragment>
+      ))}
     </div>
-  )
+  );
 };
 
 export default StaticFormSegment;
