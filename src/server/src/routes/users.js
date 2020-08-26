@@ -1,6 +1,6 @@
 import express from 'express'
 import User from '../models/user'
-import { registerValidation, loginValidation } from '../../validation'
+import { registerValidtion, loginValidation } from '../../validation'
 import bcrypt from 'bcryptjs'
 import mailgun from 'mailgun-js'
 import jwt from 'jsonwebtoken'
@@ -16,7 +16,7 @@ router.post('/register', async (req, res) => {
   console.log("name: " + req.body.name);
   console.log("email: " + req.body.email);
   // Validate data
-  const { error } = registerValidation(req.body);
+  const { error } = registerValidtion(req.body);
   if(error) return res.status(400).send(error.details[0].message);
 
   // Checking if user is already in db

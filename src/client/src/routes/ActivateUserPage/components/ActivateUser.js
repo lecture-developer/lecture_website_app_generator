@@ -1,26 +1,27 @@
 import React from 'react';
 import axios from 'axios';
 
-function ActivateUser (props) {
-    const onActivate = async (e) => {
-        try {
-            const pathname = props.location.pathname;
-            const segmentArray = pathname.split('/');
-            const lastSegment = segmentArray.pop();
+const onActivate = async (e) => {
+    try {
+        const pathname = e.location.pathname;
+        const segmentArray = pathname.split('/');
+        const lastSegment = segmentArray.pop();
 
-            const data = {
-                token: lastSegment
-              }
-            try{
-                await axios.post('http://localhost:5000/users/activation', data);
-            } catch (err){
-                console.log(err);
-            }  
-        }
-        catch (err) {
+        const data = {
+            token: lastSegment
+          }
+        try{
+            await axios.post('http://localhost:5000/users/activation', data);
+        } catch (err){
             console.log(err);
-        }
+        }  
     }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+function ActivateUser (props) {
     return (
         <div className="col-md-12">
           <button onClick={onActivate}>Activate New User</button>
