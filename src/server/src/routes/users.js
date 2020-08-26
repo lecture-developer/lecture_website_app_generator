@@ -104,8 +104,6 @@ router.post('/activation', async (req,res) => {
       else{
         console.log("Activation success");
       }
-      const {name, email, password} = decodeToken;
-
     })
   }
   else {
