@@ -4,16 +4,16 @@ class iPage {
   }
 
   generatePage = () => {
-    console.log('Generating page...');
-  }
+    console.log("Generating page...");
+  };
 
   loadPage = () => {
-    console.log('Loading page...');
-  }
+    console.log("Loading page...");
+  };
 
   analyzeSEO = () => {
     this.SEOpage.analyzeSEO();
-  }
+  };
 }
 
 export default iPage;

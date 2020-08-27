@@ -5,7 +5,6 @@ export const capitalize = (string) => {
 
 export const arrayToObject = (arr) => {
   const obj = {};
-  for (const key of arr) obj[key] = '';
+  for (const key of arr) obj[key] = "";
   return obj;
 };
-  

@@ -1,24 +1,23 @@
 export const publicationStatus = {
-  Submited: 's',
-  Accepted: 'a',
-  Published: 'p',
+  Submited: "s",
+  Accepted: "a",
+  Published: "p",
 };
 
 export const studentTypes = {
-  FirstDegree: 'b',
-  SecondDegreeProject: 'mp',
-  SecondDegreeThesis: 'mt',
-  ThirdDegree: 'p',
+  FirstDegree: "b",
+  SecondDegreeProject: "mp",
+  SecondDegreeThesis: "mt",
+  ThirdDegree: "p",
 };
 
 export const buttonTypes = {
-  Download: 'd',
-  View: 'v',
-  Cite: 'c',
+  Download: "d",
+  View: "v",
+  Cite: "c",
 };
 
-
 export const githubLoginType = {
-  TOKEN: 't',
-  CRADENTIOALS: 'c',
+  TOKEN: "t",
+  CRADENTIOALS: "c",
 };

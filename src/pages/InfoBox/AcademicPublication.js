@@ -1,7 +1,15 @@
-import { publicationStatus } from '../../resources/constants';
+import { publicationStatus } from "../../resources/constants";
 
 class AcademicPublication {
-  constructor(title, abstractText, publisher, year, authors, pubStatus, relatedFiles) {
+  constructor(
+    title,
+    abstractText,
+    publisher,
+    year,
+    authors,
+    pubStatus,
+    relatedFiles
+  ) {
     this.title = title;
     this.abstractText = abstractText;
     this.publisher = publisher;

@@ -1,5 +1,13 @@
 class LecturerDetails {
-  constructor(name, email, phone, position, researchField, officeAddress, links = { image, linkedIn, googleScholar}) {
+  constructor(
+    name,
+    email,
+    phone,
+    position,
+    researchField,
+    officeAddress,
+    links = { image, linkedIn, googleScholar }
+  ) {
     this.name = name;
     this.email = email;
     this.phone = phone;

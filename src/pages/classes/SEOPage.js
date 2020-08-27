@@ -6,8 +6,8 @@ class SEOPage {
   }
 
   analyzeSEO = () => {
-    console.log('Analyzing SEO...');
-  }
+    console.log("Analyzing SEO...");
+  };
 }
 
 export default SEOPage;
