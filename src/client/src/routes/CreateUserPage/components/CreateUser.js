@@ -37,7 +37,7 @@ function CreateUser(props) {
         "http://localhost:5000/users/register",
         user
       );
-      //setResponse(res.data);
+      setResponse(res.data);
       console.log(res.data);
     } catch (e) {
       console.log("Error " + e.data);
@@ -87,6 +87,7 @@ function CreateUser(props) {
             className="btn btn-primary"
           />
         </div>
+        <div> { response } </div>
       </form>
       <h4>Or</h4>
       <Link to="/users/login" className="nav-link">

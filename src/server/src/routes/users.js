@@ -16,16 +16,16 @@ const mg = mailgun({
 });
 
 // Hash passwords
-const hashPassword = (password) => {
+const hashPassword = async (password) => {
   const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(req.body.password, salt);
+  const hashedPassword = await bcrypt.hash(password, salt);
 
   return hashedPassword;
 };
 
 // Register user
 router.post("/register", async (req, res) => {
-  console.log("trying to register user: ");
+  console.log("trying to register user... ");
 
   // Validate data
   const { error } = registerValidtion(req.body);
@@ -33,41 +33,40 @@ router.post("/register", async (req, res) => {
 
   // Checking if user is already in db
   const emailExist = await User.findOne({ email: req.body.email });
-  if (emailExist) return res.status(400).send("Email already exists");
+  if (emailExist) return res.send("Email already exists");
 
   // Hash passwords
-  const hashedPassword = hashPassword(req.body.password);
+  const hashedPassword = await hashPassword(req.body.password);
 
   // Create new user
   const newUser = new User({
     name: req.body.name,
     password: hashedPassword,
-    email: req.body.email,
+    email: req.body.email
   });
 
   try {
-    const savedUser = await newUser.save();
-    try {
-      console.log("Trying to send email to user");
-      const { name, email, password } = req.body;
-      const token = jwt.sign(
-        { name, email, password },
-        process.env.JWT_ACC_ACTIVATE,
-        { expiresIn: "20m" }
-      );
-
-      const data = generateRegistrationEmail(email, name, token);
-      await mg.messages().send(data, function (error, body) {
-        console.log(body);
-      });
-    } catch (err) {
-      console.log("Sending email failed with error: " + err);
-    }
-  } catch (err) {
-    console.log("failed to save user");
-    console.log(err);
-    res.send(err);
+    await newUser.save();
+  } catch(err) {
+    console.log("failed to save user, got error: " + err);
+    return res.send("error occured");
   }
+  console.log("Trying to send email to user");
+  const { name, email, password } = req.body;
+
+  const token = jwt.sign(
+    { name, email, password },
+    process.env.JWT_ACC_ACTIVATE,
+    { expiresIn: "20m" });
+
+  const data = generateRegistrationEmail(email, name, token);
+  try {
+    await mg.messages().send(data, function (error, body) {});
+  } catch (err) {
+      console.log("Sending email failed with error: " + err);
+      return res.send("Sending email failed");
+  }
+
   return res.send("Email verification sent, please check your email");
 });
 
@@ -140,9 +139,7 @@ router.post('/send-forgot-password-email', async (req, res) => {
     
     // Generate email with rese password link
     const data = generateForgotPasswordEmail(emailExist.email, emailExist.name, token);
-    await mg.messages().send(data, function (error, body) {
-      console.log(body);
-    });
+    await mg.messages().send(data, function (error, body) {});
     return res.send("Mail sent!")
 });
 
@@ -158,7 +155,7 @@ router.post('/change-password', async (req, res) => {
       await jwt.verify(resetLink, process.env.RESET_PASSWORD_KEY);
     } catch (err) {
       console.log(err);
-      return res.send("Incorrect or expired toekn");
+      return res.send("Incorrect or expired token");
     }
 
     // Finding the user
@@ -166,7 +163,7 @@ router.post('/change-password', async (req, res) => {
     if(!user) return res.send("Bad token");
 
     // Hash passwords
-    const newHashedPassword = hashPassword(newPassword);
+    const newHashedPassword = await hashPassword(newPassword);
 
     // Updating the password
     try{
