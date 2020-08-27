@@ -25,3 +25,17 @@ export const generateDbConnectionFailedEmail = (err) => {
             <p>${err}</p>`,
   };
 };
+
+export const generateForgotPasswordEmail = (email, name, token) => {
+  return {
+    from: "Lecture Website App Generator <me@samples.mailgun.org>",
+    to: email,
+    subject: "Forgot your password?",
+    html: `<h1>Hi ${name}, </h1>
+            <p>Forgot your password?</p>
+            <p>no worries, click on the link bellow and we'll help you set you up with a new one:</p>
+            <p>${process.env.CLIENT_URL}/users/change-password/${token}</p>
+            <p>Happy generating,
+            The Lecture Website App Generator team</p>`,
+  };
+};

@@ -4,7 +4,7 @@ import { registerValidtion, loginValidation } from "../../validation";
 import bcrypt from "bcryptjs";
 import mailgun from "mailgun-js";
 import jwt from "jsonwebtoken";
-import { generateRegistrationEmail } from "../resources/emails";
+import { generateRegistrationEmail, generateForgotPasswordEmail } from "../resources/emails";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -17,7 +17,7 @@ router.post("/register", async (req, res) => {
   console.log("email: " + req.body.email);
   // Validate data
   const { error } = registerValidtion(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.send(error.details[0].message);
 
   // Checking if user is already in db
   const emailExist = await User.findOne({ email: req.body.email });
@@ -60,8 +60,9 @@ router.post("/register", async (req, res) => {
   } catch (err) {
     console.log("failed to save user");
     console.log(err);
-    res.status(400).send(err);
+    res.send(err);
   }
+  return res.send("Email verification sent, please check your email");
 });
 
 // Login user
@@ -89,12 +90,12 @@ router.post("/login", async (req, res) => {
     } catch (err) {
       console.log("failed to validate user password during the login process");
       console.log(err);
-      res.status(400).send(err);
+      res.send(err);
     }
   } catch (err) {
     console.log("failed to find user during the login process");
     console.log(err);
-    res.status(400).send(err);
+    res.send(err);
   }
   console.log("login process completed");
   res.send("Logged in!");
@@ -113,11 +114,81 @@ router.post("/activation", async (req, res) => {
       console.log("Activation success");
     } catch (err) {
       console.log(err);
-      return res.status(400).json({ error: "Incorrect or expired link" });
+      return res.send("Incorrect or expired link" );
     }
   } else {
     console.log("activation error");
-    return res.json({ error: "Activation error" });
+    return res.send("Activation error");
+  }
+});
+
+// Email if user forgot password
+router.post('/send-forgot-password-email', async (req, res) => {
+    // Checking if user is in db
+    const emailExist = await User.findOne({ email: req.body.email });
+    console.log(emailExist);
+    if (!emailExist) return res.send("Email doesn't belong to any registered user");
+    const { name, email, password } = emailExist;
+    const token = jwt.sign(
+      { name, email, password },
+      process.env.JWT_ACC_ACTIVATE,
+      { expiresIn: "20m" }
+    );
+    
+    try {
+      await emailExist.updateOne({resetLink: token});
+    } catch(err) {
+      console.log(err);
+      return res.send("Error occured");
+    }
+    const mg = mailgun({
+      apiKey: process.env.MAILGUN_APIKEY,
+      domain: process.env.MAILGUN_DOMAIN,
+    });
+    const data = generateForgotPasswordEmail(emailExist.email, emailExist.name, token);
+    console.log(data);
+    await mg.messages().send(data, function (error, body) {
+      console.log(body);
+    });
+    return res.send("Mail sent!")
+});
+
+// Given a token, allows password change for the appropriate user matching the token
+router.post('/change-password', async (req, res) => {
+  console.log("Trying to change the user password...");
+  const resetLink = req.body.token;
+  const newPassword = req.body.newPassword;
+  console.log(resetLink);
+
+  if(resetLink) {
+    
+    // Verifing the reset link
+    try {
+      await jwt.verify(resetLink, process.env.JWT_ACC_ACTIVATE);
+    } catch (err) {
+      console.log(err);
+      return res.send("Incorrect or expired toekn");
+    }
+
+    // Finding the user
+    const user = await User.findOne({ resetLink: resetLink });
+    console.log(user);
+    if(!user) return res.send("Bad token");
+
+    // Hash passwords
+    const salt = await bcrypt.genSalt(10);
+    const newHashedPassword = await bcrypt.hash(newPassword, salt);
+
+    // Updating the password
+    try{
+      await user.updateOne({password: newHashedPassword});
+    } catch(err) {
+      console.log(err);
+      return res.send("Error changing password");
+  }
+}
+  else {
+    return res.send("Authentication error");
   }
 });
 

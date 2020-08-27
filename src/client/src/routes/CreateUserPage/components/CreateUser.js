@@ -6,6 +6,7 @@ function CreateUser(props) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [response, setResponse] = useState("");
 
   const onChangeUsername = (e) => {
     console.log(e);
@@ -36,16 +37,11 @@ function CreateUser(props) {
         "http://localhost:5000/users/register",
         user
       );
-      setUsername(res.data.username);
-      setEmail(res.data.email);
-      setPassword(res.data.password);
+      //setResponse(res.data);
       console.log(res.data);
     } catch (e) {
       console.log("Error " + e.data);
     }
-  };
-
-  const onForgotPassword = async (e) => {
   };
   return (
     <div className="col-md-12">
@@ -96,9 +92,9 @@ function CreateUser(props) {
       <Link to="/users/login" className="nav-link">
         Sign In
       </Link>
-      <div className="col-md-12">
-      <button onClick={onForgotPassword}>Forgot password?</button>
-    </div>
+      <Link to="/users/send-forgot-password-email" className="nav-link">
+        Forgot password?
+      </Link>
     </div>
   );
 }

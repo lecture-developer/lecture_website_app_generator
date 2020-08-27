@@ -24,6 +24,10 @@ const userSchema = new Schema({
     min: 6,
     max: 255,
   },
+  resetLink: {
+    data: String,
+    default: ''
+  },
   date: {
     type: Date,
     default: Date.now,
