@@ -131,7 +131,7 @@ router.post('/send-forgot-password-email', async (req, res) => {
     const { name, email, password } = emailExist;
     const token = jwt.sign(
       { name, email, password },
-      process.env.JWT_ACC_ACTIVATE,
+      process.env.RESET_PASSWORD_KEY,
       { expiresIn: "20m" }
     );
     
@@ -164,7 +164,7 @@ router.post('/change-password', async (req, res) => {
     
     // Verifing the reset link
     try {
-      await jwt.verify(resetLink, process.env.JWT_ACC_ACTIVATE);
+      await jwt.verify(resetLink, process.env.RESET_PASSWORD_KEY);
     } catch (err) {
       console.log(err);
       return res.send("Incorrect or expired toekn");
