@@ -92,6 +92,7 @@ function CreateUser(props) {
       <Link to="/users/login" className="nav-link">
         Sign In
       </Link>
+      <div></div>
       <Link to="/users/send-forgot-password-email" className="nav-link">
         Forgot password?
       </Link>
