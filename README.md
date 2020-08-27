@@ -18,6 +18,8 @@ Inside this repo we are using the following open-source projects:
 2. [react](https://github.com/facebook/react)
 3. [mongoose](https://github.com/Automattic/mongoose)
 4. [octonode](https://github.com/pksunkara/octonode)
+5. [eslint](https://github.com/eslint/eslint)
+6. [mailgun](https://github.com/mailgun/mailgun-js)
 
 ### Contributing
 
