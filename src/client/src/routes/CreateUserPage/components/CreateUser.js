@@ -44,6 +44,9 @@ function CreateUser(props) {
       console.log("Error " + e.data);
     }
   };
+
+  const onForgotPassword = async (e) => {
+  };
   return (
     <div className="col-md-12">
       <h3>Create New User</h3>
@@ -93,6 +96,9 @@ function CreateUser(props) {
       <Link to="/users/login" className="nav-link">
         Sign In
       </Link>
+      <div className="col-md-12">
+      <button onClick={onForgotPassword}>Forgot password?</button>
+    </div>
     </div>
   );
 }
