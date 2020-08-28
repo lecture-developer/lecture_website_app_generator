@@ -10,58 +10,65 @@ dotenv.config();
 
 const router = express.Router();
 
+const mailgunAccount = mailgun({
+  apiKey: process.env.MAILGUN_APIKEY,
+  domain: process.env.MAILGUN_DOMAIN,
+});
+
+// Hash passwords
+const hashPassword = async (password) => {
+  // TODO: 10 is the default value, we will need to check performance and see if it can be higher 
+  const saltRounds = 10;
+  const salt = await bcrypt.genSalt(saltRounds);
+  const hashedPassword = await bcrypt.hash(password, salt);
+
+  return hashedPassword;
+};
+
 // Register user
 router.post("/register", async (req, res) => {
-  console.log("trying to register user: ");
-  console.log("name: " + req.body.name);
-  console.log("email: " + req.body.email);
+  console.log("trying to register user... ");
+
   // Validate data
   const { error } = registerValidtion(req.body);
   if (error) return res.send(error.details[0].message);
 
   // Checking if user is already in db
   const emailExist = await User.findOne({ email: req.body.email });
-  if (emailExist) return res.status(400).send("Email already exists");
+  if (emailExist) return res.send("Email already exists");
 
   // Hash passwords
-  const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(req.body.password, salt);
+  const hashedPassword = await hashPassword(req.body.password);
 
   // Create new user
   const newUser = new User({
     name: req.body.name,
     password: hashedPassword,
-    email: req.body.email,
+    email: req.body.email
   });
 
   try {
-    const savedUser = await newUser.save();
-    try {
-      console.log("Trying to send email to user");
-      const { name, email, password } = req.body;
-      const token = jwt.sign(
-        { name, email, password },
-        process.env.JWT_ACC_ACTIVATE,
-        { expiresIn: "20m" }
-      );
-      const mg = mailgun({
-        apiKey: process.env.MAILGUN_APIKEY,
-        domain: process.env.MAILGUN_DOMAIN,
-      });
-      const data = generateRegistrationEmail(email, name, token);
-      console.log(data);
-      await mg.messages().send(data, function (error, body) {
-        console.log(body);
-      });
-    } catch (err) {
-      console.log("Sending email failed with error: " + err);
-    }
-    res.send(savedUser);
-  } catch (err) {
-    console.log("failed to save user");
-    console.log(err);
-    res.send(err);
+    await newUser.save();
+  } catch(err) {
+    console.log("failed to save user, got error: " + err);
+    return res.send("error occured");
   }
+  console.log("Trying to send email to user");
+  const { name, email, password } = req.body;
+
+  const token = jwt.sign(
+    { name, email, password },
+    process.env.JWT_ACC_ACTIVATE,
+    { expiresIn: "20m" });
+
+  const data = generateRegistrationEmail(email, name, token);
+  try {
+    await mailgunAccount.messages().send(data, function (error, body) {});
+  } catch (err) {
+      console.log("Sending email failed with error: " + err);
+      return res.send("Sending email failed");
+  }
+
   return res.send("Email verification sent, please check your email");
 });
 
@@ -71,46 +78,37 @@ router.post("/login", async (req, res) => {
 
   // Validate data
   const { error } = loginValidation(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  const httpStatusCode = 400;
+  if (error) return res.status(httpStatusCode).send(error.details[0].message);
 
   // Check if email address exists in db
+  const user = await User.findOne({ email: req.body.email });
+  if (!user) return res.send("Email not found");
+
+  // Check if password is correct
   try {
-    const user = await User.findOne({ email: req.body.email });
-    console.log("According to the email, found user: " + user);
-    if (!user) return res.status(400).send("Email not found");
-    console.log("passed search in db...");
-    // Check if password is correct
-    try {
-      const validPassword = await bcrypt.compare(
-        req.body.password,
-        user.password
-      );
-      if (!validPassword) return res.status(400).send("Incorrect password");
-      console.log("passed password validation...");
-    } catch (err) {
-      console.log("failed to validate user password during the login process");
-      console.log(err);
-      res.send(err);
-    }
+    const validPassword = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
+    if (!validPassword) return res.send("Incorrect password");
   } catch (err) {
-    console.log("failed to find user during the login process");
     console.log(err);
-    res.send(err);
+    return res.send("Error occured");
   }
+
   console.log("login process completed");
-  res.send("Logged in!");
-  console.log("logged in");
+  return res.send("Logged in!");
 });
 
 // Email activation after regestration
 router.post("/activation", async (req, res) => {
   console.log("Trying to activate user...");
   const token = req.body.token;
-  console.log(token);
   // Check if activation token is correct
   if (token) {
     try {
-      const res = await jwt.verify(token, process.env.JWT_ACC_ACTIVATE);
+      await jwt.verify(token, process.env.JWT_ACC_ACTIVATE);
       console.log("Activation success");
     } catch (err) {
       console.log(err);
@@ -126,7 +124,6 @@ router.post("/activation", async (req, res) => {
 router.post('/send-forgot-password-email', async (req, res) => {
     // Checking if user is in db
     const emailExist = await User.findOne({ email: req.body.email });
-    console.log(emailExist);
     if (!emailExist) return res.send("Email doesn't belong to any registered user");
     const { name, email, password } = emailExist;
     const token = jwt.sign(
@@ -135,21 +132,17 @@ router.post('/send-forgot-password-email', async (req, res) => {
       { expiresIn: "20m" }
     );
     
+    // Update reset link field
     try {
       await emailExist.updateOne({resetLink: token});
     } catch(err) {
       console.log(err);
       return res.send("Error occured");
     }
-    const mg = mailgun({
-      apiKey: process.env.MAILGUN_APIKEY,
-      domain: process.env.MAILGUN_DOMAIN,
-    });
+    
+    // Generate email with rese password link
     const data = generateForgotPasswordEmail(emailExist.email, emailExist.name, token);
-    console.log(data);
-    await mg.messages().send(data, function (error, body) {
-      console.log(body);
-    });
+    await mailgunAccount.messages().send(data, function (error, body) {});
     return res.send("Mail sent!")
 });
 
@@ -158,26 +151,22 @@ router.post('/change-password', async (req, res) => {
   console.log("Trying to change the user password...");
   const resetLink = req.body.token;
   const newPassword = req.body.newPassword;
-  console.log(resetLink);
 
   if(resetLink) {
-    
     // Verifing the reset link
     try {
       await jwt.verify(resetLink, process.env.RESET_PASSWORD_KEY);
     } catch (err) {
       console.log(err);
-      return res.send("Incorrect or expired toekn");
+      return res.send("Incorrect or expired token");
     }
 
     // Finding the user
     const user = await User.findOne({ resetLink: resetLink });
-    console.log(user);
     if(!user) return res.send("Bad token");
 
     // Hash passwords
-    const salt = await bcrypt.genSalt(10);
-    const newHashedPassword = await bcrypt.hash(newPassword, salt);
+    const newHashedPassword = await hashPassword(newPassword);
 
     // Updating the password
     try{
@@ -192,4 +181,4 @@ router.post('/change-password', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
