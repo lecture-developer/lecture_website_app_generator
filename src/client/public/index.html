@@ -5,18 +5,238 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
+	<meta name="description" content="Lecuter's Name Academic Website focusing on cool study in the field of something" />
+	<meta name="keywords" content="lecture website, academic website" />
+	<meta id="author" content="First Last name" name="author"/>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet"/>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="/src/client/public/main.css" />
+	<!-- Analytics -->
+	
+	<!-- Google Analytics-->
+	<script async="" src="https://www.googletagmanager.com/gtag/js?id=key"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'key');
+	</script>
+	
+	<!-- HotJar -->
+	<script>
+	(function(h,o,t,j,a,r)
+	{
+		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+		h._hjSettings={hjid:0000000,hjsv:6};
+		a=o.getElementsByTagName('head')[0];
+		r=o.createElement('script');r.async=1;
+		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+		a.appendChild(r);
+	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>		
+	<!-- end - Analytics -->
 
     <title>Lecture Website Generator</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+		<nav class="navbar navbar-expand-md main-nav">
+			<div class="spacer"></div>
+			
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="logo navbar-brand order-first order-md-0 mx-0" href="#">product</a>
+			<div class="collapse navbar-collapse w-100">
+				<ul class="nav navbar-nav w-100 ">
+					<li class="nav-item menu-main-link active">
+						<a class="nav-link" href="#">What we do </a>
+					</li>
+					<li class="nav-item menu-main-link">
+						<a class="nav-link" href="#">Who we are  </a>
+					</li>
+					<li class="nav-item menu-main-link">
+						<a class="nav-link" href="#">Join the team </a>
+					</li>
+					<li class="nav-item menu-main-link">
+						<a class="nav-link" href="#">Contact Us </a>
+					</li>
+				</ul>
+			</div>
+			<div class="collapse navbar-collapse w-100">
+				<ul class="nav navbar-nav ml-auto">
+					<li class="nav-item menu-main-link">
+						<a class="main-btn" href="#">Sign up for beta access </a>
+					</li>
+				</ul>
+			</div>
+			<div class="spacer"></div>
+		</nav>
+		
+		<div class="header-container">
+			<div class="header-section">
+				<h2>
+					A new era of  <br> academic websites
+				</h2>
+				<p>
+					Maintaining an academic online presence is not easy. That's why we created our one-stop-shop solution: a free, customizable and easy-to-use template for a personal website, that contains your entire academic life in one place. And yes, it’s mobile friendly too!
+				</p>
+				<a class="link-btn-big width-300-px" href="#">
+					Join our team
+				</a>
+				<a class="main-btn-big width-300-px" href="#">
+					Sign up for beta access
+				</a>
+			</div>
+		</div>
+		
+		<div class="section-container">
+			<div class="section">
+				<h3>
+					3 simple steps. <br> You’ll choose what information to share. We’ll do all the rest.
+				</h3>
+				<div class="personal-row space-evenly">
+					<div class="section-item">
+						<span class="big-number">1</span> Tell us about yourself, and share your research interests, publications and course information.
+					</div>
+					<div class="section-item">
+						<span class="big-number">2</span> Get a free personal website that showcases your research and helps your students succeed.
+					</div>
+					<div class="section-item">
+						<span class="big-number">3</span> Update and maintain your website easily and quickly, anytime and from any device.
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="section-container white-bg">
+			<div class="section">
+				<div class="personal-row space-evenly items-vertical-center">
+					<div class="section-item w-100 space-evenly ">
+						<h4>
+							A one-stop-shop solution for all your academic needs
+						</h4>
+						Your own personal website to host everything important to you in one place: publications, course materials, information for research students, side projects, online class recordings and much more. It’s customizable, accessible and available on both desktop and mobile devices.
+					</div>
+					<div class="section-item w-100 space-evenly ">
+						<img src="index-join.jpg" alt="" />
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="section-container">
+			<div class="section">
+				<div class="personal-row space-evenly items-vertical-center">
+					<div class="section-item w-100 space-evenly ">
+						<img src="index-join.jpg" alt="" />
+					</div>
+					<div class="section-item w-100 space-evenly ">
+						<h4>
+							Simple, easy-to-use and intuitive 
+						</h4>
+						We conducted research and used relevant data to design a template that’s easy to customize and simple to maintain. You’ll be able to upload course materials, share your latest publications or post updates in just a few clicks, while still enjoying a polished, professional result. It’s completely free to create a website with our template, and it’s all open-source too, so anyone can contribute.
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="section-container white-bg">
+			<div class="section">
+				<h3 class="section-title">
+					 Who we are
+				</h3>
+				<h4 class="section-title-second">
+					  We’re building this platform because we want to change the academic world for the better.
+				</h4>
+				<div class="personal-row space-evenly" style="margin-bottom: 30px;">
+					<div class="member-item">
+						<img src="index-join.jpg">
+						<h5>Member 1</h5>
+					</div>
+					<div class="member-item">
+						<img src="index-join.jpg">
+						<h5>Member 2</h5>
+					</div>
+					<div class="member-item">
+						<img src="index-join.jpg">
+						<h5>Member 3</h5>
+					</div>
+				</div>
+				<div class="personal-row space-evenly"  style="margin-bottom: 30px;">
+					<div class="member-item">
+						<img src="index-join.jpg">
+						<h5>Member 4</h5>
+					</div>
+					<div class="member-item">
+						<img src="index-join.jpg">
+						<h5>Member 5</h5>
+					</div>
+					<div class="member-item">
+						<img src="index-join.jpg">
+						<h5>Member 6</h5>
+					</div>
+				</div>
+				<div class="personal-coloum center"  style="margin-bottom: 30px;">
+					<h5 class="section-footer">
+						We’re all volunteers, and we’re always looking for help. <br> If you want to join our team, get in touch and let us know.
+					</h5>
+					<a class="main-btn-border" href="#" style="width: 280px;">
+						Join out team
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="section-container blue-bg">
+			<div class="section">
+				<div class="personal-coloum center beta-section">
+					<p>
+						Are you an academic interested in our website template? We’re looking for lecturers that’ll teach during the 2021 fall semester, and want to be among the first to create their own personal, intuitive website using our platform. 
+					</p>
+					<h4>
+						Make your academic life easier
+					</h4>
+					<a href="#">
+						Join out team
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<footer class="footer">
+			<div class="footer-section">
+				<div class="personal-row space-between">
+					<div class="footer-menu">
+						<h1>
+							OurProduct
+						</h1>
+					</div>
+					<div class="footer-menu border-right-footer">
+						<p>
+							OurProduct is an open-source website template that will vastly improve the communication between lecturers and students, balancing between research and teaching and make their lives easier. <br><br>
+							Currently, in the summer of 2020, the COVID-19 epidemic helps with the incentive as most of the classes are online now. Regarding the tool - this is where our project starts.
+						</p>
+					</div>
+					<div class="footer-menu">
+						<ul>
+							<li><a href="#">What we do</a></li>
+							<li><a href="#">Who we are</a></li>
+							<li><a href="#">Join us</a></li>
+							<li><a href="#">Sign up for beta access</a></li>
+							<li><a href="#">contact us</a></li>
+						</ul>
+						<div class="personal-row">
+							<a href="#">2020</a> <a href="">Privacy and Terms</a>
+						</div>
+					</div>
+				</div>
+			</div> 
+		</footer> 
+	</div>
   </body>
 </html>
