@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+	<meta name="description" content="Lecuter's Name Academic Website focusing on cool study in the field of something" />
+	<meta name="keywords" content="lecture website, academic website" />
+	<meta id="author" content="First Last name" name="author"/>
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet"/>
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="/src/client/public/main.css" />
+	<!-- Analytics -->
+	
+	<!-- Google Analytics-->
+	<script async="" src="https://www.googletagmanager.com/gtag/js?id=key"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'key');
+	</script>
+	
+	<!-- HotJar -->
+	<script>
+	(function(h,o,t,j,a,r)
+	{
+		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+		h._hjSettings={hjid:0000000,hjsv:6};
+		a=o.getElementsByTagName('head')[0];
+		r=o.createElement('script');r.async=1;
+		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+		a.appendChild(r);
+	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>		
+	<!-- end - Analytics -->
+
+    <title>Lecture Website Generator</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+		<nav class="navbar navbar-expand-md main-nav">
+			<div class="spacer"></div>
+			
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="logo navbar-brand order-first order-md-0 mx-0" href="#">product</a>
+			<div class="collapse navbar-collapse w-100">
+				<ul class="nav navbar-nav w-100 ">
+					<li class="nav-item menu-main-link active">
+						<a class="nav-link" href="index.html">What we do </a>
+					</li>
+					<li class="nav-item menu-main-link">
+						<a class="nav-link" href="who-we-are.html">Who we are  </a>
+					</li>
+					<li class="nav-item menu-main-link">
+						<a class="nav-link" href="#">Join the team </a>
+					</li>
+					<li class="nav-item menu-main-link">
+						<a class="nav-link" href="#">Contact Us </a>
+					</li>
+				</ul>
+			</div>
+			<div class="collapse navbar-collapse w-100">
+				<ul class="nav navbar-nav ml-auto">
+					<li class="nav-item menu-main-link">
+						<a class="main-btn" href="#">Sign up for beta access </a>
+					</li>
+				</ul>
+			</div>
+			<div class="spacer"></div>
+		</nav>
+		
+		<div class="section-container white-bg">
+			<div class="section">
+				<div class="personal-row space-evenly start">
+					<div class="section-item w-100 space-evenly">
+						<h2 class="who-we-are-title">
+							Join the team
+						</h2>
+						<p class="who-we-are-text">
+							Our project is run by volunteers, and we’re always looking for more help. Right now we’re mostly looking for these roles, but don’t hesitate to get in touch if you’d like to help with anything else.
+						</p>
+						<div class="who-we-are-panel">
+							<h3 class="start">
+								IOS Developer
+							</h3>
+							<p>
+								 We need to develop an IOS app that’s identical to the Android version (no need to deploy).
+							</p>
+							<div class="end">
+								<a class="main-btn width-300-px" href="#">Apply</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="section-container white-bg">
+			<div class="section">
+				<div class="personal-row space-evenly start">
+					<div class="section-item w-100 space-evenly">
+						<h2 class="who-we-are-title">
+							Are you a computer science student at BIU?
+						</h2>
+						<p class="who-we-are-text">
+							If you’re a 3rd year C.S. student at Bar Ilan Univerity who’s looking for a cool final year project, you’ve come to the right place! You can join our open-source initative and work on the following projects:
+						</p>
+						<div class="who-we-are-panel">
+							<h3 class="start">
+								 Website generator (SaaS)
+							</h3>
+							<p>
+								 This project requires advanced web skills and an open-mind for auto-code generation. You will develop a website app that manages users, collects information, and generates a full website (maybe even auto-deploy it). The key tools for this are MongoDB, Node.js, and React which will make you a desirable web developer in many companies.
+							</p>
+							<div class="end">
+								<a class="main-btn width-300-px" href="#">Apply</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="section-container white-bg">
+			<div class="section">
+				<div class="personal-row center">
+					<div class="section-item w-100 center">
+						<h4 class="who-we-are-title-small">
+							. <br><br> . <br><br> Looking for something else? <br><br> Get in touch
+						</h4>
+						<form class="project-form">
+							<input name="name" id="name" type="text" placeholder="Name">
+							<input name="email" id="email" type="email" placeholder="Email">
+							<textarea name="message" id="message" rows="5">Share your thoughts: </textarea>
+							<div class="end">
+								<input type="submit" class="project-form-submit">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<footer class="footer">
+			<div class="footer-section">
+				<div class="personal-row space-between">
+					<div class="footer-menu">
+						<h1>
+							OurProduct
+						</h1>
+					</div>
+					<div class="footer-menu border-right-footer">
+						<p>
+							OurProduct is an open-source website template that will vastly improve the communication between lecturers and students, balancing between research and teaching and make their lives easier. <br><br>
+							Currently, in the summer of 2020, the COVID-19 epidemic helps with the incentive as most of the classes are online now. Regarding the tool - this is where our project starts.
+						</p>
+					</div>
+					<div class="footer-menu">
+						<ul>
+							<li><a href="#">What we do</a></li>
+							<li><a href="#">Who we are</a></li>
+							<li><a href="#">Join us</a></li>
+							<li><a href="#">Sign up for beta access</a></li>
+							<li><a href="#">contact us</a></li>
+						</ul>
+						<div class="personal-row">
+							<a href="#">2020</a> <a href="">Privacy and Terms</a>
+						</div>
+					</div>
+				</div>
+			</div> 
+		</footer> 
+	</div>
+  </body>
+</html>

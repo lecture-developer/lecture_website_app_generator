@@ -471,6 +471,95 @@ footer {
 
 /* end - index page */ 
 
+/*  who we are page */
+
+.who-we-are-title{	
+	font-family: Playfair Display;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 48px;
+	line-height: 64px;
+	color: #000000;
+}
+
+.who-we-are-text{
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 26px;
+	line-height: 150%;
+	width: 100%;
+	text-align: justify;
+	color: #000000;
+	margin-bottom: 20px;
+}
+
+.who-we-are-panel{
+	background: #F5F5F5;
+	padding: 70px 80px;
+}
+
+.who-we-are-panel h3{
+	font-family: Playfair Display;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 32px;
+	line-height: 43px;
+	color: rgba(0, 0, 0, 0.8);
+}
+
+.who-we-are-panel p{
+	padding-top: 20px;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 140%;
+	letter-spacing: 0.02em;
+	color: rgba(0, 0, 0, 0.8);
+}
+
+.who-we-are-title-small{
+	font-family: Playfair Display !important;
+	font-size: 32px !important;
+	line-height: 43px !important;
+	text-align: center !important;
+	color: #000000 !important;
+}
+
+.project-form{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-content: center;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.project-form input, textarea{	
+	border: 2px solid #828282;
+	border-radius: 10px;
+	margin-top: 30px;
+	padding: 12px 18px;
+}
+
+.project-form-submit{
+	background: #828282 !important;
+	border-radius: 6px !important;
+	padding: 18px 50px;
+	color: #ffffff;
+	font-family: Roboto;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 28px;
+	display: flex;
+	align-items: center;
+	text-align: justify;
+}
+
+/* end - who we are page */
+
 /* help settings */
 
 .personal-row{
@@ -492,6 +581,16 @@ footer {
 
 .center{
 	align-content: center;
+	justify-content: center;
+}
+
+.start{
+	align-content: flex-start;
+	justify-content: center;
+}
+
+.end{
+	align-content: flex-end;
 	justify-content: center;
 }
 
@@ -524,13 +623,13 @@ footer {
 }
 
 .start{
-	justify-content: start;
+	justify-content: flex-start;
 	align-items: center;
 	display: flex;
 }
 
 .end{
-	justify-content: end;
+	justify-content: flex-end;
 	align-items: center;
 	display: flex;
 }
@@ -540,6 +639,7 @@ footer {
 }
 
 .width-300-px{
+	text-align: center;
 	width: 300px;
 }
 
