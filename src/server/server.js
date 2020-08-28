@@ -43,8 +43,7 @@ app.use("/users", routers.userRouter);
 // Index page routing
 app.use("/index", routers.indexRouter);
 
-const defaultPort = 5000;
-const port = process.env.PORT || defaultPort;
+const port = process.env.PORT;
 
 // Starts the server
 app.listen(port, () => {

@@ -10,14 +10,16 @@ dotenv.config();
 
 const router = express.Router();
 
-const mg = mailgun({
+const mailgunAccount = mailgun({
   apiKey: process.env.MAILGUN_APIKEY,
   domain: process.env.MAILGUN_DOMAIN,
 });
 
 // Hash passwords
 const hashPassword = async (password) => {
-  const salt = await bcrypt.genSalt(10);
+  // TODO: 10 is the default value, we will need to check performance and see if it can be higher 
+  const saltRounds = 10;
+  const salt = await bcrypt.genSalt(saltRounds);
   const hashedPassword = await bcrypt.hash(password, salt);
 
   return hashedPassword;
@@ -61,7 +63,7 @@ router.post("/register", async (req, res) => {
 
   const data = generateRegistrationEmail(email, name, token);
   try {
-    await mg.messages().send(data, function (error, body) {});
+    await mailgunAccount.messages().send(data, function (error, body) {});
   } catch (err) {
       console.log("Sending email failed with error: " + err);
       return res.send("Sending email failed");
@@ -76,7 +78,8 @@ router.post("/login", async (req, res) => {
 
   // Validate data
   const { error } = loginValidation(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  const httpStatusCode = 400;
+  if (error) return res.status(httpStatusCode).send(error.details[0].message);
 
   // Check if email address exists in db
   const user = await User.findOne({ email: req.body.email });
@@ -139,7 +142,7 @@ router.post('/send-forgot-password-email', async (req, res) => {
     
     // Generate email with rese password link
     const data = generateForgotPasswordEmail(emailExist.email, emailExist.name, token);
-    await mg.messages().send(data, function (error, body) {});
+    await mailgunAccount.messages().send(data, function (error, body) {});
     return res.send("Mail sent!")
 });
 
