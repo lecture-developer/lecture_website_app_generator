@@ -1,6 +1,6 @@
 
 /* import fonts */
-@import url('http://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:400,600,700|Roboto|Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:400,600,700|Roboto|Playfair+Display&display=swap');
 /* end - import fonts */
 
 /* screen header - content - footer */
@@ -281,7 +281,7 @@ footer {
 	background-color: white;
 	padding: 100px 100px;
     background-size: cover;
-	background: url(index-header.png);
+	background: url(/lecture_website_app_generator/src/client/public/index-header.png);
     background-size: cover;
 }
 
@@ -599,12 +599,12 @@ footer {
 	background-color: white;
 	padding: 100px 100px;
     background-size: cover;
-	background: -webkit-gradien(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(index-join.png);
-	background: -moz-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(index-join.png);
-	background: -webkit-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(index-join.png);
-	background: -o-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(index-join.png);
-	background: -ms-linear-gradien(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(index-join.png);
-	background: linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(index-join.png);
+	background: -webkit-gradien(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/index-join.png);
+	background: -moz-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/index-join.png);
+	background: -webkit-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/index-join.png);
+	background: -o-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/index-join.png);
+	background: -ms-linear-gradien(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/index-join.png);
+	background: linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/index-join.png);
     background-size: cover;
 	min-height: 400px;
 }
