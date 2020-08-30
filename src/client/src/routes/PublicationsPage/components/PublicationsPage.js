@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { staticFields } from "../resources/fields";
-import { capitalize, arrayToObject } from '../../../resources/methods';
+import { capitalize, arrayToObject } from "../../../resources/methods";
 
 const PublicationsPage = (props) => {
   const [formValues, setFormValues] = useState(

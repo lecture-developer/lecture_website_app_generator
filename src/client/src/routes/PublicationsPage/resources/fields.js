@@ -1,8 +1,8 @@
 export const staticFields = [
   "name",
   "description",
-  "authors",
   "year",
+  "authors",
   "topic",
   "type",
   "publisher",

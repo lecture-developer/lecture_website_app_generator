@@ -8,7 +8,7 @@ import ActivateUser from "./routes/ActivateUserPage/components/ActivateUser";
 import SendForgotPasswordEmail from "./routes/SendForgotPasswordEmailPage/components/SendForgotPasswordEmail";
 import ForgotPassword from "./routes/ForgotPasswordPage/components/ForgotPasswordPage";
 import IndexPage from "./routes/IndexPage/components/IndexPage";
-import PublicationsPage from './routes/PublicationsPage/components/PublicationsPage';
+import PublicationsPage from "./routes/PublicationsPage/components/PublicationsPage";
 
 function App() {
   return (
