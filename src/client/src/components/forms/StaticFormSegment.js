@@ -1,5 +1,5 @@
 import React from "react";
-import { capitalize } from "../resources/methods";
+import { capitalize } from "../../routes/IndexPage/resources/methods";
 
 // A form segment that doesn't contain any fields that are dynamic in length 
 const StaticFormSegment = ({ title, name, fields, updateMainData }) => {
@@ -12,6 +12,7 @@ const StaticFormSegment = ({ title, name, fields, updateMainData }) => {
   return (
     <div className={`div-${name}`}>
       <h1> {title}: </h1>
+      
       {/* 'fields' is an array of strings. For each field, create a label and a text input */}
       {fields.map((field) => (
         <React.Fragment key={field}>

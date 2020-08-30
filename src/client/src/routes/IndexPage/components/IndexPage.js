@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import DynamicFormSegment from "./DynamicFormSegment";
-import StaticFormSegment from "./StaticFormSegment";
+import DynamicFormSegment from "../../../components/forms/DynamicFormSegment";
+import StaticFormSegment from "../../../components/forms/StaticFormSegment";
 import {
   generalFields,
   publicationsFields,
@@ -10,11 +10,7 @@ import {
 import "../styles/IndexPage.css";
 
 const IndexPage = (props) => {
-  const [formValues, setFormValues] = useState({
-    biography: "",
-    featuredPublications: [],
-    currentProjects: [],
-  });
+  const [formValues, setFormValues] = useState({});
 
   // Updates the state based on the name of the field (biography, projects etc.)
   const _updateData = (key, data) => {
@@ -26,6 +22,7 @@ const IndexPage = (props) => {
 
   // Sends the values entered by the user to the backend to generate the appropriate .json file
   const _handleSubmit = async () => {
+    console.log(formValues);
     try {
       const response = await axios.post("http://localhost:5000/index",formValues);
       console.log(response);
@@ -35,7 +32,7 @@ const IndexPage = (props) => {
   };
 
   return (
-    <form>
+    // <form>
       <div className="container">
         <StaticFormSegment
           title="General Details"
@@ -59,8 +56,8 @@ const IndexPage = (props) => {
           Submit
         </button>
       </div>
-    {/* <input type='submit' onClick={_handleSubmit} /> */}
-    </form>
+    // <input type='submit' onClick={_handleSubmit} />
+    // </form>
   );
 };
 

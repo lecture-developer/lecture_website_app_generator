@@ -8,12 +8,13 @@ import ActivateUser from "./routes/ActivateUserPage/components/ActivateUser";
 import SendForgotPasswordEmail from "./routes/SendForgotPasswordEmailPage/components/SendForgotPasswordEmail";
 import ForgotPassword from "./routes/ForgotPasswordPage/components/ForgotPasswordPage";
 import IndexPage from "./routes/IndexPage/components/IndexPage";
+import PublicationsPage from './routes/PublicationsPage/components/PublicationsPage';
 
 function App() {
   return (
     <Router>
       <div className="container">
-        <Navbar />
+        {/* <Navbar /> */}
         <br />
         <Switch>
           <Route path="/users/register" component={CreateUser} />
@@ -22,6 +23,7 @@ function App() {
           <Route path="/users/send-forgot-password-email" component={SendForgotPasswordEmail} />
           <Route path="/users/change-password" component={ForgotPassword} />
           <Route path="/index" component={IndexPage} />
+          <Route path="/publications" component={PublicationsPage} />
         </Switch>
       </div>
     </Router>

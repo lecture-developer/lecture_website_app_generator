@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { capitalize, arrayToObject } from "../resources/methods";
+import { capitalize, arrayToObject } from "../../routes/IndexPage/resources/methods";
 
 // A form segment that contains fields that are dynamic in lengths (multiple number of projcets, publications etc.)
 const DynamicFormSegment = ({ title, name, fields, updateMainData }) => {
