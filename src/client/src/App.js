@@ -7,7 +7,7 @@ import LoginUser from "./routes/LoginUserPage/components/LoginUser";
 import ActivateUser from "./routes/ActivateUserPage/components/ActivateUser";
 import SendForgotPasswordEmail from "./routes/SendForgotPasswordEmailPage/components/SendForgotPasswordEmail";
 import ForgotPassword from "./routes/ForgotPasswordPage/components/ForgotPasswordPage";
-import Display from "./routes/IndexPage/components/Display";
+import IndexPage from "./routes/IndexPage/components/IndexPage";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
           <Route path="/users/activation" component={ActivateUser} />
           <Route path="/users/send-forgot-password-email" component={SendForgotPasswordEmail} />
           <Route path="/users/change-password" component={ForgotPassword} />
-          <Route path="/index" component={Display} />
+          <Route path="/index" component={IndexPage} />
         </Switch>
       </div>
     </Router>
