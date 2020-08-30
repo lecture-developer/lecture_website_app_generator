@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import DynamicFormSegment from "../../../components/forms/DynamicFormSegment";
-import StaticFormSegment from "../../../components/forms/StaticFormSegment";
+import DynamicFormSegment from "./DynamicFormSegment";
+import StaticFormSegment from "./StaticFormSegment";
 import {
   generalFields,
   publicationsFields,

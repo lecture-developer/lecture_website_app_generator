@@ -1,5 +1,5 @@
 import React from "react";
-import { capitalize } from "../../routes/IndexPage/resources/methods";
+import { capitalize } from "../../../resources/methods";
 
 // A form segment that doesn't contain any fields that are dynamic in length 
 const StaticFormSegment = ({ title, name, fields, updateMainData }) => {
