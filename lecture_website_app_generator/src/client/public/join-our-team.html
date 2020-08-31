@@ -54,22 +54,22 @@
 			<div class="collapse navbar-collapse w-100">
 				<ul class="nav navbar-nav w-100 ">
 					<li class="nav-item menu-main-link active">
-						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/index.html">What we do </a>
+						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/index.html">What we do</a>
 					</li>
 					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/who-we-are.html">Who we are  </a>
+						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/index.html#whoweare">Who we are</a>
 					</li>
 					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/join-the-team.html">Join the team </a>
+						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/join-our-team.html">Join our team</a>
 					</li>
 					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/contact-us.html">Contact Us </a>
+						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/contact-us.html">Contact us</a>
 					</li>
 				</ul>
 			</div>
-			<div class="collapse navbar-collapse w-100">
+			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav ml-auto">
-					<li class="nav-item menu-main-link">
+					<li class="nav-item menu-main-link width-300-px">
 						<a class="main-btn" href="/lecture_website_app_generator/src/client/public/sign-for-beta.html">Sign up for beta access </a>
 					</li>
 				</ul>
@@ -78,46 +78,72 @@
 		</nav>
 		
 		<div class="section-container white-bg">
-			<div class="section">
+			<div class="section" style="padding-top: 100px;">
 				<div class="personal-row space-evenly start">
 					<div class="section-item w-100 space-evenly">
 						<h2 class="who-we-are-title">
-							Sign up for beta access
+							Join the team
 						</h2>
 						<p class="who-we-are-text">
-							 Please tell us about yourself and your work. We’ll get in touch soon.
+							Our project is run by volunteers, and we’re always looking for more help. Right now we’re mostly looking for these roles, but don’t hesitate to get in touch if you’d like to help with anything else.
 						</p>
-						<form class="project-form">
-							<div class="project-form-field">
-								<label for="name">Full Name <span style="color: red">*</span></label>
-								<input name="name" id="name" type="text" placeholder="" required>
-							</div>
-							<div class="project-form-field">
-								<label for="name">Email address  <span style="color: red">*</span></label>
-								<input name="email" id="email" type="text" placeholder="" required>
-							</div>
-							<div class="project-form-field">
-								<label for="name">Main academic institution  <span style="color: red">*</span></label>
-								<input name="institution" id="institution" type="text" placeholder="" required>
-							</div>
-							<div class="project-form-field">
-								<label for="name">Main research intrest</label>
-								<input name="institution" id="institution" type="text" placeholder="">
-							</div>
-							<div class="project-form-field">
-								<label for="name">I am a  <span style="color: red">*</span></label>
-								<div class="personal-row">
-									<input name="i_am" id="i_am_researcher" type="radio"> <div class="radio-label">Reseacher</div>
-								</div>
-								<div class="personal-row">
-									<input name="i_am" id="i_am_lecturer" type="radio"> <div class="radio-label"> Lecturer</div>
-								</div>
-								<div class="personal-row">
-									<input name="i_am" id="i_am_both" type="radio"> <div class="radio-label">Both</div>
-								</div>
-							</div>
+						<div class="who-we-are-panel">
+							<h3 class="start">
+								IOS Developer
+							</h3>
+							<p>
+								 We need to develop an IOS app that’s identical to the Android version (no need to deploy).
+							</p>
 							<div class="end">
-								<input type="submit" class="project-form-submit" value="Sign up">
+								<a class="main-btn width-300-px" href="#">Apply</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="section-container white-bg">
+			<div class="section" style="padding-top: 0px;">
+				<div class="personal-row space-evenly start">
+					<div class="section-item w-100 space-evenly">
+						<h2 class="who-we-are-title">
+							Are you a computer science student at BIU?
+						</h2>
+						<p class="who-we-are-text">
+							If you’re a 3rd year C.S. student at Bar Ilan Univerity who’s looking for a cool final year project, you’ve come to the right place! You can join our open-source initative and work on the following projects:
+						</p>
+						<div class="who-we-are-panel">
+							<h3 class="start">
+								 Website generator (SaaS)
+							</h3>
+							<p>
+								 This project requires advanced web skills and an open-mind for auto-code generation. You will develop a website app that manages users, collects information, and generates a full website (maybe even auto-deploy it). The key tools for this are MongoDB, Node.js, and React which will make you a desirable web developer in many companies.
+							</p>
+							<div class="end">
+								<a class="main-btn width-300-px" href="#">Apply</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="section-container white-bg">
+			<div class="section">
+				<div class="personal-row center">
+					<div class="section-item w-100 center">
+						<h4 class="who-we-are-title-small" style="font-size: 32px !important;">
+							Looking for something else? <br><br> Get in touch
+						</h4>
+						<form class="project-form">
+							<input name="name" id="name" type="text" placeholder="Name">
+							<input name="email" id="email" type="email" placeholder="Email">
+							<textarea name="message" id="message" rows="5">Share your thoughts: </textarea>
+							<div class="end">
+								<input type="submit" class="project-form-submit" value="Send">
 							</div>
 						</form>
 					</div>
@@ -136,17 +162,17 @@
 					</div>
 					<div class="footer-menu border-right-footer">
 						<p>
-							OurProduct is an open-source website template that will vastly improve the communication between lecturers and students, balancing between research and teaching and make their lives easier. <br><br>
-							Currently, in the summer of 2020, the COVID-19 epidemic helps with the incentive as most of the classes are online now. Regarding the tool - this is where our project starts.
+							OurProduct is a free open-source website template that will vastly improve the communicationbetween lecturers and students. It will provide lecturers and professors with the tools to easily create a professional personal website that contains their research, courses and personal projects. <br><br>
+							With much of the academic world operating online due to Covid-19, now is the ideal time to finally create the platform that will change academic life for the better.
 						</p>
 					</div>
 					<div class="footer-menu">
 						<ul>
 							<li><a href="/lecture_website_app_generator/src/client/public/index.html">What we do</a></li>
-							<li><a href="/lecture_website_app_generator/src/client/public/who-we-are.html">Who we are</a></li>
-							<li><a href="/lecture_website_app_generator/src/client/public/join-the-team.html">Join us</a></li>
+							<li><a href="/lecture_website_app_generator/src/client/public/index.html#whoweare">Who we are</a></li>
+							<li><a href="/lecture_website_app_generator/src/client/public/join-our-team.html">Join our team</a></li>
 							<li><a href="/lecture_website_app_generator/src/client/public/sign-for-beta.html">Sign up for beta access</a></li>
-							<li><a href="/lecture_website_app_generator/src/client/public/contact-us.html">contact us</a></li>
+							<li><a href="/lecture_website_app_generator/src/client/public/contact-us.html">Contact us</a></li>
 						</ul>
 						<div class="personal-row">
 							<a href="legal.html">2020</a> <a href="legal.html">Privacy and Terms</a>
