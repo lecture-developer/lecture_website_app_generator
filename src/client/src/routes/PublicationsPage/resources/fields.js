@@ -6,5 +6,5 @@ export const staticFields = [
   "topic",
   "type",
   "publisher",
-  "publication status",
+  "publicationStatus",
 ];

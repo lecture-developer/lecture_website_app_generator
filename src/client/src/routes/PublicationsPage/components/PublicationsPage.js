@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { staticFields } from "../resources/fields";
-import { capitalize, arrayToObject } from "../../../resources/methods";
+import { toSentenceCase, arrayToObject } from "../../../resources/methods";
 
 const PublicationsPage = (props) => {
   const [formValues, setFormValues] = useState(
@@ -121,7 +121,7 @@ const PublicationsPage = (props) => {
                 // For each publication, iterating over the static fields and for each one rendering a label and a text input
                 staticFields.map(field => (
                   <React.Fragment key={`${publicationItem}-${field}`}>
-                    <label> {capitalize(field)} </label>
+                    <label> {toSentenceCase(field)} </label>
                     <input type="text" onChange={handleChangeStaticField(field, publicationIndex)} />
                   </React.Fragment>
                 ))
