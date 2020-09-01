@@ -105,10 +105,6 @@ footer {
 	color: #5A67D8 !important;
 }
 
-.footer-menu a:visited{
-	color: #5A67D8 !important;
-}
-
 .footer a{
 	font-family: Roboto;
 	line-height: 14px;
@@ -203,10 +199,6 @@ footer {
 	background: #7F9CF5;
 }
 
-.main-btn:visited{
-	background: #7F9CF5;
-}
-
 .main-btn-big{
 	font-family: Roboto;
 	background: #5A67D8;
@@ -249,11 +241,6 @@ footer {
 }
 
 .main-btn-border:active{
-	border: 2px solid #7F9CF5;
-	color: #7F9CF5;
-}
-
-.main-btn-border:visited{
 	border: 2px solid #7F9CF5;
 	color: #7F9CF5;
 }
@@ -494,6 +481,10 @@ footer {
 	color: #5A67D8;
 }
 
+#index-blue-title{
+	font-size: 48px !important;
+}
+
 /* end - index page */ 
 
 /*  who we are page */
@@ -511,7 +502,7 @@ footer {
 	font-family: Roboto;
 	font-style: normal;
 	font-weight: 300;
-	font-size: 26px;
+	font-size: 24px;
 	line-height: 150%;
 	width: 100%;
 	text-align: justify;
@@ -786,6 +777,10 @@ footer {
 
 .w-100{
 	width: 100%;
+}
+
+.min-width-150{
+	min-width: 150px;
 }
 
 .font-26{
