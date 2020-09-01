@@ -1,27 +1,24 @@
-import React, { useState } from "react";
-import axios from "axios";
-import DynamicFormSegment from "./DynamicFormSegment";
-import StaticFormSegment from "./StaticFormSegment";
-import {
-  generalFields,
-  publicationsFields,
-  projectsFields,
-} from "../resources/fields";
-import "../styles/IndexPage.css";
+import React, { useState } from 'react';
+import axios from 'axios';
+import GeneralDetails from './GeneralDetails';
+import ResearchDetails from './ResearchDetails';
+import PublicationsDetails from './PublicationsDetails';
+import ProjectsDetails from './ProjectsDetails';
 
-const IndexPage = (props) => {
+import '../styles/IndexPage.css';
+
+const IndexPage = () => {
+
   const [formValues, setFormValues] = useState({});
 
-  // Updates the state based on the name of the field (biography, projects etc.)
-  const _updateData = (key, data) => {
-    setFormValues((prevValues) => ({
+  const updateData = (key, data) => {
+    setFormValues(prevValues => ({
       ...prevValues,
-      [key]: data,
-    }));
+      [key]: data
+    }))
   };
 
-  // Sends the values entered by the user to the backend to generate the appropriate .json file
-  const _handleSubmit = async () => {
+  const handleSubmit = async () => {
     try {
       const response = await axios.post("http://localhost:5000/index", formValues);
       console.log(response);
@@ -31,32 +28,17 @@ const IndexPage = (props) => {
   };
 
   return (
-    // <form>
-    <div className="container">
-      <StaticFormSegment
-        title="General Details"
-        name="generalDetails"
-        fields={generalFields}
-        updateMainData={_updateData}
-      />
-      <DynamicFormSegment
-        title="Featured Publications"
-        name="featuredPublications"
-        fields={publicationsFields}
-        updateMainData={_updateData}
-      />
-      <DynamicFormSegment
-        title="Current Projects"
-        name="currentProjects"
-        fields={projectsFields}
-        updateMainData={_updateData}
-      />
-      <button id="submit" onClick={_handleSubmit}>
+    <form>
+      <div className="container">
+        {/* <GeneralDetails updateData={updateData}/> */}
+        {/* <ResearchDetails updateData={updateData}/>
+        <PublicationsDetails updateData={updateData}/> */}
+        <ProjectsDetails updateData={updateData}/>
+      </div>
+      <button id="submit" onClick={handleSubmit}>
         Submit
       </button>
-    </div>
-    // <input type='submit' onClick={_handleSubmit} />
-    // </form>
+    </form>
   );
 };
 

@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
       <div className="container">
-        <Navbar />
+        {/* <Navbar /> */}
         <br />
         <Switch>
           <Route path="/users/register" component={CreateUser} />
