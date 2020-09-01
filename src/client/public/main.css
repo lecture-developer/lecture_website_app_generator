@@ -1,6 +1,6 @@
 
 /* import fonts */
-@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:400,600,700|Roboto|Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:400,600,700|Roboto:100,200,300,400,500,600,700|Playfair+Display:100,200,300,400,500,600,700&display=swap');
 /* end - import fonts */
 
 /* screen header - content - footer */
@@ -784,6 +784,7 @@ footer {
 }
 
 .font-26{
+	font-weight: 100;
 	font-size: 26px;
 	font-family: Roboto;
 }
