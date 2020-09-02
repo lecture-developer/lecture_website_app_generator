@@ -39,7 +39,6 @@ const PublicationsDetails = ({ updateData }) => {
     // Set the current state to the updated state and send the data to the main data component
     setPublications(updatedPublications);
     updateData(KEY, publications);
-    console.log(publications);
   };
 
   // 'field' is the name of the field inside the 'fileLinks' object
@@ -155,10 +154,10 @@ const PublicationsDetails = ({ updateData }) => {
             <Input label="name" onChange={handleStaticFieldChange("name", index)} />
             <Input label="description" onChange={handleStaticFieldChange("description", index)} />
             <Input label="year" onChange={handleStaticFieldChange("year", index)} />
-            <Input label="authors" onChange={handleStaticFieldChange("description", index)} />
+            <Input label="authors" onChange={handleStaticFieldChange("authors", index)} />
             <Input label="topic" onChange={handleStaticFieldChange("topic", index)} />
             <Input label="type" onChange={handleStaticFieldChange("type", index)} />
-            <Input label="publisher" onChange={handleStaticFieldChange("description", index)} />
+            <Input label="publisher" onChange={handleStaticFieldChange("publisher", index)} />
             <Input label="publicationStatus" onChange={handleStaticFieldChange("publicationStatus", index)} />
             {
               publication.fileLinks.map((fileItem, fileIndex) => (
