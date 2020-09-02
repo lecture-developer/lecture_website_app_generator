@@ -12,8 +12,8 @@ const IndexPage = () => {
   const [formValues, setFormValues] = useState({});
 
   const updateData = (key, data) => {
-    setFormValues(prevValues => ({
-      ...prevValues,
+    setFormValues(prevState => ({
+      ...prevState,
       [key]: data
     }))
   };
@@ -32,7 +32,7 @@ const IndexPage = () => {
     <div>
       <div className="container">
         <GeneralDetails updateData={updateData}/>
-        {/* <ResearchDetails updateData={updateData}/> */}
+        <ResearchDetails updateData={updateData}/>
         {/* <PublicationsDetails updateData={updateData}/> */}
         <ProjectsDetails updateData={updateData}/>
       </div>

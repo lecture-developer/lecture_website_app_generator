@@ -71,7 +71,7 @@ const ProjectsDetails = ({ updateData }) => {
       {
         projects.map((project, index) => (
 
-          <div className={`div-project-${index}`} style={{border: '2px solid green'}}>
+          <div key={`${project}-${index}`} className={`div-project-${index}`} style={{border: '2px solid green'}}>
             <Input label="name" onChange={handleChange("name", index)} />
             <Input label="description" onChange={handleChange("description", index)} />
 
