@@ -1,7 +1,5 @@
 import React from "react";
 import Input from './elements/Input';
-import { toSentenceCase } from "../../../resources/methods";
-import inputs from '../resources';
 
 
 const GeneralDetails = ({ updateData }) => {
