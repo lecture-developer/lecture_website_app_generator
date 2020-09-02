@@ -28,17 +28,19 @@ const IndexPage = () => {
   };
 
   return (
-    <form>
+    // <form>
+    <div>
       <div className="container">
-        {/* <GeneralDetails updateData={updateData}/> */}
-        {/* <ResearchDetails updateData={updateData}/>
-        <PublicationsDetails updateData={updateData}/> */}
+        <GeneralDetails updateData={updateData}/>
+        {/* <ResearchDetails updateData={updateData}/> */}
+        {/* <PublicationsDetails updateData={updateData}/> */}
         <ProjectsDetails updateData={updateData}/>
       </div>
       <button id="submit" onClick={handleSubmit}>
         Submit
       </button>
-    </form>
+      </div>
+    // </form>
   );
 };
 

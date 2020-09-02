@@ -1,6 +1,8 @@
 import React from "react";
+import Input from './elements/Input';
 import { toSentenceCase } from "../../../resources/methods";
-import fields from '../resources';
+import inputs from '../resources';
+
 
 const GeneralDetails = ({ updateData }) => {
 
@@ -10,22 +12,10 @@ const GeneralDetails = ({ updateData }) => {
 
   return (
     <div className="div-general">
-      {
-        fields.generalFields.map(field => {
-          if (field.type === "string") {
-            return (
-              <React.Fragment key={field.name}>
-                <label> { toSentenceCase(field.name) } </label>
-                <input name={field.name} type="text" onChange={handleChange(field.name)} />
-              </React.Fragment>
-            );
-          } else return (
-            <h1>
-              wow
-            </h1>
-          )
-        })
-      }
+      <h1>
+        General details:
+      </h1>
+      <Input label="biography" onChange={handleChange("biography")} />
     </div>
   );
 };
