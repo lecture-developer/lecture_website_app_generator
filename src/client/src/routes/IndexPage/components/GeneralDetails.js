@@ -13,7 +13,7 @@ const GeneralDetails = ({ updateData }) => {
   return (
     <div className="div-general">
       <h1>
-        General details:
+        General:
       </h1>
       <Input label="biography" onChange={handleChange("biography")} />
     </div>

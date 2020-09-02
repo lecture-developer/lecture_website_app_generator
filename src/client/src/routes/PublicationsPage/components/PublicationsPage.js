@@ -126,7 +126,7 @@ const PublicationsPage = (props) => {
                   </React.Fragment>
                 ))
               }
-              <button onClick={handleAddFileLink}> Add file </button>
+              <button onClick={handleAddFileLink(publicationIndex)}> Add file </button>
               {
                 // For each publication, iterating over the file links fields
                 formValues[publicationIndex].fileLinks.map((fileLinkItem, fileLinkIndex) => (

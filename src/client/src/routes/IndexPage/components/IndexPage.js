@@ -31,10 +31,10 @@ const IndexPage = () => {
     // <form>
     <div>
       <div className="container">
-        <GeneralDetails updateData={updateData}/>
-        <ResearchDetails updateData={updateData}/>
-        {/* <PublicationsDetails updateData={updateData}/> */}
-        <ProjectsDetails updateData={updateData}/>
+        {/* <GeneralDetails updateData={updateData}/> */}
+        {/* <ResearchDetails updateData={updateData}/> */}
+        <PublicationsDetails updateData={updateData}/>
+        {/* <ProjectsDetails updateData={updateData}/> */}
       </div>
       <button id="submit" onClick={handleSubmit}>
         Submit

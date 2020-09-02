@@ -64,18 +64,18 @@ const ProjectsDetails = ({ updateData }) => {
   return (
     <div className="div-projects" style={{border: '2px solid black'}}>
       <h1>
-        Projects details:
+        Projects:
       </h1>
       <button onClick={handleAddProject}> Add project </button>
       <button onClick={handleRemoveProject}> Remove project </button>
       {
         projects.map((project, index) => (
 
-          <div key={`${project}-${index}`} className={`div-project-${index}`} style={{border: '2px solid green'}}>
+          <div key={`${project}-${index}`} className="div-project" style={{border: '2px solid green'}}>
             <Input label="name" onChange={handleChange("name", index)} />
             <Input label="description" onChange={handleChange("description", index)} />
 
-            <div className={`div-project-${index}-link`} style={{border: '2px solid red'}}>
+            <div className="div-project-link" style={{border: '2px solid red'}}>
               <Input label="info" onChange={handleChange("link.info", index)} />
               <Input label="type" onChange={handleChange("link.type", index)} />
               <Input label="link" onChange={handleChange("link.link", index)} />

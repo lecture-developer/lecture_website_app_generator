@@ -22,9 +22,6 @@ const ResearchDetails = ({ updateData }) => {
       ...prevState,
       " "
     ]);
-    // const updatedInterests = [ ...interests ];
-    // updatedInterests.push('');
-    // setInterests(updatedInterests);
   };
 
   const handleRemoveInterest = () => {
@@ -38,7 +35,7 @@ const ResearchDetails = ({ updateData }) => {
   return (
     <div className="div-projects" style={{border: '2px solid black'}}>
       <h1>
-        Research details:
+        Research:
       </h1>
       <button onClick={handleAddInterest}> Add research </button>
       <button onClick={handleRemoveInterest}> Remove research </button>
