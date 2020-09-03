@@ -39,6 +39,7 @@ const PublicationsDetails = ({ updateData }) => {
     // Set the current state to the updated state and send the data to the main data component
     setPublications(updatedPublications);
     updateData(KEY, publications);
+    console.log(publications);
   };
 
   // 'field' is the name of the field inside the 'fileLinks' object
@@ -48,7 +49,7 @@ const PublicationsDetails = ({ updateData }) => {
     const updatedPublications = [ ...publications ];
 
     // Remove the specific publication object and the file links array inside it
-    let publication = updatedPublications.splice(publicationIndex, 1)[0];
+    let publication = { ...updatedPublications.splice(publicationIndex, 1)[0] };
     let fileLinksArray = publication.fileLinks;
 
     // Remove the specific item object from the array
@@ -68,10 +69,11 @@ const PublicationsDetails = ({ updateData }) => {
     // Update the local state and send the data to the main data component
     setPublications(updatedPublications);
     updateData(KEY, publications);
+    console.log(publications);
   };
 
   const handleAddPublication = () => {
-    setPublications(prev => [
+    setPublications(prev => ([
       ...prev,
       {
         name: '',
@@ -90,7 +92,7 @@ const PublicationsDetails = ({ updateData }) => {
           }
         ]
       },
-    ]);
+    ]));
   };
 
   const handleRemovePublication = () => {
@@ -159,11 +161,12 @@ const PublicationsDetails = ({ updateData }) => {
             <Input label="type" onChange={handleStaticFieldChange("type", index)} />
             <Input label="publisher" onChange={handleStaticFieldChange("publisher", index)} />
             <Input label="publicationStatus" onChange={handleStaticFieldChange("publicationStatus", index)} />
-            {
+
+            <button onClick={() => handleAddFileLink(index)}> Add file </button>
+            <button onClick={() => handleRemoveFileLink(index)}> Remove file </button>
+            {  
               publication.fileLinks.map((fileItem, fileIndex) => (
                 <div key={`${fileItem}-${fileIndex}`} className="div-publication-fileLink" style={{border: '2px solid red'}}>
-                  <button onClick={() => handleAddFileLink(fileIndex)}> Add file </button>
-                  <button onClick={() => handleRemoveFileLink(fileIndex)}> Remove file </button>
                   <Input label="info" onChange={handleFileLinkChange("info", index, fileIndex)} />
                   <Input label="type" onChange={handleFileLinkChange("type", index, fileIndex)} />
                   <Input label="link" onChange={handleFileLinkChange("link", index, fileIndex)} />

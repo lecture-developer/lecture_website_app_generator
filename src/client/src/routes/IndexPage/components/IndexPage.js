@@ -32,7 +32,7 @@ const IndexPage = () => {
     <div>
       <div className="container">
         <GeneralDetails updateData={updateData}/>
-        <ResearchDetails updateData={updateData}/>
+        {/* <ResearchDetails updateData={updateData}/> */}
         <PublicationsDetails updateData={updateData}/>
         <ProjectsDetails updateData={updateData}/>
       </div>

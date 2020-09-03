@@ -5,7 +5,7 @@ const Textarea = ({ label, onChange }) => {
   return (
     <React.Fragment key={label}>
       <label> {toSentenceCase(label)}: </label>
-      <textarea name={label} onChange={onChange} />
+      <textarea name={label} onChange={onChange} rows="5" cols="50" />
     </React.Fragment>
   );
 };
