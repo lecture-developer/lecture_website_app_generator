@@ -1,6 +1,6 @@
 
 /* import fonts */
-@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:400,600,700|Roboto|Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:400,600,700|Roboto:100,200,300,400,500,600,700|Playfair+Display:100,200,300,400,500,600,700&display=swap');
 /* end - import fonts */
 
 /* screen header - content - footer */
@@ -12,7 +12,7 @@ html, body {
 body {
 	font-family: Roboto;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 300;
 	display: flex;
 	flex-direction: column;
 }
@@ -62,7 +62,7 @@ footer {
 }
 
 .footer-menu{
-	max-width: 50%;
+	max-width: 80%;
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 20px;
@@ -82,6 +82,7 @@ footer {
 	font-size: 16px;
 	line-height: 140%;
 	letter-spacing: 0.04em;
+	text-align: justify;
 }
 
 .border-right-footer{
@@ -100,6 +101,10 @@ footer {
 	text-decoration-line: underline;
 }
 
+.footer-menu a:hover{
+	color: #5A67D8 !important;
+}
+
 .footer a{
 	font-family: Roboto;
 	line-height: 14px;
@@ -114,9 +119,14 @@ footer {
 /* header menu */
 
 .navbar{
+	overflow: hidden;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	min-height: 80px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: #ffffff;
 }
 
 .navbar .spacer{
@@ -130,6 +140,7 @@ footer {
 	line-height: 28px;
 	padding-right: 70px;
 	color: #556DD6;
+	width: 150px !important;
 }
 
 .nav-link{
@@ -138,6 +149,10 @@ footer {
 	color: #000000;
 	line-height: 19px;
 	letter-spacing: -0.015em;
+}
+
+.nav-link:hover{
+	color: #5A67D8 !important;
 }
 
 .menu-main-link{
@@ -161,24 +176,11 @@ footer {
 .main-btn{
 	font-family: Roboto;
 	background: #5A67D8;
-	background: #667EEA;
 	border-radius: 8px;
 	font-size: 16px;
 	line-height: 150%;
+	font-weight: 400;
 	padding: 12px 20px;
-	color: white !important;
-	text-decoration: none !important;
-	margin-top: 10px;
-}
-
-.main-btn-big{
-	font-family: Roboto;
-	background: #5A67D8;
-	background: #667EEA;
-	border-radius: 8px;
-	font-size: 24px;
-	line-height: 150%;
-	padding: 12px 15px;
 	color: white !important;
 	text-decoration: none !important;
 	margin-top: 10px;
@@ -197,8 +199,21 @@ footer {
 	background: #7F9CF5;
 }
 
-.main-btn:visited{
-	background: #7F9CF5;
+.main-btn-big{
+	font-family: Roboto;
+	background: #5A67D8;
+	border-radius: 8px;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 150%;
+	padding: 12px 15px;
+	color: white !important;
+	text-decoration: none !important;
+	margin-top: 10px;
+}
+
+.main-btn-big:hover{
+	background: #667EEA;
 }
 
 .main-btn-border{
@@ -210,7 +225,7 @@ footer {
 	color: #5A67D8;
 	text-align: center;
 	letter-spacing: -0.015em;
-	font-weight: 500;
+	font-weight: 400;
 	font-size: 24px;
 	line-height: 28px;
 	padding: 12px 40px;
@@ -230,11 +245,6 @@ footer {
 	color: #7F9CF5;
 }
 
-.main-btn-border:visited{
-	border: 2px solid #7F9CF5;
-	color: #7F9CF5;
-}
-
 .link-btn{
 	font-family: Roboto;
 	border: 2px solid #828282;
@@ -243,7 +253,7 @@ footer {
 	padding: 11px 16px;
 	font-size: 16px;
 	line-height: 28px;
-	font-weight: 500;
+	font-weight: 400;
 	letter-spacing: -0.015em;
 	color: #828282;
 	margin-top: 10px;
@@ -258,7 +268,7 @@ footer {
 	padding: 11px 76px;
 	font-size: 24px;
 	line-height: 28px;
-	font-weight: 500;
+	font-weight: 400;
 	letter-spacing: -0.015em;
 	color: #828282;
 	margin-top: 10px;
@@ -266,7 +276,9 @@ footer {
 }
 
 .link-btn-big:hover{
-	color: #828282 !important;
+	color: white !important;
+	background: #5A67D8 !important;
+	border: 2px solid #5A67D8 !important;
 }
 
 /*** end - elements ***/
@@ -281,7 +293,7 @@ footer {
 	background-color: white;
 	padding: 100px 100px;
     background-size: cover;
-	background: url(/lecture_website_app_generator/src/client/public/index-header.png);
+	background: url(/lecture_website_app_generator/src/client/public/images/index-header.png);
     background-size: cover;
 }
 
@@ -331,8 +343,8 @@ footer {
 .section h3{
 	font-family: Playfair Display;
 	font-weight: bold;
-	font-size: 24px;
-	line-height: 32px;
+	font-size: 24px !important;
+	line-height: 32px !important;
 	text-align: center;
 	letter-spacing: 0.04em;
 	color: rgba(0, 0, 0, 0.8);
@@ -341,11 +353,12 @@ footer {
 .section h4{
 	font-family: Playfair Display;
 	font-weight: bold;
-	font-size: 24px;
+	font-size: 18px !important;
 	line-height: 32px;
-	text-align: left;
 	letter-spacing: 0.04em;
 	color: rgba(0, 0, 0, 0.8);
+	text-align: center;
+	width: 100%;
 }
 
 .section img{
@@ -356,13 +369,13 @@ footer {
 .big-number{
 	font-family: Playfair Display;
 	font-size: 96px;
-	line-height: 150%;
+	margin-top: 20px;
 	color: #5A67D8;
 }
 
 .section-item{
 	font-family: Roboto;
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 150%;
 	color: #000000;
 	padding: 20px 10px;
@@ -406,7 +419,7 @@ footer {
 }
 
 .member-item img{
-	width: 150px;
+	width: 180px;
 	height: 180px;
 	margin-bottom: 10px;
 	padding: 0px 0px;
@@ -465,8 +478,11 @@ footer {
 }
 
 .beta-section a:hover{
-	background: #000000;
-	color: #FFFFFF;
+	color: #5A67D8;
+}
+
+#index-blue-title{
+	font-size: 48px !important;
 }
 
 /* end - index page */ 
@@ -486,7 +502,7 @@ footer {
 	font-family: Roboto;
 	font-style: normal;
 	font-weight: 300;
-	font-size: 26px;
+	font-size: 24px;
 	line-height: 150%;
 	width: 100%;
 	text-align: justify;
@@ -515,7 +531,9 @@ footer {
 	font-weight: normal;
 	font-size: 18px;
 	line-height: 140%;
+	text-align: justify;
 	letter-spacing: 0.02em;
+	width: 100%;
 	color: rgba(0, 0, 0, 0.8);
 }
 
@@ -545,17 +563,24 @@ footer {
 }
 
 .project-form-submit{
-	background: #828282 !important;
+	background: #ffffff !important;
 	border-radius: 6px !important;
 	padding: 18px 50px;
-	color: #ffffff;
+    border: 2px solid #828282;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    color: #828282;
 	font-family: Roboto;
-	font-weight: 500;
 	font-size: 24px;
 	line-height: 28px;
 	display: flex;
 	align-items: center;
 	text-align: justify;
+}
+
+.project-form-submit:hover{
+	background: #828282 !important;
+    color: #ffffff !important;
 }
 
 .project-form-field{
@@ -579,6 +604,51 @@ footer {
 	margin-top: 5px !important;
 }
 
+.error-input{
+	border: 2px solid #EB5757 !important;
+	width: calc(100% - 60px);
+}
+
+.good-input{
+	border: 2px solid #27AE60 !important;
+	width: calc(100% - 60px);
+}
+
+.pick-input{
+	border: 2px solid #5A67D8 !important;
+	width: calc(100% - 0px);
+}
+
+.error-symbol{
+	margin-left: 30px;
+	background: #EB5757;
+	text-align: center;
+	border-radius: 100%;
+	color: white;
+	font-weight: bold;
+	width: 30px;
+	height: 30px;
+	font-size: 16px;
+	display: inline;
+}
+
+.good-symbol{
+	margin-left: 30px;
+	background: #27AE60;
+	text-align: center;
+	border-radius: 100%;
+	color: white;
+	font-weight: bold;
+	width: 30px;
+	height: 30px;
+	font-size: 10px;
+	display: inline;
+}
+
+.good-symbol svg{
+	width: 14px;
+}
+
 .radio-label{
 	font-family: Roboto;
 	margin-left: 12px;
@@ -599,12 +669,12 @@ footer {
 	background-color: white;
 	padding: 100px 100px;
     background-size: cover;
-	background: -webkit-gradien(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/index-join.png);
-	background: -moz-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/index-join.png);
-	background: -webkit-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/index-join.png);
-	background: -o-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/index-join.png);
-	background: -ms-linear-gradien(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/index-join.png);
-	background: linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/index-join.png);
+	background: -webkit-gradien(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/images/index-join.png);
+	background: -moz-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/images/index-join.png);
+	background: -webkit-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/images/index-join.png);
+	background: -o-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/images/index-join.png);
+	background: -ms-linear-gradien(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/images/index-join.png);
+	background: linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/images/index-join.png);
     background-size: cover;
 	min-height: 400px;
 }
@@ -707,6 +777,20 @@ footer {
 
 .w-100{
 	width: 100%;
+}
+
+.min-width-150{
+	min-width: 150px;
+}
+
+.font-26{
+	font-weight: 100;
+	font-size: 26px;
+	font-family: Roboto;
+}
+
+.content-justify{
+	text-align: justify;
 }
 
 .width-300-px{
