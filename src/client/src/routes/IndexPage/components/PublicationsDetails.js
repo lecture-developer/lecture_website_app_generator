@@ -69,7 +69,6 @@ const PublicationsDetails = ({ updateData }) => {
     // Update the local state and send the data to the main data component
     setPublications(updatedPublications);
     updateData(DATA_KEY, publications);
-    console.log(publications);
   };
 
   const handleAddPublication = () => {

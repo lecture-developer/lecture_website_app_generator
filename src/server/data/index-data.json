@@ -1,43 +1,68 @@
 {
-  "biography": "wowow",
   "researchInterests": [
-    "this is research one",
-    "this is reasone tw"
+    "asdasdaa",
+    "xzzczx"
   ],
+  "biography": "g",
   "featuredPublications": [
     {
-      "name": "p",
-      "description": "l",
-      "year": "l",
-      "authors": "l",
-      "topic": "l",
-      "type": "l",
-      "publis her": "l",
-      "publicationStatus": "l",
+      "name": "6",
+      "description": "3",
+      "year": "2",
+      "authors": "2",
+      "topic": "1",
+      "type": "2",
+      "publisher": "3",
+      "publicationStatus": "1",
       "fileLinks": [
         {
-          "info": "8",
-          "type": "7",
-          "link": "8"
+          "info": "6",
+          "type": "5",
+          "link": "54"
         },
         {
-          "info": "as",
-          "type": "m",
-          "link": "m"
+          "info": "1",
+          "type": "2",
+          "link": "3"
+        }
+      ]
+    },
+    {
+      "name": "1",
+      "description": "2",
+      "year": "13",
+      "authors": "21",
+      "topic": "3",
+      "type": "",
+      "publisher": "3",
+      "publicationStatus": "3",
+      "fileLinks": [
+        {
+          "info": "1",
+          "type": "2",
+          "link": "3"
         }
       ]
     }
   ],
   "currentProjects": [
     {
-      "name": "xx",
-      "description": "j",
+      "name": "4",
+      "description": "4",
       "link": {
-        "info": "n",
-        "type": "j",
-        "link": "j"
+        "info": "4",
+        "type": "4",
+        "link": "4"
       }
     },
-    {}
+    {
+      "name": "4",
+      "description": "4",
+      "link": {
+        "info": "4",
+        "type": "4",
+        "link": "4"
+      }
+    }
   ]
 }
