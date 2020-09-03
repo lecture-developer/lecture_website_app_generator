@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Input from './elements/Input';
 
-const KEY = 'currentProjects';
+const DATA_KEY = 'currentProjects';
 
 const ProjectsDetails = ({ updateData }) => {
   const [projects, setProjects] = useState(
@@ -44,7 +44,7 @@ const ProjectsDetails = ({ updateData }) => {
 
     // Set the current state to the updated state and send the data to the main data component
     setProjects(updatedProjects);
-    updateData(KEY, projects);
+    updateData(DATA_KEY, projects);
   };
 
   const handleAddProject = () => {
@@ -59,10 +59,8 @@ const ProjectsDetails = ({ updateData }) => {
     setProjects(updatedProjects);
   };
 
-  // style={{border: '2px solid black'}}
-
   return (
-    <div className="div-projects" style={{border: '2px solid black'}}>
+    <div className="div-projects">
       <h1>
         Projects:
       </h1>
@@ -71,11 +69,11 @@ const ProjectsDetails = ({ updateData }) => {
       {
         projects.map((project, index) => (
 
-          <div key={`${project}-${index}`} className="div-project" style={{border: '2px solid green'}}>
+          <div key={`${project}-${index}`} className="div-project">
             <Input label="name" onChange={handleChange("name", index)} />
             <Input label="description" onChange={handleChange("description", index)} />
 
-            <div className="div-project-link" style={{border: '2px solid red'}}>
+            <div className="div-project-link">
               <Input label="info" onChange={handleChange("link.info", index)} />
               <Input label="type" onChange={handleChange("link.type", index)} />
               <Input label="link" onChange={handleChange("link.link", index)} />

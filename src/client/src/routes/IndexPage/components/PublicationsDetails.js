@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Input from './elements/Input';
 
-const KEY = 'featuredPublications';
+const DATA_KEY = 'featuredPublications';
 
 const PublicationsDetails = ({ updateData }) => {
   const [publications, setPublications] = useState(
@@ -38,7 +38,7 @@ const PublicationsDetails = ({ updateData }) => {
 
     // Set the current state to the updated state and send the data to the main data component
     setPublications(updatedPublications);
-    updateData(KEY, publications);
+    updateData(DATA_KEY, publications);
     console.log(publications);
   };
 
@@ -68,7 +68,7 @@ const PublicationsDetails = ({ updateData }) => {
 
     // Update the local state and send the data to the main data component
     setPublications(updatedPublications);
-    updateData(KEY, publications);
+    updateData(DATA_KEY, publications);
     console.log(publications);
   };
 
@@ -141,10 +141,8 @@ const PublicationsDetails = ({ updateData }) => {
     setPublications(updatedPublications);
   };
 
-  // style={{border: '2px solid black'}}
-
   return (
-    <div className="div-publications" style={{border: '2px solid black'}}>
+    <div className="div-publications">
       <h1>
         Publications:
       </h1>
@@ -152,7 +150,7 @@ const PublicationsDetails = ({ updateData }) => {
       <button onClick={handleRemovePublication}> Remove publication </button>
       {
         publications.map((publication, index) => (
-          <div key={`${publication}-${index}`} className="div-publication" style={{border: '2px solid green'}}>
+          <div key={`${publication}-${index}`} className="div-publication">
             <Input label="name" onChange={handleStaticFieldChange("name", index)} />
             <Input label="description" onChange={handleStaticFieldChange("description", index)} />
             <Input label="year" onChange={handleStaticFieldChange("year", index)} />
@@ -166,7 +164,7 @@ const PublicationsDetails = ({ updateData }) => {
             <button onClick={() => handleRemoveFileLink(index)}> Remove file </button>
             {  
               publication.fileLinks.map((fileItem, fileIndex) => (
-                <div key={`${fileItem}-${fileIndex}`} className="div-publication-fileLink" style={{border: '2px solid red'}}>
+                <div key={`${fileItem}-${fileIndex}`} className="div-publication-fileLink">
                   <Input label="info" onChange={handleFileLinkChange("info", index, fileIndex)} />
                   <Input label="type" onChange={handleFileLinkChange("type", index, fileIndex)} />
                   <Input label="link" onChange={handleFileLinkChange("link", index, fileIndex)} />

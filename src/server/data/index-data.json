@@ -1,1 +1,43 @@
-{"featuredPublications":[{"name":"","description":"","year":"","authors":"ASDASDS","topic":"","type":"","publisher":"ASDS","publicationStatus":"","fileLinks":[{"info":"","type":"","link":""}]}]}
+{
+  "biography": "wowow",
+  "researchInterests": [
+    "this is research one",
+    "this is reasone tw"
+  ],
+  "featuredPublications": [
+    {
+      "name": "p",
+      "description": "l",
+      "year": "l",
+      "authors": "l",
+      "topic": "l",
+      "type": "l",
+      "publis her": "l",
+      "publicationStatus": "l",
+      "fileLinks": [
+        {
+          "info": "8",
+          "type": "7",
+          "link": "8"
+        },
+        {
+          "info": "as",
+          "type": "m",
+          "link": "m"
+        }
+      ]
+    }
+  ],
+  "currentProjects": [
+    {
+      "name": "xx",
+      "description": "j",
+      "link": {
+        "info": "n",
+        "type": "j",
+        "link": "j"
+      }
+    },
+    {}
+  ]
+}
