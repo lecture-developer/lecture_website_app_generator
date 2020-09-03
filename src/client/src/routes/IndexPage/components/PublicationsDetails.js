@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Input from './elements/Input';
+import Input from '../../../components/form/Input';
 
 const DATA_KEY = 'featuredPublications';
 
@@ -149,7 +149,7 @@ const PublicationsDetails = ({ updateData }) => {
       <button onClick={handleRemovePublication}> Remove publication </button>
       {
         publications.map((publication, index) => (
-          <div key={`${publication}-${index}`} className="div-publication">
+          <div className="div-publication" key={`${publication}-${index}`}>
             <Input label="name" onChange={handleStaticFieldChange("name", index)} />
             <Input label="description" onChange={handleStaticFieldChange("description", index)} />
             <Input label="year" onChange={handleStaticFieldChange("year", index)} />
@@ -163,7 +163,7 @@ const PublicationsDetails = ({ updateData }) => {
             <button onClick={() => handleRemoveFileLink(index)}> Remove file </button>
             {  
               publication.fileLinks.map((fileItem, fileIndex) => (
-                <div key={`${fileItem}-${fileIndex}`} className="div-publication-fileLink">
+                <div className="div-publication-fileLink" key={`${fileItem}-${fileIndex}`}>
                   <Input label="info" onChange={handleFileLinkChange("info", index, fileIndex)} />
                   <Input label="type" onChange={handleFileLinkChange("type", index, fileIndex)} />
                   <Input label="link" onChange={handleFileLinkChange("link", index, fileIndex)} />

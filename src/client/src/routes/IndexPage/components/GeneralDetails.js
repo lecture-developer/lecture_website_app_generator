@@ -1,5 +1,5 @@
 import React from "react";
-import Input from './elements/Input';
+import Input from '../../../components/form/Input';
 
 
 const GeneralDetails = ({ updateData }) => {

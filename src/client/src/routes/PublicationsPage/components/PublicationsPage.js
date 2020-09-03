@@ -2,13 +2,20 @@ import React, { useState } from "react";
 import axios from "axios";
 import { staticFields } from "../resources/fields";
 import { toSentenceCase, arrayToObject } from "../../../resources/methods";
+import Input from '../../../components/form/Input';
 
 const PublicationsPage = (props) => {
-  const [formValues, setFormValues] = useState(
+  const [publications, setPublications] = useState(
     [
       {
         ...arrayToObject(staticFields),
-        fileLinks: [{ }]
+        fileLinks: [
+          {
+            info: '',
+            type: '',
+            link: ''
+          }
+        ]
       },
     ]
   );
@@ -17,7 +24,7 @@ const PublicationsPage = (props) => {
     const { value } = event.target;
 
     // Get the original publication data object and update it
-    const newValues = [ ...formValues ];
+    const newValues = [ ...publications ];
     const publicationItem = {
       ...newValues.splice(publicationIndex, 1)[0],
       [field]: value
@@ -26,14 +33,14 @@ const PublicationsPage = (props) => {
     newValues.splice(publicationIndex, 0, publicationItem);
 
     // Update the state
-    setFormValues(newValues);
+    setPublications(newValues);
   };
 
   const handleChangeDynamicField = (field, publicationIndex, fileLinkIndex) => (event) => {
     const { value } = event.target;
 
     // Get the original publication item from the array of publication data objects
-    const newValues = [ ...formValues ];
+    const newValues = [ ...publications ];
     const publicationItem = { ...newValues.splice(publicationIndex, 1)[0] };
     
     // Update the file link item
@@ -49,30 +56,36 @@ const PublicationsPage = (props) => {
     newValues.splice(publicationIndex, 0, publicationItem);
 
     // Update the state
-    setFormValues(newValues);
+    setPublications(newValues);
   };
 
   const handleAddPublication = () => {
-    const values = [ ...formValues ];
+    const values = [ ...publications ];
     values.push(
       {
         ...arrayToObject(staticFields),
-        fileLinks: [{ }]
+        fileLinks: [
+          {
+            info: '',
+            type: '',
+            link: ''
+          }
+        ]
       }
     );
-    setFormValues(values);
+    setPublications(values);
   };
 
   const handleRemovePublication = () => {
-    const values = [ ...formValues ];
+    const values = [ ...publications ];
     values.pop();
-    setFormValues(values);
+    setPublications(values);
   };
 
 
   const handleAddFileLink = (itemIndex) => {
     // Remove the original object from the array at the specified index
-    const values = [ ...formValues ];
+    const values = [ ...publications ];
     const publicationItem = { ...values.splice(itemIndex, 1)[0] };
 
     // Add a new file link object
@@ -82,12 +95,12 @@ const PublicationsPage = (props) => {
     values.splice(itemIndex, 0, publicationItem);
 
     // // Update the state
-    setFormValues(values);
+    setPublications(values);
   };
 
   const handleRemoveFileLink = (itemIndex) => {
     // Remove the original object from the array
-    const values = [ ...formValues ];
+    const values = [ ...publications ];
     const publicationItem = { ...values.splice(itemIndex, 1)[0] };
 
     // Remove a file link object
@@ -97,13 +110,13 @@ const PublicationsPage = (props) => {
     values.splice(itemIndex, 0, publicationItem);
 
     // Update the state
-    setFormValues(values);
+    setPublications(values);
   };  
 
   // Sends the values entered by the user to the backend to generate the appropriate .json file
   const handleSubmit = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/publications", formValues);
+      const response = await axios.post("http://localhost:5000/publications", publications);
       console.log(response);
     } catch (err) {
       console.log("Error sending data to the backend: ", err);
@@ -113,39 +126,36 @@ const PublicationsPage = (props) => {
   return (
     // <form>
       <div className="div-publications-container">
+        <h1>
+          Publications page:
+        </h1>
+        <button onClick={handleAddPublication}> Add publication </button>
+        <button onClick={handleRemovePublication}> Remove publication </button>
         {
           // Iterating over the current number of publications
-          formValues.map((publicationItem, publicationIndex) => (
-            <div className="div-publication-item">
+          publications.map((publicationItem, publicationIndex) => (
+            <div className="div-publication-item" key={`${publicationItem}-${publicationIndex}`}>
               {
                 // For each publication, iterating over the static fields and for each one rendering a label and a text input
                 staticFields.map(field => (
-                  <React.Fragment key={`${publicationItem}-${field}`}>
-                    <label> {toSentenceCase(field)} </label>
-                    <input type="text" onChange={handleChangeStaticField(field, publicationIndex)} />
-                  </React.Fragment>
+                  <Input key={field} label={field} onChange={handleChangeStaticField(field, publicationIndex)} />
                 ))
               }
-              <button onClick={handleAddFileLink(publicationIndex)}> Add file </button>
+              <button onClick={() => handleAddFileLink(publicationIndex)}> Add file </button>
+              <button onClick={() => handleRemoveFileLink(publicationIndex)}> Remove file </button>              
               {
                 // For each publication, iterating over the file links fields
-                formValues[publicationIndex].fileLinks.map((fileLinkItem, fileLinkIndex) => (
-                  <React.Fragment>
-                    <label> Info </label>
-                    <input type="text" onChange={handleChangeDynamicField("info", publicationIndex, fileLinkIndex)} />
-                    <label> Type </label>
-                    <input type="text" onChange={handleChangeDynamicField("type", publicationIndex, fileLinkIndex)} />
-                    <label> Type </label>
-                    <input type="text" onChange={handleChangeDynamicField("link", publicationIndex, fileLinkIndex)} />
-                  </React.Fragment>
+                publications[publicationIndex].fileLinks.map((fileLinkItem, fileLinkIndex) => (
+                  <div className="div-publication-filelink" key={`${fileLinkItem}-${fileLinkIndex}`}>
+                    <Input label="info" onChange={handleChangeDynamicField("info", publicationIndex, fileLinkIndex)} />
+                    <Input label="type" onChange={handleChangeDynamicField("type", publicationIndex, fileLinkIndex)} />
+                    <Input label="link" onChange={handleChangeDynamicField("link", publicationIndex, fileLinkIndex)} />
+                  </div>
                 ))
               }
-              <button onClick={handleRemoveFileLink}> Remove file </button>
             </div>
           ))
         }
-        <button onClick={handleAddPublication}> Add publication </button>
-        <button onClick={handleRemovePublication}> Remove publication </button>
         <button type="submit" onClick={handleSubmit}> Submit </button>
       </div>
   );
