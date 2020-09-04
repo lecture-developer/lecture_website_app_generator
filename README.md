@@ -22,6 +22,7 @@ Inside this repo we are using the following open-source projects:
 6. [mailgun](https://github.com/mailgun/mailgun-js)
 7. [pino](https://github.com/pinojs/pino)
 8. [pino-pretty](https://github.com/pinojs/pino-pretty)
+
 ### Contributing
 
 We would love you to contribute to this project, pull requests are very welcome! Please see CONTRIBUTING.md for more information.
