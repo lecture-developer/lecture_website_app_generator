@@ -1,5 +1,5 @@
 import React from 'react';
-import { toSentenceCase } from '../../../../resources/methods';
+import { toSentenceCase } from '../../resources/methods';
 
 const Input = ({ label, onChange }) => {
   return (

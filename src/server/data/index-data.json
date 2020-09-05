@@ -1,45 +1,22 @@
 {
+  "biography": "3",
   "researchInterests": [
-    "asdasdaa",
-    "xzzczx"
+    "5"
   ],
-  "biography": "g",
   "featuredPublications": [
     {
-      "name": "6",
-      "description": "3",
-      "year": "2",
-      "authors": "2",
-      "topic": "1",
-      "type": "2",
-      "publisher": "3",
-      "publicationStatus": "1",
-      "fileLinks": [
-        {
-          "info": "6",
-          "type": "5",
-          "link": "54"
-        },
-        {
-          "info": "1",
-          "type": "2",
-          "link": "3"
-        }
-      ]
-    },
-    {
-      "name": "1",
-      "description": "2",
-      "year": "13",
+      "name": "54",
+      "description": "65",
+      "year": "43",
       "authors": "21",
-      "topic": "3",
-      "type": "",
-      "publisher": "3",
-      "publicationStatus": "3",
+      "topic": "",
+      "type": "5",
+      "publisher": "42",
+      "publicationStatus": "12",
       "fileLinks": [
         {
-          "info": "1",
-          "type": "2",
+          "info": "3",
+          "type": "3",
           "link": "3"
         }
       ]
@@ -47,21 +24,12 @@
   ],
   "currentProjects": [
     {
-      "name": "4",
-      "description": "4",
+      "name": "1",
+      "description": "1",
       "link": {
-        "info": "4",
-        "type": "4",
-        "link": "4"
-      }
-    },
-    {
-      "name": "4",
-      "description": "4",
-      "link": {
-        "info": "4",
-        "type": "4",
-        "link": "4"
+        "info": "5",
+        "type": "5",
+        "link": "5"
       }
     }
   ]
