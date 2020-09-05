@@ -1,51 +1,68 @@
 {
-  "biography":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-  "researchInterests":[
-   "A Really good text A Really good text A Really good text from data 111",
-   "A Really good text A Really good text A Really good text from data 222",
-   "A Really good text A Really good text A Really good text from data 333"
+  "researchInterests": [
+    "asdasdaa",
+    "xzzczx"
   ],
-  "featuredPublications":[
-     {
-        "name":"Paper's Paper's title",
-        "description":"Paper's description Paper's description",
-        "fileLinks":[{"info": "download", "type": 1, "link": "aaa"}, 
-           {"info": "cite", "type": 3, "link": "bbb"}],
-    "authors": "first name, last name; first name, last name",
-        "year": 2019,
-        "topic":"cool topic",
-        "type":"paper",
-        "publisher":"good publisher good publisher",
-        "publicationStatus":"Published"
-     },
-     {
-        "name":"Paper's title Paper's title Paper's title Paper's title",
-        "description":"Paper's description Paper's description Paper's description Paper's description Paper's description Paper's description Paper's description Paper's description Paper's description Paper's description Paper's description",
-        "fileLinks":[{"info": "download", "type": 1, "link": "aaa"}, 
-           {"info": "cite", "type": 3, "link": "bbb"}],
-    "authors": "first name, last name; first name, last name",
-        "year": 2020,
-        "topic":"cool topic",
-        "type":"paper",
-        "publisher":"good publisher good publisher",
-        "publicationStatus":"Published"
-     }
+  "biography": "g",
+  "featuredPublications": [
+    {
+      "name": "6",
+      "description": "3",
+      "year": "2",
+      "authors": "2",
+      "topic": "1",
+      "type": "2",
+      "publisher": "3",
+      "publicationStatus": "1",
+      "fileLinks": [
+        {
+          "info": "6",
+          "type": "5",
+          "link": "54"
+        },
+        {
+          "info": "1",
+          "type": "2",
+          "link": "3"
+        }
+      ]
+    },
+    {
+      "name": "1",
+      "description": "2",
+      "year": "13",
+      "authors": "21",
+      "topic": "3",
+      "type": "",
+      "publisher": "3",
+      "publicationStatus": "3",
+      "fileLinks": [
+        {
+          "info": "1",
+          "type": "2",
+          "link": "3"
+        }
+      ]
+    }
   ],
-  "currentProjects":[
-     {
-        "name":"Name 1",
-        "description":"Short Description Short Description Short Description ",
-        "link":{"info": "view project", "type": 1, "link": "aaa"}
-     },
-     {
-        "name":"Name 2",
-        "description":"Short Description Short Description Short Description ",
-        "link":{"info": "view project", "type": 1, "link": "aaa"}
-     },
-     {
-        "name":"Name 3",
-        "description":"Short Description Short Description Short Description ",
-        "link":{"info": "view project", "type": 1, "link": "aaa"}
-     }
+  "currentProjects": [
+    {
+      "name": "4",
+      "description": "4",
+      "link": {
+        "info": "4",
+        "type": "4",
+        "link": "4"
+      }
+    },
+    {
+      "name": "4",
+      "description": "4",
+      "link": {
+        "info": "4",
+        "type": "4",
+        "link": "4"
+      }
+    }
   ]
 }
