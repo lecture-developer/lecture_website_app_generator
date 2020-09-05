@@ -18,6 +18,7 @@ const IndexPage = () => {
     }))
   };
 
+  // Sending the input to the backend
   const handleSubmit = async () => {
     try {
       const response = await axios.post("http://localhost:5000/index", formValues);
@@ -28,8 +29,7 @@ const IndexPage = () => {
   };
 
   return (
-    // <form>
-    <div>
+    <form>
       <div className="container">
         <GeneralDetails updateData={updateData}/>
         <ResearchDetails updateData={updateData}/>
@@ -39,8 +39,7 @@ const IndexPage = () => {
       <button id="submit" onClick={handleSubmit}>
         Submit
       </button>
-      </div>
-    // </form>
+   </form>
   );
 };
 

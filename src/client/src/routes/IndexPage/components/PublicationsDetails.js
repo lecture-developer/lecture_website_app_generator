@@ -39,7 +39,6 @@ const PublicationsDetails = ({ updateData }) => {
     // Set the current state to the updated state and send the data to the main data component
     setPublications(updatedPublications);
     updateData(DATA_KEY, publications);
-    console.log(publications);
   };
 
   // 'field' is the name of the field inside the 'fileLinks' object

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { staticFields } from "../resources/fields";
-import { toSentenceCase, arrayToObject } from "../../../resources/methods";
+import { arrayToObject } from "../../../resources/methods";
 import Input from '../../../components/form/Input';
 
 const PublicationsPage = (props) => {
@@ -124,7 +124,7 @@ const PublicationsPage = (props) => {
   };
 
   return (
-    // <form>
+    <form>
       <div className="div-publications-container">
         <h1>
           Publications page:
@@ -158,6 +158,7 @@ const PublicationsPage = (props) => {
         }
         <button type="submit" onClick={handleSubmit}> Submit </button>
       </div>
+    </form>
   );
 };
 
