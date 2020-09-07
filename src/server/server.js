@@ -39,11 +39,18 @@ try {
   }
 }
 
+<<<<<<< HEAD
 // User page routing
+=======
+// Users page routing
+>>>>>>> develop
 app.use("/users", routers.userRouter);
 
 // Index page routing
 app.use("/index", routers.indexRouter);
+
+// Publications page routing
+app.use("/publications", routers.publicationsRouter);
 
 const port = process.env.PORT;
 

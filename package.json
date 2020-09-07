@@ -41,6 +41,7 @@
     "mongoose": "^5.10.0",
     "pino": "^6.5.1",
     "react-validation": "^3.0.7",
+    "uuid": "^8.3.0",
     "validator": "^13.1.1"
   },
   "devDependencies": {
