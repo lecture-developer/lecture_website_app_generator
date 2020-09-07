@@ -7,8 +7,9 @@ import ProjectsDetails from './ProjectsDetails';
 
 import '../styles/IndexPage.css';
 
-const IndexPage = () => {
-
+const IndexPage = (props) => {
+  const { userId } = props;
+  
   const [formValues, setFormValues] = useState({});
 
   const updateData = (key, data) => {
@@ -19,9 +20,11 @@ const IndexPage = () => {
   };
 
   // Sending the input to the backend
-  const handleSubmit = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
     try {
-      const response = await axios.post("http://localhost:5000/index", formValues);
+      const response = await axios.post("http://localhost:5000/index", { userId, data: formValues });
       console.log(response);
     } catch (err) {
       console.log("Error sending data to the backend: ", err);
@@ -29,16 +32,14 @@ const IndexPage = () => {
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="container">
         <GeneralDetails updateData={updateData}/>
         <ResearchDetails updateData={updateData}/>
         <PublicationsDetails updateData={updateData}/>
         <ProjectsDetails updateData={updateData}/>
       </div>
-      <button id="submit" onClick={handleSubmit}>
-        Submit
-      </button>
+      <input type="submit" className="btn btn-primary" value="Submit" />
    </form>
   );
 };

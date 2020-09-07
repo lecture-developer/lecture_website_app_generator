@@ -11,7 +11,7 @@ function LoginUser(props) {
     setPassword(e.target.value);
   };
   const onChangeEmail = (e) => {
-    console.log(e);
+    console.log(e);  
     setEmail(e.target.value);
   };
 
@@ -30,6 +30,15 @@ function LoginUser(props) {
       setEmail(res.data.email);
       setPassword(res.data.password);
       console.log(res.data);
+
+      const { _id: id, name } = res.data;
+
+      // Adding the user's data to the local storage
+      localStorage.setItem(`user-${res.data._id}`, JSON.stringify({
+        id,
+        name,
+        email
+      }));
     } catch (e) {
       console.log("Error " + e.data);
     }

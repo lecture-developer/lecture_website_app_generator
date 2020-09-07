@@ -5,6 +5,8 @@ import { arrayToObject } from "../../../resources/methods";
 import Input from '../../../components/form/Input';
 
 const PublicationsPage = (props) => {
+  const { userId } = props;
+
   const [publications, setPublications] = useState(
     [
       {
@@ -59,7 +61,9 @@ const PublicationsPage = (props) => {
     setPublications(newValues);
   };
 
-  const handleAddPublication = () => {
+  const handleAddPublication = (event) => {
+    event.preventDefault();
+
     const values = [ ...publications ];
     values.push(
       {
@@ -76,14 +80,18 @@ const PublicationsPage = (props) => {
     setPublications(values);
   };
 
-  const handleRemovePublication = () => {
+  const handleRemovePublication = (event) => {
+    event.preventDefault();
+
     const values = [ ...publications ];
     values.pop();
     setPublications(values);
   };
 
 
-  const handleAddFileLink = (itemIndex) => {
+  const handleAddFileLink = (event, itemIndex) => {
+    event.preventDefault();
+
     // Remove the original object from the array at the specified index
     const values = [ ...publications ];
     const publicationItem = { ...values.splice(itemIndex, 1)[0] };
@@ -98,7 +106,9 @@ const PublicationsPage = (props) => {
     setPublications(values);
   };
 
-  const handleRemoveFileLink = (itemIndex) => {
+  const handleRemoveFileLink = (event, itemIndex) => {
+    event.preventDefault();
+
     // Remove the original object from the array
     const values = [ ...publications ];
     const publicationItem = { ...values.splice(itemIndex, 1)[0] };
@@ -116,7 +126,7 @@ const PublicationsPage = (props) => {
   // Sends the values entered by the user to the backend to generate the appropriate .json file
   const handleSubmit = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/publications", publications);
+      const response = await axios.post("http://localhost:5000/publications", { userId, data: publications });
       console.log(response);
     } catch (err) {
       console.log("Error sending data to the backend: ", err);
@@ -141,8 +151,8 @@ const PublicationsPage = (props) => {
                   <Input key={field} label={field} onChange={handleChangeStaticField(field, publicationIndex)} />
                 ))
               }
-              <button onClick={() => handleAddFileLink(publicationIndex)}> Add file </button>
-              <button onClick={() => handleRemoveFileLink(publicationIndex)}> Remove file </button>              
+              <button onClick={(event) => handleAddFileLink(event, publicationIndex)}> Add file </button>
+              <button onClick={(event) => handleRemoveFileLink(event, publicationIndex)}> Remove file </button>              
               {
                 // For each publication, iterating over the file links fields
                 publications[publicationIndex].fileLinks.map((fileLinkItem, fileLinkIndex) => (
