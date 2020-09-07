@@ -7,6 +7,7 @@ import jwt from "jsonwebtoken";
 import { generateRegistrationEmail, generateForgotPasswordEmail } from "../resources/emails";
 import dotenv from "dotenv";
 dotenv.config();
+import logger from '../../logger';
 
 const router = express.Router();
 
@@ -18,6 +19,7 @@ const mailgunAccount = mailgun({
 // Hash passwords
 const hashPassword = async (password) => {
   // TODO: 10 is the default value, we will need to check performance and see if it can be higher 
+  logger.info("hasing password");
   const saltRounds = 10;
   const salt = await bcrypt.genSalt(saltRounds);
   const hashedPassword = await bcrypt.hash(password, salt);
@@ -27,15 +29,21 @@ const hashPassword = async (password) => {
 
 // Register user
 router.post("/register", async (req, res) => {
-  console.log("trying to register user... ");
+  logger.info("trying to register user... ");
 
   // Validate data
   const { error } = registerValidtion(req.body);
-  if (error) return res.send(error.details[0].message);
+  if (error){
+    logger.info("error during validation");
+    return res.send(error.details[0].message);
+  }
 
   // Checking if user is already in db
   const emailExist = await User.findOne({ email: req.body.email });
-  if (emailExist) return res.send("Email already exists");
+  if (emailExist){
+    logger.info("Email already exists");
+    return res.send("Email already exists");
+  } 
 
   // Hash passwords
   const hashedPassword = await hashPassword(req.body.password);
@@ -50,10 +58,11 @@ router.post("/register", async (req, res) => {
   try {
     await newUser.save();
   } catch(err) {
-    console.log("failed to save user, got error: " + err);
+    logger.error("failed to save user, got error: " + err);
     return res.send("error occured");
   }
-  console.log("Trying to send email to user");
+  
+  logger.info("Trying to send email to user");
   const { name, email, password } = req.body;
 
   const token = jwt.sign(
@@ -65,7 +74,7 @@ router.post("/register", async (req, res) => {
   try {
     await mailgunAccount.messages().send(data, function (error, body) {});
   } catch (err) {
-      console.log("Sending email failed with error: " + err);
+      logger.error("Sending email failed with error: " + err);
       return res.send("Sending email failed");
   }
 
@@ -74,17 +83,21 @@ router.post("/register", async (req, res) => {
 
 // Login user
 router.post("/login", async (req, res) => {
-  console.log("trying to login user: " + req.body.email);
+  logger.info("trying to login user");
 
   // Validate data
   const { error } = loginValidation(req.body);
   const httpStatusCode = 400;
-  if (error) return res.status(httpStatusCode).send(error.details[0].message);
-
+  if (error) {
+    logger.info("user validation failed");
+    return res.status(httpStatusCode).send(error.details[0].message);
+  }
   // Check if email address exists in db
   const user = await User.findOne({ email: req.body.email });
-  if (!user) return res.send("Email not found");
-
+  if (!user) {
+    logger.info("email not found");
+    return res.send("Email not found");
+  }
   // Check if password is correct
   try {
     const validPassword = await bcrypt.compare(
@@ -93,29 +106,29 @@ router.post("/login", async (req, res) => {
     );
     if (!validPassword) return res.send("Incorrect password");
   } catch (err) {
-    console.log(err);
+    logger.error("Error during validation: " + err);
     return res.send("Error occured");
   }
 
-  console.log("login process completed");
+  logger.info("login process completed");
   return res.send("Logged in!");
 });
 
 // Email activation after regestration
 router.post("/activation", async (req, res) => {
-  console.log("Trying to activate user...");
+  logger.info("Trying to activate user...");
   const token = req.body.token;
   // Check if activation token is correct
   if (token) {
     try {
       await jwt.verify(token, process.env.JWT_ACC_ACTIVATE);
-      console.log("Activation success");
+      logger.info("Activation success");
     } catch (err) {
-      console.log(err);
+      logger.error(err);
       return res.send("Incorrect or expired link" );
     }
   } else {
-    console.log("activation error");
+    logger.error("activation error");
     return res.send("Activation error");
   }
 });
@@ -136,7 +149,7 @@ router.post('/send-forgot-password-email', async (req, res) => {
     try {
       await emailExist.updateOne({resetLink: token});
     } catch(err) {
-      console.log(err);
+      logger.error(err);
       return res.send("Error occured");
     }
     
@@ -148,7 +161,7 @@ router.post('/send-forgot-password-email', async (req, res) => {
 
 // Given a token, allows password change for the appropriate user matching the token
 router.post('/change-password', async (req, res) => {
-  console.log("Trying to change the user password...");
+  logger.info("Trying to change the user password...");
   const resetLink = req.body.token;
   const newPassword = req.body.newPassword;
 
@@ -157,7 +170,7 @@ router.post('/change-password', async (req, res) => {
     try {
       await jwt.verify(resetLink, process.env.RESET_PASSWORD_KEY);
     } catch (err) {
-      console.log(err);
+      logger.error(err);
       return res.send("Incorrect or expired token");
     }
 
@@ -172,7 +185,7 @@ router.post('/change-password', async (req, res) => {
     try{
       await user.updateOne({password: newHashedPassword});
     } catch(err) {
-      console.log(err);
+      logger.error(err);
       return res.send("Error changing password");
   }
 }
