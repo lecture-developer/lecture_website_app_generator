@@ -39,11 +39,8 @@ try {
   }
 }
 
-<<<<<<< HEAD
 // User page routing
-=======
-// Users page routing
->>>>>>> develop
+
 app.use("/users", routers.userRouter);
 
 // Index page routing
