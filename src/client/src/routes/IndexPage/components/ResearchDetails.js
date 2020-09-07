@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Textarea from '../../../components/form/Input';
+import Textarea from '../../../components/form/Textarea';
 
 const DATA_KEY = 'researchInterests';
 
