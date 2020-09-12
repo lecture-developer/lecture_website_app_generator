@@ -38,9 +38,6 @@ try {
         logger.info('Email sent');
       }
     });
-    //mg.messages().send(data, function (error, body) {
-    //  logger.info(body);
-    //});
   } catch (err) {
     logger.error("Sending email failed with error: " + err);
   }
