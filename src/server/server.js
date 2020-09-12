@@ -27,20 +27,16 @@ try {
   );
 } catch (err) {
   logger.error("DB connection error: " + err);
-  try {
-    // send email about db connection error
-    logger.info("Trying to send email to admin about error...");
-    const data = generateDbConnectionFailedEmail(err);
-    transporter.sendMail(data, function(err, info){
-      if(err) {
-        logger.error(err);
-      } else {
-        logger.info('Email sent');
-      }
-    });
-  } catch (err) {
-    logger.error("Sending email failed with error: " + err);
-  }
+  // send email about db connection error
+  logger.info("Trying to send email to admin about error...");
+  const data = generateDbConnectionFailedEmail(err);
+  transporter.sendMail(data, function(err, info){
+    if(err) {
+      logger.error(err);
+    } else {
+      logger.info('Email sent');
+    }
+  });
 }
 };
 
