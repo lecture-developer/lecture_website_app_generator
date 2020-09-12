@@ -24,8 +24,9 @@ const mg = mailgun({
 * Mongo setup
 */
 const connetToMongo = () => {
-const uri = process.env.ATLAS_URI;
+const uri = process.env.ATLAS_URI;  // Used to connect to the relevant collection in the DB
 try {
+  // Trying to connect to the DB
   mongoose.connect(
     uri,
     { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true },
