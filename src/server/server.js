@@ -1,4 +1,3 @@
-import mailgun from "mailgun-js";
 import { generateDbConnectionFailedEmail } from "./src/resources/emails";
 import express from "express";
 import cors from "cors";
@@ -7,18 +6,12 @@ import dotenv from "dotenv";
 import routers from "./src/routes/";
 dotenv.config();
 import logger from './logger';
+import transporter from './email'
 
 // app configuration
 const app = express();
 app.use(cors());
 app.use(express.json());
-
-// mail configuration
-const mg = mailgun({
-  apiKey: process.env.MAILGUN_APIKEY,
-  domain: process.env.MAILGUN_DOMAIN,
-});
-
 
 /*
 * Mongo setup
@@ -38,9 +31,16 @@ try {
     // send email about db connection error
     logger.info("Trying to send email to admin about error...");
     const data = generateDbConnectionFailedEmail(err);
-    mg.messages().send(data, function (error, body) {
-      logger.info(body);
+    transporter.sendMail(data, function(err, info){
+      if(err) {
+        logger.error(err);
+      } else {
+        logger.info('Email sent');
+      }
     });
+    //mg.messages().send(data, function (error, body) {
+    //  logger.info(body);
+    //});
   } catch (err) {
     logger.error("Sending email failed with error: " + err);
   }
