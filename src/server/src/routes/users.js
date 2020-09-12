@@ -11,6 +11,7 @@ import logger from '../../logger';
 
 const router = express.Router();
 
+// mail configuration
 const mailgunAccount = mailgun({
   apiKey: process.env.MAILGUN_APIKEY,
   domain: process.env.MAILGUN_DOMAIN,
