@@ -30,7 +30,7 @@ const sendMail = (data) => {
 * Mongo setup
 */
 const connetToMongo = () => {
-const uri = 5; //process.env.ATLAS_URI;  // Used to connect to the relevant collection in the DB
+const uri = process.env.ATLAS_URI;  // Used to connect to the relevant collection in the DB
 try {
   // Trying to connect to the DB
   mongoose.connect(
