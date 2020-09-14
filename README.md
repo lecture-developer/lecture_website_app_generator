@@ -19,7 +19,7 @@ Inside this repo we are using the following open-source projects:
 3. [mongoose](https://github.com/Automattic/mongoose)
 4. [octonode](https://github.com/pksunkara/octonode)
 5. [eslint](https://github.com/eslint/eslint)
-6. [mailgun](https://github.com/mailgun/mailgun-js)
+6. [nodemailer](https://github.com/nodemailer/nodemailer)
 7. [pino](https://github.com/pinojs/pino)
 8. [pino-pretty](https://github.com/pinojs/pino-pretty)
 

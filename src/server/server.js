@@ -1,4 +1,3 @@
-import mailgun from "mailgun-js";
 import { generateDbConnectionFailedEmail } from "./src/resources/emails";
 import express from "express";
 import cors from "cors";
@@ -7,24 +6,31 @@ import dotenv from "dotenv";
 import routers from "./src/routes/";
 dotenv.config();
 import logger from './logger';
+import transporter from './email'
 
 // app configuration
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// mail configuration
-const mg = mailgun({
-  apiKey: process.env.MAILGUN_APIKEY,
-  domain: process.env.MAILGUN_DOMAIN,
-});
-
+/* 
+* Gets email details and sends it
+*/
+const sendMail = (data) => {
+  transporter.sendMail(data, function(err, info){
+    if(err) {
+      logger.error("Sending email failed with error: " + err);
+    } else {
+      logger.info('Email sent');
+    }
+  });
+};
 
 /*
 * Mongo setup
 */
 const connetToMongo = () => {
-const uri = process.env.ATLAS_URI;  // Used to connect to the relevant collection in the DB
+const uri = 5; //process.env.ATLAS_URI;  // Used to connect to the relevant collection in the DB
 try {
   // Trying to connect to the DB
   mongoose.connect(
@@ -34,16 +40,10 @@ try {
   );
 } catch (err) {
   logger.error("DB connection error: " + err);
-  try {
-    // send email about db connection error
-    logger.info("Trying to send email to admin about error...");
-    const data = generateDbConnectionFailedEmail(err);
-    mg.messages().send(data, function (error, body) {
-      logger.info(body);
-    });
-  } catch (err) {
-    logger.error("Sending email failed with error: " + err);
-  }
+  // send email about db connection error
+  logger.info("Trying to send email to admin about error...");
+  const data = generateDbConnectionFailedEmail(err);
+  sendMail(data);
 }
 };
 

@@ -2,22 +2,18 @@ import express from "express";
 import User from "../models/user";
 import { registerValidtion, loginValidation } from "../../validation";
 import bcrypt from "bcryptjs";
-import mailgun from "mailgun-js";
 import jwt from "jsonwebtoken";
 import { generateRegistrationEmail, generateForgotPasswordEmail } from "../resources/emails";
 import dotenv from "dotenv";
 dotenv.config();
 import logger from '../../logger';
+import transporter from '../../email'
 
 const router = express.Router();
 
-// mail configuration
-const mailgunAccount = mailgun({
-  apiKey: process.env.MAILGUN_APIKEY,
-  domain: process.env.MAILGUN_DOMAIN,
-});
-
-// Hash passwords
+/*
+* Gets password, Hash it and returns the hased password
+*/
 const hashPassword = async (password) => {
   // TODO: 10 is the default value, we will need to check performance and see if it can be higher 
   logger.info("hasing password");
@@ -26,6 +22,20 @@ const hashPassword = async (password) => {
   const hashedPassword = await bcrypt.hash(password, salt);
 
   return hashedPassword;
+};
+
+/* 
+* Gets email details and sends it
+*/
+const sendMail = (data) => {
+  transporter.sendMail(data, function(err, info){
+    if(err) {
+      logger.error("Sending email failed with error: " + err);
+      return res.send("Sending email failed");
+    } else {
+      logger.info('Email sent');
+    }
+  });
 };
 
 // Register user
@@ -72,12 +82,7 @@ router.post("/register", async (req, res) => {
     { expiresIn: "20m" });
 
   const data = generateRegistrationEmail(email, name, token);
-  try {
-    await mailgunAccount.messages().send(data, function (error, body) {});
-  } catch (err) {
-      logger.error("Sending email failed with error: " + err);
-      return res.send("Sending email failed");
-  }
+  sendMail(data);
 
   return res.send("Email verification sent, please check your email");
 });
@@ -156,7 +161,7 @@ router.post('/send-forgot-password-email', async (req, res) => {
     
     // Generate email with rese password link
     const data = generateForgotPasswordEmail(emailExist.email, emailExist.name, token);
-    await mailgunAccount.messages().send(data, function (error, body) {});
+    sendMail(data);
     return res.send("Mail sent!")
 });
 
