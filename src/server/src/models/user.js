@@ -32,6 +32,10 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  activated: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const User = mongoose.model("User", userSchema);

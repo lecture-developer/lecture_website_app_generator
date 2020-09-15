@@ -6,25 +6,12 @@ import dotenv from "dotenv";
 import routers from "./src/routes/";
 dotenv.config();
 import logger from './logger';
-import transporter from './email'
+import {transporter, sendMail} from './email'
 
 // app configuration
 const app = express();
 app.use(cors());
 app.use(express.json());
-
-/* 
-* Gets email details and sends it
-*/
-const sendMail = (data) => {
-  transporter.sendMail(data, function(err, info){
-    if(err) {
-      logger.error("Sending email failed with error: " + err);
-    } else {
-      logger.info('Email sent');
-    }
-  });
-};
 
 /*
 * Mongo setup
@@ -43,7 +30,7 @@ try {
   // send email about db connection error
   logger.info("Trying to send email to admin about error...");
   const data = generateDbConnectionFailedEmail(err);
-  sendMail(data);
+  sendMail(transporter, data);
 }
 };
 

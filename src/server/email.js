@@ -5,7 +5,7 @@ dotenv.config();
 /*
 * email configuration - using gmail's api with nodemailer
 */
-const transporter = nodemailer.createTransport({
+export const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: process.env.SMTP_PORT,
     secure: true,
@@ -19,4 +19,15 @@ const transporter = nodemailer.createTransport({
     }
   });
 
-  export default transporter;
+  /* 
+* Gets email details and sends it
+*/
+export const sendMail = (transporter, data) => {
+    transporter.sendMail(data, function(err, info){
+      if(err) {
+        logger.error("Sending email failed with error: " + err);
+      } else {
+        logger.info('Email sent');
+      }
+    });
+  };
