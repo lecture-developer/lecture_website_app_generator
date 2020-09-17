@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import routers from "./src/routes/";
 dotenv.config();
 import logger from './logger';
-import {transporter, sendMail} from './email'
+import Mailing from './email'
 
 // app configuration
 const app = express();
@@ -17,7 +17,7 @@ app.use(express.json());
 * Mongo setup
 */
 const connetToMongo = () => {
-const uri = process.env.ATLAS_URI;  // Used to connect to the relevant collection in the DB
+const uri = 5; //process.env.ATLAS_URI;  // Used to connect to the relevant collection in the DB
 try {
   // Trying to connect to the DB
   mongoose.connect(
@@ -30,7 +30,7 @@ try {
   // send email about db connection error
   logger.info("Trying to send email to admin about error...");
   const data = generateDbConnectionFailedEmail(err);
-  sendMail(transporter, data);
+  Mailing.sendEmail(data);
 }
 };
 
