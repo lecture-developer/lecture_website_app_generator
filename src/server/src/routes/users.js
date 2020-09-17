@@ -7,7 +7,7 @@ import { generateRegistrationEmail, generateForgotPasswordEmail } from "../resou
 import dotenv from "dotenv";
 dotenv.config();
 import logger from '../../logger';
-import { sendMail } from '../../email'
+import Mailing from '../../emailController'
 
 const router = express.Router();
 
@@ -68,7 +68,7 @@ router.post("/register", async (req, res) => {
     { expiresIn: "20m" });
 
   const data = generateRegistrationEmail(email, name, token);
-  sendMail(data);
+  Mailing.sendMail(data);
 
   return res.send("Email verification sent, please check your email");
 });
@@ -147,7 +147,7 @@ router.post('/send-forgot-password-email', async (req, res) => {
     
     // Generate email with rese password link
     const data = generateForgotPasswordEmail(emailExist.email, emailExist.name, token);
-    sendMail(data);
+    Mailing.sendMail(data);
     return res.send("Mail sent!")
 });
 

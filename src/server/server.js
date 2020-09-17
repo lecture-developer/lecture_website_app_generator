@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import routers from "./src/routes/";
 dotenv.config();
 import logger from './logger';
-import Mailing from './email'
+import Mailing from './emailController'
 
 // app configuration
 const app = express();
