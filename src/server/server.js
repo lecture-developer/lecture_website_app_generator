@@ -7,6 +7,7 @@ import routers from "./src/routes/";
 dotenv.config();
 import logger from './logger';
 import Mailing from './emailController'
+import ActivationReminderJob from './src/jobs/ActivationReminderJob'
 
 // app configuration
 const app = express();
@@ -17,7 +18,7 @@ app.use(express.json());
 * Mongo setup
 */
 const connetToMongo = () => {
-const uri = 5; //process.env.ATLAS_URI;  // Used to connect to the relevant collection in the DB
+const uri = process.env.ATLAS_URI;  // Used to connect to the relevant collection in the DB
 try {
   // Trying to connect to the DB
   mongoose.connect(
@@ -54,6 +55,7 @@ const startServer = () => {
   app.listen(port, () => {
     logger.info(`Server is running on port: ${port}`);
   });
+  ActivationReminderJob();
 }
 
 connetToMongo();  // Mongo setup
