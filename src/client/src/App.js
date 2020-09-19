@@ -23,6 +23,7 @@ function App() {
           <Route path="/users/send-forgot-password-email" component={SendForgotPasswordEmail} />
           <Route path="/users/change-password" component={ForgotPassword} />
           <Route path="/index" component={IndexPage} />
+          <Route path="/" component={IndexPage} />
           <Route path="/publications" component={PublicationsPage} />
         </Switch>
       </div>
