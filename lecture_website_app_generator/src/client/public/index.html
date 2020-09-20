@@ -294,11 +294,10 @@
 							<h4 id="index-blue-title">
 								Make <br> your <br> academic <br> life <br> easier
 							</h4>
-							<p>
+							<p style="margin-bottom: 53px;">
 								Are you an academic interested in our website template? We’re looking for lecturers that’ll teach during the 2021 fall semester, and want to be among the first to create their own personal, intuitive website using our platform. 
 							</p>
-							
-							<a href="sign-for-beta.html">
+							<a href="sign-for-beta.html" style="width: 312px;color: #5A67D8;" >
 								Sign up for beta access
 							</a>
 						</div>
@@ -314,13 +313,25 @@
 		</div>
 		<footer class="footer">
 			<div class="footer-section">
-				<div class="personal-row space-between">
+				<div id="direction" class="space-between">
+					<script>
+						if($('body').width() < 420){
+							$('#direction').addClass('personal-coloum');
+						}else{
+							$('#direction').addClass('personal-row');
+						}
+					</script>
 					<div class="footer-menu">
 						<h1>
 							OurProduct
 						</h1>
 					</div>
-					<div class="footer-menu border-right-footer">
+					<div id="line-plit" class="footer-menu">
+						<script>
+							if($('body').width() > 420){
+								$('#line-plit').addClass('border-right-footer');
+							}
+						</script>
 						<p>
 							OurProduct is a free open-source website template that will vastly improve the communicationbetween lecturers and students. It will provide lecturers and professors with the tools to easily create a professional personal website that contains their research, courses and personal projects. <br><br>
 							With much of the academic world operating online due to Covid-19, now is the ideal time to finally create the platform that will change academic life for the better.
