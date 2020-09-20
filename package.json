@@ -53,5 +53,8 @@
     "@babel/preset-env": "^7.11.0",
     "nodemon": "^2.0.4",
     "pino-pretty": "^4.2.0"
+  },
+  "nodemonConfig": {
+    "ignore": ["src/server/data/users/"]
   }
 }

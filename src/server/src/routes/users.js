@@ -117,7 +117,7 @@ router.post("/login", async (req, res) => {
   }
 
   logger.info("login process completed");
-  return res.send("Logged in!");
+  res.json(user);
 });
 
 // Email activation after regestration
