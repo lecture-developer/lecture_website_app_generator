@@ -1,0 +1,37 @@
+{
+  "biography": "654654",
+  "researchInterests": [
+    "65465464",
+    "656"
+  ],
+  "featuredPublications": [
+    {
+      "name": "54",
+      "description": "654",
+      "year": "6",
+      "authors": "465",
+      "topic": "46545646456",
+      "type": "456",
+      "publisher": "4564",
+      "publicationStatus": "5654",
+      "fileLinks": [
+        {
+          "info": "321",
+          "type": "321",
+          "link": "321"
+        }
+      ]
+    }
+  ],
+  "currentProjects": [
+    {
+      "name": "321",
+      "description": "3",
+      "link": {
+        "info": "21321",
+        "type": "321321",
+        "link": "321"
+      }
+    }
+  ]
+}

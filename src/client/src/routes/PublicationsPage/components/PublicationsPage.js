@@ -151,8 +151,10 @@ const PublicationsPage = (props) => {
                   <Input key={field} label={field} onChange={handleChangeStaticField(field, publicationIndex)} />
                 ))
               }
-              <button onClick={(event) => handleAddFileLink(event, publicationIndex)}> Add file </button>
-              <button onClick={(event) => handleRemoveFileLink(event, publicationIndex)}> Remove file </button>              
+              <div>
+                <button onClick={(event) => handleAddFileLink(event, publicationIndex)}> Add file </button>
+                <button onClick={(event) => handleRemoveFileLink(event, publicationIndex)}> Remove file </button>              
+              </div>
               {
                 // For each publication, iterating over the file links fields
                 publications[publicationIndex].fileLinks.map((fileLinkItem, fileLinkIndex) => (

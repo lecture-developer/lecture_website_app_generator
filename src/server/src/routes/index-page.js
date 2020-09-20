@@ -9,7 +9,7 @@ router.post("/", (req, res) => {
   const { userId, data } = req.body;
 
   const dirPath = createUserDataDir(userId);
-  const filePath = dirPath + '/index-data.json';
+  const filePath = dirPath + '/index.json';
   
   fs.writeFile(filePath, JSON.stringify(data), (err) => {
     if (err) res.send("Error creating the file: ", err);
