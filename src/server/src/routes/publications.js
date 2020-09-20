@@ -24,10 +24,13 @@ router.get("/", (req, res) => {
   const dirPath = getUserDataDir(userId);
   const filePath = dirPath + '/publications.json';
 
-  fs.readFile(filePath, (err, data) => {
-    if (err) res.send(`Error getting user ${userId} publications items: `, err);
-    res.send(JSON.parse(data));
-  })
+  const data = fs.readFileSync(filePath);
+  res.send(JSON.parse(data));
+
+  // fs.readFile(filePath, (err, data) => {
+  //   if (err) res.send(`Error getting user ${userId} publications items: `, err);
+  //   res.send(JSON.parse(data));
+  // })
 });
 
 // Update data
