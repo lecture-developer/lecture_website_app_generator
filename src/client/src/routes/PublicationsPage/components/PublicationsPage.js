@@ -5,8 +5,8 @@ import { arrayToObject } from "../../../resources/methods";
 import Input from '../../../components/form/Input';
 
 const PublicationsPage = (props) => {
-  const { userId } = props;
-
+  // const { userId } = props;
+  const userId = '123456789';
   const [publications, setPublications] = useState(
     [
       {
@@ -124,7 +124,9 @@ const PublicationsPage = (props) => {
   };  
 
   // Sends the values entered by the user to the backend to generate the appropriate .json file
-  const handleSubmit = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    
     try {
       const response = await axios.post("http://localhost:5000/publications", { userId, data: publications });
       console.log(response);
