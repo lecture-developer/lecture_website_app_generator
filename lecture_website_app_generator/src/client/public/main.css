@@ -118,6 +118,7 @@ footer {
 	.footer-section{
 		padding-left: 53px;
 	}
+
 	.footer-section p{
 		font-family: Roboto;
 		font-style: normal;
@@ -515,6 +516,7 @@ footer {
 		margin-top: 10px;
     	margin-bottom: 4px;
 	}
+	
 	.beta-section a{
 		padding: 16.5px;
 	}

@@ -93,7 +93,9 @@
 				</a>
 			</div>
 		</div>
+
 		<div class="section-middle">
+			<!-- start the center section for desktop-->	
 			<template class="section-middle-desktop">
 				<div class="section-container">
 					<div class="section">
@@ -113,6 +115,7 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="section-container white-bg">
 					<div class="section">
 						<div class="personal-row space-evenly items-vertical-center">
@@ -148,6 +151,7 @@
 						</div>
 					</div>
 				</div>
+
 				<a name="whoweare" id="whoweare">  </a>
 				<div class="section-container white-bg">
 					<div class="section">
@@ -195,6 +199,7 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="section-container blue-bg">
 					<div class="section">
 						<div class="personal-coloum center beta-section">
@@ -211,6 +216,7 @@
 					</div>
 				</div>
 			</template>
+			<!-- start the center section for mobile-->	
 			<template class="section-middle-mobile">
 				<div class="section">
 					<div class="personal-row space-evenly items-vertical-center">
@@ -223,6 +229,7 @@
 						<img src="/lecture_website_app_generator/src/client/public/images/mobile-all-courses.PNG" alt="mobile sample website view"/>
 					</div>
 				</div>
+
 				<div class="section-container">
 						<div class="text-section">
 							<h3 style="padding-top: 92px;">with product you can<h3>
@@ -242,6 +249,7 @@
 							</div>
 					</div>
 				</div>
+
 				<a name="whoweare" id="whoweare">  </a>
 				<div class="section-container white-bg">
 					<div class="section">
@@ -288,6 +296,7 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="section-container blue-bg">
 					<div class="section">
 						<div class="personal-coloum center beta-section">
@@ -304,6 +313,7 @@
 					</div>
 				</div>		
 			</template>
+			<!-- Set when to use template mobile and when desktop-->
 			<script>
 				const isMobile = matchMedia('(max-device-width:420px)').matches;
     			const section_middle = document.currentScript.closest('.section-middle');
@@ -311,6 +321,7 @@
 				section_middle.appendChild(document.importNode(content, true));
 			</script>
 		</div>
+		
 		<footer class="footer">
 			<div class="footer-section">
 				<div id="direction" class="space-between">
