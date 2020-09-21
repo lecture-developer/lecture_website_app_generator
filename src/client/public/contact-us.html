@@ -15,7 +15,7 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="stylesheet" href="/lecture_website_app_generator/src/client/public/main.css" />
 	<!-- Analytics -->
-	
+
 	<!-- Google Analytics-->
 	<script async="" src="https://www.googletagmanager.com/gtag/js?id=key"></script>
 	<script>
@@ -24,7 +24,7 @@
 		gtag('js', new Date());
 		gtag('config', 'key');
 	</script>
-	
+
 	<!-- HotJar -->
 	<script>
 	(function(h,o,t,j,a,r)
@@ -36,7 +36,7 @@
 		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
 		a.appendChild(r);
 	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-	</script>		
+	</script>
 	<!-- end - Analytics -->
 
     <title>Lecture Website Generator</title>
@@ -46,7 +46,7 @@
     <div id="root">
 		<nav class="navbar navbar-expand-md main-nav">
 			<div class="spacer"></div>
-			
+
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -72,25 +72,35 @@
 					<li class="nav-item menu-main-link width-300-px">
 						<a class="main-btn" href="/lecture_website_app_generator/src/client/public/sign-for-beta.html">Sign up for beta access </a>
 					</li>
+
 				</ul>
 			</div>
 			<div class="spacer"></div>
 		</nav>
-		
-		<div class="section-container white-bg">
+
+		<div class="section-container white-bg contact-us-container">
 			<div class="section">
 				<div class="personal-row space-evenly start">
 					<div class="section-item w-100 space-evenly">
-						<h2 class="who-we-are-title">
+						<h2 class="contact-us-title">
 							Contact us
 						</h2>
-						<p class="who-we-are-text">
-							Couldn’t find what you’re looking for? Want to share your thoughts about our platform? <br> We’d love to hear from you. 
+						<p class="contact-us-text">
+							Couldn’t find what you’re looking for? Want to share your thoughts about our platform? We’d love to hear from you.
 						</p>
 						<form class="project-form">
-							<input name="name" id="name" type="text" placeholder="Name">
-							<input name="email" id="email" type="email" placeholder="Email">
-							<textarea name="message" id="message" rows="5">Tell us what you have in mind : </textarea>
+              <p class="contact-form-titles">
+                Full name<span class="red-star">*</span>
+              </p>
+							<input name="name" id="name" type="text">
+              <p class="contact-form-titles">
+                Email address<span class="red-star">*</span>
+              </p>
+              <input name="email" id="email" type="email">
+              <p class="contact-form-titles">
+                Tell us what you have in mind<span class="red-star">*</span>
+              </p>
+              <textarea name="message" id="message" rows="5"></textarea>
 							<div class="end">
 								<input type="submit" class="project-form-submit" value="Send">
 							</div>
@@ -99,8 +109,8 @@
 				</div>
 			</div>
 		</div>
-		
-		
+
+
 		<footer class="footer">
 			<div class="footer-section">
 				<div class="personal-row space-between">
@@ -128,8 +138,8 @@
 						</div>
 					</div>
 				</div>
-			</div> 
-		</footer> 
+			</div>
+		</footer>
 	</div>
   </body>
 </html>
