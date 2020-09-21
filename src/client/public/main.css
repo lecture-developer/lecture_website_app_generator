@@ -177,6 +177,12 @@ footer {
 	padding: 40px 22px;
 }
 
+#close_btn {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
 .mobile-menu button{
 	float: left;
 	width: 50px;
@@ -873,3 +879,158 @@ footer {
 }
 
 /* end - help settings */
+
+/* burger css */
+/*!
+ * Hamburgers
+ * @description Tasty CSS-animated hamburgers
+ * @author Jonathan Suh @jonsuh
+ * @site https://jonsuh.com/hamburgers
+ * @link https://github.com/jonsuh/hamburgers
+ */
+
+ @media screen and (min-width: 850px) {
+	.hamburger {
+		display: none;
+	}
+
+	.mobile-menu {
+		display: none;
+	}
+
+	.mobile-menu-bg {
+		opacity: 0;
+	}
+ }
+
+.hamburger {
+  padding-right: 20px;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: #A0aec0;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible; 
+}
+
+.hamburger:hover {
+	opacity: 0.7; 
+}
+
+.hamburger.is-active:hover {
+	opacity: 0.7; 
+}
+
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+	background-color: #A0aec0; 
+}
+
+.hamburger-box {
+  width: 40px;
+  color: #A0aec0;
+  height: 24px;
+  display: inline-block;
+  position: relative; 
+}
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: 2px; 
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    width: 25px;
+    height: 2px;
+    background-color: #A0aec0;
+    border-radius: 4px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+	transition-timing-function: ease; 
+}
+
+.hamburger-inner::before, .hamburger-inner::after {
+    content: "";
+	display: block; 
+}
+
+.hamburger-inner::before {
+	top: -8px; 
+}
+
+.hamburger-inner::after {
+	bottom: -8px; 
+}
+
+@media only screen and (max-width: 850px) {
+	.navbar-collapse{
+		visibility: hidden;
+	}
+	
+	.hamburger{
+		display: inline-block !important;
+	}
+
+	.mobile-menu-link{
+		color: #1A202C;
+	}
+
+	.mobile-menu-bg {
+		opacity: 1;
+	}
+}
+
+ @media screen and (min-width: 850px) {
+	.hamburger {
+		display: none;
+	}
+
+	.mobile-menu {
+		display: none;
+	}
+
+	.mobile-menu-bg {
+		opacity: 0;
+	}
+
+	.menu-main-link {
+		padding: 0px;
+	}
+ }
+
+ 
+@media screen and (max-width: 1020px) {
+	.menu-main-link {
+		padding: 0;
+	}
+
+	.menu-main-link a {
+		font-size: 14px;
+	}
+}
+
+@media screen and (max-width: 890px) {
+	.menu-main-link a {
+		font-size: 12px;
+	}
+}
+
+@media screen and (min-width: 1020px) {
+	.menu-main-link {
+		padding: 10px;
+	}
+}
+
+@media screen and (min-width: 1110px) {
+	.menu-main-link {
+		padding: 20px;
+	}
+}

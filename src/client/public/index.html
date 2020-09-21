@@ -43,7 +43,7 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"><!-- start of mobile menu-->
+    <div id="root">
 		<!-- start of mobile menu-->
 		<div id="mobile-menu" class="mobile-menu">
 			<div class="personal-coloum mobile-menu-container">
@@ -64,7 +64,13 @@
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<a class="logo navbar-brand order-first order-md-0 mx-0" href="/lecture_website_app_generator/src/client/public/index.html">product</a>
+			<a class="logo navbar-brand order-first order-md-0 mx-0" href="#">
+				<button class="hamburger hamburger--collapse" type="button" aria-label="Menu" aria-controls="navigation" onclick="document.getElementById('mobile-menu').style.marginLeft = '0px';document.getElementById('mobile-menu-bg').style.marginLeft = '0px';">
+					<span class="hamburger-box">
+					  <span class="hamburger-inner"></span>
+					</span>
+				</button>
+				product</a>
 			<div class="collapse navbar-collapse w-100">
 				<ul class="nav navbar-nav w-100 ">
 					<li class="nav-item menu-main-link active">
@@ -259,6 +265,6 @@
 		</footer> 
 	</div>
 	
-    <script src="/lecture_website_app_generator/src/client/public/main.js" /> <script>
+    <script src="/lecture_website_app_generator/src/client/public/main.js" />
   </body>
 </html>
