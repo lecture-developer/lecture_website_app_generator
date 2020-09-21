@@ -1,8 +1,4 @@
 {
-  "biography": "dsfhdkjfh",
-  "researchInterests": [
-    "sdlfnsfsnd"
-  ],
   "featuredPublications": [
     {
       "name": "22222222222222",
@@ -22,15 +18,7 @@
       ]
     }
   ],
-  "currentProjects": [
-    {
-      "name": "",
-      "description": "gggggg",
-      "link": {
-        "info": "",
-        "type": "",
-        "link": ""
-      }
-    }
+  "researchInterests": [
+    "asdasdda"
   ]
 }

@@ -18,16 +18,15 @@ const PublicationsDetails = ({ updateData, userId }) => {
         });
         setPublications(response.data);
       } catch (err) {
-        console.log('ERROR: ', err);
+        console.log("Couldn't get the publications from the backend: ", err);
       }
     };
 
     getAllPublications();
-  }, [userId]);
+  }, []);
 
   const handleClick = (event) => {
     const { id, checked: publicationSelected } = event.target;
-    console.log(`checkbox ${id} was just clicked. its value is ${publicationSelected}`);
     const updatedSelected = [...selected ];
 
     /*
@@ -39,9 +38,9 @@ const PublicationsDetails = ({ updateData, userId }) => {
     // Filter all the null values from the array
     const filteredPublications = updatedSelected.filter(selected => selected !== null);
 
+    // Set the local data and update the main data component
     setSelected(updatedSelected);
     updateData(DATA_KEY, filteredPublications);
-    console.log(updatedSelected);
   }
 
   return (
