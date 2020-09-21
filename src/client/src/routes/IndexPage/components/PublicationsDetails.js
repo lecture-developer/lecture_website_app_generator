@@ -28,17 +28,19 @@ const PublicationsDetails = ({ updateData, userId }) => {
   const handleClick = (event) => {
     const { id, checked: publicationSelected } = event.target;
     console.log(`checkbox ${id} was just clicked. its value is ${publicationSelected}`);
-    let updatedSelected = [...selected ];
+    const updatedSelected = [...selected ];
 
     /*
       If the checkbox is checked then the user wants to display the specific publication in the home page -
-      add it to the array of selected, otherwise remove it from the array of selected
+      add it to the array of selected, otherwise set its value as null
     */
     updatedSelected[id] = publicationSelected ? publications[id] : null;
-    // updatedSelected = updatedSelected.filter(selected => selected !== null);
+
+    // Filter all the null values from the array
+    const filteredPublications = updatedSelected.filter(selected => selected !== null);
 
     setSelected(updatedSelected);
-    updateData(DATA_KEY, updatedSelected);
+    updateData(DATA_KEY, filteredPublications);
     console.log(updatedSelected);
   }
 
