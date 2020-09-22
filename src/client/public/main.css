@@ -164,6 +164,19 @@ footer {
     flex-basis: 100%;
 }
 
+.menu-btn {
+	font-weight: normal;
+	position: absolute;
+	left: 0px;
+	top: 25px;
+}
+
+.menu-btn p {
+	position: relative;
+	top: 1.5rem;
+	left: -.5rem;
+}
+
 .mobile-menu{
 	overflow: auto;
 	position: fixed;
@@ -240,6 +253,11 @@ footer {
 
 	.mobile-menu-link{
 		color: #1A202C;
+	}
+
+	.logo {
+		position: absolute;
+		right: 4rem;
 	}
 }
 
@@ -908,18 +926,19 @@ footer {
  }
 
 .hamburger {
-  padding-right: 20px;
-  cursor: pointer;
-  transition-property: opacity, filter;
-  transition-duration: 0.15s;
-  transition-timing-function: linear;
-  font: inherit;
-  color: #323232;
-  text-transform: none;
-  background-color: transparent;
-  border: 0;
-  margin: 0;
-  overflow: visible; 
+	position: relative;
+	padding-right: 20px;
+	cursor: pointer;
+	transition-property: opacity, filter;
+	transition-duration: 0.15s;
+	transition-timing-function: linear;
+	font: inherit;
+	color: #323232;
+	text-transform: none;
+	background-color: transparent;
+	border: 0;
+	margin: 0;
+	overflow: visible; 
 }
 
 .hamburger:hover {
@@ -937,18 +956,18 @@ footer {
 }
 
 .hamburger-box {
-  width: 40px;
-  color: #323232;
-  height: 24px;
-  display: inline-block;
-  position: relative; 
-  margin-left: 45px;
+	width: 40px;
+	color: #323232;
+	height: 24px;
+	display: inline-block;
+	position: relative; 
+	margin-left: 45px;
 }
 
 .hamburger-inner {
-  display: block;
-  top: 50%;
-  margin-top: 2px; 
+	display: block;
+	top: 50%;
+	margin-top: 2px; 
 }
 
 .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
