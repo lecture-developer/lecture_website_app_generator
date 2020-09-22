@@ -44,13 +44,38 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
+		<!-- start of mobile menu-->
+		<div id="mobile-menu" class="mobile-menu">
+			<div class="personal-coloum mobile-menu-container">
+				<button type="button" id="close_btn" onclick="document.getElementById('mobile-menu').style.marginLeft = '-100%';"> X </button>
+				<a class="mobile-menu-link"  href="/lecture_website_app_generator/src/client/public/index.html">What we do</a>
+				<a class="mobile-menu-link" href="/lecture_website_app_generator/src/client/public/index.html#whoweare">Who we are</a>
+				<a class="mobile-menu-link" href="/lecture_website_app_generator/src/client/public/contact-us.html">Contact us</a>
+				<a class="main-btn" style="margin-top: 50px;" href="/lecture_website_app_generator/src/client/public/sign-for-beta.html">Sign up for beta access </a>
+				<span class="mobile-menu-divider"></span>
+				<p class="mobile-menu-footer">Product is an open-source platform, and we’re all volunteers. Do you like the idea and want to help? </p>
+				<a class="mobile-menu-footer-link" href="/lecture_website_app_generator/src/client/public/join-our-team.html">Join our team</a>
+			</div>
+		</div>
+		<!-- end of moblie menu-->
 		<nav class="navbar navbar-expand-md main-nav">
 			<div class="spacer"></div>
 			
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+			<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
 				<span class="navbar-toggler-icon"></span>
-			</button>
-			<a class="logo navbar-brand order-first order-md-0 mx-0" href="/lecture_website_app_generator/src/client/public/index.html">product</a>
+			</button> -->
+			<div class="menu-btn">
+				<button class="hamburger hamburger--collapse" type="button" aria-label="Menu" aria-controls="navigation" onclick="document.getElementById('mobile-menu').style.marginLeft = '0px';document.getElementById('mobile-menu-bg').style.marginLeft = '0px';">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+						<p>menu</p>
+					</span>
+				</button>
+			</div>
+
+			<a class="logo navbar-brand order-first order-md-0 mx-0" href="#">
+			product</a>
+
 			<div class="collapse navbar-collapse w-100">
 				<ul class="nav navbar-nav w-100 ">
 					<li class="nav-item menu-main-link active">
@@ -244,5 +269,7 @@
 			</div> 
 		</footer> 
 	</div>
+	
+    <script src="/lecture_website_app_generator/src/client/public/main.js" />
   </body>
 </html>
