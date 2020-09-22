@@ -1057,3 +1057,76 @@ footer {
 		padding: 20px;
 	}
 }
+
+/* mobile pages section */
+
+/* mobile - not found page */
+
+.not-found-container{
+	padding-top: 40px;
+	width: 100%;
+	background-color: white;
+	padding: 70px 70px;
+}
+
+.not-found-section {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-content: flex-start;
+	max-width: 1080px;
+	padding-top: 40px;
+	width: 100%;
+}
+
+.not-found-message {
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 27px;
+	font-family: Roboto;
+	text-align: justify;
+}
+
+.not-found-title {
+	font-size: 28px;
+	line-height: 75px;
+	font-family: Playfair Display;
+	margin-bottom: 10px;
+}
+
+.not-found-buttons-section *{
+	color: #5A67D8;
+	border-color: #5A67D8;
+}
+
+.not-found-buttons-section a:hover {
+	color: #5A67D8;
+	border-color: #5A67D8;
+}
+
+.not-found-buttons-section a{
+	text-align: center;
+	width: 10rem;
+	height: 3rem;
+	display: block;
+	word-wrap: normal;
+	margin: auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border: solid 2px;
+	font-weight: 400;	
+}
+
+.not-found-container img {
+	margin-top: 65px;
+	width: 100%;
+	height: 100%;
+}
+
+.not-found-btn-title {
+	padding-top: 5px;
+}
+
+.not-found-btn-title i{
+	padding-right: 10px;
+}
