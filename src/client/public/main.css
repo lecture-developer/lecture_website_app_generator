@@ -562,6 +562,14 @@ footer {
 	padding: 12px 18px;
 }
 
+.project-form input[type="text"]{
+	width: 100%;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
 .project-form-submit{
 	background: #ffffff !important;
 	border-radius: 6px !important;
