@@ -246,6 +246,10 @@ footer {
 
 @media (max-width: 600px)
 {
+	.navbar{
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+	}
+	
 	.navbar .spacer{
 		width: 0%;
 	}
@@ -910,7 +914,7 @@ footer {
   transition-duration: 0.15s;
   transition-timing-function: linear;
   font: inherit;
-  color: #A0aec0;
+  color: #323232;
   text-transform: none;
   background-color: transparent;
   border: 0;
@@ -929,15 +933,16 @@ footer {
 .hamburger.is-active .hamburger-inner,
 .hamburger.is-active .hamburger-inner::before,
 .hamburger.is-active .hamburger-inner::after {
-	background-color: #A0aec0; 
+	background-color: #323232; 
 }
 
 .hamburger-box {
   width: 40px;
-  color: #A0aec0;
+  color: #323232;
   height: 24px;
   display: inline-block;
   position: relative; 
+  margin-left: 45px;
 }
 
 .hamburger-inner {
@@ -949,7 +954,7 @@ footer {
 .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
     width: 25px;
     height: 2px;
-    background-color: #A0aec0;
+    background-color: #323232;
     border-radius: 4px;
     position: absolute;
     transition-property: transform;
