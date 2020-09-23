@@ -1080,7 +1080,7 @@ footer {
 }
 
 .not-found-message {
-	font-weight: 400;
+	font-weight: 300;
 	font-size: 18px;
 	line-height: 27px;
 	font-family: Roboto;
@@ -1088,7 +1088,7 @@ footer {
 }
 
 .not-found-title {
-	font-size: 28px;
+	font-size: 48px;
 	line-height: 75px;
 	font-family: Playfair Display;
 	margin-bottom: 10px;
@@ -1119,14 +1119,45 @@ footer {
 
 .not-found-container img {
 	margin-top: 65px;
-	width: 100%;
+	width: 50%;
 	height: 100%;
+	text-align: center;
 }
 
 .not-found-btn-title {
 	padding-top: 5px;
+	font-weight: 500;
 }
 
 .not-found-btn-title i{
 	padding-right: 10px;
+}
+
+.disable-br{
+	display: none;
+}
+
+
+@media screen and (max-width: 450px) {
+	
+	.disable-br{
+		display: inherit;
+	}
+	
+
+	.not-found-title {
+		font-size: 28px;
+	}
+		
+	.not-found-message {
+		font-weight: 400;
+	}
+
+	.not-found-btn-title {
+		font-weight: 400;
+	}
+
+	.not-found-container img {
+		width: 100%;
+	}
 }
