@@ -1,15 +1,17 @@
 import express from "express";
 import fs from "fs";
-import { createJsonFilePath } from "../resources/methods";
+import { createUserDataDir } from "../resources/methods";
 
 const router = express.Router();
 
 // Create data
 router.post("/", (req, res) => {
-  const data = req.body;
-  const file = createJsonFilePath("publications-data.json");
+  const { userId, data } = req.body;
 
-  fs.writeFile(file, JSON.stringify(data), (err) => {
+  const dirPath = createUserDataDir(userId);
+  const filePath = dirPath + '/publications.json';
+
+  fs.writeFile(filePath, JSON.stringify(data), (err) => {
     if (err) res.send("Error creating the file: ", err);
     res.send("Successfully created the data file");
   });

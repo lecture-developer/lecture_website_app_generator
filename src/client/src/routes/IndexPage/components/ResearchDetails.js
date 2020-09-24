@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Textarea from '../../../components/form/Input';
+import Textarea from '../../../components/form/Textarea';
 
 const DATA_KEY = 'researchInterests';
 
@@ -23,14 +23,18 @@ const ResearchDetails = ({ updateData }) => {
     updateData(DATA_KEY, interests);
   };
 
-  const handleAddInterest = () => {
+  const handleAddInterest = (event) => {
+    event.preventDefault();
+    
     setInterests(prevState => [
       ...prevState,
       ""
     ]);
   };
 
-  const handleRemoveInterest = () => {
+  const handleRemoveInterest = (event) => {
+    event.preventDefault();
+    
     const updatedInterests = [ ...interests ];
     updatedInterests.pop();
     setInterests(updatedInterests);

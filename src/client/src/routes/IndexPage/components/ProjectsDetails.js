@@ -47,13 +47,17 @@ const ProjectsDetails = ({ updateData }) => {
     updateData(DATA_KEY, projects);
   };
 
-  const handleAddProject = () => {
+  const handleAddProject = (event) => {
+    event.preventDefault();
+
     const updatedProjects = [ ...projects ];
     updatedProjects.push({ });
     setProjects(updatedProjects);
   };
 
-  const handleRemoveProject = () => {
+  const handleRemoveProject = (event) => {
+    event.preventDefault();
+    
     const updatedProjects = [ ...projects ];
     updatedProjects.pop();
     setProjects(updatedProjects);

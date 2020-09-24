@@ -70,7 +70,9 @@ const PublicationsDetails = ({ updateData }) => {
     updateData(DATA_KEY, publications);
   };
 
-  const handleAddPublication = () => {
+  const handleAddPublication = (event) => {
+    event.preventDefault();
+
     setPublications(prev => ([
       ...prev,
       {
@@ -93,13 +95,17 @@ const PublicationsDetails = ({ updateData }) => {
     ]));
   };
 
-  const handleRemovePublication = () => {
+  const handleRemovePublication = (event) => {
+    event.preventDefault();
+    
     const updatedPublications = [ ...publications ];
     updatedPublications.pop();
     setPublications(updatedPublications);
   };
 
-  const handleAddFileLink = (index) => {
+  const handleAddFileLink = (event, index) => {
+    event.preventDefault();
+
     // Get the original object from the array at the specified index (splice returns an array so get the 0th item)
     const updatedPublications = [ ...publications ];
     let publication = updatedPublications.splice(index, 1)[0];
@@ -124,7 +130,9 @@ const PublicationsDetails = ({ updateData }) => {
     setPublications(updatedPublications);
   };
 
-  const handleRemoveFileLink = (index) => {
+  const handleRemoveFileLink = (event, index) => {
+    event.preventDefault();
+
     // Get the original object from the array at the specified index (splice returns an array so get the 0th item)
     const updatedPublications = [ ...publications ];
     let publication = updatedPublications.splice(index, 1)[0];
@@ -158,8 +166,8 @@ const PublicationsDetails = ({ updateData }) => {
             <Input label="publisher" onChange={handleStaticFieldChange("publisher", index)} />
             <Input label="publicationStatus" onChange={handleStaticFieldChange("publicationStatus", index)} />
 
-            <button onClick={() => handleAddFileLink(index)}> Add file </button>
-            <button onClick={() => handleRemoveFileLink(index)}> Remove file </button>
+            <button onClick={(event) => handleAddFileLink(event, index)}> Add file </button>
+            <button onClick={(event) => handleRemoveFileLink(event, index)}> Remove file </button>
             {  
               publication.fileLinks.map((fileItem, fileIndex) => (
                 <div className="div-publication-fileLink" key={`${fileItem}-${fileIndex}`}>
