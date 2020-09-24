@@ -1,181 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-	<meta name="description" content="Lecuter's Name Academic Website focusing on cool study in the field of something" />
-	<meta name="keywords" content="lecture website, academic website" />
-	<meta id="author" content="First Last name" name="author"/>
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet"/>
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="stylesheet" href="/lecture_website_app_generator/src/client/public/main.css" />
-	<!-- Analytics -->
-	
-	<!-- Google Analytics-->
-	<script async="" src="https://www.googletagmanager.com/gtag/js?id=key"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'key');
-	</script>
-	
-	<!-- HotJar -->
-	<script>
-	(function(h,o,t,j,a,r)
-	{
-		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-		h._hjSettings={hjid:0000000,hjsv:6};
-		a=o.getElementsByTagName('head')[0];
-		r=o.createElement('script');r.async=1;
-		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-		a.appendChild(r);
-	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-	</script>		
-	<!-- end - Analytics -->
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Lecuter's Name Academic Website focusing on cool study in the field of something" />
+  <meta name="keywords" content="lecture website, academic website" />
+  <meta id="author" content="First Last name" name="author" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
-    <title>Lecture Website Generator</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root">
-		<nav class="navbar navbar-expand-md main-nav">
-			<div class="spacer"></div>
-			
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<a class="logo navbar-brand order-first order-md-0 mx-0" href="/lecture_website_app_generator/src/client/public/index.html">product</a>
-			<div class="collapse navbar-collapse w-100">
-				<ul class="nav navbar-nav w-100 ">
-					<li class="nav-item menu-main-link active">
-						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/index.html">What we do</a>
-					</li>
-					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/index.html#whoweare">Who we are</a>
-					</li>
-					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/join-our-team.html">Join our team</a>
-					</li>
-					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/contact-us.html">Contact us</a>
-					</li>
-				</ul>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav ml-auto">
-					<li class="nav-item menu-main-link width-300-px">
-						<a class="main-btn" href="/lecture_website_app_generator/src/client/public/sign-for-beta.html">Sign up for beta access </a>
-					</li>
-				</ul>
-			</div>
-			<div class="spacer"></div>
-		</nav>
-		
-		<div class="section-container white-bg">
-			<div class="section">
-				<div class="personal-row space-evenly start">
-					<div class="section-item w-100 space-evenly">
-						<h2 class="who-we-are-title">
-							Sign up for beta access
-						</h2>
-						<p class="who-we-are-text">
-							 Teaching in the fall semester of 2021? We invite you to be the first to try our platform. Please tell us about yourself and your work. We’ll get in touch soon.
-						</p>
-						<form class="project-form">
-							<div class="project-form-field">
-								<label for="name">Full Name <span style="color: red">*</span></label>
-								<div class="personal-row" style="align-items: center;">
-									<input class="pick-input" name="name" id="name" type="text" placeholder="" required>
-									<span class="error-symbol" style="display: none">!</span>
-									<span class="good-symbol" style="display: none"><svg width="22" height="27" viewBox="0 0 22 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M2 13.0377L10.7568 23L20 1" stroke="white" stroke-width="4"/>
-</svg>
-</span>
-								</div>
-							</div>
-							<div class="project-form-field">
-								<label for="name">Email address  <span style="color: red">*</span></label>
-								<div class="personal-row" style="align-items: center;">
-									<input class="error-input"  name="email" id="email" type="text" placeholder="" required>
-									<span class="error-symbol">!</span>
-									<span class="good-symbol" style="display: none"><svg width="22" height="27" viewBox="0 0 22 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M2 13.0377L10.7568 23L20 1" stroke="white" stroke-width="4"/>
-</svg>
-</span>
-								</div>
-							</div>
-							<div class="project-form-field">
-								<label for="name">Main academic institution  <span style="color: red">*</span></label>
-								<div class="personal-row" style="align-items: center;">
-									<input class="good-input"  name="institution" id="institution" type="text" placeholder="" required>
-									<span class="error-symbol" style="display: none">!</span>
-									<span class="good-symbol"><svg width="22" height="27" viewBox="0 0 22 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M2 13.0377L10.7568 23L20 1" stroke="white" stroke-width="4"/>
-</svg>
-</span>
-								</div>
-							</div>
-							<div class="project-form-field">
-								<label for="name">Main research interest</label>
-								<input name="institution" id="institution" type="text" placeholder="">
-							</div>
-							<div class="project-form-field">
-								<label for="name">I am a  <span style="color: red">*</span></label>
-								<div class="personal-row">
-									<input name="i_am" id="i_am_researcher" type="radio"> <div class="radio-label">Reseacher</div>
-								</div>
-								<div class="personal-row">
-									<input name="i_am" id="i_am_lecturer" type="radio"> <div class="radio-label"> Lecturer</div>
-								</div>
-								<div class="personal-row">
-									<input name="i_am" id="i_am_both" type="radio"> <div class="radio-label">Both</div>
-								</div>
-							</div>
-							<div class="end">
-								<input type="submit" class="project-form-submit" value="Sign up">
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		
-		<footer class="footer">
-			<div class="footer-section">
-				<div class="personal-row space-between">
-					<div class="footer-menu">
-						<h1>
-							OurProduct
-						</h1>
-					</div>
-					<div class="footer-menu border-right-footer">
-						<p>
-							OurProduct is a free open-source website template that will vastly improve the communicationbetween lecturers and students. It will provide lecturers and professors with the tools to easily create a professional personal website that contains their research, courses and personal projects. <br><br>
-							With much of the academic world operating online due to Covid-19, now is the ideal time to finally create the platform that will change academic life for the better.
-						</p>
-					</div>
-					<div class="footer-menu">
-						<ul>
-							<li><a href="/lecture_website_app_generator/src/client/public/index.html">What we do</a></li>
-							<li><a href="/lecture_website_app_generator/src/client/public/index.html#whoweare">Who we are</a></li>
-							<li><a href="/lecture_website_app_generator/src/client/public/join-our-team.html">Join our team</a></li>
-							<li><a href="/lecture_website_app_generator/src/client/public/sign-for-beta.html">Sign up for beta access</a></li>
-							<li><a href="/lecture_website_app_generator/src/client/public/contact-us.html">Contact us</a></li>
-						</ul>
-						<div class="personal-row">
-							<a href="legal.html"  class="min-width-150">&#169; 2020</a> <a href="legal.html" class="min-width-150" style="padding-right: 0px">Privacy and Terms</a>
-						</div>
-					</div>
-				</div>
-			</div> 
-		</footer> 
-	</div>
-  </body>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <link rel="stylesheet" href="/lecture_website_app_generator/src/client/public/main.css" />
+  <!-- Analytics -->
+
+  <!-- Google Analytics-->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=key"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'key');
+  </script>
+
+  <!-- HotJar -->
+  <script>
+    (function(h, o, t, j, a, r) {
+      h.hj = h.hj || function() {
+        (h.hj.q = h.hj.q || []).push(arguments)
+      };
+      h._hjSettings = {
+        hjid: 0000000,
+        hjsv: 6
+      };
+      a = o.getElementsByTagName('head')[0];
+      r = o.createElement('script');
+      r.async = 1;
+      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+  </script>
+  <!-- end - Analytics -->
+
+  <title>Lecture Website Generator</title>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root">
+    <nav class="navbar navbar-expand-md main-nav">
+      <div class="spacer"></div>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="logo navbar-brand order-first order-md-0 mx-0" href="/lecture_website_app_generator/src/client/public/index.html">product</a>
+      <div class="collapse navbar-collapse w-100">
+        <ul class="nav navbar-nav w-100 ">
+          <li class="nav-item menu-main-link active">
+            <a class="nav-link" href="/lecture_website_app_generator/src/client/public/index.html">What we do</a>
+          </li>
+          <li class="nav-item menu-main-link">
+            <a class="nav-link" href="/lecture_website_app_generator/src/client/public/index.html#whoweare">Who we are</a>
+          </li>
+          <li class="nav-item menu-main-link">
+            <a class="nav-link" href="/lecture_website_app_generator/src/client/public/join-our-team.html">Join our team</a>
+          </li>
+          <li class="nav-item menu-main-link">
+            <a class="nav-link" href="/lecture_website_app_generator/src/client/public/contact-us.html">Contact us</a>
+          </li>
+        </ul>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item menu-main-link width-300-px">
+            <a class="main-btn" href="/lecture_website_app_generator/src/client/public/sign-for-beta.html">Sign up for beta access </a>
+          </li>
+        </ul>
+      </div>
+      <div class="spacer"></div>
+    </nav>
+
+    <div class="section-container white-bg form-page">
+      <div class="section">
+        <div class="personal-row space-evenly start">
+          <div class="section-item w-100 space-evenly">
+            <h2 class="form-page-title">
+              Sign up for beta access
+            </h2>
+            <p class="form-page-text">
+              Teaching in the fall semester of 2021? We invite you to be the first to try our platform. Please tell us about yourself and your work. We’ll get in touch soon.
+            </p>
+            <form class="project-form">
+              <label class="form-titles" for="name">
+                Full name <span class="red-star">*</span>
+              </label>
+              <input name="name" id="name" type="text" required>
+              <label class="form-titles" for="email">
+                Email address <span class="red-star">*</span>
+              </label>
+              <input name="email" id="email" type="text" required>
+              <label class="form-titles" for="institution">
+                Main academic institution <span class="red-star">*</span>
+              </label>
+              <input name="institution" id="institution" type="text" required>
+              <label class="form-titles" for="reasearch">
+                Main research interest
+              </label>
+              <input name="research" id="research" type="text">
+              <label class="form-titles" for="i_am">
+                I am a <span class="red-star">*</span>
+              </label>
+              <label class="radio-buttons"> Reseacher
+                <input type="radio" checked="checked" name="radio">
+                <span class="checkmark"></span>
+              </label>
+              <label class="radio-buttons"> Lecturer
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+              </label>
+              <label class="radio-buttons"> Both
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+              </label>
+              <input type="submit" class="main-btn" value="Sign up" id="sign-up">
+            </form>
+          </div>
+        </div>
+
+
+        <footer class="footer">
+          <div class="footer-section">
+            <div class="personal-row space-between">
+              <div class="footer-menu">
+                <h1>
+                  OurProduct
+                </h1>
+              </div>
+              <div class="footer-menu border-right-footer">
+                <p>
+                  OurProduct is a free open-source website template that will vastly improve the communicationbetween lecturers and students. It will provide lecturers and professors with the tools to easily create a professional personal website
+                  that contains their research, courses and personal projects. <br><br>
+                  With much of the academic world operating online due to Covid-19, now is the ideal time to finally create the platform that will change academic life for the better.
+                </p>
+              </div>
+              <div class="footer-menu">
+                <ul>
+                  <li><a href="/lecture_website_app_generator/src/client/public/index.html">What we do</a></li>
+                  <li><a href="/lecture_website_app_generator/src/client/public/index.html#whoweare">Who we are</a></li>
+                  <li><a href="/lecture_website_app_generator/src/client/public/join-our-team.html">Join our team</a></li>
+                  <li><a href="/lecture_website_app_generator/src/client/public/sign-for-beta.html">Sign up for beta access</a></li>
+                  <li><a href="/lecture_website_app_generator/src/client/public/contact-us.html">Contact us</a></li>
+                </ul>
+                <div class="personal-row">
+                  <a href="legal.html" class="min-width-150">&#169; 2020</a> <a href="legal.html" class="min-width-150" style="padding-right: 0px">Privacy and Terms</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+</body>
+
 </html>

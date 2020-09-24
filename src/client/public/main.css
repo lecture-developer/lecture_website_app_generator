@@ -698,7 +698,7 @@ footer {
 .project-form input, textarea {
   border: 2px solid #828282;
   border-radius: 10px;
-  margin-top: 30px;
+  /* margin-top: 30px; */
   padding: 12px 18px;
 }
 
@@ -716,6 +716,7 @@ footer {
   display: flex;
   align-items: center;
   text-align: justify;
+  margin-top: 20px;
 }
 
 .project-form-submit:hover {
@@ -936,8 +937,8 @@ footer {
 
 /* end - help settings */
 
-/* contact us */
-.contact-us-title {
+/* forms pages shared features */
+.form-page-title {
   font-family: Playfair Display;
   font-style: normal;
   font-weight: normal;
@@ -946,7 +947,7 @@ footer {
   margin-top: 50px;
 }
 
-.contact-us-text {
+.form-page-text {
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
@@ -958,11 +959,7 @@ footer {
   color: #000;
 }
 
-.contact-us-container input, textarea {
-  margin: 0;
-}
-
-.contact-form-titles {
+.form-titles {
   margin: 17px 0 0 7px;
   font-style: normal;
   font-weight: 500;
@@ -975,40 +972,107 @@ footer {
   color: #828282;
 }
 
+/* radio buttons special design */
+.project-form input[type = radio]{
+  opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+
+.radio-buttons{
+  width: 150px;
+  display: block;
+position: relative;
+padding-left: 35px;
+margin-bottom: 12px;
+margin-left: 8px;
+cursor: pointer;
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+color: #333333;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+.checkmark {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 50%;
+  box-shadow: inset 4px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* When the radio button is checked, add a gray background */
+.project-form input:checked ~ .checkmark {
+  background-color: #fff;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.project-form input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.project-form .checkmark:after {
+  top: 5px;
+  left: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #000;
+}
+
+/* end - radio buttons design */
+
 .red-star {
   color: #eb5757;
 }
 
-.contact-us-container .project-form-submit {
-  color: #5A67D8;
-  border-color: #5A67D8;
-  margin-top: 50px;
-  padding: 18px 53px;
-  text-align: center;
+#sign-up{
+  border: 0;
   width: 161px;
+  margin-top: 10px;
+  margin-left: 365px;
 }
-/* end - contact us page */
 
-/* contact us - mobile version */
+/* end - forms pages shared features */
+
+
+/* forms - mobile version */
 @media only screen and (max-width: 421px) {
-  .contact-us-title {
+  .form-page-title {
     margin-top: 20px;
     padding-left: 4px;
     font-size: 28px;
     line-height: 37px;
   }
 
-  .contact-us-text {
+  .form-page-text {
     font-size: 17px;
     line-height: 27px;
     font-weight: normal;
     font-weight: 400;
   }
 
-  .contact-us-container {
-    width: 312px;
+  .form-page {
+    width: 80%;
     margin: auto;
-    margin-left: 54px;
   }
 
   .project-form {
@@ -1016,19 +1080,18 @@ footer {
     width: 100%;
   }
 
-  .contact-us-container input {
+  .form-page input {
     height: 48px;
     margin-bottom: 10px;
   }
 
-  .contact-form-titles {
+  .form-titles {
     font-weight: normal;
     font-size: 18px;
-    margin: 0;
+    margin: 10px 0 2px 0;
   }
 
-  .contact-us-container .project-form-submit {
-    margin-top: 20px;
+  .form-page .project-form-submit {
     font-size: 18px;
     /* align-items: center; */
     text-align: center;
@@ -1037,6 +1100,12 @@ footer {
     padding: 0;
     padding-left: 39px;
   }
+
+  #sign-up{
+    margin: 5px 0 0 172px;
+    width: 121px;
+    height: 48px;
+  }
 }
 
-/* end - contact us - mobile version */
+/* end - forms pages - mobile */
