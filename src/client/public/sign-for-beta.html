@@ -102,14 +102,23 @@
                 Full name <span class="red-star">*</span>
               </label>
               <input name="name" id="name" type="text" required>
+              <p class="error-message">
+                Please enter your full name
+              </p>
               <label class="form-titles" for="email">
                 Email address <span class="red-star">*</span>
               </label>
               <input name="email" id="email" type="text" required>
+              <p class="error-message">
+                Please enter a valid email address (e.g. you@email.com)
+              </p>
               <label class="form-titles" for="institution">
                 Main academic institution <span class="red-star">*</span>
               </label>
               <input name="institution" id="institution" type="text" required>
+              <p class="error-message">
+                Please enter your academic institution
+              </p>
               <label class="form-titles" for="reasearch">
                 Main research interest
               </label>
@@ -118,17 +127,20 @@
                 I am a <span class="red-star">*</span>
               </label>
               <label class="radio-buttons"> Reseacher
-                <input type="radio" checked="checked" name="radio">
+                <input type="radio" name="radio" id="reasearcher">
                 <span class="checkmark"></span>
               </label>
               <label class="radio-buttons"> Lecturer
-                <input type="radio" name="radio">
+                <input type="radio" name="radio" id-"lecturer">
                 <span class="checkmark"></span>
               </label>
               <label class="radio-buttons"> Both
-                <input type="radio" name="radio">
+                <input type="radio" name="radio" id="both">
                 <span class="checkmark"></span>
               </label>
+              <p class="error-message">
+                  Please choose your position at this instuition
+                </p>
               <input type="submit" class="main-btn" value="Sign up" id="sign-up">
             </form>
           </div>

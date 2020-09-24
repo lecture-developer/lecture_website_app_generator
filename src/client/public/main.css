@@ -936,7 +936,6 @@ footer {
 }
 
 /* end - help settings */
-
 /* forms pages shared features */
 .form-page-title {
   font-family: Playfair Display;
@@ -973,30 +972,30 @@ footer {
 }
 
 /* radio buttons special design */
-.project-form input[type = radio]{
+.project-form input[type=radio] {
   opacity: 0;
-cursor: pointer;
-height: 0;
-width: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 
-.radio-buttons{
+.radio-buttons {
   width: 150px;
   display: block;
-position: relative;
-padding-left: 35px;
-margin-bottom: 12px;
-margin-left: 8px;
-cursor: pointer;
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-color: #333333;
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  margin-left: 8px;
+  cursor: pointer;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  color: #333333;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .checkmark {
@@ -1012,7 +1011,7 @@ user-select: none;
 }
 
 /* When the radio button is checked, add a gray background */
-.project-form input:checked ~ .checkmark {
+.project-form input:checked~.checkmark {
   background-color: #fff;
 }
 
@@ -1024,7 +1023,7 @@ user-select: none;
 }
 
 /* Show the indicator (dot/circle) when checked */
-.project-form input:checked ~ .checkmark:after {
+.project-form input:checked~.checkmark:after {
   display: block;
 }
 
@@ -1039,21 +1038,30 @@ user-select: none;
 }
 
 /* end - radio buttons design */
-
 .red-star {
   color: #eb5757;
 }
 
-#sign-up{
+#sign-up {
   border: 0;
   width: 161px;
   margin-top: 10px;
   margin-left: 365px;
 }
 
+/* errors in forms */
+.error-message {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  color: #EB5757;
+  margin-top: 5px;
+  display: none;
+}
+
 /* end - forms pages shared features */
-
-
 /* forms - mobile version */
 @media only screen and (max-width: 421px) {
   .form-page-title {
@@ -1082,7 +1090,7 @@ user-select: none;
 
   .form-page input {
     height: 48px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 
   .form-titles {
@@ -1093,7 +1101,6 @@ user-select: none;
 
   .form-page .project-form-submit {
     font-size: 18px;
-    /* align-items: center; */
     text-align: center;
     width: 121px;
     border-radius: 6px;
@@ -1101,10 +1108,15 @@ user-select: none;
     padding-left: 39px;
   }
 
-  #sign-up{
+  #sign-up {
     margin: 5px 0 0 172px;
     width: 121px;
     height: 48px;
+  }
+
+  .error-message{
+    font-size: 16px;
+    margin-top: 0;
   }
 }
 
