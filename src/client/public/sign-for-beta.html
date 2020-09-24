@@ -104,55 +104,45 @@
 						<form class="project-form">
 							<div class="project-form-field">
 								<label for="name">Full Name <span style="color: red">*</span></label>
-								<div class="personal-row" style="align-items: center;">
-									<input class="pick-input" name="name" id="name" type="text" placeholder="" required>
-									<span class="error-symbol" style="display: none">!</span>
-									<span class="good-symbol" style="display: none"><svg width="22" height="27" viewBox="0 0 22 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M2 13.0377L10.7568 23L20 1" stroke="white" stroke-width="4"/>
-</svg>
-</span>
+								<div id="container1" class="personal-coloum input-continer">
+									<input id="input1" name="name" type="text" placeholder="" required>
+									<span class="error-message" id="error-1"> Please enter your full name</span>
 								</div>
 							</div>
 							<div class="project-form-field">
 								<label for="name">Email address  <span style="color: red">*</span></label>
-								<div class="personal-row" style="align-items: center;">
-									<input class="error-input"  name="email" id="email" type="text" placeholder="" required>
-									<span class="error-symbol">!</span>
-									<span class="good-symbol" style="display: none"><svg width="22" height="27" viewBox="0 0 22 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M2 13.0377L10.7568 23L20 1" stroke="white" stroke-width="4"/>
-</svg>
-</span>
+								<div id="container2"  class="personal-coloum input-continer">
+									<input id="input2"  name="email" type="text" placeholder="" required>
+									<span class="error-message" id="error-2">Please enter a valid email address (e.g. you@email.com)</span>
 								</div>
 							</div>
 							<div class="project-form-field">
 								<label for="name">Main academic institution  <span style="color: red">*</span></label>
-								<div class="personal-row" style="align-items: center;">
-									<input class="good-input"  name="institution" id="institution" type="text" placeholder="" required>
-									<span class="error-symbol" style="display: none">!</span>
-									<span class="good-symbol"><svg width="22" height="27" viewBox="0 0 22 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M2 13.0377L10.7568 23L20 1" stroke="white" stroke-width="4"/>
-</svg>
-</span>
+								<div id="container3"  class="personal-coloum input-continer">
+									<input id="input3"  name="institution" type="text" placeholder="" required>
+									<span class="error-message" id="error-3">Please enter your academic institution</span>
 								</div>
 							</div>
 							<div class="project-form-field">
 								<label for="name">Main research interest</label>
-								<input name="institution" id="institution" type="text" placeholder="">
+								<div id="container4"  class="personal-coloum input-continer">
+									<input id="input4" name="institution" type="text" placeholder="">
+								</div>
 							</div>
 							<div class="project-form-field">
-								<label for="name">I am a  <span style="color: red">*</span></label>
+								<label for="name">I am a  </label>
 								<div class="personal-row">
-									<input name="i_am" id="i_am_researcher" type="radio"> <div class="radio-label">Reseacher</div>
+									<input name="i_am" id="i_am_researcher" value="researcher" type="radio"> <div class="radio-label">Reseacher</div>
 								</div>
 								<div class="personal-row">
-									<input name="i_am" id="i_am_lecturer" type="radio"> <div class="radio-label"> Lecturer</div>
+									<input name="i_am" id="i_am_lecturer" value="lecturer" type="radio"> <div class="radio-label"> Lecturer</div>
 								</div>
 								<div class="personal-row">
-									<input name="i_am" id="i_am_both" type="radio"> <div class="radio-label">Both</div>
+									<input name="i_am" id="i_am_both" value="both" type="radio"> <div class="radio-label">Both</div>
 								</div>
 							</div>
 							<div class="end">
-								<input type="submit" class="project-form-submit" value="Sign up">
+								<button type="button" style="border: 0px black solid;" class="main-btn" onclick="submit();" id="submit-btn"> Sign up </button>
 							</div>
 						</form>
 					</div>
@@ -192,4 +182,5 @@
 		</footer> 
 	</div>
   </body>
+  <script src="/lecture_website_app_generator/src/client/public/sign-for-beta.js"></script>
 </html>
