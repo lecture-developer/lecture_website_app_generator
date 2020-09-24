@@ -1,4 +1,5 @@
-function thankYouPage() {
+function thankYouPage()
+{
     // get the type parameter from the url
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
@@ -46,7 +47,6 @@ function thankYouPage() {
         console.log("No such type option");
         // redirect to 404
     }
-    
 }
 
 window.onload = thankYouPage;
