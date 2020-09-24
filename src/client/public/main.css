@@ -593,7 +593,7 @@ footer {
 }
 
 /* css for mobile in index.html*/
-@media only screen and (max-device-width: 400px) {
+@media only screen and (max-width: 400px) {
   .beta-section h4 {
     font-style: normal;
     font-weight: normal;
@@ -907,6 +907,7 @@ footer {
   font-size: 24px;
   line-height: 28px;
   letter-spacing: -0.015em;
+}
 
 .who-we-are-title{	
 	font-family: Playfair Display;
@@ -1098,6 +1099,7 @@ textarea:focus, input:focus, button:focus{
   letter-spacing: 0.04em !important;
   color: #000000 !important;
   margin-top: 60px;
+}
 
 .thanks-header-container{
 	padding-top: 40px;
@@ -1648,6 +1650,8 @@ textarea:focus, input:focus, button:focus{
 }
 
 .thank-you-section{
+	
+}
 /* mobile pages section */
 
 /* mobile - not found page */
@@ -1688,7 +1692,6 @@ textarea:focus, input:focus, button:focus{
 
 .share-initiative-btn-mobile, .share-initiative-btn-mobile:hover {
 	margin: auto;
-	padding: auto;
 	color: #5A67D8;
 	background-color: white;
 	border: #5A67D8 solid 2px;
@@ -1821,13 +1824,12 @@ textarea:focus, input:focus, button:focus{
 }
 
 
-@media screen and (max-width: 450px) {
+@media only screen and (max-width: 450px) {
 	
 	.disable-br{
 		display: inherit;
 	}
 	
-
 	.not-found-title {
 		font-size: 28px;
 	}
