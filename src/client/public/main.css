@@ -664,6 +664,14 @@ footer {
 	padding: 12px 18px;
 }
 
+.project-form input[type="text"]{
+	width: 100%;
+}
+
+textarea:focus, input:focus, button:focus{
+    outline: none;
+}
+
 .project-form-submit{
 	background: #ffffff !important;
 	border-radius: 6px !important;
@@ -721,36 +729,6 @@ footer {
 	width: calc(100% - 0px);
 }
 
-.error-symbol{
-	margin-left: 30px;
-	background: #EB5757;
-	text-align: center;
-	border-radius: 100%;
-	color: white;
-	font-weight: bold;
-	width: 30px;
-	height: 30px;
-	font-size: 16px;
-	display: inline;
-}
-
-.good-symbol{
-	margin-left: 30px;
-	background: #27AE60;
-	text-align: center;
-	border-radius: 100%;
-	color: white;
-	font-weight: bold;
-	width: 30px;
-	height: 30px;
-	font-size: 10px;
-	display: inline;
-}
-
-.good-symbol svg{
-	width: 14px;
-}
-
 .radio-label{
 	font-family: Roboto;
 	margin-left: 12px;
@@ -759,6 +737,22 @@ footer {
 	font-size: 24px;
 	line-height: 28px;
 	letter-spacing: -0.015em;
+}
+
+.project-form-field span{
+	text-align: left;
+	width: 100%;
+}
+
+.error-message{
+	padding-top: 5px;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px !important;
+	line-height: 28px;
+	color: #EB5757;
+	display: none;
 }
 
 /* end - who we are page */
@@ -899,6 +893,23 @@ footer {
 	text-align: center;
 	width: 300px;
 }
+
+.disable-submit{
+	background: #828282 !important;
+    color: #ffffff !important;
+	border-radius: 6px !important;
+	padding: 18px 50px;
+    border: 2px solid #828282;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+	font-family: Roboto;
+	font-size: 24px;
+	line-height: 28px;
+	display: flex;
+	align-items: center;
+	text-align: justify;
+}
+
 
 /* end - help settings */
 
@@ -1114,6 +1125,18 @@ footer {
 }
 
 .thank-you-section{
+/* mobile pages section */
+
+/* mobile - not found page */
+
+.not-found-container{
+	padding-top: 40px;
+	width: 100%;
+	background-color: white;
+	padding: 70px 70px;
+}
+
+.not-found-section {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
@@ -1122,6 +1145,7 @@ footer {
 	padding-top: 40px;
 	width: 100%;
 }
+
 
 .thank-you-section h2{
 	font-weight: 400;
@@ -1213,4 +1237,87 @@ footer {
 
 .social-buttons-section svg {
 	transform: scale(0.5, 0.5);
+}
+  
+.not-found-message {
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 27px;
+	font-family: Roboto;
+	text-align: justify;
+}
+
+.not-found-title {
+	font-size: 48px;
+	line-height: 75px;
+	font-family: Playfair Display;
+	margin-bottom: 10px;
+}
+
+.not-found-buttons-section *{
+	color: #5A67D8;
+	border-color: #5A67D8;
+}
+
+.not-found-buttons-section a:hover {
+	color: #5A67D8;
+	border-color: #5A67D8;
+}
+
+.not-found-buttons-section a{
+	text-align: center;
+	width: 10rem;
+	height: 3rem;
+	display: block;
+	word-wrap: normal;
+	margin: auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border: solid 2px;
+	font-weight: 400;	
+}
+
+.not-found-container img {
+	margin-top: 65px;
+	width: 50%;
+	height: 100%;
+	text-align: center;
+}
+
+.not-found-btn-title {
+	padding-top: 5px;
+	font-weight: 500;
+}
+
+.not-found-btn-title i{
+	padding-right: 10px;
+}
+
+.disable-br{
+	display: none;
+}
+
+
+@media screen and (max-width: 450px) {
+	
+	.disable-br{
+		display: inherit;
+	}
+	
+
+	.not-found-title {
+		font-size: 28px;
+	}
+		
+	.not-found-message {
+		font-weight: 400;
+	}
+
+	.not-found-btn-title {
+		font-weight: 400;
+	}
+
+	.not-found-container img {
+		width: 100%;
+	}
 }

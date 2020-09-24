@@ -59,12 +59,20 @@
 		</div>
 		<!-- end of moblie menu-->
 		<nav class="navbar navbar-expand-md main-nav">
-			<div class="spacer"></div>
-			
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<a class="logo navbar-brand order-first order-md-0 mx-0" href="/lecture_website_app_generator/src/client/public/index.html">product</a>
+            <div class="spacer"></div>
+            
+			<div class="menu-btn">
+				<button class="hamburger hamburger--collapse" type="button" aria-label="Menu" aria-controls="navigation" onclick="document.getElementById('mobile-menu').style.marginLeft = '0px';document.getElementById('mobile-menu-bg').style.marginLeft = '0px';">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+						<p>menu</p>
+					</span>
+				</button>
+			</div>
+
+			<a class="logo navbar-brand order-first order-md-0 mx-0" href="#">
+			product</a>
+
 			<div class="collapse navbar-collapse w-100">
 				<ul class="nav navbar-nav w-100 ">
 					<li class="nav-item menu-main-link active">
@@ -90,66 +98,30 @@
 			</div>
 			<div class="spacer"></div>
 		</nav>
-		
-		<div class="section-container white-bg">
-			<div class="section">
-				<div class="personal-row space-evenly start">
-					<div class="section-item w-100 space-evenly">
-						<h2 class="who-we-are-title">
-							Sign up for beta access
-						</h2>
-						<p class="who-we-are-text">
-							 Teaching in the fall semester of 2021? We invite you to be the first to try our platform. Please tell us about yourself and your work. We’ll get in touch soon.
-						</p>
-						<form class="project-form">
-							<div class="project-form-field">
-								<label for="name">Full Name <span style="color: red">*</span></label>
-								<div id="container1" class="personal-coloum input-continer">
-									<input id="input1" name="name" type="text" placeholder="" required>
-									<span class="error-message" id="error-1"> Please enter your full name</span>
-								</div>
-							</div>
-							<div class="project-form-field">
-								<label for="name">Email address  <span style="color: red">*</span></label>
-								<div id="container2"  class="personal-coloum input-continer">
-									<input id="input2"  name="email" type="text" placeholder="" required>
-									<span class="error-message" id="error-2">Please enter a valid email address (e.g. you@email.com)</span>
-								</div>
-							</div>
-							<div class="project-form-field">
-								<label for="name">Main academic institution  <span style="color: red">*</span></label>
-								<div id="container3"  class="personal-coloum input-continer">
-									<input id="input3"  name="institution" type="text" placeholder="" required>
-									<span class="error-message" id="error-3">Please enter your academic institution</span>
-								</div>
-							</div>
-							<div class="project-form-field">
-								<label for="name">Main research interest</label>
-								<div id="container4"  class="personal-coloum input-continer">
-									<input id="input4" name="institution" type="text" placeholder="">
-								</div>
-							</div>
-							<div class="project-form-field">
-								<label for="name">I am a  </label>
-								<div class="personal-row">
-									<input name="i_am" id="i_am_researcher" value="researcher" type="radio"> <div class="radio-label">Reseacher</div>
-								</div>
-								<div class="personal-row">
-									<input name="i_am" id="i_am_lecturer" value="lecturer" type="radio"> <div class="radio-label"> Lecturer</div>
-								</div>
-								<div class="personal-row">
-									<input name="i_am" id="i_am_both" value="both" type="radio"> <div class="radio-label">Both</div>
-								</div>
-							</div>
-							<div class="end">
-								<button type="button" style="border: 0px black solid;" class="main-btn" onclick="submit();" id="submit-btn"> Sign up </button>
-							</div>
-						</form>
-					</div>
-				</div>
+        
+        <div class="not-found-container">
+            <div class="not-found-section">
+                <h2 class="not-found-title">Page not found</h2>
+                <p class="not-found-message">Sorry, we couldn't find this page.<br class="disable-br">
+                    Go back to keep browsing, or get in touch to let us know what you're looking for.</p>
+            </div>
+            <div class="not-found-buttons-section">
+                <a href="#" class="btn back-btn">
+                    <div class="not-found-btn-title">
+                        <svg width="26" height="26" style="margin-top: -4px;" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28.3334 15.5833H11.0926L19.0117 7.66413L17.0001 5.66663L5.66675 17L17.0001 28.3333L18.9976 26.3358L11.0926 18.4166H28.3334V15.5833Z" fill="#5A67D8"/></svg> Back
+                    </div>
+                </a>
+                <a href="#" class="btn get-in-touch-btn">
+                    <div class="not-found-btn-title">
+                        <svg width="26" height="26" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M29.7499 8.49992H26.9166V21.2499H8.49992V24.0833C8.49992 24.8624 9.13742 25.4999 9.91659 25.4999H25.4999L31.1666 31.1666V9.91659C31.1666 9.13742 30.5291 8.49992 29.7499 8.49992ZM24.0833 16.9999V4.24992C24.0833 3.47075 23.4458 2.83325 22.6666 2.83325H4.24992C3.47075 2.83325 2.83325 3.47075 2.83325 4.24992V24.0833L8.49992 18.4166H22.6666C23.4458 18.4166 24.0833 17.7791 24.0833 16.9999Z" fill="#5A67D8"/> </svg> Get in touch
+                    </div>
+                </a>
+            </div>
+			
+			<div class="personal-row center">
+				<img class="half-width-img" src="/lecture_website_app_generator/src/client/public/images/index-header-original.jpg" alt="something">
 			</div>
-		</div>
-		
+        </div>
 		
 		<footer class="footer">
 			<div class="footer-section">
@@ -181,6 +153,7 @@
 			</div> 
 		</footer> 
 	</div>
+	
+    <script src="/lecture_website_app_generator/src/client/public/main.js" />
   </body>
-  <script src="/lecture_website_app_generator/src/client/public/sign-for-beta.js"></script>
 </html>
