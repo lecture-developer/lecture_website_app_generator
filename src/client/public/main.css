@@ -775,7 +775,7 @@ textarea:focus, input:focus, button:focus{
 	min-height: 400px;
 }
 
-.thank-you-title{
+.share-initiative{
 	font-family: Playfair Display !important;
 	font-weight: bold !important;
 	font-size: 24px !important;
@@ -1069,6 +1069,62 @@ textarea:focus, input:focus, button:focus{
 	}
 }
 
+/* thank you section */
+.thank-you-container{
+	padding-top: 40px;
+	width: 100%;
+	background-color: white;
+}
+
+@media only screen and (max-width: 850px) {
+	.thank-you-container {
+		padding: 70px 60px 30px 60px;
+	}
+
+	.thanks-header-container, .share-initiative-section, .social-thanks {
+		display: none;
+	}
+
+	#thank-you-message {
+		font-size: 18px;
+		line-height: 27px;
+	}
+
+	#thank-you-title {
+		font-size: 28px;
+		line-height: 37px;
+	}
+
+	.background-img-mobile {
+		display: block;
+	}
+}
+
+@media only screen and (min-width: 850px) {
+	.thank-you-container {
+		padding: 100px 150px;
+	}
+
+	.thanks-header-container, .share-initiative-section, .social-thanks {
+		display: block;
+	}
+
+	#thank-you-message {
+		font-size: 26px;
+		line-height: 150%;
+	}
+
+	#thank-you-title {
+		font-size: 32px;
+		line-height: 75px;
+	}
+
+	.background-img-mobile, .share-initiative-mobile {
+		display: none;
+	}
+}
+
+.thank-you-section{
 /* mobile pages section */
 
 /* mobile - not found page */
@@ -1090,6 +1146,99 @@ textarea:focus, input:focus, button:focus{
 	width: 100%;
 }
 
+
+.thank-you-section h2{
+	font-weight: 400;
+	font-family: Playfair Display;
+	text-align: justify;
+	margin-bottom: 60px;
+}
+
+.thank-you-section p{
+	font-weight: 300;
+	margin-bottom: 30px;
+}
+
+.share-initiative-mobile {
+	text-align: center;
+}
+
+.share-initiative-btn-mobile, .share-initiative-btn-mobile:hover {
+	margin: auto;
+	padding: auto;
+	color: #5A67D8;
+	background-color: white;
+	border: #5A67D8 solid 2px;
+}
+
+.background-img-mobile {
+	text-align: center;
+	margin-top: 60px;
+	transition: transform 0.5s;
+	cursor: pointer;
+	transform-origin: bottom;
+}
+
+.active-share-menu {
+	transform: scale(2.5);
+}
+
+.social-buttons-menu-mobile {
+	margin: auto;
+	margin-top: 50px;
+	background-color: white;
+	opacity: 0;
+	width: 200px;
+	height: 200px;
+	transition: opacity 0.3s;
+}
+
+.active-social-menu {
+	position: relative;
+	display: block;
+	opacity: 0.9;
+}
+
+#social-menu-title-mobile {
+	padding-top: 2rem;
+	font-weight: 400;
+	font-family: Playfair Display;
+	font-size: 16px;
+	line-height: 37px;
+}
+
+#social-menu-message-mobile {
+	text-align: left;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 13px;
+	letter-spacing: 0em;
+	margin: auto;
+	width: 90%;
+	padding-top: 10px;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+#close-mobile-menu-btn {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background-color: transparent;
+	border: transparent;
+}
+
+.social-buttons-section {
+	margin-top: 10px;
+	padding-left: 3px;
+	padding-right: 3px
+}
+
+.social-buttons-section svg {
+	transform: scale(0.5, 0.5);
+}
+  
 .not-found-message {
 	font-weight: 300;
 	font-size: 18px;
