@@ -47,6 +47,17 @@ function thankYouPage()
         console.log("No such type option");
         // redirect to 404
     }
+	
+	// fix footer 
+	if(window.innerWidth < 800)
+	{
+		document.getElementById("direction").classList.add('personal-coloum');	
+	}
+	else
+	{
+		document.getElementById("direction").classList.add('personal-row');
+		document.getElementById("line-plit").classList.add('border-right-footer');
+	}
 }
 
 window.onload = thankYouPage;
