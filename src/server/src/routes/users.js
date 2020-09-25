@@ -68,7 +68,7 @@ router.post("/register", async (req, res) => {
     { expiresIn: "20m" });
 
   const data = generateRegistrationEmail(email, name, token);
-  Mailing.sendMail(data);
+  Mailing.sendEmail(data);
 
   return res.send("Email verification sent, please check your email");
 });
@@ -147,7 +147,7 @@ router.post('/send-forgot-password-email', async (req, res) => {
     
     // Generate email with rese password link
     const data = generateForgotPasswordEmail(emailExist.email, emailExist.name, token);
-    Mailing.sendMail(data);
+    Mailing.sendEmail(data);
     return res.send("Mail sent!")
 });
 

@@ -42,7 +42,7 @@ export const generateForgotPasswordEmail = (email, name, token) => {
 
 export const generateNewNotActivatedEmail = (email, name, token) => {
   return {
-    from: "Lecture Website App Generator <me@samples.mailgun.org>",
+    from: "Lecture Website App Generator <eyalgolan96@gmail.com>",
     to: email,
     subject: `Hi ${name}, please verify your Lecture Website App Generator account`,
     html: `<h1>Hi,</h1>
