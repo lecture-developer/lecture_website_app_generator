@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import logger from '../../logger';
 import { generateNewNotActivatedEmail } from "../resources/emails";
+
 /*
 * Returns users that didnt activate their account
 */
@@ -15,40 +16,41 @@ const getNewNotActivated = async () => {
     return users;
 };
 
-const getOldNotActivated = async () => {
-    let now = new Date();
-    let min = new Date();
-    min.setTime(now.getTime() - 24*60*60 * 1000);
-    const users = await User.find({date: {$gt: min, $lt: now}});
+/*
+* delete all users that didnt activate after DAYS_DELETE_UNACTIVED_USERS
+*/
+const removeOldNotActivated = async () => {
+    let now = new Date(); // get current time
 
-    for( let i = 0 ; i < users.length ; i++) {
-        const { creationDate } = users[i].date
-        logger.info(users[i].date)
+    //set min time
+    let min = new Date(); 
+    const gracePeriod = 24*60*60 * 1000 * process.env.DAYS_DELETE_UNACTIVED_USERS
+    min.setTime(now.getTime() - gracePeriod);
+
+    // go over all unactivated users and delete all that didnt activate in the grace period
+    for await (const doc of User.find({creationDate: {$gt: min, $lt: now}})) {
+        try {
+            const { name } = doc
+            logger.info("deleting user " + name)
+            await User.deleteOne(doc)
+        } catch(error) {
+            logger.error("error deleting user, info:\n" + error)
+        }
     }
 };
 
+/*
+* Send email reminder to all users that didnt activate their account
+*/
 const sendEmailToNewNotActivated = async (newUsers) => {
-    for(let i = 0 ; i < newUsers.length ; i++) {
-        const { name, email, password } = newUsers[i];
+    for await (const doc of User.find({activated: false})) {
+        const { name, email, password } = doc;
         const token = generateToken(name, email, password);
         const data = generateNewNotActivatedEmail(name, email, token);
         Mailing.sendEmail(transporter, data);
-        logger.info("sent mail " + data)
+        logger.info("sent mail " + data);
     }
 }
-
-const removeOldNotActivated = async (oldNotActivated) => {
-    for( let i = 0 ; i < oldNotActivated.length ; i++) {
-        const { name, email, password } = oldNotActivated[i]; 
-        logger.info("deleting " + name + " ...")
-        try {
-            const deletionResult = await User.deleteOne(name);
-        }
-        catch(error) {
-            logger.error("failed to delete user " + name + "\n exception details: " + error)
-        }
-    }
-};
 
 /*
 * Generate an activation token and returns it
@@ -71,12 +73,12 @@ export const scheduleJobs = async () => {
         // Send e-mail activation reminders
         logger.info("CRON JOB : Sending email activation reminders...");
         const newUsers = getNewNotActivated();
-        await sendEmailToNewNotActivated(newUsers)
+        await sendEmailToNewNotActivated(newUsers);
     }),
-    cron.schedule('* * * * *', async () => {
-        logger.info("deleting old not activated users...")
-        const oldNotActivated = getOldNotActivated();
-        await removeOldNotActivated(oldNotActivated)
+    cron.schedule('0 0 11 * *', async () => {
+        // delete unactived users after DAYS_DELETE_UNACTIVED_USERS days
+        logger.info("deleting old not activated users...");
+        await removeOldNotActivated();
     })
 };
 
