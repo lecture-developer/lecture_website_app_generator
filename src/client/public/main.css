@@ -1803,11 +1803,9 @@ textarea:focus, input:focus, button:focus{
 	flex-direction: column;
 	flex-wrap: nowrap;
 	align-content: flex-start;
-	max-width: 1080px;
 	padding-top: 40px;
 	width: 100%;
 }
-
 
 .thank-you-section h2{
 	font-weight: 400;
@@ -1902,17 +1900,20 @@ textarea:focus, input:focus, button:focus{
   
 .not-found-message {
 	font-weight: 300;
-	font-size: 18px;
 	line-height: 27px;
 	font-family: Roboto;
 	text-align: justify;
 }
 
 .not-found-title {
-	font-size: 48px;
 	line-height: 75px;
 	font-family: Playfair Display;
-	margin-bottom: 10px;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.not-found-buttons-section-dekstop {
+  margin-bottom: 6rem;
 }
 
 .not-found-buttons-section *{
@@ -1938,11 +1939,10 @@ textarea:focus, input:focus, button:focus{
 	font-weight: 400;	
 }
 
-.not-found-container img {
-	margin-top: 65px;
-	width: 50%;
-	height: 100%;
-	text-align: center;
+.not-found-buttons-section-desktop {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .not-found-btn-title {
@@ -1956,6 +1956,84 @@ textarea:focus, input:focus, button:focus{
 
 .disable-br{
 	display: none;
+}
+
+.not-found-img svg{
+	max-width: 500px;
+	max-height: 500px;
+}
+
+/* not found mobile only */
+@media only screen and (max-width: 850px) {
+  .not-found-section-desktop {
+    display: none;
+  }
+
+  .not-found-section-mobile {
+    display: block;
+    text-align: center;
+    padding-top: 0;
+  }
+
+  .not-found-title {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 37px;
+    text-align: center;
+  }
+
+  .not-found-message {
+    width: 75%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: center;
+  }
+
+  .not-found-img svg{
+    display: block;
+  }
+
+  .not-found-buttons-section-mobile {
+    display: flex;
+	flex-flow: row;
+	flex-wrap: nowrap;
+  }
+  .not-found-buttons-section-mobile a{
+    margin: 5px;
+  }
+  
+	.not-found-container{
+		padding: 70px 30px;
+	}
+}
+
+/* not found desktop only */
+@media only screen and (min-width: 850px) {
+  .not-found-section-desktop {
+    display: block;
+  }
+
+  .not-found-section-mobile {
+    display: none;
+  }
+
+  .not-found-title {
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 64px;
+    text-align: left;
+  }
+
+  .not-found-message {
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 39px;
+  }
 }
 
 
@@ -1975,9 +2053,5 @@ textarea:focus, input:focus, button:focus{
 
 	.not-found-btn-title {
 		font-weight: 400;
-	}
-
-	.not-found-container img {
-		width: 100%;
 	}
 }
