@@ -161,14 +161,47 @@
 				<div class="personal-row center">
 					<div class="section-item w-100 center">
 						<h4 class="who-we-are-title-small" style="font-size: 32px !important;">
-							Looking for something else? <br><br> Get in touch
+							 Want to join us? <br><br> Get in touch
 						</h4>
 						<form class="project-form">
-							<input name="name" id="name" type="text" placeholder="Name">
-							<input name="email" id="email" type="email" placeholder="Email">
-							<textarea name="message" id="message" rows="5">Share your thoughts: </textarea>
-							<div class="end">
-								<input type="submit" class="project-form-submit" value="Send">
+							<div id="container1">
+							  <label class="form-titles" for="name">
+								Full name <span class="red-star">*</span>
+							  </label>
+							  <input name="name" id="input1" type="text" required>
+							  <p id="error-1" class="error-message">
+								Please enter your full name
+							  </p>
+							</div>
+							<div id="container2">
+							  <label class="form-titles" for="email">
+								Phone number<span class="red-star">*</span>
+							  </label>
+							  <input name="phone" id="input2" type="number" required>
+							  <p id="error-2" class="error-message">
+								Please enter your phone number
+							  </p>
+							</div>
+							<div id="container3">
+							  <label class="form-titles" for="email">
+								Email
+							  </label>
+							  <input name="email" id="input3" type="text">
+							  <p id="error-3" class="error-message">
+								Please enter a valid email address (e.g. you@email.com)
+							  </p>
+							</div>
+							<div id="container4">
+								<label class="form-titles" for="email">
+									Tell us a little about yourself<span class="red-star">*</span>
+								</label>
+								<input type="text" name="message" id="input4" rows="5" required />
+								  <p id="error-4" class="error-message">
+									Please tell us about yourself
+								  </p>
+							</div>
+							<div class="personal-row end">
+								<input id="submit-btn" type="submit" class="main-btn" value="Send">
 							</div>
 						</form>
 					</div>
@@ -208,6 +241,7 @@
 		</footer> 
 	</div>
 	
+	<script src="/lecture_website_app_generator/src/client/public/join-our-team.js"></script>
     <script src="/lecture_website_app_generator/src/client/public/main.js"></script>
   </body>
 </html>

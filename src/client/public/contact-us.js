@@ -4,7 +4,7 @@
 const delegate = (selector) => (cb) => (e) => e.target.matches(selector) && cb(e);
 const inputDelegate = delegate('input');
 
-for (var i = 1; i <= 4; i++)
+for (var i = 1; i <= 3; i++)
 {
 	var container = document.getElementById("container" + i);
 	container.addEventListener('focusin', inputDelegate((el) => highlightInput(el)));
@@ -28,6 +28,7 @@ function cancelHighlightInput(inputObj)
 	// when go - check
 	checkInput(inputObj);
 }
+
 
 function checkInput(inputObj)
 {

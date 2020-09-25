@@ -52,7 +52,7 @@ function checkInput(inputObj)
 	}
 	else if (inputObj.target.id == "input2")
 	{
-		if (!(validateEmail(inputObj.target.value) && notEmpty(inputObj.target.value)))
+		if (!validatePhone(inputObj.target.value))
 		{
 			inputObj.target.classList.add("error-input");
 			document.getElementById("error-" + inputObj.target.id[inputObj.target.id.length - 1]).style.display = "inherit";
@@ -64,7 +64,7 @@ function checkInput(inputObj)
 			document.getElementById("error-" + inputObj.target.id[inputObj.target.id.length - 1]).style.display = "";
 		}
 	}
-	else if (inputObj.target.id == "input3")
+	else if (inputObj.target.id == "input4")
 	{
 		if (!notEmpty(inputObj.target.value))
 		{
@@ -106,9 +106,9 @@ function notEmpty(value)
 	return value.trim().length > 0
 }
 
-function validateEmail(inputText)
+function validatePhone(inputText)
 {
-	return inputText.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
+	return inputText.length > 9 && inputText.length < 13 && inputText.replace("-", "").match(/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g);
 }
 
 /* end - Check input functions */

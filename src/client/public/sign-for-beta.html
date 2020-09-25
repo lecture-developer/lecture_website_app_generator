@@ -123,33 +123,41 @@
               Teaching in the fall semester of 2021? We invite you to be the first to try our platform. Please tell us about yourself and your work. We’ll get in touch soon.
             </p>
             <form class="project-form">
-              <label class="form-titles" for="name">
-                Full name <span class="red-star">*</span>
-              </label>
-              <input name="name" id="name" type="text" required>
-              <p class="error-message">
-                Please enter your full name
-              </p>
-              <label class="form-titles" for="email">
-                Email address <span class="red-star">*</span>
-              </label>
-              <input name="email" id="email" type="text" required>
-              <p class="error-message">
-                Please enter a valid email address (e.g. you@email.com)
-              </p>
-              <label class="form-titles" for="institution">
-                Main academic institution <span class="red-star">*</span>
-              </label>
-              <input name="institution" id="institution" type="text" required>
-              <p class="error-message">
-                Please enter your academic institution
-              </p>
-              <label class="form-titles" for="reasearch">
-                Main research interest
-              </label>
-              <input name="research" id="research" type="text">
+				<div id="container1">
+				  <label class="form-titles" for="name">
+					Full name <span class="red-star">*</span>
+				  </label>
+				  <input name="name" id="input1" type="text" required>
+				  <p id="error-1" class="error-message">
+					Please enter your full name
+				  </p>
+				</div>
+				<div id="container2">
+				  <label class="form-titles" for="email">
+					Email address <span class="red-star">*</span>
+				  </label>
+				  <input name="email" id="input2" type="text" required>
+				  <p id="error-2" class="error-message">
+					Please enter a valid email address (e.g. you@email.com)
+				  </p>
+				</div>
+				<div id="container3">
+				  <label class="form-titles" for="institution">
+					Main academic institution <span class="red-star">*</span>
+				  </label>
+				  <input name="institution" id="input3" type="text" required>
+				  <p id="error-3" class="error-message">
+					Please enter your academic institution
+				  </p>
+				</div>
+				<div id="container4">
+				  <label class="form-titles" for="reasearch">
+					Main research interest
+				  </label>
+				  <input name="research" id="input4" type="text">
+				</div>
               <label class="form-titles" for="i_am">
-                I am a <span class="red-star">*</span>
+                I am a 
               </label>
               <label class="radio-buttons"> Reseacher
                 <input type="radio" name="radio" id="reasearcher">
@@ -166,7 +174,9 @@
               <p class="error-message">
                   Please choose your position at this instuition
                 </p>
-              <input type="submit" class="main-btn" value="Sign up" id="sign-up">
+				<div class="personal-row" style="justify-content: flex-end;">
+					<input id="submit-btn" type="submit" class="main-btn" value="Sign up">
+				</div>
             </form>
           </div>
         </div>
@@ -206,7 +216,7 @@
 	</div>
 	
     <script src="/lecture_website_app_generator/src/client/public/main.js"></script>
-<script src="/lecture_website_app_generator/src/client/public/sign-for-beta.js"></script>
+	<script src="/lecture_website_app_generator/src/client/public/sign-for-beta.js"></script>
 
 </body>
 </html>

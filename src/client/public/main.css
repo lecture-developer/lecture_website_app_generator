@@ -308,6 +308,7 @@ footer {
   color: white !important;
   text-decoration: none !important;
   margin-top: 10px;
+  border: 0px solid white !important;
 }
 
 .main-btn svg {
@@ -403,6 +404,14 @@ footer {
   color: white !important;
   background: #5A67D8 !important;
   border: 2px solid #5A67D8 !important;
+}
+
+.submit-btn{
+	max-width: 140px;
+}
+
+#submit-btn{
+	margin-top: 50px;
 }
 
 /*** end - elements ***/
@@ -961,7 +970,6 @@ footer {
 .project-form input, textarea {
   border: 2px solid #828282;
   border-radius: 10px;
-  /* margin-top: 30px; */
   padding: 12px 18px;
 }
 
@@ -1130,14 +1138,16 @@ footer {
 	margin-right: auto;
 }
 
-.project-form input, textarea{	
-	border: 2px solid #828282;
-	border-radius: 10px;
-	margin-top: 30px;
-	padding: 12px 18px;
+.project-form input[type="text"]{
+	width: 100%;
 }
 
-.project-form input[type="text"]{
+
+.project-form input[type="number"]{
+	width: 100%;
+}
+
+.project-form textarea{
 	width: 100%;
 }
 
@@ -1185,36 +1195,6 @@ textarea:focus, input:focus, button:focus{
 
 .project-form-field input{
 	margin-top: 5px !important;
-}
-
-.error-input{
-	border: 2px solid #EB5757 !important;
-	width: calc(100% - 60px);
-}
-
-.good-input{
-	border: 2px solid #27AE60 !important;
-	width: calc(100% - 60px);
-}
-
-.pick-input{
-	border: 2px solid #5A67D8 !important;
-	width: calc(100% - 0px);
-}
-
-.radio-label{
-	font-family: Roboto;
-	margin-left: 12px;
-	color: #333333;
-	font-weight: 500;
-	font-size: 24px;
-	line-height: 28px;
-	letter-spacing: -0.015em;
-}
-
-.project-form-field span{
-	text-align: left;
-	width: 100%;
 }
 
 .error-message{

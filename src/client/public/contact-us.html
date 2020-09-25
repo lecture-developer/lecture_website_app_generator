@@ -113,29 +113,35 @@
 							Couldn’t find what you’re looking for? Want to share your thoughts about our platform? We’d love to hear from you.
 						</p>
 						<form class="project-form">
-              <label for="Name" class="form-titles">
-                Full name<span class="red-star">*</span>
-              </label>
-							<input name="name" id="name" type="text">
-              <p class="error-message">
-                Please enter your full name
-              </p>
-              <label for="Email" class="form-titles">
-                Email address<span class="red-star">*</span>
-              </label>
-              <input name="email" id="email" type="email">
-              <p class="error-message">
-                Please enter your email address
-              </p>
-              <label for="message" class="form-titles">
-                Tell us what you have in mind<span class="red-star">*</span>
-              </label>
-              <textarea name="message" id="message" rows="5"></textarea>
-              <p class="error-message">
-                Let us know why you’re getting in touch
-              </p>
-              <div class="end">
-								<input type="submit" class="project-form-submit" value="Send">
+							<div id="container1">
+							  <label class="form-titles" for="name">
+								Full name <span class="red-star">*</span>
+							  </label>
+							  <input name="name" id="input1" type="text" required>
+							  <p id="error-1" class="error-message">
+								Please enter your full name
+							  </p>
+							</div>
+							<div id="container2">
+							  <label class="form-titles" for="email">
+								Email <span class="red-star">*</span>
+							  </label>
+							  <input name="email" id="input2" type="text">
+							  <p id="error-2" class="error-message">
+								Please enter your email address
+							  </p>
+							</div>
+							<div id="container3">
+								<label class="form-titles" for="email">
+									Tell us what you have in mind<span class="red-star">*</span>
+								</label>
+								<input type="text" name="message" id="input3" rows="5" required />
+								  <p id="error-3" class="error-message">
+									Let us know why you’re getting in touch
+								  </p>
+							</div>
+							<div class="personal-row end">
+								<input id="submit-btn" type="submit" class="main-btn" value="Send">
 							</div>
 						</form>
 					</div>
@@ -175,6 +181,7 @@
 		</footer> 
 	</div>
 	
+    <script src="/lecture_website_app_generator/src/client/public/contact-us.js"></script>
     <script src="/lecture_website_app_generator/src/client/public/main.js"></script>
   </body>
 </html>
