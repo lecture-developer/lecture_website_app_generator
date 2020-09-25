@@ -1249,7 +1249,6 @@ textarea:focus, input:focus, button:focus{
   line-height: 32px !important;
   letter-spacing: 0.04em !important;
   color: #000000 !important;
-  margin-top: 60px;
 }
 
 .thanks-header-container{
@@ -1275,7 +1274,15 @@ textarea:focus, input:focus, button:focus{
 	line-height: 32px !important;
 	letter-spacing: 0.04em !important;
 	color: #000000 !important;
-	margin-top: 60px;
+	margin-top: 30px;
+}
+
+.share-initiative-meta{
+	font-family: Roboto;
+	font-weight: 300;
+	font-size: 26px;
+	line-height: 150%;
+	color: rgba(0, 0, 0, 0.8)
 }
 
 .social-thanks {
@@ -1757,7 +1764,7 @@ textarea:focus, input:focus, button:focus{
 
 @media only screen and (max-width: 850px) {
 	.thank-you-container {
-		padding: 70px 60px 30px 60px;
+		padding: 130px 60px 30px 60px;
 	}
 
 	.thanks-header-container, .share-initiative-section, .social-thanks {
@@ -1832,7 +1839,6 @@ textarea:focus, input:focus, button:focus{
 	font-weight: 400;
 	font-family: Playfair Display;
 	text-align: justify;
-	margin-bottom: 60px;
 }
 
 .thank-you-section p{
