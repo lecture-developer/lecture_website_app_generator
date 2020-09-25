@@ -1819,8 +1819,7 @@ textarea:focus, input:focus, button:focus{
 	flex-direction: column;
 	flex-wrap: nowrap;
 	align-content: flex-start;
-	max-width: 1080px;
-  padding-top: 40px;
+	padding-top: 40px;
 	width: 100%;
 }
 
@@ -1975,6 +1974,11 @@ textarea:focus, input:focus, button:focus{
 	display: none;
 }
 
+.not-found-img svg{
+	max-width: 500px;
+	max-height: 500px;
+}
+
 /* not found mobile only */
 @media only screen and (max-width: 850px) {
   .not-found-section-desktop {
@@ -2008,14 +2012,20 @@ textarea:focus, input:focus, button:focus{
 
   .not-found-img svg{
     display: block;
-    margin-left: 50px;
-    margin-right: 50px;
   }
 
-  .not-found-buttons-section-mobile a {
-    display: inline-block;
-    margin: 10px;
+  .not-found-buttons-section-mobile {
+    display: flex;
+	flex-flow: row;
+	flex-wrap: nowrap;
   }
+  .not-found-buttons-section-mobile a{
+    margin: 5px;
+  }
+  
+	.not-found-container{
+		padding: 70px 30px;
+	}
 }
 
 /* not found desktop only */
