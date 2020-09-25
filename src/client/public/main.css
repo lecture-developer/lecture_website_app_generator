@@ -499,7 +499,7 @@ footer {
   color: #000000;
   padding: 20px 10px;
 }
-@media only screen and (max-device-width: 420px) {
+@media only screen and (max-width: 420px) {
 	.beta-section h4{
 		font-style: normal;
 		font-weight: normal;
@@ -513,6 +513,10 @@ footer {
     	margin-bottom: 4px;
 	}
 
+	.beta-section a{
+		padding: 16.5px;
+	}
+	
 	.beta-section p{
 		font-family: Roboto;
 		font-style: normal;
