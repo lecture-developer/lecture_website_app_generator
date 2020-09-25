@@ -1282,10 +1282,13 @@ textarea:focus, input:focus, button:focus{
   margin-top: 20px;
 }
 
-.social-thanks svg {
-  width: 48px;
-  height: 48px;
-  margin-right: 30px;
+.social-thanks-button, .social-thanks-button:hover, .social-thanks-button:visited {
+  color: #5A67D8;
+}
+
+.social-thanks-button {
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
 /* end - thank you page */
@@ -1912,8 +1915,10 @@ textarea:focus, input:focus, button:focus{
 	padding-right: 3px
 }
 
-.social-buttons-section svg {
-	transform: scale(0.5, 0.5);
+.social-buttons-section a {
+  transform: scale(0.8, 0.8);
+  margin-left: 3px;
+  margin-right: 3px;
 }
   
 .not-found-message {
