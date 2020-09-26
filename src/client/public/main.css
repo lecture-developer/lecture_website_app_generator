@@ -1838,7 +1838,7 @@ textarea:focus, input:focus, button:focus{
 .thank-you-section h2{
 	font-weight: 400;
 	font-family: Playfair Display;
-	text-align: justify;
+	/* text-align: justify; */
 }
 
 .thank-you-section p{
@@ -1860,13 +1860,28 @@ textarea:focus, input:focus, button:focus{
 .background-img-mobile {
 	text-align: center;
 	margin-top: 60px;
-	transition: transform 0.5s;
-	cursor: pointer;
+	transition: all 0.5s ease 0s;
+  cursor: pointer;
+  position: relative;
+  top: 0px;
 	transform-origin: bottom;
 }
 
 .active-share-menu {
 	transform: scale(2.5);
+}
+
+@media only screen and (max-width: 550px) {
+  .active-share-menu {
+    transform: scale(2);
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .active-share-menu {
+    transform: scale(1.5);
+    top: -250px;
+  }
 }
 
 .social-buttons-menu-mobile {
