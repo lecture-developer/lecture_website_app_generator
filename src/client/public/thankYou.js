@@ -19,7 +19,7 @@ function thankYouPage()
                 socialTitle += 'Spread the word';
                 socialMessage += 'Tell your friends and colleagues about Product to help us grow our community.';
                 break;
-            case 2: // beta access
+            case 2: // beta access (sign up)
                 title += 'signing up for beta access!';
                 message += 'We’re planning to start beta testing towards the end of 2020, during the fall semester.\
                             We’ll send you an email with more details soon.';

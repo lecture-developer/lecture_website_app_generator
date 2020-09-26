@@ -92,11 +92,20 @@ function checkInput(inputObj)
 }
 
 
-// TODO: add here the BE logic
-function signForBetaForm()
+// On form submit
+function submitForm()
 {
+	// Get the values from the form
+	const name = document.getElementById("input1").value;
+	const email = document.getElementById("input2").value;
+	const institution = document.getElementById("input3").value;
+	const reasearch = document.getElementById("input4").value;
 	
-	return false;
+	// Send the values to the backend
+
+ 
+	// Advance the user to the appropriate thank you page
+	window.location.href = "thank-you.html?type=2";
 }
 
 /* Check input functions */

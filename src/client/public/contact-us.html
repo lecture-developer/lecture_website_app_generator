@@ -112,7 +112,7 @@
 						<p class="form-page-text">
 							Couldn’t find what you’re looking for? Want to share your thoughts about our platform? We’d love to hear from you.
 						</p>
-						<form class="project-form">
+						<form class="project-form" method="POST">
 							<div id="container1">
 							  <label class="form-titles" for="name">
 								Full name <span class="red-star">*</span>
@@ -141,7 +141,7 @@
 								  </p>
 							</div>
 							<div class="personal-row end">
-								<input id="submit-btn" type="submit" class="main-btn" value="Send">
+								<input id="submit-btn" type="button" class="main-btn" value="Send" onclick="submitForm()">
 							</div>
 						</form>
 					</div>
