@@ -551,19 +551,20 @@ footer {
 }
 
 .member-item img {
-  width: 180px;
-  height: 180px;
+  width: 140px;
+  height: 140px;
   margin-bottom: 10px;
   padding: 0px 0px;
   border-radius: 50%;
+  filter: grayscale(100%);
   border: 1px solid #B8C5D0;
 }
 
 .member-item h5 {
   font-family: Roboto;
-  font-weight: 300;
-  font-size: 24px;
-  line-height: 28px;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 25px;
   color: #000000;
 }
 
