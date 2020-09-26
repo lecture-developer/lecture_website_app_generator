@@ -1,7 +1,0 @@
-ATLAS_URI=mongodb+srv://dbUser:3v2gB2bRURYFVek@cluster0.ehik1.azure.mongodb.net/generator?retryWrites=true&w=majority
-MAILGUN_DOMAIN=sandboxb5e346c5717e453db4866688c629126f.mailgun.org
-MAILGUN_APIKEY=e1ff2d363377b4126b2046feb6d00287-4d640632-defa4e81
-JWT_ACC_ACTIVATE=accountactivatekey123
-CLIENT_URL=http://localhost:3000
-PORT = 5000
-LOG_LEVEL=info
