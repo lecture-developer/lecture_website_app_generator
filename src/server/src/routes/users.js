@@ -7,7 +7,7 @@ import { generateRegistrationEmail, generateForgotPasswordEmail } from "../resou
 import dotenv from "dotenv";
 dotenv.config();
 import logger from '../../logger';
-import transporter from '../../email'
+import Mailing from '../../emailController'
 
 const router = express.Router();
 
@@ -22,20 +22,6 @@ const hashPassword = async (password) => {
   const hashedPassword = await bcrypt.hash(password, salt);
 
   return hashedPassword;
-};
-
-/* 
-* Gets email details and sends it
-*/
-const sendMail = (data) => {
-  transporter.sendMail(data, function(err, info){
-    if(err) {
-      logger.error("Sending email failed with error: " + err);
-      return res.send("Sending email failed");
-    } else {
-      logger.info('Email sent');
-    }
-  });
 };
 
 // Register user
@@ -82,7 +68,7 @@ router.post("/register", async (req, res) => {
     { expiresIn: "20m" });
 
   const data = generateRegistrationEmail(email, name, token);
-  sendMail(data);
+  Mailing.sendEmail(data);
 
   return res.send("Email verification sent, please check your email");
 });
@@ -161,7 +147,7 @@ router.post('/send-forgot-password-email', async (req, res) => {
     
     // Generate email with rese password link
     const data = generateForgotPasswordEmail(emailExist.email, emailExist.name, token);
-    sendMail(data);
+    Mailing.sendEmail(data);
     return res.send("Mail sent!")
 });
 
