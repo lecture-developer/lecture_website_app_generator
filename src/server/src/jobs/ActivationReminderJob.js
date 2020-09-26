@@ -22,20 +22,18 @@ const getNewNotActivated = async () => {
 const removeOldNotActivated = async () => {
     let now = new Date(); // get current time
 
-    //set min time
+    // calculate the min time - current time minus
+    // the number of milliseconds in a day times the number of days
     let min = new Date(); 
-    const gracePeriod = 24*60*60 * 1000 * process.env.DAYS_DELETE_UNACTIVED_USERS
+    const numMillisecondsInDay = 24*60*60 * 1000;
+    const gracePeriod = numMillisecondsInDay * process.env.DAYS_DELETE_UNACTIVED_USERS;
     min.setTime(now.getTime() - gracePeriod);
 
-    // go over all unactivated users and delete all that didnt activate in the grace period
-    for await (const doc of User.find({creationDate: {$gt: min, $lt: now}})) {
-        try {
-            const { name } = doc
-            logger.info("deleting user " + name)
-            await User.deleteOne(doc)
-        } catch(error) {
-            logger.error("error deleting user, info:\n" + error)
-        }
+    // delete all users that didnt activate in the grace period
+    try {
+        await User.deleteMany({creationDate: {$gt: min, $lt: now}})
+    } catch(error) {
+        logger.error("error deleting users, info:\n" + error)
     }
 };
 
@@ -69,13 +67,13 @@ const generateToken = (name, email, password) => {
 * to users that didnt activate their account
 */
 export const scheduleJobs = async () => {
-    cron.schedule('0 0 10 * *', async () => {
+    cron.schedule(process.env.REMIND_USERS_TO_ACTIVATE_DAYS, async () => {
         // Send e-mail activation reminders
         logger.info("CRON JOB : Sending email activation reminders...");
         const newUsers = getNewNotActivated();
         await sendEmailToNewNotActivated(newUsers);
     }),
-    cron.schedule('0 0 11 * *', async () => {
+    cron.schedule(process.env.DELETE_UNACTIVATED_USERS_DAYS, async () => {
         // delete unactived users after DAYS_DELETE_UNACTIVED_USERS days
         logger.info("deleting old not activated users...");
         await removeOldNotActivated();
