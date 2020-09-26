@@ -55,6 +55,8 @@
     "pino-pretty": "^4.2.0"
   },
   "nodemonConfig": {
-    "ignore": ["src/server/data/users/"]
+    "ignore": [
+      "src/server/data/users/"
+    ]
   }
 }

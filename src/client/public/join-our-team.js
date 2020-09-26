@@ -24,7 +24,7 @@ function highlightInput(inputObj)
 function cancelHighlightInput(inputObj)
 {
 	inputObj.target.classList.remove("pick-input");
-	
+
 	// when go - check
 	checkInput(inputObj);
 }
@@ -33,9 +33,9 @@ function checkInput(inputObj)
 {
 	inputObj.target.classList.remove("error-input");
 	inputObj.target.classList.remove("good-input");
-	
+
 	var flags = [false, false, false];
-	
+
 	if (inputObj.target.id == "input1")
 	{
 		if (!notEmpty(inputObj.target.value))
@@ -78,16 +78,16 @@ function checkInput(inputObj)
 			document.getElementById("error-" + inputObj.target.id[inputObj.target.id.length - 1]).style.display = "";
 		}
 	}
-	
+
 	if (!allFalse(flags))
 	{
-		document.getElementById("submit-btn").classList.add("disable-submit");
-		document.getElementById("submit-btn").classList.remove("main-btn");
+		document.getElementById("submit-btn").classList.add("disable-submit-secondary");
+		document.getElementById("submit-btn").classList.remove("secondary-btn");
 	}
 	else
 	{
-		document.getElementById("submit-btn").classList.add("main-btn");
-		document.getElementById("submit-btn").classList.remove("disable-submit");
+		document.getElementById("submit-btn").classList.add("secondary-btn");
+		document.getElementById("submit-btn").classList.remove("disable-submit-secondary");
 	}
 }
 
@@ -95,7 +95,7 @@ function checkInput(inputObj)
 // TODO: add here the BE logic
 function signForBetaForm()
 {
-	
+
 	return false;
 }
 
