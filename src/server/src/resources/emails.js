@@ -81,3 +81,16 @@ export const generateUserJoinsOurTeamEmail = (name, phone, email, shortBio) => {
         <p> Short bio: ${shortBio} </p>`
   };
 };
+
+export const generateUserContactsUsEmail = (name, email, message) => {
+  return {
+    from: "Lecture Website App Generator <me@samples.mailgun.org>",
+    to: "eyalgolan96@gmail.com",
+    subject: `${name} wants to contact us`,
+    html: `<h1> Hi, </h1>
+        <p> A user wants to contact us. Here are his details: </p>
+        <p> Name: ${name} </p>
+        <p> Email: ${email} </p>
+        <p> Message: ${message} </p>`
+  };
+};

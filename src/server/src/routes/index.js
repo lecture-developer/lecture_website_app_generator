@@ -3,6 +3,7 @@ import userRouter from "./users";
 import publicationsRouter from './publications';
 import signForBetaRouter from './sign-for-beta';
 import joinOurTeamRouter from './join-our-team';
+import contactUsRouter from './contact-us';
 
 export default {
   indexRouter,
@@ -10,4 +11,5 @@ export default {
   publicationsRouter,
   signForBetaRouter,
   joinOurTeamRouter,
+  contactUsRouter,
 };
