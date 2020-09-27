@@ -69,6 +69,7 @@ footer {
   line-height: 28px;
   text-transform: uppercase;
   margin-right: 60px;
+  margin-left: 20px;
 }
 
 .footer-menu p {
@@ -107,31 +108,62 @@ footer {
   text-decoration: none !important;
 }
 
-@media only screen and (max-width: 420px) {
-  .footer-section {
-    margin-left: auto;
-    margin-right: auto;
-	width: 90%;
-  }
+.footer-direction{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: stretch;
+	align-content: flex-start;
+}
 
-  .footer-section p {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 140.62%;
-    text-align: justify;
-    letter-spacing: 0.04em;
-  }
+@media only screen and (max-width: 420px) {
+	.footer-section {
+		margin-left: auto;
+		margin-right: auto;
+		width: 90%;
+	}
+	
+	.footer-section p {
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 16px;
+		line-height: 140.62%;
+		text-align: justify;
+		letter-spacing: 0.04em;
+	}
 }
 
 
 @media only screen and (max-width: 800px) {
-  .footer-section {
-    margin-left: auto;
-    margin-right: auto;
-	width: 80%;
-  }
+	
+	.footer-menu h1 {
+		margin-left: 0px;
+	}
+	
+	.footer-section {
+		margin-left: auto;
+		margin-right: auto;
+		width: 80%;
+	}
+	
+	.footer-menu{
+		max-width: 100% !important;
+	}
+
+	.border-right-footer {
+	  border: 0px solid white;
+	  padding-right: 0px;
+	  margin-right: 0px;
+	}
+	
+	.footer-direction{
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		align-items: stretch;
+		align-content: flex-start;
+	}
 }
 
 /*** main content pages section ***/
@@ -1233,7 +1265,6 @@ textarea:focus, input:focus, button:focus{
   line-height: 32px !important;
   letter-spacing: 0.04em !important;
   color: #000000 !important;
-  margin-top: 60px;
 }
 
 .thanks-header-container{
@@ -1259,17 +1290,28 @@ textarea:focus, input:focus, button:focus{
 	line-height: 32px !important;
 	letter-spacing: 0.04em !important;
 	color: #000000 !important;
-	margin-top: 60px;
+	margin-top: 30px;
+}
+
+.share-initiative-meta{
+	font-family: Roboto;
+	font-weight: 300;
+	font-size: 26px;
+	line-height: 150%;
+	color: rgba(0, 0, 0, 0.8)
 }
 
 .social-thanks {
   margin-top: 20px;
 }
 
-.social-thanks svg {
-  width: 48px;
-  height: 48px;
-  margin-right: 30px;
+.social-thanks-button, .social-thanks-button:hover, .social-thanks-button:visited {
+  color: #5A67D8;
+}
+
+.social-thanks-button {
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
 /* end - thank you page */
@@ -1738,7 +1780,7 @@ textarea:focus, input:focus, button:focus{
 
 @media only screen and (max-width: 850px) {
 	.thank-you-container {
-		padding: 70px 60px 30px 60px;
+		padding: 130px 60px 30px 60px;
 	}
 
 	.thanks-header-container, .share-initiative-section, .social-thanks {
@@ -1810,8 +1852,7 @@ textarea:focus, input:focus, button:focus{
 .thank-you-section h2{
 	font-weight: 400;
 	font-family: Playfair Display;
-	text-align: justify;
-	margin-bottom: 60px;
+	/* text-align: justify; */
 }
 
 .thank-you-section p{
@@ -1833,13 +1874,28 @@ textarea:focus, input:focus, button:focus{
 .background-img-mobile {
 	text-align: center;
 	margin-top: 60px;
-	transition: transform 0.5s;
-	cursor: pointer;
+	transition: all 0.5s ease 0s;
+  cursor: pointer;
+  position: relative;
+  top: 0px;
 	transform-origin: bottom;
 }
 
 .active-share-menu {
 	transform: scale(2.5);
+}
+
+@media only screen and (max-width: 550px) {
+  .active-share-menu {
+    transform: scale(2);
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .active-share-menu {
+    transform: scale(1.5);
+    top: -250px;
+  }
 }
 
 .social-buttons-menu-mobile {
@@ -1894,8 +1950,10 @@ textarea:focus, input:focus, button:focus{
 	padding-right: 3px
 }
 
-.social-buttons-section svg {
-	transform: scale(0.5, 0.5);
+.social-buttons-section a {
+  transform: scale(0.8, 0.8);
+  margin-left: 3px;
+  margin-right: 3px;
 }
   
 .not-found-message {

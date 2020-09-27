@@ -28,9 +28,13 @@ const userSchema = new Schema({
     data: String,
     default: ''
   },
-  date: {
+  creationDate: {
     type: Date,
     default: Date.now,
+  },
+  activated: {
+    type: Boolean,
+    default: false,
   },
 });
 
