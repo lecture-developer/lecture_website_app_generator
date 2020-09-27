@@ -404,8 +404,7 @@ footer {
 }
 
 .link-btn-big:hover {
-  color: white !important;
-  background: #5A67D8 !important;
+  color:  #5A67D8 !important;
   border: 2px solid #5A67D8 !important;
 }
 
@@ -421,13 +420,19 @@ footer {
 /* end - main content pages section */
 
 /* index_page*/
+.index-btn{
+  align-items: center;
+  text-align: center;
+  padding: 12px 46px;
+}
+
 .index-header-container {
   padding-top: 40px;
   width: 100%;
   background-color: white;
   padding: 100px 100px;
-  background-size: cover;
   background: url(/lecture_website_app_generator/src/client/public/images/index-header.png);
+  background-size: cover;
 }
 
 .index-header-section {
@@ -542,7 +547,6 @@ footer {
 }
 
 .member-item {
-  display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-content: center;
@@ -560,12 +564,22 @@ footer {
   border: 1px solid #B8C5D0;
 }
 
-.member-item h5 {
+.member-item h4 {
   font-family: Roboto;
-  font-weight: normal;
+  font-style: normal;
+  font-weight: 400;
   font-size: 18px;
   line-height: 25px;
   color: #000000;
+  margin-bottom: 0px;
+}
+.member-item h5{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  color: #828282;
 }
 
 .beta-section {
@@ -701,13 +715,20 @@ footer {
 		padding: 0px 0px;
 	}
 
-	.member-item h5{
+  .member-item h5{
 		font-weight: normal;
 		font-size: 14px;
-		line-height: 140.62%;
+		line-height: 19px;
 		text-align: center;
 		letter-spacing: 0.04em;
-		color: #000000;
+	}
+
+	.member-item h5{
+		font-weight: normal;
+		font-size: 12px;
+		line-height: 16px;
+		text-align: center;
+		letter-spacing: 0.04em;
 	}
 
 	.index-section-title{
@@ -1181,6 +1202,7 @@ textarea:focus, input:focus, button:focus{
 }
 
 .center {
+  align-items: center;
   align-content: center;
   justify-content: center;
 }
