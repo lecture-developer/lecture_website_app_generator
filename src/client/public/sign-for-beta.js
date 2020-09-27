@@ -102,7 +102,6 @@ async function submitForm()
 	const reasearch = document.getElementById("input4").value;
 	
 	// Send the values to the backend to generate an email to the admin
-	// const sendData = () => {
 		const data = {
 			name,
 			email,
@@ -121,8 +120,6 @@ async function submitForm()
 		} catch (err) {
 			console.log("Error sending form values to the backend: ", err);
 		}
-	// }
-	// sendData();
 
 	// Pass the user to the appropriate thank you page
 	window.location.href = "thank-you.html?type=2";

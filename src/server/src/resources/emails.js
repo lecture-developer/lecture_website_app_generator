@@ -64,7 +64,20 @@ export const generateUserSignedForBetaEmail = (name, email, institution, researc
         <p> Name: ${name} </p>
         <p> Email: ${email} </p>
         <p> Main academic instutution: ${institution} </p>
-        <p> Main research interest: ${research} </p>
-    `
+        <p> Main research interest: ${research} </p>`
+  };
+};
+
+export const generateUserJoinsOurTeamEmail = (name, phone, email, shortBio) => {
+  return {
+    from: "Lecture Website App Generator <me@samples.mailgun.org>",
+    to: "eyalgolan96@gmail.com",
+    subject: `${name} wants to join our team`,
+    html: `<h1> Hi, </h1>
+        <p> A user wants to join our team. Here are his details: </p>
+        <p> Name: ${name} </p>
+        <p> Email: ${email} </p>
+        <p> Phone: ${phone} </p>
+        <p> Short bio: ${shortBio} </p>`
   };
 };
