@@ -112,3 +112,15 @@ function validatePhone(inputText)
 }
 
 /* end - Check input functions */
+
+/* style arrows in mobile version*/
+var ios = document.getElementById("ios");
+var biu = document.getElementById("biu");
+ios.addEventListener("click", function(){
+		document.getElementById("ios").classList.add("active");
+});
+
+biu.addEventListener("click", function(){
+		document.getElementById("biu").classList.add("active");
+});
+/* end of arrows styling */
