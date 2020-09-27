@@ -140,6 +140,8 @@ footer {
 /*** main content pages section ***/
 /* header menu */
 .navbar {
+  position: absolute;
+  z-index: 1;
   overflow: hidden;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -562,6 +564,8 @@ footer {
   border-radius: 50%;
   filter: grayscale(100%);
   border: 1px solid #B8C5D0;
+  
+
 }
 
 .member-item h4 {
