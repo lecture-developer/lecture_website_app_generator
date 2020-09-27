@@ -1,26 +1,17 @@
 {
-  "featuredPublications": [
-    {
-      "name": "THIS IS THE SECOND ONE",
-      "description": "second description",
-      "year": "",
-      "authors": "",
-      "topic": "",
-      "type": "",
-      "publisher": "",
-      "publicationStatus": "",
-      "fileLinks": [
-        {
-          "info": "",
-          "type": "",
-          "link": ""
-        }
-      ]
-    }
-  ],
-  "biography": "general biography",
+  "biography": "321321",
   "researchInterests": [
-    "reasearch number 1",
-    "research number "
+    "32132"
+  ],
+  "currentProjects": [
+    {
+      "name": "32132",
+      "description": "",
+      "link": {
+        "info": "",
+        "type": "",
+        "link": ""
+      }
+    }
   ]
 }
