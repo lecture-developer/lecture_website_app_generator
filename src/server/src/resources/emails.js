@@ -53,3 +53,18 @@ export const generateNewNotActivatedEmail = (email, name, token) => {
         The Lecture Website App Generator team</p>`,
   };
 };
+
+export const generateUserSignedForBetaEmail = (name, email, institution, research) => {
+  return {
+    from: "Lecture Website App Generator <me@samples.mailgun.org>",
+    to: "eyalgolan96@gmail.com",
+    subject: `${name} signed up for beta access`,
+    html: `<h1> Hi, </h1>
+        <p> A user has signed up for beta access. Here are his deatils: </p>
+        <p> Name: ${name} </p>
+        <p> Email: ${email} </p>
+        <p> Main academic instutution: ${institution} </p>
+        <p> Main research interest: ${research} </p>
+    `
+  };
+};

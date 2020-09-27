@@ -93,7 +93,7 @@ function checkInput(inputObj)
 
 
 // On form submit
-function submitForm()
+async function submitForm()
 {
 	// Get the values from the form
 	const name = document.getElementById("input1").value;
@@ -101,10 +101,30 @@ function submitForm()
 	const institution = document.getElementById("input3").value;
 	const reasearch = document.getElementById("input4").value;
 	
-	// Send the values to the backend
+	// Send the values to the backend to generate an email to the admin
+	// const sendData = () => {
+		const data = {
+			name,
+			email,
+			institution,
+			reasearch
+		};
+		try {
+			const response = await fetch("http://localhost:5000/sign-for-beta", {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(data),
+			});
+			console.log(response);
+		} catch (err) {
+			console.log("Error sending form values to the backend: ", err);
+		}
+	// }
+	// sendData();
 
- 
-	// Advance the user to the appropriate thank you page
+	// Pass the user to the appropriate thank you page
 	window.location.href = "thank-you.html?type=2";
 }
 

@@ -45,6 +45,8 @@ const addRoutes = () => {
   app.use("/index", routers.indexRouter);
   // Publications page routing
   app.use("/publications", routers.publicationsRouter);
+  // Sign for beta landing page routing
+  app.use('/sign-for-beta', routers.signForBetaRouter);
 }
 
 /*
