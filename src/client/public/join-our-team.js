@@ -113,6 +113,14 @@ function validatePhone(inputText)
 
 /* end - Check input functions */
 
+/* scrolling cannot affect phone field */
+document.addEventListener("wheel", function(event){
+    if(document.activeElement.type === "number"){
+        document.activeElement.blur();
+    }
+});
+/* end - scrolling cannot affect phone field */
+
 /* style arrows in mobile version*/
 var ios = document.getElementById("ios");
 var biu = document.getElementById("biu");
