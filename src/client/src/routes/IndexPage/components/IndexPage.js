@@ -8,7 +8,8 @@ import ProjectsDetails from './ProjectsDetails';
 import '../styles/IndexPage.css';
 
 const IndexPage = (props) => {
-  const { userId } = props;
+  // const { userId } = props;
+  const userId = '123456789';
   
   const [formValues, setFormValues] = useState({});
 
@@ -36,7 +37,7 @@ const IndexPage = (props) => {
       <div className="container">
         <GeneralDetails updateData={updateData}/>
         <ResearchDetails updateData={updateData}/>
-        <PublicationsDetails updateData={updateData}/>
+        <PublicationsDetails updateData={updateData} userId={userId}/>
         <ProjectsDetails updateData={updateData}/>
       </div>
       <input type="submit" className="btn btn-primary" value="Submit" />

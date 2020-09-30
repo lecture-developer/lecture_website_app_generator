@@ -1,6 +1,6 @@
 import express from "express";
 import fs from "fs";
-import { createUserDataDir } from "../resources/methods";
+import { createUserDataDir, getUserDataDir } from "../resources/methods";
 
 const router = express.Router();
 
@@ -18,6 +18,20 @@ router.post("/", (req, res) => {
 });
 
 // Get data
+router.get("/", (req, res) => {
+  const { userId } = req.query;
+  
+  const dirPath = getUserDataDir(userId);
+  const filePath = dirPath + '/publications.json';
+
+  const data = fs.readFileSync(filePath);
+  res.send(JSON.parse(data));
+
+  // fs.readFile(filePath, (err, data) => {
+  //   if (err) res.send(`Error getting user ${userId} publications items: `, err);
+  //   res.send(JSON.parse(data));
+  // })
+});
 
 // Update data
 
