@@ -116,12 +116,14 @@
     <div class="section-container white-bg form-page">
       <div class="personal-row space-evenly start">
         <div class="section-item w-100 space-evenly">
-          <h2 class="form-page-title">
-            Contact us
-          </h2>
-          <p class="form-page-text form-page-text-mobile always-display">
-            Couldn’t find what you’re looking for? Want to share your thoughts about our platform? We’d love to hear from you.
-          </p>
+          <div class="back">
+            <a href="join-our-team.html"><i class="fa fa-arrow-left"></i>
+              <p>
+                back
+              </p>
+            </a>
+          </div>
+          <h2 id="dynamic-title" class="form-page-title"></h2>
           <form class="project-form">
             <div id="container1">
               <label class="form-titles" for="name">
@@ -134,30 +136,40 @@
             </div>
             <div id="container2">
               <label class="form-titles" for="email">
-                Email <span class="red-star">*</span>
+                Phone number<span class="red-star">*</span>
               </label>
-              <input name="email" id="input2" type="text">
+              <input name="phone" id="input2" type="number" required>
               <p id="error-2" class="error-message">
-                Please enter your email address
+                Please enter your phone number
               </p>
             </div>
             <div id="container3">
               <label class="form-titles" for="email">
-                Tell us what you have in mind<span class="red-star">*</span>
+                Email
               </label>
-              <input type="text" name="message" id="input3" rows="5" required />
+              <input name="email" id="input3" type="text">
               <p id="error-3" class="error-message">
-                Let us know why you’re getting in touch
+                Please enter a valid email address (e.g. you@email.com)
+              </p>
+            </div>
+            <div id="container4">
+              <label class="form-titles" for="email">
+                Tell us a little about yourself<span class="red-star">*</span>
+              </label>
+              <input type="text" name="message" id="input4" rows="5" required />
+              <p id="error-4" class="error-message">
+                Please tell us about yourself
               </p>
             </div>
             <div class="personal-row end">
-              <input id="submit-btn" type="submit" class="secondary-btn secondary-btn-sizes" value="Send">
+              <input id="submit-btn" type="submit" class="secondary-btn secondary-btn-sizes submit-margin-join-us" value="Send">
             </div>
           </form>
         </div>
       </div>
       <!-- </div> -->
     </div>
+
 
 
     <footer class="footer">
@@ -190,10 +202,9 @@
         </div>
       </div>
     </footer>
-  </div>
-
-  <script src="/lecture_website_app_generator/src/client/public/contact-us.js"></script>
-  <script src="/lecture_website_app_generator/src/client/public/main.js"></script>
+    <script src="/lecture_website_app_generator/src/client/public/join-our-team.js"></script>
+    <script src="/lecture_website_app_generator/src/client/public/join-us-as.js"></script>
+    <script src="/lecture_website_app_generator/src/client/public/main.js"></script>
 </body>
 
 </html>
