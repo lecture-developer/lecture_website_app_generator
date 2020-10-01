@@ -187,7 +187,7 @@
               <h5 class="get-in-touch">
                 Want to join us? <br><br> Get in touch
               </h5>
-              <form class="project-form">
+              <form class="project-form" method="POST">
                 <div id="container1">
                   <label class="form-titles" for="name">
                     Full name <span class="red-star">*</span>
@@ -225,7 +225,7 @@
                   </p>
                 </div>
                 <div class="personal-row end">
-                  <input id="submit-btn" type="submit" class="secondary-btn secondary-btn-sizes submit-margin-join-us" value="Send">
+                  <input id="submit-btn" type="button" class="secondary-btn secondary-btn-sizes submit-margin-join-us" value="Send" onclick="submitForm()">
                 </div>
               </form>
             </div>

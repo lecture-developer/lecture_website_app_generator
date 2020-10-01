@@ -92,11 +92,37 @@ function checkInput(inputObj)
 }
 
 
-// TODO: add here the BE logic
-function signForBetaForm()
+// On form submit
+async function submitForm()
 {
+	// Get the values from the form
+	const name = document.getElementById("input1").value;
+	const phone = document.getElementById("input2").value;
+	const email = document.getElementById("input3").value;
+	const shortBio = document.getElementById("input4").value;
+	
+	// Send the values to the backend to generate an email to the admin
+		const data = {
+			name,
+			phone,
+			email,
+			shortBio
+		};
+		try {
+			const response = await fetch("http://localhost:5000/join-our-team", {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(data),
+			});
+			console.log(response);
+		} catch (err) {
+			console.log("Error sending form values to the backend: ", err);
+		}
 
-	return false;
+	// Pass the user to the appropriate thank you page
+	window.location.href = "thank-you.html?type=1";
 }
 
 /* Check input functions */

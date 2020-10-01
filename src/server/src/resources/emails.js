@@ -53,3 +53,44 @@ export const generateNewNotActivatedEmail = (email, name, token) => {
         The Lecture Website App Generator team</p>`,
   };
 };
+
+export const generateUserSignedForBetaEmail = (name, email, institution, research) => {
+  return {
+    from: "Lecture Website App Generator <me@samples.mailgun.org>",
+    to: "eyalgolan96@gmail.com",
+    subject: `${name} signed up for beta access`,
+    html: `<h1> Hi, </h1>
+        <p> A user has signed up for beta access. Here are his deatils: </p>
+        <p> Name: ${name} </p>
+        <p> Email: ${email} </p>
+        <p> Main academic instutution: ${institution} </p>
+        <p> Main research interest: ${research} </p>`
+  };
+};
+
+export const generateUserJoinsOurTeamEmail = (name, phone, email, shortBio) => {
+  return {
+    from: "Lecture Website App Generator <me@samples.mailgun.org>",
+    to: "eyalgolan96@gmail.com",
+    subject: `${name} wants to join our team`,
+    html: `<h1> Hi, </h1>
+        <p> A user wants to join our team. Here are his details: </p>
+        <p> Name: ${name} </p>
+        <p> Email: ${email} </p>
+        <p> Phone: ${phone} </p>
+        <p> Short bio: ${shortBio} </p>`
+  };
+};
+
+export const generateUserContactsUsEmail = (name, email, message) => {
+  return {
+    from: "Lecture Website App Generator <me@samples.mailgun.org>",
+    to: "eyalgolan96@gmail.com",
+    subject: `${name} wants to contact us`,
+    html: `<h1> Hi, </h1>
+        <p> A user wants to contact us. Here are his details: </p>
+        <p> Name: ${name} </p>
+        <p> Email: ${email} </p>
+        <p> Message: ${message} </p>`
+  };
+};

@@ -45,6 +45,12 @@ const addRoutes = () => {
   app.use("/index", routers.indexRouter);
   // Publications page routing
   app.use("/publications", routers.publicationsRouter);
+  // Sign for beta landing page routing
+  app.use('/sign-for-beta', routers.signForBetaRouter);
+  // Join our team landing page routing
+  app.use('/join-our-team', routers.joinOurTeamRouter);
+  // Contact us landing page routing
+  app.use('/contact-us', routers.contactUsRouter);
 }
 
 /*
