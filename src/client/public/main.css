@@ -23,6 +23,10 @@ body {
   flex-shrink: 0;
 }
 
+*:focus{
+    outline: none;
+}
+
 /* screen header - content - footer */
 /* flex box code */
 * {
@@ -109,6 +113,9 @@ footer {
 }
 
 @media only screen and (max-width: 420px) {
+  .footer{
+    padding-top: 50px;
+  }
   .footer-section {
     margin-left: auto;
     margin-right: auto;
@@ -167,6 +174,8 @@ footer {
 /*** main content pages section ***/
 /* header menu */
 .navbar {
+  position: absolute;
+  z-index: 1;
   overflow: hidden;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -430,8 +439,7 @@ footer {
 }
 
 .link-btn-big:hover {
-  color: white !important;
-  background: #5A67D8 !important;
+  color:  #5A67D8 !important;
   border: 2px solid #5A67D8 !important;
 }
 
@@ -444,16 +452,24 @@ footer {
 } */
 /*** end - elements ***/
 /* end - main content pages section */
-.header-container {
+
+/* index_page*/
+.index-btn{
+  align-items: center;
+  text-align: center;
+  padding: 12px 46px;
+}
+
+.index-header-container {
   padding-top: 40px;
   width: 100%;
   background-color: white;
   padding: 100px 100px;
-  background-size: cover;
   background: url(/lecture_website_app_generator/src/client/public/images/index-header.png);
+  background-size: cover;
 }
 
-.header-section {
+.index-header-section {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -463,14 +479,14 @@ footer {
   width: 50%;
 }
 
-.header-section h2 {
+.index-header-section h2 {
   font-size: 56px;
   line-height: 75px;
   font-family: Playfair Display;
   margin-bottom: 60px;
 }
 
-.header-section p {
+.index-header-section p {
   font-weight: 300;
   font-size: 26px;
   line-height: 150%;
@@ -576,6 +592,8 @@ footer {
     height: 100px;
     margin-bottom: 10px;
     padding: 0px 0px;
+	margin-right: 10px;
+	margin-left: 10px;
   }
 
   .member-item h5 {
@@ -707,7 +725,6 @@ footer {
 }
 
 .member-item {
-  display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-content: center;
@@ -716,18 +733,33 @@ footer {
 }
 
 .member-item img {
-  width: 180px;
-  height: 180px;
+  width: 140px;
+  height: 140px;
   margin-bottom: 10px;
   padding: 0px 0px;
+  border-radius: 50%;
+  filter: grayscale(100%);
+  border: 1px solid #B8C5D0;
+  
+
 }
 
-.member-item h5 {
+.member-item h4 {
   font-family: Roboto;
-  font-weight: 300;
-  font-size: 24px;
-  line-height: 28px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
   color: #000000;
+  margin-bottom: 0px;
+}
+.member-item h5{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  color: #828282;
 }
 
 .beta-section {
@@ -783,8 +815,48 @@ footer {
 }
 
 /* css for mobile in index.html*/
-@media only screen and (max-width: 400px) {
-  .beta-section h4 {
+@media only screen and (max-width: 420px) {
+
+  .index-section-text{
+    margin-left: 50px;
+    margin-top: 40px;
+  }
+
+  .index-section-img{
+    padding-top: 40px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+	align-content: center;
+  }
+
+  .index-section-img h3{
+    font-family: Playfair Display;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: rgba(0, 0, 0, 0.8);
+    margin-top: 10px;
+  }
+  
+  .mobile-img img{
+    width: 332px;
+    height: 603px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+  
+  .beta-section{
+    padding-top: 20px;
+    padding-bottom: 100px;
+  }
+  
+  .beta-section h4{
+		font-family: Playfair Display;
     font-style: normal;
     font-weight: normal;
     font-size: 48px;
@@ -792,138 +864,141 @@ footer {
     display: flex;
     align-items: center;
     text-align: justify;
-    text-align: left;
-    margin-top: 10px;
-    margin-bottom: 4px;
-  }
-
-  .beta-section a {
-    padding: 16.5px;
-  }
-
-  .beta-section p {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 170%;
-    text-align: justify;
-    font-feature-settings: 'cpsp'on;
-  }
-
-  .section-footer {
-    line-height: 150%;
-    font-style: normal;
-    font-weight: normal;
-  }
-
-  .member-item img {
-    width: 100px;
-    height: 100px;
     margin-bottom: 10px;
-    padding: 0px 0px;
-  }
+	}
 
-  .member-item h5 {
+	.beta-section a{
+		padding: 16.5px;
+	}
+	
+	.beta-section p{
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 18px;
+		line-height: 170%;
+		text-align: justify;
+    font-feature-settings: 'cpsp' on;
+    margin-right: 50px;
+	}
+
+	.section-footer{
+		line-height: 150%;
+		font-style: normal;
     font-weight: normal;
-    font-size: 14px;
-    line-height: 140.62%;
-    text-align: center;
-    letter-spacing: 0.04em;
-    color: #000000;
+    letter-spacing: none;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 20px;
+	}
+
+	.member-item img{
+		width: 100px;
+		height: 100px;
+		margin-bottom: 10px;
+		padding: 0px 0px;
+	}
+
+  .member-item h5{
+		font-weight: normal;
+		font-size: 14px;
+		line-height: 19px;
+		text-align: center;
+		letter-spacing: 0.04em;
+	}
+
+	.member-item h5{
+		font-weight: normal;
+		font-size: 12px;
+		line-height: 16px;
+		text-align: center;
+		letter-spacing: 0.04em;
+	}
+
+	.index-section-title{
+		font-family: Playfair Display;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 24px;
+		line-height: 32px;
+		text-align: center;
+		letter-spacing: 0.04em;	
+    margin-bottom: 60px;
+    margin-top: 10px;
   }
 
-  .section-title {
-    font-family: Playfair Display;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 32px;
-    text-align: center;
-    letter-spacing: 0.04em;
-    margin-bottom: 30px;
+  .index-space-50{
+    height: 50px;
   }
 
-  .text-section {
-    padding-left: 53px;
-    padding-right: 53px;
-    padding-bottom: 53px;
+  .index-text-section{
+    margin-right: 50px;
   }
 
-  .text-section h3 {
-    font-family: Playfair Display;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 32px;
-    text-align: center;
-    letter-spacing: 0.04em;
-    color: #000000;
-  }
-
-  .text-mobile h2 {
-    font-family: Playfair Display;
+	.index-text-section h2{
+		font-family: Playfair Display;
     font-style: normal;
     font-weight: normal;
     font-size: 28px;
     line-height: 37px;
     text-align: center;
-    font-feature-settings: 'cpsp'on;
+    font-feature-settings: 'cpsp' on;
     color: #5A67D8;
-  }
+	}
 
-  .text-mobile p {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 170%;
-    text-align: center;
-    font-feature-settings: 'cpsp'on;
-    color: #000000;
-  }
+	.index-text-section p{
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 18px;
+		line-height: 170%;
+		text-align: center;
+		font-feature-settings: 'cpsp' on;
+		color: #000000;
+	}
 
-  .section {
-    color: white;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    padding-right: 53px;
-    padding-left: 53px;
+	.index-section-mobile{
+      padding-top: 40px;
+      padding-bottom: 40px;
+    	padding-left: 53px;
   }
-
-  .header-container {
-    padding-top: 96px;
-    padding-left: 0px;
-    padding-bottom: 0px;
-    padding-right: 0px;
+  
+  .index-header-section-mobile{
+    padding-top:80px;
     margin-left: 53px;
-  }
-
-  .header-section {
     width: 75%;
-    padding-left: 20px;
   }
-
-  .header-section h2 {
-    font-family: Playfair Display;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 32px;
+  
+  .index-header-section-mobile a{
+	  text-align: center;
+  }
+	.index-header-section-mobile h2{
+		font-family: Playfair Display;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 32px;
     line-height: 150%;
-    margin-bottom: 0px;
+    margin-top: 65px;
+		margin-bottom: 10px;
+	}
+
+	.index-header-section-mobile p{
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 18px;
+		line-height: 170%;
+		text-align: justify;
+    font-feature-settings: 'cpsp' on;
+    margin-bottom: 55px;
   }
 
-  .header-section p {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 170%;
-    text-align: justify;
-    font-feature-settings: 'cpsp'on;
+  .index-header-section-mobile a{
+    margin-bottom: 85px;
+	  font-size: 18px !important;
+	  max-width: 100% !important;
   }
 }
-
 /* end - index page */
 /*  who we are page */
 .who-we-are-title {
@@ -1325,6 +1400,7 @@ textarea:focus, input:focus, button:focus {
 }
 
 .center {
+  align-items: center;
   align-content: center;
   justify-content: center;
 }
