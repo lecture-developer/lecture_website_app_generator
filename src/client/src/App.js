@@ -23,7 +23,7 @@ function App() {
           <Route path="/users/send-forgot-password-email" component={SendForgotPasswordEmail} />
           <Route path="/users/change-password" component={ForgotPassword} />
           <Route path="/index" render={(props) => <IndexPage {...props} userId='5f53bae924e27d18580d4036'/>} />
-          <Route path="/" component={IndexPage} />
+          {/* <Route path="/" component={IndexPage} /> */}
           <Route path="/publications" component={PublicationsPage} />
         </Switch>
       </div>

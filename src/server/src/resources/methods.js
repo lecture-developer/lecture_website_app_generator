@@ -11,3 +11,7 @@ export const createUserDataDir = (userId) => {
   });
   return dirPath;
 };
+
+export const getUserDataDir = (userId) => {
+  return path.normalize(path.join(__dirname, `../../data/users/${userId}`));
+}

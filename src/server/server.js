@@ -6,25 +6,13 @@ import dotenv from "dotenv";
 import routers from "./src/routes/";
 dotenv.config();
 import logger from './logger';
-import transporter from './email'
+import Mailing from './emailController'
+import ActivationReminderJob from './src/jobs/ActivationReminderJob'
 
 // app configuration
 const app = express();
 app.use(cors());
 app.use(express.json());
-
-/* 
-* Gets email details and sends it
-*/
-const sendMail = (data) => {
-  transporter.sendMail(data, function(err, info){
-    if(err) {
-      logger.error("Sending email failed with error: " + err);
-    } else {
-      logger.info('Email sent');
-    }
-  });
-};
 
 /*
 * Mongo setup
@@ -43,7 +31,7 @@ try {
   // send email about db connection error
   logger.info("Trying to send email to admin about error...");
   const data = generateDbConnectionFailedEmail(err);
-  sendMail(data);
+  Mailing.sendEmail(data);
 }
 };
 
@@ -67,6 +55,7 @@ const startServer = () => {
   app.listen(port, () => {
     logger.info(`Server is running on port: ${port}`);
   });
+  ActivationReminderJob();
 }
 
 connetToMongo();  // Mongo setup
