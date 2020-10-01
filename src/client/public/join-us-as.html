@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<<<<<<< HEAD
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet"/>
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="stylesheet" href="/src/client/public/main.css" />
-	<!-- Analytics -->
-=======
 <head>
   <meta charset="utf-8" />
   <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
@@ -17,7 +10,6 @@
   <meta name="keywords" content="lecture website, academic website" />
   <meta id="author" content="First Last name" name="author" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
->>>>>>> develop
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet" />
@@ -124,13 +116,15 @@
     <div class="section-container white-bg form-page">
       <div class="personal-row space-evenly start">
         <div class="section-item w-100 space-evenly">
-          <h2 class="form-page-title">
-            Contact us
-          </h2>
-          <p class="form-page-text form-page-text-mobile always-display">
-            Couldn’t find what you’re looking for? Want to share your thoughts about our platform? We’d love to hear from you.
-          </p>
-          <form class="project-form" method="POST">
+          <div class="back">
+            <a href="join-our-team.html"><i class="fa fa-arrow-left"></i>
+              <p>
+                back
+              </p>
+            </a>
+          </div>
+          <h2 id="dynamic-title" class="form-page-title"></h2>
+          <form class="project-form">
             <div id="container1">
               <label class="form-titles" for="name">
                 Full name <span class="red-star">*</span>
@@ -142,30 +136,40 @@
             </div>
             <div id="container2">
               <label class="form-titles" for="email">
-                Email <span class="red-star">*</span>
+                Phone number<span class="red-star">*</span>
               </label>
-              <input name="email" id="input2" type="text">
+              <input name="phone" id="input2" type="number" required>
               <p id="error-2" class="error-message">
-                Please enter your email address
+                Please enter your phone number
               </p>
             </div>
             <div id="container3">
               <label class="form-titles" for="email">
-                Tell us what you have in mind<span class="red-star">*</span>
+                Email
               </label>
-              <input type="text" name="message" id="input3" rows="5" required />
+              <input name="email" id="input3" type="text">
               <p id="error-3" class="error-message">
-                Let us know why you’re getting in touch
+                Please enter a valid email address (e.g. you@email.com)
+              </p>
+            </div>
+            <div id="container4">
+              <label class="form-titles" for="email">
+                Tell us a little about yourself<span class="red-star">*</span>
+              </label>
+              <input type="text" name="message" id="input4" rows="5" required />
+              <p id="error-4" class="error-message">
+                Please tell us about yourself
               </p>
             </div>
             <div class="personal-row end">
-              <input id="submit-btn" type="button" class="secondary-btn secondary-btn-sizes" value="Send" onclick="submitForm()">
+              <input id="submit-btn" type="submit" class="secondary-btn secondary-btn-sizes submit-margin-join-us" value="Send">
             </div>
           </form>
         </div>
       </div>
       <!-- </div> -->
     </div>
+
 
 
     <footer class="footer">
@@ -198,114 +202,9 @@
         </div>
       </div>
     </footer>
-  </div>
+    <script src="/lecture_website_app_generator/src/client/public/join-our-team.js"></script>
+    <script src="/lecture_website_app_generator/src/client/public/join-us-as.js"></script>
+    <script src="/lecture_website_app_generator/src/client/public/main.js"></script>
+</body>
 
-			<div class="collapse navbar-collapse w-100">
-				<ul class="nav navbar-nav w-100 ">
-					<li class="nav-item menu-main-link active">
-						<a class="nav-link" href="/src/client/public/index.html">What we do</a>
-					</li>
-					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="/src/client/public/index.html#whoweare">Who we are</a>
-					</li>
-					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="/src/client/public/join-our-team.html">Join our team</a>
-					</li>
-					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="/src/client/public/contact-us.html">Contact us</a>
-					</li>
-				</ul>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav ml-auto">
-					<li class="nav-item menu-main-link width-300-px">
-						<a class="main-btn" href="/src/client/public/sign-for-beta.html">Sign up for beta access </a>
-					</li>
-				</ul>
-			</div>
-			<div class="spacer"></div>
-		</nav>
-
-		<div class="section-container white-bg form-page">
-			<div class="section">
-				<div class="personal-row space-evenly start">
-					<div class="section-item w-100 space-evenly">
-						<h2 class="form-page-title">
-							Contact us
-						</h2>
-						<p class="form-page-text">
-							Couldn’t find what you’re looking for? Want to share your thoughts about our platform? We’d love to hear from you.
-						</p>
-						<form class="project-form" method="POST">
-							<div id="container1">
-							  <label class="form-titles" for="name">
-								Full name <span class="red-star">*</span>
-							  </label>
-							  <input name="name" id="input1" type="text" required>
-							  <p id="error-1" class="error-message">
-								Please enter your full name
-							  </p>
-							</div>
-							<div id="container2">
-							  <label class="form-titles" for="email">
-								Email <span class="red-star">*</span>
-							  </label>
-							  <input name="email" id="input2" type="text">
-							  <p id="error-2" class="error-message">
-								Please enter your email address
-							  </p>
-							</div>
-							<div id="container3">
-								<label class="form-titles" for="email">
-									Tell us what you have in mind<span class="red-star">*</span>
-								</label>
-								<input type="text" name="message" id="input3" rows="5" required />
-								  <p id="error-3" class="error-message">
-									Let us know why you’re getting in touch
-								  </p>
-							</div>
-							<div class="personal-row end">
-								<input id="submit-btn" type="button" class="main-btn" value="Send" onclick="submitForm()">
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		
-		<footer class="footer">
-			<div class="footer-section">
-				<div class="footer-direction space-between">
-					<div class="footer-menu">
-						<h1>
-							OurProduct
-						</h1>
-					</div>
-					<div  class="footer-menu border-right-footer">
-						<p>
-							OurProduct is a free open-source website template that will vastly improve the communicationbetween lecturers and students. It will provide lecturers and professors with the tools to easily create a professional personal website that contains their research, courses and personal projects. <br><br>
-							With much of the academic world operating online due to Covid-19, now is the ideal time to finally create the platform that will change academic life for the better.
-						</p>
-					</div>
-					<div  class="footer-menu">
-						<ul>
-							<li><a href="/src/client/public/index.html">What we do</a></li>
-							<li><a href="/src/client/public/index.html#whoweare">Who we are</a></li>
-							<li><a href="/src/client/public/join-our-team.html">Join our team</a></li>
-							<li><a href="/src/client/public/sign-for-beta.html">Sign up for beta access</a></li>
-							<li><a href="/src/client/public/contact-us.html">Contact us</a></li>
-						</ul>
-						<div class="personal-row">
-							<a href="legal.html"  class="min-width-150">&#169; 2020</a> <a href="legal.html" class="min-width-150" style="padding-right: 0px">Privacy and Terms</a>
-						</div>
-					</div>
-				</div>
-			</div> 
-		</footer> 
-	</div>
-	
-    <script src="/src/client/public/contact-us.js"></script>
-    <script src="/src/client/public/main.js"></script>
-  </body>
 </html>
