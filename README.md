@@ -24,6 +24,8 @@ Inside this repo we are using the following open-source projects:
 8. [mailgun](https://github.com/mailgun/mailgun-js)
 9. [pino](https://github.com/pinojs/pino)
 10. [pino-pretty](https://github.com/pinojs/pino-pretty)
+11. [Flickity](https://flickity.metafizzy.co)
+
 
 ### Contributing
 
