@@ -112,7 +112,7 @@ footer {
   text-decoration: none !important;
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 800px) {
   .footer{
     padding-top: 50px;
   }
@@ -123,7 +123,7 @@ footer {
   }
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 800px) {
   .footer-section {
     margin-left: auto;
     margin-right: auto;
@@ -553,7 +553,7 @@ footer {
   padding: 20px 10px;
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 800px) {
   .beta-section h4 {
     font-style: normal;
     font-weight: normal;
@@ -815,7 +815,7 @@ footer {
 }
 
 /* css for mobile in index.html*/
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 800px) {
 
   .index-section-text{
     margin-left: 50px;
@@ -1624,7 +1624,7 @@ textarea:focus, input:focus, button:focus {
 
 /* end - forms pages shared features */
 /* forms - mobile version */
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 800px) {
   .form-page-title {
     margin-top: 20px;
     padding-left: 4px;
@@ -1991,7 +1991,7 @@ textarea:focus, input:focus, button:focus {
   }
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 800px) {
   .active-share-menu {
     transform: scale(1.5);
     top: -250px;
@@ -2293,7 +2293,7 @@ textarea:focus, input:focus, button:focus {
   display: none;
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 800px) {
   .join-us-panel-mobile {
     background-color: #F5F5F5;
     width: 100%;

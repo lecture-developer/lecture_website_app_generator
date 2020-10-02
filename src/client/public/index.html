@@ -49,7 +49,7 @@
 			<div class="personal-coloum mobile-menu-container">
 				<button type="button" id="close_btn" onclick="document.getElementById('mobile-menu').style.marginLeft = '-100%';"> X </button>
 				<a class="mobile-menu-link"  href="/lecture_website_app_generator/src/client/public/index.html">What we do</a>
-				<a class="mobile-menu-link" href="/lecture_website_app_generator/src/client/public/index.html#whoweare">Who we are</a>
+				<a class="mobile-menu-link" onclick="document.getElementById('mobile-menu').style.marginLeft = '-100%';" href="/lecture_website_app_generator/src/client/public/index.html#whoweare">Who we are</a>
 				<a class="mobile-menu-link" href="/lecture_website_app_generator/src/client/public/contact-us.html">Contact us</a>
 				<a class="main-btn" style="margin-top: 50px;" href="/lecture_website_app_generator/src/client/public/sign-for-beta.html">Sign up for beta access </a>
 				<span class="mobile-menu-divider"></span>
@@ -73,7 +73,7 @@
 				</button>
 			</div>
 
-			<a class="logo navbar-brand order-first order-md-0 mx-0" href="#">
+			<a class="logo navbar-brand order-first order-md-0 mx-0" href="/lecture_website_app_generator/src/client/public/index.html">
 			product</a>
 
 			<div class="collapse navbar-collapse w-100">
@@ -113,7 +113,7 @@
 						<p>
 							Maintaining an academic online presence is not easy. That's why we created our one-stop-shop solution: a free, customizable and easy-to-use template for a personal website, that contains your entire academic life in one place. And yes, it’s mobile friendly too!
 						</p>
-						<a class="link-btn-big width-300-px" href="join-the-team.html">
+						<a class="link-btn-big width-300-px" href="join-our-team.html">
 							Join our team
 						</a>
 						<a class="main-btn-big width-300-px" href="sign-for-beta.html">
@@ -244,7 +244,7 @@
 							<h5 class="section-footer">
 								We’re all volunteers, and we’re always looking for help. <br> If you want to join our team, get in touch.
 							</h5>
-							<a class="link-btn-big index-btn" href="join-the-team.html" style="width: 280px;">
+							<a class="link-btn-big index-btn" href="join-our-team.html" style="width: 280px;">
 								Join our team
 							</a>
 						</div>
@@ -385,7 +385,7 @@
 							<h5 class="section-footer">
 								We’re all volunteers, and we’re always looking for help. If you want to join our team, get in touch.
 							</h5>
-							<a class="main-btn-border" href="join-the-team.html" style="width: 280px;">
+							<a class="main-btn-border" href="join-our-team.html" style="width: 280px;">
 								Join our team
 							</a>
 							<div class="index-space-50"></div>
@@ -411,7 +411,7 @@
 			</template>
 			<!-- Set when to use template mobile and when desktop-->
 			<script>
-				const isMobile = matchMedia('(max-device-width:420px)').matches;
+				const isMobile = matchMedia('(max-device-width:600px)').matches;
     			const section_middle = document.currentScript.closest('.section-middle');
     			const content = section_middle.querySelector(isMobile ? '.section-middle-mobile' : '.section-middle-desktop').content;
 				section_middle.appendChild(document.importNode(content, true));
