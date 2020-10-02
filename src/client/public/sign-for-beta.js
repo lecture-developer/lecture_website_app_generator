@@ -24,61 +24,81 @@ function highlightInput(inputObj)
 function cancelHighlightInput(inputObj)
 {
 	inputObj.target.classList.remove("pick-input");
-	
+
 	// when go - check
 	checkInput(inputObj);
 }
+
+var flags = [true, true, true];
 
 function checkInput(inputObj)
 {
 	inputObj.target.classList.remove("error-input");
 	inputObj.target.classList.remove("good-input");
-	
-	var flags = [false, false, false];
-	
+
+	var id_num;
+
 	if (inputObj.target.id == "input1")
 	{
+		id_num =  inputObj.target.id[inputObj.target.id.length - 1];
 		if (!notEmpty(inputObj.target.value))
 		{
 			inputObj.target.classList.add("error-input");
-			document.getElementById("error-" + inputObj.target.id[inputObj.target.id.length - 1]).style.display = "inherit";
+			document.getElementById("check-"+id_num).style.display = "";
+			document.getElementById("x-"+id_num).style.display = "inherit";
+			document.getElementById("error-"+ id_num).style.display = "inherit";
 			flags[0] = true;
 		}
 		else
 		{
 			inputObj.target.classList.add("good-input");
-			document.getElementById("error-" + inputObj.target.id[inputObj.target.id.length - 1]).style.display = "";
+			document.getElementById("check-"+id_num).style.display = "inherit";
+			document.getElementById("x-"+id_num).style.display = "";
+			document.getElementById("error-" + id_num).style.display = "";
+			flags[0] = false;
 		}
 	}
 	else if (inputObj.target.id == "input2")
 	{
+		id_num =  inputObj.target.id[inputObj.target.id.length - 1];
 		if (!(validateEmail(inputObj.target.value) && notEmpty(inputObj.target.value)))
 		{
 			inputObj.target.classList.add("error-input");
-			document.getElementById("error-" + inputObj.target.id[inputObj.target.id.length - 1]).style.display = "inherit";
+			document.getElementById("check-"+id_num).style.display = "";
+			document.getElementById("x-"+id_num).style.display = "inherit";
+			document.getElementById("error-"+ id_num).style.display = "inherit";
 			flags[1] = true;
 		}
 		else
 		{
 			inputObj.target.classList.add("good-input");
-			document.getElementById("error-" + inputObj.target.id[inputObj.target.id.length - 1]).style.display = "";
+			document.getElementById("check-"+id_num).style.display = "inherit";
+			document.getElementById("x-"+id_num).style.display = "";
+			document.getElementById("error-" + id_num).style.display = "";
+			flags[1] = false;
 		}
 	}
 	else if (inputObj.target.id == "input3")
 	{
+		id_num =  inputObj.target.id[inputObj.target.id.length - 1];
 		if (!notEmpty(inputObj.target.value))
 		{
 			inputObj.target.classList.add("error-input");
-			document.getElementById("error-" + inputObj.target.id[inputObj.target.id.length - 1]).style.display = "inherit";
+			document.getElementById("check-"+id_num).style.display = "";
+			document.getElementById("x-"+id_num).style.display = "inherit";
+			document.getElementById("error-"+ id_num).style.display = "inherit";
 			flags[2] = true;
 		}
 		else
 		{
 			inputObj.target.classList.add("good-input");
-			document.getElementById("error-" + inputObj.target.id[inputObj.target.id.length - 1]).style.display = "";
+			document.getElementById("check-"+id_num).style.display = "inherit";
+			document.getElementById("x-"+id_num).style.display = "";
+			document.getElementById("error-" + id_num).style.display = "";
+			flags[2] = false;
 		}
 	}
-	
+
 	if (!allFalse(flags))
 	{
 		document.getElementById("submit-btn").classList.add("disable-submit");
@@ -100,7 +120,12 @@ async function submitForm()
 	const email = document.getElementById("input2").value;
 	const institution = document.getElementById("input3").value;
 	const reasearch = document.getElementById("input4").value;
-	
+
+	//don't send anything when the form is empty
+	if(name=="" || email=="" || institution==""){
+		return;
+	}
+
 	// Send the values to the backend to generate an email to the admin
 		const data = {
 			name,
