@@ -84,8 +84,8 @@
         </button>
       </div>
 
-			<a class="logo navbar-brand order-first order-md-0 mx-0" href="/lecture_website_app_generator/src/client/public/index.html">
-			product</a>
+      <a class="logo navbar-brand order-first order-md-0 mx-0" href="/lecture_website_app_generator/src/client/public/index.html">
+        product</a>
 
       <div class="collapse navbar-collapse w-100">
         <ul class="nav navbar-nav w-100 ">
@@ -129,7 +129,17 @@
               <label class="form-titles" for="name">
                 Full name <span class="red-star">*</span>
               </label>
-              <input name="name" id="input1" type="text" required>
+              <div class="input-container">
+                <div class="input-field">
+                  <input name="name" id="input1" type="text" required>
+                </div>
+                <div id="check-1" class="green-check end">
+                  <i class="fa fa-check check-position"></i>
+                </div>
+                <div id="x-1" class="red-x end">
+                  <i class="fa fa-times"></i>
+                </div>
+              </div>
               <p id="error-1" class="error-message">
                 Please enter your full name
               </p>
@@ -138,7 +148,17 @@
               <label class="form-titles" for="email">
                 Phone number<span class="red-star">*</span>
               </label>
+              <div class="input-container">
+                <div class="input-field">
               <input name="phone" id="input2" type="number" required>
+                </div>
+                <div id="check-2" class="green-check end">
+                  <i class="fa fa-check check-position"></i>
+                </div>
+                <div id="x-2" class="red-x end">
+                  <i class="fa fa-times"></i>
+                </div>
+              </div>
               <p id="error-2" class="error-message">
                 Please enter your phone number
               </p>
@@ -156,13 +176,23 @@
               <label class="form-titles" for="email">
                 Tell us a little about yourself<span class="red-star">*</span>
               </label>
-              <input type="text" name="message" id="input4" rows="5" required />
+              <div class="input-container">
+                <div class="input-field">
+                  <input type="text" name="message" id="input4" rows="5" required />
+                </div>
+                <div id="check-4" class="green-check end">
+                  <i class="fa fa-check check-position"></i>
+                </div>
+                <div id="x-4" class="red-x end">
+                  <i class="fa fa-times"></i>
+                </div>
+              </div>
               <p id="error-4" class="error-message">
                 Please tell us about yourself
               </p>
             </div>
             <div class="personal-row end">
-              <input id="submit-btn" type="submit" class="secondary-btn secondary-btn-sizes submit-margin-join-us" value="Send">
+              <input id="submit-btn" type="button" class="secondary-btn secondary-btn-sizes submit-margin-join-us" value="Send" onclick="submitForm()">
             </div>
           </form>
         </div>

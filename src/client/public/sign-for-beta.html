@@ -123,78 +123,106 @@
 			<div class="spacer"></div>
 		</nav>
 
-		<div class="section-container white-bg form-page">
-			<div class="section">
-				<div class="personal-row space-evenly start">
-					<div class="section-item w-100 space-evenly">
-						<h2 class="form-page-title">
-							Sign up for beta access
-						</h2>
-						<p class="form-page-text">
-							Teaching in the fall semester of 2021? We invite you to be the first to try our platform. Please tell us
-							about yourself and your work. We’ll get in touch soon.
-						</p>
-						<form class="project-form" method="POST">
-							<div id="container1">
-								<label class="form-titles" for="name">
-									Full name <span class="red-star">*</span>
-								</label>
-								<input name="name" id="input1" type="text" required>
-								<p id="error-1" class="error-message">
-									Please enter your full name
-								</p>
-							</div>
-							<div id="container2">
-								<label class="form-titles" for="email">
-									Email address <span class="red-star">*</span>
-								</label>
-								<input name="email" id="input2" type="text" required>
-								<p id="error-2" class="error-message">
-									Please enter a valid email address (e.g. you@email.com)
-								</p>
-							</div>
-							<div id="container3">
-								<label class="form-titles" for="institution">
-									Main academic institution <span class="red-star">*</span>
-								</label>
-								<input name="institution" id="input3" type="text" required>
-								<p id="error-3" class="error-message">
-									Please enter your academic institution
-								</p>
-							</div>
-							<div id="container4">
-								<label class="form-titles" for="reasearch">
-									Main research interest
-								</label>
-								<input name="research" id="input4" type="text">
-							</div>
-							<label class="form-titles" for="i_am">
-								I am a
-							</label>
-							<label class="radio-buttons"> Reseacher
-								<input type="radio" name="radio" id="reasearcher">
-								<span class="checkmark"></span>
-							</label>
-							<label class="radio-buttons"> Lecturer
-								<input type="radio" name="radio" id="lecturer">
-								<span class="checkmark"></span>
-							</label>
-							<label class="radio-buttons"> Both
-								<input type="radio" name="radio" id="both">
-								<span class="checkmark"></span>
-							</label>
-							<p class="error-message">
-								Please choose your position at this instuition
-							</p>
-							<div class="personal-row" style="justify-content: flex-end;">
-								<input id="submit-btn" type="button" class="main-btn" value="Sign up" onclick="submitForm()">
-							</div>
-						</form>
+    <div class="section-container white-bg">
+        <div class="form-page">
+          <div class="personal-row space-evenly start">
+            <div class="section-item w-100 space-evenly">
+              <h2 class="form-page-title">
+                Sign up for beta access
+              </h2>
+              <p class="form-page-text">
+                Teaching in the fall semester of 2021? We invite you to be the first to try our platform. Please tell us about yourself and your work. We’ll get in touch soon.
+              </p>
+              <p class="form-page-text form-page-text-mobile">
+                Teaching in 2021? Please tell us about yourself and your work. We’ll get in touch soon.
+              </p>
+              <form class="project-form">
+  				<div id="container1">
+  				  <label class="form-titles" for="name">
+  					Full name <span class="red-star">*</span>
+  				  </label>
+						<div class="input-container">
+						<div class="input-field">
+							 <input name="name" id="input1" type="text" required>
+						</div>
+						<div id="check-1" class="green-check end">
+							<i class="fa fa-check check-position"></i>
+						</div>
+						<div id="x-1" class="red-x end">
+								<i class="fa fa-times"></i>
+						</div>
 					</div>
-				</div>
-			</div>
-		</div>
+  				  <p id="error-1" class="error-message">
+  					Please enter your full name
+  				  </p>
+  				</div>
+  				<div id="container2">
+  				  <label class="form-titles" for="email">
+  					Email address <span class="red-star">*</span>
+  				  </label>
+						<div class="input-container">
+              <div class="input-field">
+                <input name="email" id="input2" type="text" required>
+              </div>
+              <div id="check-2" class="green-check end">
+                <i class="fa fa-check check-position"></i>
+              </div>
+              <div id="x-2" class="red-x end">
+                  <i class="fa fa-times"></i>
+              </div>
+            </div>
+  				  <p id="error-2" class="error-message">
+  					Please enter a valid email address (e.g. you@email.com)
+  				  </p>
+  				</div>
+  				<div id="container3">
+  				  <label class="form-titles" for="institution">
+  					Main academic institution <span class="red-star">*</span>
+  				  </label>
+						<div class="input-container">
+              <div class="input-field">
+                <input name="institution" id="input3" type="text" required>
+              </div>
+              <div id="check-3" class="green-check end">
+                <i class="fa fa-check check-position"></i>
+              </div>
+              <div id="x-3" class="red-x end">
+                  <i class="fa fa-times"></i>
+              </div>
+            </div>
+  				  <p id="error-3" class="error-message">
+  					Please enter your academic institution
+  				  </p>
+  				</div>
+  				<div id="container4">
+  				  <label class="form-titles" for="reasearch">
+  					Main research interest
+  				  </label>
+  				  <input name="research" id="input4" type="text">
+  				</div>
+          <div class="radio-buttons">
+                <label class="form-titles" for="i_am">
+                  I am a<span class="red-star">*</span>
+                </label>
+                <input type="radio" name="radio" id="reasearcher">
+                <lable for="reasearcher" class="radio-label"> Reseacher </lable><br />
+                <input type="radio" name="radio" id="reasearcher">
+                <lable for="reasearcher" class="radio-label"> Lecturer </lable><br />
+                <input type="radio" name="radio" id="reasearcher">
+                <lable for="reasearcher" class="radio-label"> Both </lable><br />
+                <p class="error-message">
+                    Please choose your position at this instuition
+                </p>
 
+              </div>
+  				<div class="personal-row sign-up-button-position">
+  					<input id="submit-btn" type="button" class="main-btn sign-up-button" value="Sign up" onclick="submitForm()">
+  				</div>
+              </form>
+            </div>
+          </div>
+  	<!-- </div> -->
+  </div>
 
 		<footer class="footer">
 			<div class="footer-section">
@@ -232,13 +260,11 @@
 		</footer>
 	</div>
 
-<<<<<<< HEAD
 	<script src="/lecture_website_app_generator/src/client/public/main.js"></script>
 	<script src="/lecture_website_app_generator/src/client/public/sign-for-beta.js"></script>
-=======
     <script src="/lecture_website_app_generator/lecture_website_app_generator/src/client/public/main.js"></script>
 	<script src="/lecture_website_app_generator/lecture_website_app_generator/src/client/public/sign-for-beta.js"></script>
->>>>>>> develop
+
 
 </body>
 
