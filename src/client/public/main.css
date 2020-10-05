@@ -1534,14 +1534,30 @@ textarea:focus, input:focus, button:focus {
 .form-page {
   width: 75%;
   margin: auto;
-  margin-top: 150px;
+  margin-top: 200px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.phone-field::-webkit-outer-spin-button,
+.phone-field::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.phone-field[type=number] {
+  -moz-appearance: textfield;
+}
+
+.main-form {
+  margin-bottom: 100px;
 }
 
 .form-page-title {
   font-family: Playfair Display;
   font-style: normal;
   font-weight: normal;
-  font-size: 48px;
+  font-size: 40px;
   line-height: 64px;
   margin-top: 2px;
 }
@@ -1550,7 +1566,7 @@ textarea:focus, input:focus, button:focus {
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
-  font-size: 26px;
+  font-size: 20px;
   line-height: 150%;
   text-align: justify;
   margin-top: 27px;
@@ -1573,6 +1589,10 @@ textarea:focus, input:focus, button:focus {
   text-align: center;
   letter-spacing: -0.015em;
   color: #828282;
+}
+
+.free-text {
+  min-height: 250px;
 }
 
 .project-form ul {
@@ -1659,7 +1679,7 @@ textarea:focus, input:focus, button:focus {
   }
 
 .input-container{
-  position: relative; */
+  position: relative;
   display: inline-block;
   width:100%;
 }
@@ -1693,6 +1713,14 @@ textarea:focus, input:focus, button:focus {
     width: 80%;
     margin: auto;
     padding-top: 96px;
+  }
+
+  .free-text {
+    min-height: 100px;
+  }
+
+  .main-form {
+    margin-bottom: 100px;
   }
 
   .project-form {
@@ -2422,7 +2450,6 @@ textarea:focus, input:focus, button:focus {
 
   .hidden-content {
     background-color: #F5F5F5;
-    width: 329px;
     text-align: center;
   }
 
@@ -2461,9 +2488,15 @@ textarea:focus, input:focus, button:focus {
     color: rgba(0, 0, 0, 0.8);
   }
 
+  .back {
+    position: relative;
+    left: -1rem;
+  }
+
   .back p {
     display: inline-block;
   }
+
   .back a {
     font-family: Roboto;
     font-style: normal;
@@ -2471,10 +2504,6 @@ textarea:focus, input:focus, button:focus {
     font-size: 12px;
     line-height: 150%;
     color: #000000;
-  }
-
-  .back .fa{
-    font-size: 16px;
   }
 
   .back:hover {

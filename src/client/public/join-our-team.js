@@ -3,13 +3,19 @@
 */
 const delegate = (selector) => (cb) => (e) => e.target.matches(selector) && cb(e);
 const inputDelegate = delegate('input');
+const textAreaDelegate = delegate('textarea');
 
 for (var i = 1; i <= 4; i++)
 {
 	var container = document.getElementById("container" + i);
-	container.addEventListener('focusin', inputDelegate((el) => highlightInput(el)));
-	container.addEventListener('focusout', inputDelegate((el) => cancelHighlightInput(el)));
-	// container.addEventListener('input', inputDelegate((el) => checkInput(el)));
+	if(i == 4) { // add delegates for textarea
+		container.addEventListener('focusin', textAreaDelegate((el) => highlightInput(el)));
+		container.addEventListener('focusout', textAreaDelegate((el) => cancelHighlightInput(el)));
+	} else {
+		container.addEventListener('focusin', inputDelegate((el) => highlightInput(el)));
+		container.addEventListener('focusout', inputDelegate((el) => cancelHighlightInput(el)));
+		// container.addEventListener('input', inputDelegate((el) => checkInput(el)));
+	}
 }
 
 
@@ -158,7 +164,7 @@ function notEmpty(value)
 
 function validatePhone(inputText)
 {
-	return inputText.length > 9 && inputText.length < 13 && inputText.replace("-", "").match(/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g);
+	return inputText.length >= 9 && inputText.length <= 13 && inputText.replace("-", "").match(/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g);
 }
 
 /* end - Check input functions */
