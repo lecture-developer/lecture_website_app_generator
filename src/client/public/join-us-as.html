@@ -170,7 +170,17 @@
               <label class="form-titles" for="email">
                 Email
               </label>
-              <input name="email" id="input3" type="text">
+              <div class="input-container">
+                <div class="input-field">
+                  <input name="email" id="input3" type="text" required>
+                </div>
+                <div id="check-3" class="green-check end">
+                  <i class="fa fa-check check-position"></i>
+                </div>
+                <div id="x-3" class="red-x end">
+                  <i class="fa fa-times"></i>
+                </div>
+              </div>
               <p id="error-3" class="error-message">
                 Please enter a valid email address (e.g. you@email.com)
               </p>
@@ -181,7 +191,6 @@
               </label>
               <div class="input-container">
                 <div class="input-field">
-                  <!-- <input class="free-text" type="text" name="message" id="input4" rows="5" required /> -->
                   <textarea class="free-text" name="message" id="input4" rows="5" required ></textarea>
                 </div>
                 <div id="check-4" class="green-check end">

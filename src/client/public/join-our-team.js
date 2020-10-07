@@ -83,6 +83,26 @@ function checkInput(inputObj)
 			flags[1] = false;
 		}
 	}
+	else if (inputObj.target.id == "input3")
+	{
+		id_num =  inputObj.target.id[inputObj.target.id.length - 1];
+		if (!(validateEmail(inputObj.target.value) && notEmpty(inputObj.target.value)))
+		{
+			inputObj.target.classList.add("error-input");
+			document.getElementById("check-"+id_num).style.display = "";
+			document.getElementById("x-"+id_num).style.display = "inherit";
+			document.getElementById("error-"+ id_num).style.display = "inherit";
+			flags[1] = true;
+		}
+		else
+		{
+			inputObj.target.classList.add("good-input");
+			document.getElementById("check-"+id_num).style.display = "inherit";
+			document.getElementById("x-"+id_num).style.display = "";
+			document.getElementById("error-" + id_num).style.display = "";
+			flags[1] = false;
+		}
+	}
 	else if (inputObj.target.id == "input4")
 	{
 		id_num =  inputObj.target.id[inputObj.target.id.length - 1];
@@ -165,6 +185,11 @@ function notEmpty(value)
 function validatePhone(inputText)
 {
 	return inputText.length >= 9 && inputText.length <= 13 && inputText.replace("-", "").match(/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g);
+}
+
+function validateEmail(inputText)
+{
+	return inputText.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 }
 
 /* end - Check input functions */
