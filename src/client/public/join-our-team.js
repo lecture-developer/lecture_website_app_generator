@@ -86,7 +86,7 @@ function checkInput(inputObj)
 	else if (inputObj.target.id == "input3")
 	{
 		id_num =  inputObj.target.id[inputObj.target.id.length - 1];
-		if (!(validateEmail(inputObj.target.value) && notEmpty(inputObj.target.value)))
+		if (!(validateEmail(inputObj.target.value)))
 		{
 			inputObj.target.classList.add("error-input");
 			document.getElementById("check-"+id_num).style.display = "";
@@ -189,7 +189,7 @@ function validatePhone(inputText)
 
 function validateEmail(inputText)
 {
-	return inputText.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
+	return inputText.match(/(^$)|(^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$)/);
 }
 
 /* end - Check input functions */
