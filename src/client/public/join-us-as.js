@@ -25,3 +25,10 @@ switch (linkText) {
 }
 
 /* end of dynamic headline */
+
+// check window size change in order to redirect to desktop version
+window.onresize = function(){
+  if(window.innerWidth >= 850){
+      window.location.replace("join-our-team.html#join-us-form");
+  }
+};
