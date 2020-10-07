@@ -34,8 +34,8 @@ function thankYouPage()
                 break;
 
             default:
-                throw new Error("No such type option");
-                // redirect to 404
+						// go to 404
+                window.location.replace("404.html");
         }
 
         document.getElementById('thank-you-title').innerText = title;
@@ -44,8 +44,7 @@ function thankYouPage()
         document.getElementById('social-menu-message-mobile').innerText = socialMessage;
 
     } catch (error) {
-        console.log("No such type option");
-        // redirect to 404
+        window.location.replace("404.html");
     }
 
 	// fix footer
