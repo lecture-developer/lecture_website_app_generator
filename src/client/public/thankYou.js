@@ -3,8 +3,8 @@ function thankYouPage()
     // get the type parameter from the url
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
-    const pageType = urlParams.get('type');
-    
+  const pageType = urlParams.get('type');
+
     try {
         const option = Number(pageType);
         let title = "Thank you for ";
@@ -32,7 +32,7 @@ function thankYouPage()
                 socialTitle += 'Spread the word';
                 socialMessage += 'Tell your friends and colleagues about Product to help us grow our community.';
                 break;
-        
+
             default:
                 throw new Error("No such type option");
                 // redirect to 404
@@ -47,11 +47,11 @@ function thankYouPage()
         console.log("No such type option");
         // redirect to 404
     }
-	
-	// fix footer 
+
+	// fix footer
 	if(window.innerWidth < 800)
 	{
-		document.getElementById("direction").classList.add('personal-coloum');	
+		document.getElementById("direction").classList.add('personal-coloum');
 	}
 	else
 	{
@@ -68,7 +68,7 @@ function toggleMobileShareMenu(e) {
     document.getElementsByClassName('background-img-mobile')[0].classList.toggle("active-share-menu");
     document.getElementsByClassName('social-buttons-menu-mobile')[0].classList.toggle("active-social-menu");
 
-    // fix footer 
+    // fix footer
 	if(window.innerWidth <= 420)
 	{
         // get the type parameter from the url
@@ -80,9 +80,9 @@ function toggleMobileShareMenu(e) {
 
             if (option == 2) {
                 if (document.getElementsByClassName('active-share-menu').length != 0) {
-                    document.getElementsByClassName("active-share-menu")[0].style.top = '-350px';	
+                    document.getElementsByClassName("active-share-menu")[0].style.top = '-350px';
                 } else {
-                    document.getElementsByClassName("background-img-mobile")[0].style.top = '0px';	
+                    document.getElementsByClassName("background-img-mobile")[0].style.top = '0px';
                 }
             }
         } catch(err) {
