@@ -53,11 +53,23 @@ const addRoutes = () => {
   app.use('/contact-us', routers.contactUsRouter);
 }
 
+// Heroku
+// Serve static assets if in production
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('src/client/public'));
+
+  // Load the static
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname,'../src','client','public','index.html'));
+  });
+}
+
 /*
 * Starts the server
 */
 const startServer = () => {
-  const port = process.env.PORT;
+  const port = process.env.PORT || 5000;
   app.listen(port, () => {
     logger.info(`Server is running on port: ${port}`);
   });
