@@ -15,7 +15,7 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="stylesheet" href="/lecture_website_app_generator/src/client/public/main.css" />
 	<!-- Analytics -->
-	
+
 	<!-- Google Analytics-->
 	<script async="" src="https://www.googletagmanager.com/gtag/js?id=key"></script>
 	<script>
@@ -24,7 +24,7 @@
 		gtag('js', new Date());
 		gtag('config', 'key');
 	</script>
-	
+
 	<!-- HotJar -->
 	<script>
 	(function(h,o,t,j,a,r)
@@ -36,7 +36,7 @@
 		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
 		a.appendChild(r);
 	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-	</script>		
+	</script>
 	<!-- end - Analytics -->
 
     <title>Lecture Website Generator</title>
@@ -53,14 +53,14 @@
 				<a class="mobile-menu-link" href="/lecture_website_app_generator/src/client/public/contact-us.html">Contact us</a>
 				<a class="main-btn" style="margin-top: 50px;" href="/lecture_website_app_generator/src/client/public/sign-for-beta.html">Sign up for beta access </a>
 				<span class="mobile-menu-divider"></span>
-				<p class="mobile-menu-footer">Product is an open-source platform, and we’re all volunteers. Do you like the idea and want to help? </p>
+				<p class="mobile-menu-footer">Product is an open-source platform, and we’re all volunteers. Want to help? </p>
 				<a class="mobile-menu-footer-link" href="/lecture_website_app_generator/src/client/public/join-our-team.html">Join our team</a>
 			</div>
 		</div>
 		<!-- end of moblie menu-->
 		<nav class="navbar navbar-expand-md main-nav">
             <div class="spacer"></div>
-            
+
 			<div class="menu-btn">
 				<button class="hamburger hamburger--collapse" type="button" aria-label="Menu" aria-controls="navigation" onclick="document.getElementById('mobile-menu').style.marginLeft = '0px';document.getElementById('mobile-menu-bg').style.marginLeft = '0px';">
 					<span class="hamburger-box">
@@ -98,29 +98,29 @@
 			</div>
 			<div class="spacer"></div>
 		</nav>
-        
+
         <div class="not-found-container">
 			<!-- title section - desktop -->
             <div class="not-found-section-desktop not-found-section">
                 <h2 class="not-found-title">Page not found</h2>
                 <p class="not-found-message">Sorry, we couldn't find this page.<br class="disable-br">
 					Go back to keep browsing, or get in touch to let us know what you're looking for.</p>
-					
+
 				<!-- buttons section - desktop -->
 				<div class="not-found-buttons-section-desktop not-found-buttons-section">
-					<a href="#" class="btn back-btn">
+					<a href="#" class="btn back-btn" id="back-btn" onclick="goBack()">
 						<div class="not-found-btn-title">
 							<svg width="26" height="26" style="margin-top: -4px;" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28.3334 15.5833H11.0926L19.0117 7.66413L17.0001 5.66663L5.66675 17L17.0001 28.3333L18.9976 26.3358L11.0926 18.4166H28.3334V15.5833Z" fill="#5A67D8"/></svg> Back
 						</div>
 					</a>
-					<a href="#" class="btn get-in-touch-btn">
+					<a href="/lecture_website_app_generator/src/client/public/contact-us.html" class="btn get-in-touch-btn">
 						<div class="not-found-btn-title">
 							<svg width="26" height="26" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M29.7499 8.49992H26.9166V21.2499H8.49992V24.0833C8.49992 24.8624 9.13742 25.4999 9.91659 25.4999H25.4999L31.1666 31.1666V9.91659C31.1666 9.13742 30.5291 8.49992 29.7499 8.49992ZM24.0833 16.9999V4.24992C24.0833 3.47075 23.4458 2.83325 22.6666 2.83325H4.24992C3.47075 2.83325 2.83325 3.47075 2.83325 4.24992V24.0833L8.49992 18.4166H22.6666C23.4458 18.4166 24.0833 17.7791 24.0833 16.9999Z" fill="#5A67D8"/> </svg> Get in touch
 						</div>
 					</a>
 				</div>
 			</div>
-			
+
 			<!-- not found image -->
 			<div class="personal-row center not-found-img">
 				<svg xmlns="http://www.w3.org/2000/svg" id="ef672dd0-2e16-4c9d-8107-606b55e40777" viewBox="0 0 844.675 595.262" width="844.675" height="595.262" data-name="Layer 1">
@@ -172,13 +172,13 @@
 				</svg>
 			</div>
 
-			
+
 			<!-- title section - mobile -->
 			<div class="not-found-section-mobile not-found-section">
                 <h2 class="not-found-title">Page not found</h2>
                 <p class="not-found-message">Sorry, we couldn't find this page.<br>
 					Go back to keep browsing, or get in touch to let us know what you're looking for.</p>
-					
+
 				<!-- buttons section - mobile -->
 				<div class="not-found-buttons-section-mobile not-found-buttons-section">
 					<a href="#" class="btn back-btn-mobile">
@@ -193,43 +193,42 @@
 					</a>
 				</div>
 			</div>
-
-			
         </div>
-		
-		
 
-		<footer class="footer">
+		  <footer class="footer">
 			<div class="footer-section">
-				<div class="footer-direction space-between">
-					<div class="footer-menu">
-						<h1>
-							OurProduct
-						</h1>
-					</div>
-					<div class="footer-menu border-right-footer">
-						<p>
-							OurProduct is a free open-source website template that will vastly improve the communicationbetween lecturers and students. It will provide lecturers and professors with the tools to easily create a professional personal website that contains their research, courses and personal projects. <br><br>
-							With much of the academic world operating online due to Covid-19, now is the ideal time to finally create the platform that will change academic life for the better.
-						</p>
-					</div>
-					<div  class="footer-menu">
-						<ul>
-							<li><a href="/lecture_website_app_generator/src/client/public/index.html">What we do</a></li>
-							<li><a href="/lecture_website_app_generator/src/client/public/index.html#whoweare">Who we are</a></li>
-							<li><a href="/lecture_website_app_generator/src/client/public/join-our-team.html">Join our team</a></li>
-							<li><a href="/lecture_website_app_generator/src/client/public/sign-for-beta.html">Sign up for beta access</a></li>
-							<li><a href="/lecture_website_app_generator/src/client/public/contact-us.html">Contact us</a></li>
-						</ul>
-						<div class="personal-row">
-							<a href="legal.html"  class="min-width-150">&#169; 2020</a> <a href="legal.html" class="min-width-150" style="padding-right: 0px">Privacy and Terms</a>
-						</div>
-					</div>
+			  <div id="direction" class="space-between">
+				<div class="footer-menu">
+				  <h1>
+					Sphera
+				  </h1>
 				</div>
-			</div> 
-		</footer> 
+				<div id="line-plit" class="footer-menu">
+				  <p>
+					Sphera is a free open-source website template that will vastly improve the communication between lecturers and students. It will provide lecturers and professors with the tools to easily create a professional personal website that
+					contains their research, courses and personal projects. <br><br>
+					With much of the academic world operating online due to Covid-19, now is the ideal time to finally create the platform that will change academic life for the better.
+				  </p>
+				</div>
+				<div class="footer-seperater"></div>
+				<div class="footer-menu">
+				  <h5 class="footer-menu-title">Sphera</h5>
+				  <ul>
+					<li><a href="/lecture_website_app_generator/src/client/public/index.html">What we do</a></li>
+					<li><a href="/lecture_website_app_generator/src/client/public/index.html#whoweare">Who we are</a></li>
+					<li><a href="/lecture_website_app_generator/src/client/public/join-our-team.html">Join our team</a></li>
+					<li><a href="/lecture_website_app_generator/src/client/public/sign-for-beta.html">Sign up for beta access</a></li>
+					<li><a href="/lecture_website_app_generator/src/client/public/contact-us.html">Contact us</a></li>
+				  </ul>
+				  <div class="personal-row">
+					<a href="legal.html" class="min-width-150">&#169; 2020</a> <a href="legal.html" class="min-width-150" style="padding-right: 0px">Privacy and Terms</a>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </footer>
 	</div>
-	
+
     <script src="/lecture_website_app_generator/src/client/public/main.js"></script>
   </body>
 </html>
