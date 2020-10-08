@@ -1,4 +1,4 @@
-import { buttonTypes } from '../../resources/constants';
+import { buttonTypes } from "../../resources/constants";
 
 class InfoBoxButton {
   constructor(text, type, link) {

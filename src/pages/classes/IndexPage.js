@@ -7,7 +7,6 @@ class IndexPage extends iPage {
     this.featuredPublications = featuredPublications;
     this.currentProjects = currentProjects;
   }
-
 }
 
 export default IndexPage;

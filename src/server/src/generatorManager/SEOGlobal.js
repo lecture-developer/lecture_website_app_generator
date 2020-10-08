@@ -5,7 +5,7 @@ class SEOGlobal {
   }
 
   analyzeSEO = () => {
-    console.log('Analyzing SEO...');
+    console.log("Analyzing SEO...");
   };
 }
 
