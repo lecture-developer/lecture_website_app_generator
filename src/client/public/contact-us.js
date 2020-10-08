@@ -3,13 +3,19 @@
 */
 const delegate = (selector) => (cb) => (e) => e.target.matches(selector) && cb(e);
 const inputDelegate = delegate('input');
+const textAreaDelegate = delegate('textarea');
 
 for (var i = 1; i <= 3; i++)
 {
 	var container = document.getElementById("container" + i);
-	container.addEventListener('focusin', inputDelegate((el) => highlightInput(el)));
-	container.addEventListener('focusout', inputDelegate((el) => cancelHighlightInput(el)));
-	// container.addEventListener('input', inputDelegate((el) => checkInput(el)));
+	if(i == 3) { // add delegates for textarea
+		container.addEventListener('focusin', textAreaDelegate((el) => highlightInput(el)));
+		container.addEventListener('focusout', textAreaDelegate((el) => cancelHighlightInput(el)));
+	} else {
+		container.addEventListener('focusin', inputDelegate((el) => highlightInput(el)));
+		container.addEventListener('focusout', inputDelegate((el) => cancelHighlightInput(el)));
+		// container.addEventListener('input', inputDelegate((el) => checkInput(el)));
+	}
 }
 
 
