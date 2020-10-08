@@ -4,7 +4,7 @@
   "description": "SaaS project to generate, maintenance and deploy academic lectures' websites and mobile applications.",
   "main": "index.js",
   "scripts": {
-    "clean": "rm -rf mkdir build",
+    "clean": "mkdir build",
     "server-build": "npm run clean && npm run babel-build",
     "babel-build": "babel -d ./build ./src/server -s",
     "start": "npm install && npm run server-build && node build/server.js",
