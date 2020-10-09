@@ -41,7 +41,8 @@
 
     <title>Lecture Website Generator</title>
   </head>
-  <body>
+  <body style="position: relative;">
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
 		<!-- start of mobile menu-->
@@ -58,6 +59,8 @@
 			</div>
 		</div>
 		<!-- end of moblie menu-->
+    <div id="navber-scroll">
+
 		<nav class="navbar navbar-expand-md main-nav">
 			<div class="spacer"></div>
 
@@ -74,15 +77,16 @@
 			</div>
 
 			<a class="logo navbar-brand order-first order-md-0 mx-0" href="/lecture_website_app_generator/src/client/public/index.html">
-			Sphera</a>
+        <img class="desktop-nav-logo" src="images/LOGOdeskt_nav.png">
+			</a>
 
 			<div class="collapse navbar-collapse w-100">
-				<ul class="nav navbar-nav w-100 ">
+				<ul class="nav navbar-nav w-100 " id="navbar">
 					<li class="nav-item menu-main-link active">
-						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/index.html">What we do</a>
+						<a class="nav-link" href="#whatwedo" onclick="switch_design('whatwedo')">What we do</a>
 					</li>
 					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/index.html#whoweare">Who we are</a>
+						<a class="nav-link" href="#whoweare" onclick="switch_design('whoweare')">Who we are</a>
 					</li>
 					<li class="nav-item menu-main-link">
 						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/join-our-team.html">Join our team</a>
@@ -101,6 +105,7 @@
 			</div>
 			<div class="spacer"></div>
 		</nav>
+        </div>
 
 		<div class="section-middle">
 			<!-- start the center section for desktop-->
@@ -122,7 +127,7 @@
 					</div>
 				</div>
 
-				<div class="section-container">
+				<div class="section-container" id="whatwedo">
 					<div class="section">
 						<h3>
 							You’ll choose what information to share. We’ll do all the rest.
@@ -165,7 +170,7 @@
 							<div class="section-item w-100 space-evenly " style="padding-bottom: 80px; padding-right: 100px;">
 								<img src="/lecture_website_app_generator/src/client/public/images/index_mobile_2.png" alt="mobile sample website view" class="mobile"/>
 							</div>
-							<div class="section-item w-100 space-evenly" style="margin-right: 80px;">
+							<div class="section-item w-100 space-evenly">
 								<h4>
 									Simple, easy-to-use and intuitive
 								</h4>
@@ -275,7 +280,7 @@
 						A new era of  <br> academic websites
 					</h2>
 					<p>
-						Maintaining an academic online presence is not easy. That's why we created our one-stop-shop solution: a free, customizable and easy-to-use template for a personal website, that contains your entire academic life in one place. And yes, it’s mobile friendly too!
+						Maintaining an academic online presence is not easy. That's why we created our one-stop-shop solution: <span class="purple-text">Sphera</span>. a free, customizable and easy-to-use template for a personal website, that contains your entire academic life in one place. And yes, it’s mobile friendly too!
 					</p>
 					<a class="main-btn-big width-300-px" href="sign-for-beta.html">
 						Sign up for beta access
@@ -422,9 +427,7 @@
 		<div class="footer-section">
 		  <div id="direction" class="space-between">
 			<div class="footer-menu">
-			  <h1>
-				Sphera
-			  </h1>
+			  <img class="desktop-nav-logo" src="images/LOGOdeskt_nav.png" style="margin-left: -17px;">
 			</div>
 			<div id="line-plit" class="footer-menu">
 			  <p>

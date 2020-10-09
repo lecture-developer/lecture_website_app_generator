@@ -58,47 +58,50 @@
 			</div>
 		</div>
 		<!-- end of moblie menu-->
-		<nav class="navbar navbar-expand-md main-nav">
-			<div class="spacer"></div>
+    <nav id="navber-scroll" class="navbar navbar-expand-md main-nav">
+      <div class="spacer"></div>
 
-			<div class="menu-btn">
-				<button class="hamburger hamburger--collapse" type="button" aria-label="Menu" aria-controls="navigation" onclick="document.getElementById('mobile-menu').style.marginLeft = '0px';document.getElementById('mobile-menu-bg').style.marginLeft = '0px';">
-					<span class="hamburger-box">
-						<span class="hamburger-inner"></span>
-						<p>menu</p>
-					</span>
-				</button>
-			</div>
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <div class="menu-btn">
+        <button class="hamburger hamburger--collapse" type="button" aria-label="Menu" aria-controls="navigation" onclick="document.getElementById('mobile-menu').style.marginLeft = '0px';document.getElementById('mobile-menu-bg').style.marginLeft = '0px';">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+            <p>menu</p>
+          </span>
+        </button>
+      </div>
 
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<a class="logo navbar-brand order-first order-md-0 mx-0" href="/lecture_website_app_generator/src/client/public/index.html">Sphera</a>
-			<div class="collapse navbar-collapse w-100">
-				<ul class="nav navbar-nav w-100 ">
-					<li class="nav-item menu-main-link active">
-						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/index.html">What we do</a>
-					</li>
-					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/index.html#whoweare">Who we are</a>
-					</li>
-					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/join-our-team.html">Join our team</a>
-					</li>
-					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/contact-us.html">Contact us</a>
-					</li>
-				</ul>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav ml-auto">
-					<li class="nav-item menu-main-link width-300-px">
-						<a class="main-btn" href="/lecture_website_app_generator/src/client/public/sign-for-beta.html">Sign up for beta access </a>
-					</li>
-				</ul>
-			</div>
-			<div class="spacer"></div>
-		</nav>
+      <a class="logo navbar-brand order-first order-md-0 mx-0" href="/lecture_website_app_generator/src/client/public/index.html">
+        <img class="desktop-nav-logo" src="images/LOGOdeskt_nav.png">
+      </a>
+
+      <div class="collapse navbar-collapse w-100">
+        <ul class="nav navbar-nav w-100 " id="navbar">
+          <li class="nav-item menu-main-link active">
+            <a class="nav-link" href="/lecture_website_app_generator/src/client/public/index.html#whatwedo">What we do</a>
+          </li>
+          <li class="nav-item menu-main-link">
+            <a class="nav-link" href="/lecture_website_app_generator/src/client/public/index.html#whoweare">Who we are</a>
+          </li>
+          <li class="nav-item menu-main-link">
+            <a class="nav-link" href="/lecture_website_app_generator/src/client/public/join-our-team.html">Join our team</a>
+          </li>
+          <li class="nav-item menu-main-link">
+            <a class="nav-link" href="/lecture_website_app_generator/src/client/public/contact-us.html">Contact us</a>
+          </li>
+        </ul>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item menu-main-link width-300-px">
+            <a class="main-btn" href="/lecture_website_app_generator/src/client/public/sign-for-beta.html">Sign up for beta access </a>
+          </li>
+        </ul>
+      </div>
+      <div class="spacer"></div>
+    </nav>
 
 		<!-- background image - desktop -->
 		<div class="thanks-header-container">
@@ -203,9 +206,7 @@
 		<div class="footer-section">
 		  <div id="direction" class="space-between">
 			<div class="footer-menu">
-			  <h1>
-				Sphera
-			  </h1>
+			  <img class="desktop-nav-logo" src="images/LOGOdeskt_nav.png" style="margin-left: -17px;">
 			</div>
 			<div id="line-plit" class="footer-menu">
 			  <p>

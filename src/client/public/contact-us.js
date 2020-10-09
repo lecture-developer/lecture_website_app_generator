@@ -166,3 +166,8 @@ function validateEmail(inputText)
 }
 
 /* end - Check input functions */
+
+/* navbar design */
+children = navbar.children;
+children[3].classList.add("picked-menu");
+children[3].children[0].classList.add("picked");
