@@ -510,7 +510,7 @@ footer {
   width: 100%;
   background-color: white;
   padding: 100px 100px;
-  background: url(/lecture_website_app_generator/src/client/public/images/index-header.png);
+  background: url(/src/client/public/images/index-header.png);
   background-size: cover;
 }
 
@@ -1397,12 +1397,12 @@ textarea:focus, input:focus, button:focus {
   background-color: white;
   padding: 100px 100px;
   background-size: cover;
-  background: -webkit-gradien(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/images/index-join.png);
-  background: -moz-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/images/index-join.png);
-  background: -webkit-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/images/index-join.png);
-  background: -o-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/images/index-join.png);
-  background: -ms-linear-gradien(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/images/index-join.png);
-  background: linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/images/index-join.png);
+  background: -webkit-gradien(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/src/client/public/images/index-join.png);
+  background: -moz-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/src/client/public/images/index-join.png);
+  background: -webkit-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/src/client/public/images/index-join.png);
+  background: -o-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/src/client/public/images/index-join.png);
+  background: -ms-linear-gradien(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/src/client/public/images/index-join.png);
+  background: linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/src/client/public/images/index-join.png);
   background-size: cover;
   min-height: 400px;
 }
@@ -1422,12 +1422,12 @@ textarea:focus, input:focus, button:focus {
   background-color: white;
   padding: 100px 100px;
   background-size: cover;
-  background: -webkit-gradien(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/images/index-join.png);
-  background: -moz-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/images/index-join.png);
-  background: -webkit-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/images/index-join.png);
-  background: -o-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/images/index-join.png);
-  background: -ms-linear-gradien(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/images/index-join.png);
-  background: linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/lecture_website_app_generator/src/client/public/images/index-join.png);
+  background: -webkit-gradien(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/src/client/public/images/index-join.png);
+  background: -moz-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/src/client/public/images/index-join.png);
+  background: -webkit-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/src/client/public/images/index-join.png);
+  background: -o-linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/src/client/public/images/index-join.png);
+  background: -ms-linear-gradien(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/src/client/public/images/index-join.png);
+  background: linear-gradient(180deg, rgba(90, 103, 216, 0.4) 0%, rgba(102, 126, 234, 0.4) 100%), url(/src/client/public/images/index-join.png);
   background-size: cover;
   min-height: 400px;
 }
