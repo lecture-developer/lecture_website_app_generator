@@ -8,7 +8,7 @@
     "babel-build": "babel -d ./build ./src/server -s",
     "server-build": "npm run clean && npm run babel-build",
     "start": "npm install && npm run server-build && node build/server.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run server-build"
+    "heroku-postbuild": "npm run server-build"
   },
   "repository": {
     "type": "git",
