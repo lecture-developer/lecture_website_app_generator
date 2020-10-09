@@ -1,238 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-	<meta name="description" content="Lecuter's Name Academic Website focusing on cool study in the field of something" />
-	<meta name="keywords" content="lecture website, academic website" />
-	<meta id="author" content="First Last name" name="author"/>
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" rel="stylesheet"/>
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="stylesheet" href="/src/client/public/main.css" />
-	<!-- Analytics -->
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#000000" />
+		<meta
+			name="description"
+			content="Lecuter's Name Academic Website focusing on cool study in the field of something"
+		/>
+		<meta name="keywords" content="lecture website, academic website" />
+		<meta id="author" content="First Last name" name="author" />
+		<link rel="apple-touch-icon" href="./logo192.png" />
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+			integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+		/>
+		<link
+			crossorigin="anonymous"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+			integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+			rel="stylesheet"
+		/>
+		<link rel="manifest" href="./manifest.json" />
+		<link rel="stylesheet" href="./main.css" />
+		<!-- Analytics -->
 
-	<!-- Google Analytics-->
-	<script async="" src="https://www.googletagmanager.com/gtag/js?id=key"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'key');
-	</script>
+		<!-- Google Analytics-->
+		<script
+			async=""
+			src="https://www.googletagmanager.com/gtag/js?id=key"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+			gtag('config', 'key');
+		</script>
 
-	<!-- HotJar -->
-	<script>
-	(function(h,o,t,j,a,r)
-	{
-		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-		h._hjSettings={hjid:0000000,hjsv:6};
-		a=o.getElementsByTagName('head')[0];
-		r=o.createElement('script');r.async=1;
-		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-		a.appendChild(r);
-	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-	</script>
-	<!-- end - Analytics -->
+		<!-- HotJar -->
+		<script>
+			(function (h, o, t, j, a, r) {
+				h.hj =
+					h.hj ||
+					function () {
+						(h.hj.q = h.hj.q || []).push(arguments);
+					};
+				h._hjSettings = { hjid: 0000000, hjsv: 6 };
+				a = o.getElementsByTagName('head')[0];
+				r = o.createElement('script');
+				r.async = 1;
+				r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+				a.appendChild(r);
+			})(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+		</script>
+		<!-- end - Analytics -->
 
-    <title>Lecture Website Generator</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root">
-		<!-- start of mobile menu-->
-		<div id="mobile-menu" class="mobile-menu">
-			<div class="personal-coloum mobile-menu-container">
-				<button type="button" id="close_btn" onclick="document.getElementById('mobile-menu').style.marginLeft = '-100%';"> X </button>
-				<a class="mobile-menu-link"  href="/src/client/public/index.html">What we do</a>
-				<a class="mobile-menu-link" href="/src/client/public/index.html#whoweare">Who we are</a>
-				<a class="mobile-menu-link" href="/src/client/public/contact-us.html">Contact us</a>
-				<a class="main-btn" style="margin-top: 50px;" href="/src/client/public/sign-for-beta.html">Sign up for beta access </a>
-				<span class="mobile-menu-divider"></span>
-				<p class="mobile-menu-footer">Sphera is an open-source platform, and we’re all volunteers. Want to help? </p>
-				<a class="mobile-menu-footer-link" href="/src/client/public/join-our-team.html">Join our team</a>
-			</div>
-		</div>
-		<!-- end of moblie menu-->
-		<nav class="navbar navbar-expand-md main-nav">
-			<div class="spacer"></div>
-
-			<div class="menu-btn">
-				<button class="hamburger hamburger--collapse" type="button" aria-label="Menu" aria-controls="navigation" onclick="document.getElementById('mobile-menu').style.marginLeft = '0px';document.getElementById('mobile-menu-bg').style.marginLeft = '0px';">
-					<span class="hamburger-box">
-						<span class="hamburger-inner"></span>
-						<p>menu</p>
-					</span>
-				</button>
-			</div>
-
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<a class="logo navbar-brand order-first order-md-0 mx-0" href="/src/client/public/index.html">Sphera</a>
-			<div class="collapse navbar-collapse w-100">
-				<ul class="nav navbar-nav w-100 ">
-					<li class="nav-item menu-main-link active">
-						<a class="nav-link" href="/src/client/public/index.html">What we do</a>
-					</li>
-					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="/src/client/public/index.html#whoweare">Who we are</a>
-					</li>
-					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="/src/client/public/join-our-team.html">Join our team</a>
-					</li>
-					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="/src/client/public/contact-us.html">Contact us</a>
-					</li>
-				</ul>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav ml-auto">
-					<li class="nav-item menu-main-link width-300-px">
-						<a class="main-btn" href="/src/client/public/sign-for-beta.html">Sign up for beta access </a>
-					</li>
-				</ul>
-			</div>
-			<div class="spacer"></div>
-		</nav>
-
-		<!-- background image - desktop -->
-		<div class="thanks-header-container">
-			<div class="header-section">
-			</div>
-		</div>
-
-		<div class="thank-you-container">
-			<div class="thank-you-section">
-				<div class="personal-row space-evenly items-vertical-center">
-					<div class="w-100 space-evenly">
-						<h2 id="thank-you-title">
-
-						</h2>
-						<p id="thank-you-message">
-
-						</p>
-					</div>
-				</div>
-
-				<!-- share initiative button - mobile -->
-				<div class="share-initiative-mobile">
-					<a href="#" class="btn share-initiative-btn-mobile">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20" width="18" height="20">
-							<path fill="#5a67d8" d="M 15 14.08 C 14.24 14.08 13.56 14.38 13.04 14.85 L 5.91 10.7 C 5.96 10.47 6 10.24 6 10 C 6 9.76 5.96 9.53 5.91 9.3 L 12.96 5.19 C 13.5 5.69 14.21 6 15 6 C 16.66 6 18 4.66 18 3 C 18 1.34 16.66 0 15 0 C 13.34 0 12 1.34 12 3 C 12 3.24 12.04 3.47 12.09 3.7 L 5.04 7.81 C 4.5 7.31 3.79 7 3 7 C 1.34 7 0 8.34 0 10 C 0 11.66 1.34 13 3 13 C 3.79 13 4.5 12.69 5.04 12.19 L 12.16 16.35 C 12.11 16.56 12.08 16.78 12.08 17 C 12.08 18.61 13.39 19.92 15 19.92 C 16.61 19.92 17.92 18.61 17.92 17 C 17.92 15.39 16.61 14.08 15 14.08 Z" />
-						</svg>
-						Share this initiative
+		<title>Lecture Website Generator</title>
+	</head>
+	<body>
+		<noscript>You need to enable JavaScript to run this app.</noscript>
+		<div id="root">
+			<!-- start of mobile menu-->
+			<div id="mobile-menu" class="mobile-menu">
+				<div class="personal-coloum mobile-menu-container">
+					<button
+						type="button"
+						id="close_btn"
+						onclick="document.getElementById('mobile-menu').style.marginLeft = '-100%';"
+					>
+						X
+					</button>
+					<a class="mobile-menu-link" href="./index.html">What we do</a>
+					<a class="mobile-menu-link" href="./index.html#whoweare"
+						>Who we are</a
+					>
+					<a class="mobile-menu-link" href="./contact-us.html">Contact us</a>
+					<a
+						class="main-btn"
+						style="margin-top: 50px"
+						href="./sign-for-beta.html"
+						>Sign up for beta access
 					</a>
+					<span class="mobile-menu-divider"></span>
+					<p class="mobile-menu-footer">
+						Sphera is an open-source platform, and we’re all volunteers. Want to
+						help?
+					</p>
+					<a class="mobile-menu-footer-link" href="./join-our-team.html"
+						>Join our team</a
+					>
 				</div>
-				<!-- end share initiative button - mobile -->
+			</div>
+			<!-- end of moblie menu-->
+			<nav class="navbar navbar-expand-md main-nav">
+				<div class="spacer"></div>
 
-				<!-- share initiative button - desktop -->
-				<div class="share-initiative-section personal-row space-evenly items-vertical-center">
-					<div class="w-100 space-evenly">
-						<h4 class="share-initiative"  style="text-align: left;">
-							 Intrigued? Share our initative with your colleagues
-						</h4>
-						<p class="share-initiative-meta">
-							Help us find more beta testers and grow our community.
-						</p>
+				<div class="menu-btn">
+					<button
+						class="hamburger hamburger--collapse"
+						type="button"
+						aria-label="Menu"
+						aria-controls="navigation"
+						onclick="document.getElementById('mobile-menu').style.marginLeft = '0px';document.getElementById('mobile-menu-bg').style.marginLeft = '0px';"
+					>
+						<span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+							<p>menu</p>
+						</span>
+					</button>
+				</div>
+
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-toggle="collapse"
+					data-target=".navbar-collapse"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<a
+					class="logo navbar-brand order-first order-md-0 mx-0"
+					href="./index.html"
+					>Sphera</a
+				>
+				<div class="collapse navbar-collapse w-100">
+					<ul class="nav navbar-nav w-100">
+						<li class="nav-item menu-main-link active">
+							<a class="nav-link" href="./index.html">What we do</a>
+						</li>
+						<li class="nav-item menu-main-link">
+							<a class="nav-link" href="./index.html#whoweare">Who we are</a>
+						</li>
+						<li class="nav-item menu-main-link">
+							<a class="nav-link" href="./join-our-team.html">Join our team</a>
+						</li>
+						<li class="nav-item menu-main-link">
+							<a class="nav-link" href="./contact-us.html">Contact us</a>
+						</li>
+					</ul>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav ml-auto">
+						<li class="nav-item menu-main-link width-300-px">
+							<a class="main-btn" href="./sign-for-beta.html"
+								>Sign up for beta access
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="spacer"></div>
+			</nav>
+
+			<!-- background image - desktop -->
+			<div class="thanks-header-container">
+				<div class="header-section"></div>
+			</div>
+
+			<div class="thank-you-container">
+				<div class="thank-you-section">
+					<div class="personal-row space-evenly items-vertical-center">
+						<div class="w-100 space-evenly">
+							<h2 id="thank-you-title"></h2>
+							<p id="thank-you-message"></p>
+						</div>
 					</div>
-				</div>
-				<!-- end share initiative button - desktop -->
 
-				<!-- social button - desktop -->
-				<div class="personal-row items-vertical-center">
-					<div class="social-thanks">
+					<!-- share initiative button - mobile -->
+					<div class="share-initiative-mobile">
+						<a href="#" class="btn share-initiative-btn-mobile">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 18 20"
+								width="18"
+								height="20"
+							>
+								<path
+									fill="#5a67d8"
+									d="M 15 14.08 C 14.24 14.08 13.56 14.38 13.04 14.85 L 5.91 10.7 C 5.96 10.47 6 10.24 6 10 C 6 9.76 5.96 9.53 5.91 9.3 L 12.96 5.19 C 13.5 5.69 14.21 6 15 6 C 16.66 6 18 4.66 18 3 C 18 1.34 16.66 0 15 0 C 13.34 0 12 1.34 12 3 C 12 3.24 12.04 3.47 12.09 3.7 L 5.04 7.81 C 4.5 7.31 3.79 7 3 7 C 1.34 7 0 8.34 0 10 C 0 11.66 1.34 13 3 13 C 3.79 13 4.5 12.69 5.04 12.19 L 12.16 16.35 C 12.11 16.56 12.08 16.78 12.08 17 C 12.08 18.61 13.39 19.92 15 19.92 C 16.61 19.92 17.92 18.61 17.92 17 C 17.92 15.39 16.61 14.08 15 14.08 Z"
+								/>
+							</svg>
+							Share this initiative
+						</a>
+					</div>
+					<!-- end share initiative button - mobile -->
+
+					<!-- share initiative button - desktop -->
+					<div
+						class="share-initiative-section personal-row space-evenly items-vertical-center"
+					>
+						<div class="w-100 space-evenly">
+							<h4 class="share-initiative" style="text-align: left">
+								Intrigued? Share our initative with your colleagues
+							</h4>
+							<p class="share-initiative-meta">
+								Help us find more beta testers and grow our community.
+							</p>
+						</div>
+					</div>
+					<!-- end share initiative button - desktop -->
+
+					<!-- social button - desktop -->
+					<div class="personal-row items-vertical-center">
+						<div class="social-thanks">
+							<!-- Linkedin share icon -->
+							<a
+								class="social-thanks-button"
+								href="https://www.linkedin.com/sharing/share-offsite/?url=http://sphera.academy"
+								title="Share by Email"
+							>
+								<i class="fab fa-linkedin-in fa-3x"></i>
+							</a>
+							<!-- Whatsapp share icon -->
+							<a
+								class="social-thanks-button"
+								href="whatsapp://send?text=http://sphera.academy"
+								data-action="share/whatsapp/share"
+								title="Share by Email"
+							>
+								<i class="fab fa-whatsapp fa-3x"></i>
+							</a>
+							<!-- Twitter share icon -->
+							<a
+								class="social-thanks-button"
+								href="https://twitter.com/intent/tweet?text=http://sphera.academy"
+								title="Share by Email"
+							>
+								<i class="fab fa-twitter fa-3x"></i>
+							</a>
+							<!-- Email share icon -->
+							<a
+								class="social-thanks-button"
+								href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site http://sphera.academy."
+								title="Share by Email"
+							>
+								<i class="far fa-envelope fa-3x"></i>
+							</a>
+						</div>
+					</div>
+					<!-- end social button - desktop -->
+				</div>
+			</div>
+
+			<!-- background image - mobile -->
+			<div class="background-img-mobile thanks-header-container">
+				<div class="social-buttons-menu-mobile">
+					<button type="button" id="close-mobile-menu-btn">X</button>
+
+					<h2 id="social-menu-title-mobile"></h2>
+
+					<p id="social-menu-message-mobile"></p>
+
+					<div class="social-buttons-section">
 						<!-- Linkedin share icon -->
-						<a class="social-thanks-button" href="https://www.linkedin.com/sharing/share-offsite/?url=http://sphera.academy" title="Share by Email">
-							<i class="fab fa-linkedin-in fa-3x"></i>
+						<a class="social-thanks-button" href="#">
+							<i class="fab fa-linkedin-in fa-2x"></i>
 						</a>
 						<!-- Whatsapp share icon -->
-						<a class="social-thanks-button" href="whatsapp://send?text=http://sphera.academy" data-action="share/whatsapp/share" title="Share by Email">
-							<i class="fab fa-whatsapp fa-3x"></i>
+						<a
+							class="social-thanks-button"
+							href="whatsapp://send?text=www.example.com"
+							data-action="share/whatsapp/share"
+						>
+							<i class="fab fa-whatsapp fa-2x"></i>
 						</a>
 						<!-- Twitter share icon -->
-						<a class="social-thanks-button" href="https://twitter.com/intent/tweet?text=http://sphera.academy" title="Share by Email">
-							<i class="fab fa-twitter fa-3x"></i>
+						<a class="social-thanks-button" href="#">
+							<i class="fab fa-twitter fa-2x"></i>
 						</a>
 						<!-- Email share icon -->
-						<a class="social-thanks-button" href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site http://sphera.academy." title="Share by Email">
-							<i class="far fa-envelope fa-3x"></i>
+						<a
+							class="social-thanks-button"
+							href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site http://www.website.com."
+							title="Share by Email"
+						>
+							<i class="far fa-envelope fa-2x"></i>
 						</a>
 					</div>
 				</div>
-				<!-- end social button - desktop -->
 			</div>
-		</div>
 
-		<!-- background image - mobile -->
-		<div class="background-img-mobile thanks-header-container">
-			<div class="social-buttons-menu-mobile">
-				<button type="button" id="close-mobile-menu-btn"> X </button>
-
-				<h2 id="social-menu-title-mobile"></h2>
-
-				<p id="social-menu-message-mobile"></p>
-
-				<div class="social-buttons-section">
-					<!-- Linkedin share icon -->
-					<a class="social-thanks-button" href="#">
-						<i class="fab fa-linkedin-in fa-2x"></i>
-					</a>
-					<!-- Whatsapp share icon -->
-					<a class="social-thanks-button" href="whatsapp://send?text=www.example.com" data-action="share/whatsapp/share">
-						<i class="fab fa-whatsapp fa-2x"></i>
-					</a>
-					<!-- Twitter share icon -->
-					<a class="social-thanks-button" href="#">
-						<i class="fab fa-twitter fa-2x"></i>
-					</a>
-					<!-- Email share icon -->
-					<a class="social-thanks-button" href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site http://www.website.com."
-					title="Share by Email">
-						<i class="far fa-envelope fa-2x"></i>
-					</a>
+			<footer class="footer">
+				<div class="footer-section">
+					<div id="direction" class="space-between">
+						<div class="footer-menu">
+							<h1>Sphera</h1>
+						</div>
+						<div id="line-plit" class="footer-menu">
+							<p>
+								Sphera is a free open-source website template that will vastly
+								improve the communication between lecturers and students. It
+								will provide lecturers and professors with the tools to easily
+								create a professional personal website that contains their
+								research, courses and personal projects. <br /><br />
+								With much of the academic world operating online due to
+								Covid-19, now is the ideal time to finally create the platform
+								that will change academic life for the better.
+							</p>
+						</div>
+						<div class="footer-seperater"></div>
+						<div class="footer-menu">
+							<h5 class="footer-menu-title">Sphera</h5>
+							<ul>
+								<li><a href="./index.html">What we do</a></li>
+								<li><a href="./index.html#whoweare">Who we are</a></li>
+								<li><a href="./join-our-team.html">Join our team</a></li>
+								<li>
+									<a href="./sign-for-beta.html">Sign up for beta access</a>
+								</li>
+								<li><a href="./contact-us.html">Contact us</a></li>
+							</ul>
+							<div class="personal-row">
+								<a href="legal.html" class="min-width-150">&#169; 2020</a>
+								<a
+									href="legal.html"
+									class="min-width-150"
+									style="padding-right: 0px"
+									>Privacy and Terms</a
+								>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
+			</footer>
 		</div>
 
-	  <footer class="footer">
-		<div class="footer-section">
-		  <div id="direction" class="space-between">
-			<div class="footer-menu">
-			  <h1>
-				Sphera
-			  </h1>
-			</div>
-			<div id="line-plit" class="footer-menu">
-			  <p>
-				Sphera is a free open-source website template that will vastly improve the communication between lecturers and students. It will provide lecturers and professors with the tools to easily create a professional personal website that
-				contains their research, courses and personal projects. <br><br>
-				With much of the academic world operating online due to Covid-19, now is the ideal time to finally create the platform that will change academic life for the better.
-			  </p>
-			</div>
-			<div class="footer-seperater"></div>
-			<div class="footer-menu">
-			  <h5 class="footer-menu-title">Sphera</h5>
-			  <ul>
-				<li><a href="/src/client/public/index.html">What we do</a></li>
-				<li><a href="/src/client/public/index.html#whoweare">Who we are</a></li>
-				<li><a href="/src/client/public/join-our-team.html">Join our team</a></li>
-				<li><a href="/src/client/public/sign-for-beta.html">Sign up for beta access</a></li>
-				<li><a href="/src/client/public/contact-us.html">Contact us</a></li>
-			  </ul>
-			  <div class="personal-row">
-				<a href="legal.html" class="min-width-150">&#169; 2020</a> <a href="legal.html" class="min-width-150" style="padding-right: 0px">Privacy and Terms</a>
-			  </div>
-			</div>
-		  </div>
-		</div>
-	  </footer>
-	</div>
-
-	<script src="/src/client/public/thankYou.js"></script>
-  </body>
+		<script src="./thankYou.js"></script>
+	</body>
 </html>
