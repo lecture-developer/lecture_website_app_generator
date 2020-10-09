@@ -4,6 +4,10 @@
   "description": "SaaS project to generate, maintenance and deploy academic lectures' websites and mobile applications.",
   "main": "index.js",
   "scripts": {
+    "client-install": "cd src/client && npm install",
+    "client": "npm start --prefix src/client",
+    "server": "nodemon --exec babel-node src/server/server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "clean": "rm -rf build && mkdir build",
     "babel-build": "babel -d ./build ./src/server -s",
     "server-build": "npm run clean && npm run babel-build",
