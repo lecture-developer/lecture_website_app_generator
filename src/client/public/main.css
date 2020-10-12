@@ -216,6 +216,10 @@ footer {
   background: #ffffff;
 }
 
+.navbar-expand-md .navbar-nav{
+  margin-left: 20px;
+}
+
 .navbar .spacer {
   width: 5%;
 }
@@ -249,6 +253,14 @@ footer {
 .navbar .flex-1 {
   flex: 1;
   flex-basis: 100%;
+}
+
+.picked-menu{
+  border-bottom: solid 5px #5A67D8;
+}
+
+.picked{
+    color: #5A67D8 !important;
 }
 
 @media (max-width: 600px) {
@@ -506,10 +518,10 @@ footer {
 }
 
 .index-header-container {
-  padding-top: 40px;
+  /* padding-top: 40px; */
   width: 100%;
   background-color: white;
-  padding: 100px 100px;
+  padding: 0 10rem 12.5rem;
   background: url(/lecture_website_app_generator/src/client/public/images/index-header.png);
   background-size: cover;
 }
@@ -520,7 +532,7 @@ footer {
   flex-wrap: nowrap;
   align-content: flex-start;
   max-width: 1080px;
-  padding-top: 40px;
+  padding-top: 16.25rem;
   width: 50%;
 }
 
@@ -541,6 +553,8 @@ footer {
 
 .section-container {
   background: #F5F5F5;
+  padding-right: 10rem;
+  padding-left:10rem;
 }
 
 .section {
@@ -552,9 +566,9 @@ footer {
   max-width: 1265px;
   padding-top: 60px;
   padding-bottom: 60px;
+  padding: 60px 0;
   width: 100%;
-  margin-right: auto;
-  margin-left: auto;
+
 }
 
 .section h2 {
@@ -591,6 +605,7 @@ footer {
 .section img {
   width: 100%;
   padding: 20px 20px;
+  margin-right: -100px;
 }
 
 .big-number {
@@ -598,6 +613,15 @@ footer {
   font-size: 96px;
   margin-top: 20px;
   color: #5A67D8;
+}
+
+.purple-text{
+  color: #5A67D8;
+  font-weight: 500;
+}
+
+.desktop-nav-logo{
+  width: 162px;
 }
 
 .section-item {
@@ -614,7 +638,7 @@ footer {
 
 .section .mobile {
   float: right;
-  margin-right: 65px;
+  margin-right: 100px;
   width: 362px;
   margin-bottom: -381px;
   clip-path: inset(0px 20px 300px 0px);
@@ -1623,6 +1647,15 @@ textarea:focus, input:focus, button:focus {
   line-height: 64px;
   margin-top: 2px;
 }
+.section .form-page-title{
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 64px;
+  margin-top: 2px;
+  justify-content: left;
+}
 
 .form-page-text {
   font-family: Roboto;
@@ -2147,6 +2180,11 @@ textarea:focus, input:focus, button:focus {
 @media only screen and (max-width: 550px) {
   .active-share-menu {
     transform: scale(2);
+  }
+
+  .desktop-nav-logo{
+    width: 181px;
+    margin-right: -90px;
   }
 }
 
