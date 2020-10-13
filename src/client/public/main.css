@@ -553,8 +553,6 @@ footer {
 
 .section-container {
   background: #F5F5F5;
-  padding-right: 10rem;
-  padding-left:10rem;
 }
 
 .section {
@@ -563,11 +561,12 @@ footer {
   flex-wrap: nowrap;
   align-content: center;
   justify-content: center;
-  max-width: 1265px;
+  max-width: 1193px;
   padding-top: 60px;
   padding-bottom: 60px;
   padding: 60px 0;
   width: 100%;
+  margin-left: 9rem;
 
 }
 
@@ -792,6 +791,11 @@ footer {
   #index-blue-title {
     word-spacing: 4000px;
   }
+
+  /* .section-container{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  } */
 }
 
 .section-title {
@@ -838,6 +842,7 @@ footer {
   border-radius: 50%;
   filter: grayscale(100%);
   border: 1px solid #B8C5D0;
+  margin-right: 0;
 }
 
 .member-item h4 {
