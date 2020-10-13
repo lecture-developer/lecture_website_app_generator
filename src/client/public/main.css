@@ -548,7 +548,7 @@ footer {
 
 .index-header-section p {
   font-weight: 300;
-  font-size: 26px;
+  font-size: 20px;
   line-height: 150%;
   text-align: justify;
   margin-bottom: 30px;
@@ -571,6 +571,12 @@ footer {
   width: 100%;
 }
 
+/* @media only screen and (max-width: 1440px){
+  .remove-under-1440{
+    display: none;
+  }
+} */
+
 @media only screen and (min-width: 1440px){
   .section{
       margin-left: 9rem;
@@ -583,7 +589,7 @@ footer {
     align-content: flex-start;
     max-width: 1080px;
     padding-top: 16.25rem;
-    width: 50%;
+    width: 58%;
   }
 
   .index-header-container {
@@ -1718,7 +1724,7 @@ textarea:focus, input:focus, button:focus {
   margin: 17px 0 0 7px;
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 150%;
   display: flex;
   align-items: center;
