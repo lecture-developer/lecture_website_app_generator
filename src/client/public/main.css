@@ -2179,7 +2179,23 @@ textarea:focus, input:focus, button:focus {
 .active-share-menu {
   transform: scale(2.5);
   z-index: 100000000;
-  width: 420px;
+  top: 0;
+}
+
+.social-buttons-menu-mobile {
+  margin: auto;
+  margin-top: 50px;
+  background-color: white;
+  opacity: 0;
+  width: 200px;
+  height: 200px;
+  transition: opacity 0.3s;
+}
+
+@media only screen and (max-width: 850px) {
+  .active-share-menu {
+    transform: scale(2);
+  }
 }
 
 @media only screen and (max-width: 550px) {
@@ -2193,20 +2209,20 @@ textarea:focus, input:focus, button:focus {
   }
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 410px) {
   .active-share-menu {
-    transform: scale(2);
+    transform: scale(1.9);
   }
 }
 
-.social-buttons-menu-mobile {
-  margin: auto;
-  margin-top: 50px;
-  background-color: white;
-  opacity: 0;
-  width: 200px;
-  height: 200px;
-  transition: opacity 0.3s;
+@media only screen and (max-width: 395px) {
+  .active-share-menu {
+    transform: scale(2);
+  }
+
+  .social-buttons-menu-mobile {
+    width: unset;
+  }
 }
 
 .active-social-menu {

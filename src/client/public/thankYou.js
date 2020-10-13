@@ -67,8 +67,15 @@ function toggleMobileShareMenu(e) {
     document.getElementsByClassName('background-img-mobile')[0].classList.toggle("active-share-menu");
     document.getElementsByClassName('social-buttons-menu-mobile')[0].classList.toggle("active-social-menu");
 
+    thankYouPageType2Fit();
+    
+    e.stopPropagation();
+}
+
+function thankYouPageType2Fit() {
+    var winWidth =  window.innerWidth;
     // fix footer
-	if(window.innerWidth <= 420)
+	if(winWidth <= 480)
 	{
         // get the type parameter from the url
         const queryString = window.location.search;
@@ -79,7 +86,16 @@ function toggleMobileShareMenu(e) {
 
             if (option == 2) {
                 if (document.getElementsByClassName('active-share-menu').length != 0) {
-                    document.getElementsByClassName("active-share-menu")[0].style.top = '-350px';
+                    // in type 2 thank you page, we need to move the image up in order to cover everything.
+                    var topMargin = '0';
+                    if(winWidth <= 480 && winWidth > 409) {
+                        topMargin = '-2';
+                    } else if(winWidth <= 409 && winWidth > 395) {
+                        topMargin = '-5';
+                    } else if(winWidth <= 395) {
+                        topMargin = '-6';
+                    }
+                    document.getElementsByClassName("active-share-menu")[0].style.top = topMargin + 'rem';
                 } else {
                     document.getElementsByClassName("background-img-mobile")[0].style.top = '0px';
                 }
@@ -88,9 +104,10 @@ function toggleMobileShareMenu(e) {
             console.log(err);
         }
 	}
+};
 
-    e.stopPropagation();
-}
+window.addEventListener('resize', thankYouPageType2Fit);
+window.addEventListener('load', thankYouPageType2Fit);
 
 // bind share button, background image and 'X' button to toggle the share menu (on mobile only)
 document.getElementsByClassName('background-img-mobile')[0].addEventListener('click', toggleMobileShareMenu);
