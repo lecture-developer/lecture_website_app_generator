@@ -86,7 +86,7 @@ function checkInput(inputObj)
 	else if (inputObj.target.id == "input3")
 	{
 		id_num =  inputObj.target.id[inputObj.target.id.length - 1];
-		if (!(validateEmail(inputObj.target.value)))
+		if (!(validateEmail(inputObj.target.value) && notEmpty(inputObj.target.value)))
 		{
 			inputObj.target.classList.add("error-input");
 			document.getElementById("check-"+id_num).style.display = "";
