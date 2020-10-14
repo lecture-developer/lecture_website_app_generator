@@ -2221,7 +2221,23 @@ textarea:focus, input:focus, button:focus {
 .active-share-menu {
   transform: scale(2.5);
   z-index: 100000000;
-  width: 420px;
+  top: 0;
+}
+
+.social-buttons-menu-mobile {
+  margin: auto;
+  margin-top: 50px;
+  background-color: white;
+  opacity: 0;
+  width: 200px;
+  height: 200px;
+  transition: opacity 0.3s;
+}
+
+@media only screen and (max-width: 850px) {
+  .active-share-menu {
+    transform: scale(2);
+  }
 }
 
 @media only screen and (max-width: 550px) {
@@ -2236,20 +2252,20 @@ textarea:focus, input:focus, button:focus {
   }
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 410px) {
   .active-share-menu {
-    transform: scale(2);
+    transform: scale(1.9);
   }
 }
 
-.social-buttons-menu-mobile {
-  margin: auto;
-  margin-top: 50px;
-  background-color: white;
-  opacity: 0;
-  width: 200px;
-  height: 200px;
-  transition: opacity 0.3s;
+@media only screen and (max-width: 395px) {
+  .active-share-menu {
+    transform: scale(2);
+  }
+
+  .social-buttons-menu-mobile {
+    width: unset;
+  }
 }
 
 .active-social-menu {
@@ -2271,11 +2287,11 @@ textarea:focus, input:focus, button:focus {
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
-  line-height: 13px;
+  line-height: 15px;
   letter-spacing: 0em;
   margin: auto;
   width: 90%;
-  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 12px;
   padding-right: 12px;
 }
@@ -2288,6 +2304,11 @@ textarea:focus, input:focus, button:focus {
   border: transparent;
 }
 
+.close-icon{
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
 .social-buttons-section {
   margin-top: 10px;
   padding-left: 3px;
@@ -2295,9 +2316,12 @@ textarea:focus, input:focus, button:focus {
 }
 
 .social-buttons-section a {
-  transform: scale(0.8, 0.8);
-  margin-left: 3px;
-  margin-right: 3px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.social-buttons-section i {
+  transform: scale(0.7, 0.7);
 }
 
 .not-found-message {
