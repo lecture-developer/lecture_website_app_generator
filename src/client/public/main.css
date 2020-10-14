@@ -497,8 +497,12 @@ footer {
 }
 
 .link-btn-big:hover {
-  color: #5A67D8 !important;
-  border: 2px solid #5A67D8 !important;
+  /* color: #5A67D8 !important;
+  border: 2px solid #5A67D8 !important; */
+  background-color: #5A67D8 !important;
+  color: #ffffff !important;
+  border-color: #5A67D8;
+  text-decoration: none;
 }
 
 .submit-btn {
@@ -521,7 +525,7 @@ footer {
   /* padding-top: 40px; */
   width: 100%;
   background-color: white;
-  padding: 0 10rem 12.5rem;
+  padding: 0 3rem 12.5rem;
   background: url(/lecture_website_app_generator/src/client/public/images/index-header.png);
   background-size: cover;
 }
@@ -533,7 +537,6 @@ footer {
   align-content: flex-start;
   max-width: 1080px;
   padding-top: 16.25rem;
-  width: 50%;
 }
 
 .index-header-section h2 {
@@ -545,7 +548,7 @@ footer {
 
 .index-header-section p {
   font-weight: 300;
-  font-size: 26px;
+  font-size: 20px;
   line-height: 150%;
   text-align: justify;
   margin-bottom: 30px;
@@ -553,8 +556,6 @@ footer {
 
 .section-container {
   background: #F5F5F5;
-  padding-right: 10rem;
-  padding-left:10rem;
 }
 
 .section {
@@ -563,12 +564,42 @@ footer {
   flex-wrap: nowrap;
   align-content: center;
   justify-content: center;
-  max-width: 1265px;
+  max-width: 1193px;
   padding-top: 60px;
   padding-bottom: 60px;
   padding: 60px 0;
   width: 100%;
+}
 
+/* @media only screen and (max-width: 1440px){
+  .remove-under-1440{
+    display: none;
+  }
+} */
+
+@media only screen and (min-width: 1440px){
+  .section{
+      margin-left: 9rem;
+  }
+
+  .index-header-section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    max-width: 1080px;
+    padding-top: 16.25rem;
+    width: 58%;
+  }
+
+  .index-header-container {
+    /* padding-top: 40px; */
+    width: 100%;
+    background-color: white;
+    padding: 0 10rem 12.5rem;
+    background: url(/lecture_website_app_generator/src/client/public/images/index-header.png);
+    background-size: cover;
+  }
 }
 
 .section h2 {
@@ -788,10 +819,15 @@ footer {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
   #index-blue-title {
     word-spacing: 4000px;
   }
+
+  /* .section-container{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  } */
 }
 
 .section-title {
@@ -838,6 +874,7 @@ footer {
   border-radius: 50%;
   filter: grayscale(100%);
   border: 1px solid #B8C5D0;
+  margin-right: 0;
 }
 
 .member-item h4 {
@@ -868,9 +905,9 @@ footer {
 .beta-section p {
   font-family: Roboto;
   text-align: justify;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 50px;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 180%;
   letter-spacing: -0.015em;
   padding-left: 50px;
   padding-right: 50px;
@@ -1346,10 +1383,12 @@ footer {
 
 .project-form input[type="text"] {
   width: 100%;
+  height: 40px;
 }
 
 .project-form input[type="number"] {
   width: 100%;
+  height: 40px;
 }
 
 .project-form textarea {
@@ -1576,6 +1615,12 @@ textarea:focus, input:focus, button:focus {
   font-family: Roboto;
 }
 
+.font-20{
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 200%;
+}
+
 .content-justify {
   text-align: justify;
 }
@@ -1646,6 +1691,7 @@ textarea:focus, input:focus, button:focus {
   font-size: 40px;
   line-height: 64px;
   margin-top: 2px;
+
 }
 .section .form-page-title{
   font-family: Playfair Display;
@@ -1655,6 +1701,7 @@ textarea:focus, input:focus, button:focus {
   line-height: 64px;
   margin-top: 2px;
   justify-content: left;
+  text-align: left;
 }
 
 .form-page-text {
@@ -1677,7 +1724,7 @@ textarea:focus, input:focus, button:focus {
   margin: 17px 0 0 7px;
   font-style: normal;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 150%;
   display: flex;
   align-items: center;
@@ -1687,7 +1734,7 @@ textarea:focus, input:focus, button:focus {
 }
 
 .free-text {
-  min-height: 250px;
+  min-height: 150px;
 }
 
 .project-form ul {
@@ -1725,7 +1772,7 @@ textarea:focus, input:focus, button:focus {
 
 .project-form .secondary-btn-sizes {
   font-weight: 500;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 28px;
   display: flex;
   align-items: center;
@@ -1771,7 +1818,7 @@ textarea:focus, input:focus, button:focus {
 .green-check, .red-x {
   position: absolute;
   right: 25.5px;
-  top: 15px;
+  top: 7.5px;
   display: none;
 }
 
@@ -1817,7 +1864,7 @@ textarea:focus, input:focus, button:focus {
   }
 
   .main-form {
-    margin-bottom: 100px;
+    margin-bottom: 0;
   }
 
   .project-form {
@@ -2185,6 +2232,7 @@ textarea:focus, input:focus, button:focus {
   .desktop-nav-logo{
     width: 181px;
     margin-right: -90px;
+    margin-left: 22px;
   }
 }
 
@@ -2432,7 +2480,7 @@ textarea:focus, input:focus, button:focus {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 180%;
   text-align: justify;
   letter-spacing: 0.02em;
@@ -2447,13 +2495,20 @@ textarea:focus, input:focus, button:focus {
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 28px;
   color: #5A67D8;
   height: 64px;
   padding: 20px 62px;
   transition-property: color, background-color;
   transition-duration: 300ms;
+}
+
+.font-and-width{
+  width: 217px;
+  height: 50px;
+  font-size: 22px;
+  padding: 10px 57px;
 }
 
 .height-380 {
