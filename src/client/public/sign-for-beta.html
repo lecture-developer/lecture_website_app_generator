@@ -59,7 +59,11 @@
 		<div id="mobile-menu" class="mobile-menu">
 			<div class="personal-coloum mobile-menu-container">
 				<button type="button" id="close_btn"
-					onclick="document.getElementById('mobile-menu').style.marginLeft = '-100%';"> X </button>
+					onclick="document.getElementById('mobile-menu').style.marginLeft = '-100%';">
+<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M26.9166 9.081L24.9191 7.0835L17 15.0027L9.08081 7.0835L7.08331 9.081L15.0025 17.0002L7.08331 24.9193L9.08081 26.9168L17 18.9977L24.9191 26.9168L26.9166 24.9193L18.9975 17.0002L26.9166 9.081Z" fill="#323232"/>
+</svg>
+ </button>
 				<a class="mobile-menu-link" href="/lecture_website_app_generator/src/client/public/index.html">What we do</a>
 				<a class="mobile-menu-link" href="/lecture_website_app_generator/src/client/public/index.html#whoweare">Who we
 					are</a>
@@ -73,55 +77,50 @@
 			</div>
 		</div>
 		<!-- end of moblie menu-->
-		<nav class="navbar navbar-expand-md main-nav">
-			<div class="spacer"></div>
+		<nav id="navber-scroll" class="navbar navbar-expand-md main-nav">
+      <div class="spacer"></div>
 
-			<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="navbar-toggler-icon"></span>
-			</button> -->
-			<div class="menu-btn">
-				<button class="hamburger hamburger--collapse" type="button" aria-label="Menu" aria-controls="navigation"
-					onclick="document.getElementById('mobile-menu').style.marginLeft = '0px';document.getElementById('mobile-menu-bg').style.marginLeft = '0px';">
-					<span class="hamburger-box">
-						<span class="hamburger-inner"></span>
-						<p>menu</p>
-					</span>
-				</button>
-			</div>
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <div class="menu-btn">
+        <button class="hamburger hamburger--collapse" type="button" aria-label="Menu" aria-controls="navigation" onclick="document.getElementById('mobile-menu').style.marginLeft = '0px';document.getElementById('mobile-menu-bg').style.marginLeft = '0px';">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+            <p>menu</p>
+          </span>
+        </button>
+      </div>
 
+      <a class="logo navbar-brand order-first order-md-0 mx-0" href="/lecture_website_app_generator/src/client/public/index.html">
+        <img class="desktop-nav-logo" src="images/LOGOdeskt_nav.png">
+      </a>
 
-			<a class="logo navbar-brand order-first order-md-0 mx-0" href="/lecture_website_app_generator/src/client/public/index.html">
-			Sphera</a>
-
-			<div class="collapse navbar-collapse w-100">
-				<ul class="nav navbar-nav w-100 ">
-					<li class="nav-item menu-main-link active">
-						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/index.html">What we do</a>
-					</li>
-					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/index.html#whoweare">Who we
-							are</a>
-					</li>
-					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/join-our-team.html">Join our
-							team</a>
-					</li>
-					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="/lecture_website_app_generator/src/client/public/contact-us.html">Contact us</a>
-					</li>
-				</ul>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav ml-auto">
-					<li class="nav-item menu-main-link width-300-px">
-						<a class="main-btn" href="/lecture_website_app_generator/src/client/public/sign-for-beta.html">Sign up for
-							beta access </a>
-					</li>
-				</ul>
-			</div>
-			<div class="spacer"></div>
-		</nav>
-
+      <div class="collapse navbar-collapse w-100">
+        <ul class="nav navbar-nav w-100 " id="navbar">
+          <li class="nav-item menu-main-link active">
+            <a class="nav-link" href="/lecture_website_app_generator/src/client/public/index.html#whatwedo">What we do</a>
+          </li>
+          <li class="nav-item menu-main-link">
+            <a class="nav-link" href="/lecture_website_app_generator/src/client/public/index.html#whoweare">Who we are</a>
+          </li>
+          <li class="nav-item menu-main-link">
+            <a class="nav-link" href="/lecture_website_app_generator/src/client/public/join-our-team.html">Join our team</a>
+          </li>
+          <li class="nav-item menu-main-link">
+            <a class="nav-link" href="/lecture_website_app_generator/src/client/public/contact-us.html">Contact us</a>
+          </li>
+        </ul>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item menu-main-link width-300-px">
+            <a class="main-btn" href="/lecture_website_app_generator/src/client/public/sign-for-beta.html">Sign up for beta access </a>
+          </li>
+        </ul>
+      </div>
+      <div class="spacer"></div>
+    </nav>
     <div class="section-container white-bg">
         <div class="form-page main-form">
           <div class="personal-row space-evenly start">
@@ -222,41 +221,37 @@
 	</div>
   	<!-- </div> -->
   </div>
-
-
-  <footer class="footer">
-    <div class="footer-section">
-      <div id="direction" class="space-between">
-        <div class="footer-menu">
-          <h1>
-            Sphera
-          </h1>
-        </div>
-        <div id="line-plit" class="footer-menu">
-          <p>
-            Sphera is a free open-source website template that will vastly improve the communication between lecturers and students. It will provide lecturers and professors with the tools to easily create a professional personal website that
-            contains their research, courses and personal projects. <br><br>
-            With much of the academic world operating online due to Covid-19, now is the ideal time to finally create the platform that will change academic life for the better.
-          </p>
-        </div>
-        <div class="footer-seperater"></div>
-        <div class="footer-menu">
-          <h5 class="footer-menu-title">Sphera</h5>
-          <ul>
-            <li><a href="/lecture_website_app_generator/src/client/public/index.html">What we do</a></li>
-            <li><a href="/lecture_website_app_generator/src/client/public/index.html#whoweare">Who we are</a></li>
-            <li><a href="/lecture_website_app_generator/src/client/public/join-our-team.html">Join our team</a></li>
-            <li><a href="/lecture_website_app_generator/src/client/public/sign-for-beta.html">Sign up for beta access</a></li>
-            <li><a href="/lecture_website_app_generator/src/client/public/contact-us.html">Contact us</a></li>
-          </ul>
-          <div class="personal-row">
-            <a href="legal.html" class="min-width-150">&#169; 2020</a> <a href="legal.html" class="min-width-150" style="padding-right: 0px">Privacy and Terms</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
 </div>
+<footer class="footer">
+	<div class="footer-section">
+		<div id="direction" class="space-between">
+			<div class="footer-menu">
+				<img class="desktop-nav-logo" src="images/LOGOdeskt_nav.png" style="margin-left: -17px;">
+			</div>
+			<div id="line-plit" class="footer-menu">
+				<p>
+					Sphera is a free open-source website template that will vastly improve the communication between lecturers and students. It will provide lecturers and professors with the tools to easily create a professional personal website that
+					contains their research, courses and personal projects. <br><br>
+					With much of the academic world operating online due to Covid-19, now is the ideal time to finally create the platform that will change academic life for the better.
+				</p>
+			</div>
+			<div class="footer-seperater"></div>
+			<div class="footer-menu">
+				<h5 class="footer-menu-title">Sphera</h5>
+				<ul>
+					<li><a href="/lecture_website_app_generator/src/client/public/index.html">What we do</a></li>
+					<li><a href="/lecture_website_app_generator/src/client/public/index.html#whoweare">Who we are</a></li>
+					<li><a href="/lecture_website_app_generator/src/client/public/join-our-team.html">Join our team</a></li>
+					<li><a href="/lecture_website_app_generator/src/client/public/sign-for-beta.html">Sign up for beta access</a></li>
+					<li><a href="/lecture_website_app_generator/src/client/public/contact-us.html">Contact us</a></li>
+				</ul>
+				<div class="personal-row">
+					<a href="legal.html" class="min-width-150">&#169; 2020</a> <a href="legal.html" class="min-width-150" style="padding-right: 0px">Privacy and Terms</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
 
 <script src="/lecture_website_app_generator/src/client/public/main.js"></script>
 <script src="/lecture_website_app_generator/src/client/public/sign-for-beta.js"></script>

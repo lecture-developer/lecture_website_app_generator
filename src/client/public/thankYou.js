@@ -10,27 +10,24 @@ function thankYouPage()
         let title = "Thank you for ";
         let message = '';
         let socialTitle = '';
-        let socialMessage = '';
+        let socialMessage = 'Tell your friends and colleagues about Sphera to help us grow our community.';
         // each type is a different thank you page and presents a different message
         switch (option) {
             case 1: // join us thank you
                 title += 'applying!';
                 message += 'We will get in touch with you soon.';
                 socialTitle += 'Spread the word';
-                socialMessage += 'Tell your friends and colleagues about Product to help us grow our community.';
                 break;
             case 2: // beta access (sign up)
                 title += 'signing up for beta access!';
                 message += 'We’re planning to start beta testing towards the end of 2020, during the fall semester.\
                             We’ll send you an email with more details soon.';
                 socialTitle += 'Tell your colleagues';
-                socialMessage += 'Tell your colleagues about Product to help us find more beta testers and grow our community.';
                 break;
             case 3: // contact us
                 title += 'getting in touch!';
                 message += 'We’ll reach out to you soon.';
                 socialTitle += 'Spread the word';
-                socialMessage += 'Tell your friends and colleagues about Product to help us grow our community.';
                 break;
 
             default:
@@ -67,8 +64,15 @@ function toggleMobileShareMenu(e) {
     document.getElementsByClassName('background-img-mobile')[0].classList.toggle("active-share-menu");
     document.getElementsByClassName('social-buttons-menu-mobile')[0].classList.toggle("active-social-menu");
 
+    thankYouPageType2Fit();
+    
+    e.stopPropagation();
+}
+
+function thankYouPageType2Fit() {
+    var winWidth =  window.innerWidth;
     // fix footer
-	if(window.innerWidth <= 420)
+	if(winWidth <= 480)
 	{
         // get the type parameter from the url
         const queryString = window.location.search;
@@ -79,7 +83,16 @@ function toggleMobileShareMenu(e) {
 
             if (option == 2) {
                 if (document.getElementsByClassName('active-share-menu').length != 0) {
-                    document.getElementsByClassName("active-share-menu")[0].style.top = '-350px';
+                    // in type 2 thank you page, we need to move the image up in order to cover everything.
+                    var topMargin = '0';
+                    if(winWidth <= 480 && winWidth > 409) {
+                        topMargin = '-2';
+                    } else if(winWidth <= 409 && winWidth > 395) {
+                        topMargin = '-5';
+                    } else if(winWidth <= 395) {
+                        topMargin = '-6';
+                    }
+                    document.getElementsByClassName("active-share-menu")[0].style.top = topMargin + 'rem';
                 } else {
                     document.getElementsByClassName("background-img-mobile")[0].style.top = '0px';
                 }
@@ -88,9 +101,10 @@ function toggleMobileShareMenu(e) {
             console.log(err);
         }
 	}
+};
 
-    e.stopPropagation();
-}
+window.addEventListener('resize', thankYouPageType2Fit);
+window.addEventListener('load', thankYouPageType2Fit);
 
 // bind share button, background image and 'X' button to toggle the share menu (on mobile only)
 document.getElementsByClassName('background-img-mobile')[0].addEventListener('click', toggleMobileShareMenu);

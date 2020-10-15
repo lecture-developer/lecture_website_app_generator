@@ -5,9 +5,14 @@
   "main": "index.js",
   "scripts": {
     "client-install": "cd src/client && npm install",
-    "server": "nodemon --exec babel-node src/server/server.js",
     "client": "npm start --prefix src/client",
-    "start": "concurrently \"npm run server\" \"npm run client\""
+    "server": "nodemon --exec babel-node src/server/server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "clean": "rm -rf build && mkdir build",
+    "babel-build": "babel -d ./build ./src/server -s",
+    "server-build": "npm run clean && npm run babel-build",
+    "start": "npm install && npm run server-build && node build/server.js",
+    "heroku-postbuild": "npm run server-build"
   },
   "repository": {
     "type": "git",
@@ -21,11 +26,13 @@
   },
   "homepage": "https://github.com/teddy4445/lecture_website_app_generator#readme",
   "dependencies": {
+    "@babel/runtime": "^7.11.2",
     "@hapi/joi": "^17.1.1",
     "axios": "^0.19.2",
     "babel-node": "0.0.1-security",
     "bcryptjs": "^2.4.3",
     "concurrently": "^5.3.0",
+    "core-js": "^3.6.5",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "eslint": "^6.6.0",
@@ -51,6 +58,8 @@
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.1",
     "@babel/node": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.11.0",
     "nodemon": "^2.0.4",
     "pino-pretty": "^4.2.0"
