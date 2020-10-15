@@ -83,26 +83,26 @@ function checkInput(inputObj)
 			flags[1] = false;
 		}
 	}
-	// else if (inputObj.target.id == "input3")
-	// {
-	// 	id_num =  inputObj.target.id[inputObj.target.id.length - 1];
-	// 	if (!(validateEmail(inputObj.target.value)))
-	// 	{
-	// 		inputObj.target.classList.add("error-input");
-	// 		document.getElementById("check-"+id_num).style.display = "";
-	// 		document.getElementById("x-"+id_num).style.display = "inherit";
-	// 		document.getElementById("error-"+ id_num).style.display = "inherit";
-	// 		flags[1] = true;
-	// 	}
-	// 	else
-	// 	{
-	// 		inputObj.target.classList.add("good-input");
-	// 		document.getElementById("check-"+id_num).style.display = "inherit";
-	// 		document.getElementById("x-"+id_num).style.display = "";
-	// 		document.getElementById("error-" + id_num).style.display = "";
-	// 		flags[1] = false;
-	// 	}
-	// }
+	else if (inputObj.target.id == "input3")
+	{
+		id_num =  inputObj.target.id[inputObj.target.id.length - 1];
+		if (!(validateEmail(inputObj.target.value) && notEmpty(inputObj.target.value)))
+		{
+			inputObj.target.classList.add("error-input");
+			document.getElementById("check-"+id_num).style.display = "";
+			document.getElementById("x-"+id_num).style.display = "inherit";
+			document.getElementById("error-"+ id_num).style.display = "inherit";
+			flags[1] = true;
+		}
+		else
+		{
+			inputObj.target.classList.add("good-input");
+			document.getElementById("check-"+id_num).style.display = "inherit";
+			document.getElementById("x-"+id_num).style.display = "";
+			document.getElementById("error-" + id_num).style.display = "";
+			flags[1] = false;
+		}
+	}
 	else if (inputObj.target.id == "input4")
 	{
 		id_num =  inputObj.target.id[inputObj.target.id.length - 1];
