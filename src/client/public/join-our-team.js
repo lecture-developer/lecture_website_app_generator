@@ -213,3 +213,9 @@ biu.addEventListener("click", function(){
 		document.getElementById("biu").classList.add("active");
 });
 /* end of arrows styling */
+
+/* navbar design */
+
+children = navbar.children;
+children[2].classList.add("picked-menu");
+children[2].children[0].classList.add("picked");

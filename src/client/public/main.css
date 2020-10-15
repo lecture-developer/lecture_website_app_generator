@@ -216,6 +216,10 @@ footer {
 	background: #ffffff;
 }
 
+.navbar-expand-md .navbar-nav{
+  margin-left: 20px;
+}
+
 .navbar .spacer {
 	width: 5%;
 }
@@ -249,6 +253,14 @@ footer {
 .navbar .flex-1 {
 	flex: 1;
 	flex-basis: 100%;
+}
+
+.picked-menu{
+  border-bottom: solid 5px #5A67D8;
+}
+
+.picked{
+    color: #5A67D8 !important;
 }
 
 @media (max-width: 600px) {
@@ -485,8 +497,12 @@ footer {
 }
 
 .link-btn-big:hover {
-	color: #5a67d8 !important;
-	border: 2px solid #5a67d8 !important;
+  /* color: #5A67D8 !important;
+  border: 2px solid #5A67D8 !important; */
+  background-color: #5A67D8 !important;
+  color: #ffffff !important;
+  border-color: #5A67D8;
+  text-decoration: none;
 }
 
 .submit-btn {
@@ -506,22 +522,21 @@ footer {
 }
 
 .index-header-container {
-	padding-top: 40px;
-	width: 100%;
-	background-color: white;
-	padding: 100px 100px;
-	background: url(./images/index-header.png);
-	background-size: cover;
+  /* padding-top: 40px; */
+  width: 100%;
+  background-color: white;
+  padding: 0 3rem 12.5rem;
+  background: url(/lecture_website_app_generator/src/client/public/images/index-header.png);
+  background-size: cover;
 }
 
 .index-header-section {
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	align-content: flex-start;
-	max-width: 1080px;
-	padding-top: 40px;
-	width: 50%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  max-width: 1080px;
+  padding-top: 16.25rem;
 }
 
 .index-header-section h2 {
@@ -532,11 +547,11 @@ footer {
 }
 
 .index-header-section p {
-	font-weight: 300;
-	font-size: 26px;
-	line-height: 150%;
-	text-align: justify;
-	margin-bottom: 30px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 150%;
+  text-align: justify;
+  margin-bottom: 30px;
 }
 
 .section-container {
@@ -544,17 +559,47 @@ footer {
 }
 
 .section {
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	align-content: center;
-	justify-content: center;
-	max-width: 1265px;
-	padding-top: 60px;
-	padding-bottom: 60px;
-	width: 100%;
-	margin-right: auto;
-	margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  max-width: 1193px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding: 60px 0;
+  width: 100%;
+}
+
+/* @media only screen and (max-width: 1440px){
+  .remove-under-1440{
+    display: none;
+  }
+} */
+
+@media only screen and (min-width: 1440px){
+  .section{
+      margin-left: 9rem;
+  }
+
+  .index-header-section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    max-width: 1080px;
+    padding-top: 16.25rem;
+    width: 58%;
+  }
+
+  .index-header-container {
+    /* padding-top: 40px; */
+    width: 100%;
+    background-color: white;
+    padding: 0 10rem 12.5rem;
+    background: url(/lecture_website_app_generator/src/client/public/images/index-header.png);
+    background-size: cover;
+  }
 }
 
 .section h2 {
@@ -589,8 +634,9 @@ footer {
 }
 
 .section img {
-	width: 100%;
-	padding: 20px 20px;
+  width: 100%;
+  padding: 20px 20px;
+  margin-right: -100px;
 }
 
 .big-number {
@@ -598,6 +644,15 @@ footer {
 	font-size: 96px;
 	margin-top: 20px;
 	color: #5a67d8;
+}
+
+.purple-text{
+  color: #5A67D8;
+  font-weight: 500;
+}
+
+.desktop-nav-logo{
+  width: 162px;
 }
 
 .section-item {
@@ -613,11 +668,11 @@ footer {
 }
 
 .section .mobile {
-	float: right;
-	margin-right: 65px;
-	width: 362px;
-	margin-bottom: -381px;
-	clip-path: inset(0px 20px 300px 0px);
+  float: right;
+  margin-right: 100px;
+  width: 362px;
+  margin-bottom: -381px;
+  clip-path: inset(0px 20px 300px 0px);
 }
 
 @media only screen and (max-width: 850px) {
@@ -764,10 +819,15 @@ footer {
 	}
 }
 
-@media (max-width: 500px) {
-	#index-blue-title {
-		word-spacing: 4000px;
-	}
+@media (max-width: 550px) {
+  #index-blue-title {
+    word-spacing: 4000px;
+  }
+
+  /* .section-container{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  } */
 }
 
 .section-title {
@@ -807,13 +867,14 @@ footer {
 }
 
 .member-item img {
-	width: 140px;
-	height: 140px;
-	margin-bottom: 10px;
-	padding: 0px 0px;
-	border-radius: 50%;
-	filter: grayscale(100%);
-	border: 1px solid #b8c5d0;
+  width: 140px;
+  height: 140px;
+  margin-bottom: 10px;
+  padding: 0px 0px;
+  border-radius: 50%;
+  filter: grayscale(100%);
+  border: 1px solid #B8C5D0;
+  margin-right: 0;
 }
 
 .member-item h4 {
@@ -842,14 +903,14 @@ footer {
 }
 
 .beta-section p {
-	font-family: Roboto;
-	text-align: justify;
-	font-weight: 500;
-	font-size: 22px;
-	line-height: 50px;
-	letter-spacing: -0.015em;
-	padding-left: 50px;
-	padding-right: 50px;
+  font-family: Roboto;
+  text-align: justify;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 180%;
+  letter-spacing: -0.015em;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .beta-section h4 {
@@ -1321,12 +1382,14 @@ textarea {
 	margin-right: auto;
 }
 
-.project-form input[type='text'] {
-	width: 100%;
+.project-form input[type="text"] {
+  width: 100%;
+  height: 40px;
 }
 
-.project-form input[type='number'] {
-	width: 100%;
+.project-form input[type="number"] {
+  width: 100%;
+  height: 40px;
 }
 
 .project-form textarea {
@@ -1617,6 +1680,12 @@ button:focus {
 	font-family: Roboto;
 }
 
+.font-20{
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 200%;
+}
+
 .content-justify {
 	text-align: justify;
 }
@@ -1681,12 +1750,23 @@ button:focus {
 }
 
 .form-page-title {
-	font-family: Playfair Display;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 40px;
-	line-height: 64px;
-	margin-top: 2px;
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 64px;
+  margin-top: 2px;
+
+}
+.section .form-page-title{
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 64px;
+  margin-top: 2px;
+  justify-content: left;
+  text-align: left;
 }
 
 .form-page-text {
@@ -1706,20 +1786,20 @@ button:focus {
 }
 
 .form-titles {
-	margin: 17px 0 0 7px;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 24px;
-	line-height: 150%;
-	display: flex;
-	align-items: center;
-	text-align: center;
-	letter-spacing: -0.015em;
-	color: #828282;
+  margin: 17px 0 0 7px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.015em;
+  color: #828282;
 }
 
 .free-text {
-	min-height: 250px;
+  min-height: 150px;
 }
 
 .project-form ul {
@@ -1756,21 +1836,21 @@ button:focus {
 }
 
 .project-form .secondary-btn-sizes {
-	font-weight: 500;
-	font-size: 24px;
-	line-height: 28px;
-	display: flex;
-	align-items: center;
-	text-align: center;
-	letter-spacing: -0.015em;
-	width: 161px;
-	height: 64px;
-	padding: 18px 53.5px;
-	margin: 85px 0 0px 0;
-	box-sizing: border-box;
-	border-radius: 6px;
-	font-family: Roboto;
-	font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.015em;
+  width: 161px;
+  height: 64px;
+  padding: 18px 53.5px;
+  margin: 85px 0 0px 0;
+  box-sizing: border-box;
+  border-radius: 6px;
+  font-family: Roboto;
+  font-style: normal;
 }
 
 .project-form .secondary-btn {
@@ -1800,12 +1880,11 @@ button:focus {
 	color: #eb5757;
 }
 
-.green-check,
-.red-x {
-	position: absolute;
-	right: 25.5px;
-	top: 15px;
-	display: none;
+.green-check, .red-x {
+  position: absolute;
+  right: 25.5px;
+  top: 7.5px;
+  display: none;
 }
 
 .input-container {
@@ -1820,115 +1899,114 @@ button:focus {
 /* end - forms pages shared features */
 /* forms - mobile version */
 @media only screen and (max-width: 850px) {
-	.form-page-title {
-		margin-top: 20px;
-		padding-left: 4px;
-		font-size: 28px;
-		line-height: 37px;
-	}
+  .form-page-title {
+    margin-top: 20px;
+    padding-left: 4px;
+    font-size: 28px;
+    line-height: 37px;
+  }
 
-	.form-page-text {
-		display: none;
-	}
+  .form-page-text {
+    display: none;
+  }
 
-	.form-page-text-mobile {
-		display: block;
-		font-size: 17px;
-		line-height: 27px;
-		font-weight: normal;
-		font-weight: 400;
-	}
+  .form-page-text-mobile {
+    display: block;
+    font-size: 17px;
+    line-height: 27px;
+    font-weight: normal;
+    font-weight: 400;
+  }
 
-	.form-page {
-		width: 80%;
-		margin: auto;
-		padding-top: 96px;
-	}
+  .form-page {
+    width: 80%;
+    margin: auto;
+    padding-top: 96px;
+  }
 
-	.free-text {
-		min-height: 100px;
-	}
+  .free-text {
+    min-height: 100px;
+  }
 
-	.main-form {
-		margin-bottom: 100px;
-	}
+  .main-form {
+    margin-bottom: 0;
+  }
 
-	.project-form {
-		margin: 0;
-		width: 100%;
-	}
+  .project-form {
+    margin: 0;
+    width: 100%;
+  }
 
-	.form-page input {
-		height: 48px;
-		margin-bottom: 5px;
-	}
+  .form-page input {
+    height: 48px;
+    margin-bottom: 5px;
+  }
 
-	.form-titles {
-		font-weight: normal;
-		font-size: 18px;
-		margin: 10px 0 2px 0;
-	}
+  .form-titles {
+    font-weight: normal;
+    font-size: 18px;
+    margin: 10px 0 2px 0;
+  }
 
-	.form-page .project-form-submit {
-		font-size: 18px;
-		text-align: center;
-		width: 121px;
-		border-radius: 6px;
-		padding: 0;
-		padding-left: 39px;
-	}
+  .form-page .project-form-submit {
+    font-size: 18px;
+    text-align: center;
+    width: 121px;
+    border-radius: 6px;
+    padding: 0;
+    padding-left: 39px;
+  }
 
-	.sign-up-button {
-		justify-content: flex-end;
-		margin-top: 28px !important;
-		margin-bottom: 76px;
-	}
+  .sign-up-button {
+    justify-content: flex-end;
+    margin-top: 28px ! important;
+    margin-bottom: 76px;
+  }
 
-	.project-form .secondary-btn-sizes {
-		margin-top: 19px;
-		margin-bottom: 92px;
-		width: 121px;
-		height: 48px;
-		font-size: 18px;
-		line-height: 150%;
-		display: flex;
-		align-items: center;
-		padding-left: 39px;
-		padding-top: 10px;
-	}
+  .project-form .secondary-btn-sizes {
+    margin-top: 19px;
+    margin-bottom: 92px;
+    width: 121px;
+    height: 48px;
+    font-size: 18px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    padding-left: 39px;
+    padding-top: 10px;
+  }
 
-	.error-message {
-		font-size: 16px;
-		margin-top: 0;
-	}
+  .error-message {
+    font-size: 16px;
+    margin-top: 0;
+  }
 
-	.margin-top-desktop {
-		padding-top: 0;
-	}
+  .margin-top-desktop {
+    padding-top: 0;
+  }
 
-	.radio-label {
-		font-size: 18px;
-		line-height: 150%;
-	}
+  .radio-label {
+    font-size: 18px;
+    line-height: 150%;
+  }
 
-	.radio-buttons input {
-		margin: 3px;
-		margin-bottom: 14px;
-		height: auto;
-	}
+  .radio-buttons input {
+    margin: 3px;
+    margin-bottom: 14px;
+    height: auto;
+  }
 
-	.no-padding {
-		padding: 0;
-	}
+  .no-padding {
+    padding: 0;
+  }
 
-	.green-check,
-	.red-x {
-		margin-top: -2px;
-	}
+  .green-check, .red-x {
+    margin-top: -2px;
+  }
 
-	.always-display {
-		display: block;
-	}
+  .always-display {
+    display: block;
+  }
 }
 
 /* end - forms pages - mobile */
@@ -2213,31 +2291,53 @@ button:focus {
 }
 
 .active-share-menu {
-	transform: scale(2.5);
-	z-index: 100000000;
-	width: 420px;
-}
-
-@media only screen and (max-width: 550px) {
-	.active-share-menu {
-		transform: scale(2);
-	}
-}
-
-@media only screen and (max-width: 850px) {
-	.active-share-menu {
-		transform: scale(2);
-	}
+  transform: scale(2.5);
+  z-index: 100000000;
+  top: 0;
 }
 
 .social-buttons-menu-mobile {
-	margin: auto;
-	margin-top: 50px;
-	background-color: white;
-	opacity: 0;
-	width: 200px;
-	height: 200px;
-	transition: opacity 0.3s;
+  margin: auto;
+  margin-top: 50px;
+  background-color: white;
+  opacity: 0;
+  width: 200px;
+  height: 200px;
+  transition: opacity 0.3s;
+}
+
+@media only screen and (max-width: 850px) {
+  .active-share-menu {
+    transform: scale(2);
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .active-share-menu {
+    transform: scale(2);
+  }
+
+  .desktop-nav-logo{
+    width: 181px;
+    margin-right: -90px;
+    margin-left: 22px;
+  }
+}
+
+@media only screen and (max-width: 410px) {
+  .active-share-menu {
+    transform: scale(1.9);
+  }
+}
+
+@media only screen and (max-width: 395px) {
+  .active-share-menu {
+    transform: scale(2);
+  }
+
+  .social-buttons-menu-mobile {
+    width: unset;
+  }
 }
 
 .active-social-menu {
@@ -2255,17 +2355,17 @@ button:focus {
 }
 
 #social-menu-message-mobile {
-	text-align: left;
-	font-size: 10px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 13px;
-	letter-spacing: 0em;
-	margin: auto;
-	width: 90%;
-	padding-top: 10px;
-	padding-left: 12px;
-	padding-right: 12px;
+  text-align: left;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0em;
+  margin: auto;
+  width: 90%;
+  padding-bottom: 10px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 #close-mobile-menu-btn {
@@ -2276,6 +2376,11 @@ button:focus {
 	border: transparent;
 }
 
+.close-icon{
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
 .social-buttons-section {
 	margin-top: 10px;
 	padding-left: 3px;
@@ -2283,9 +2388,12 @@ button:focus {
 }
 
 .social-buttons-section a {
-	transform: scale(0.8, 0.8);
-	margin-left: 3px;
-	margin-right: 3px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.social-buttons-section i {
+  transform: scale(0.7, 0.7);
 }
 
 .not-found-message {
@@ -2464,32 +2572,39 @@ button:focus {
 }
 
 .join-us-panel p {
-	margin-top: 30px;
-	font-family: Roboto;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 18px;
-	line-height: 180%;
-	text-align: justify;
-	letter-spacing: 0.02em;
-	color: rgba(0, 0, 0, 0.8);
+  margin-top: 30px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 180%;
+  text-align: justify;
+  letter-spacing: 0.02em;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .secondary-btn {
-	background: #ffffff;
-	border: 2px solid #5a67d8;
-	box-sizing: border-box;
-	border-radius: 6px;
-	font-family: Roboto;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 24px;
-	line-height: 28px;
-	color: #5a67d8;
-	height: 64px;
-	padding: 20px 62px;
-	transition-property: color, background-color;
-	transition-duration: 300ms;
+  background: #FFFFFF;
+  border: 2px solid #5A67D8;
+  box-sizing: border-box;
+  border-radius: 6px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 28px;
+  color: #5A67D8;
+  height: 64px;
+  padding: 20px 62px;
+  transition-property: color, background-color;
+  transition-duration: 300ms;
+}
+
+.font-and-width{
+  width: 217px;
+  height: 50px;
+  font-size: 22px;
+  padding: 10px 57px;
 }
 
 .height-380 {

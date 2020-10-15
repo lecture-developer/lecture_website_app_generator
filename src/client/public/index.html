@@ -41,13 +41,19 @@
 
     <title>Lecture Website Generator</title>
   </head>
-  <body>
+  <body style="position: relative;">
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
 		<!-- start of mobile menu-->
 		<div id="mobile-menu" class="mobile-menu">
 			<div class="personal-coloum mobile-menu-container">
-				<button type="button" id="close_btn" onclick="document.getElementById('mobile-menu').style.marginLeft = '-100%';"> X </button>
+				<button type="button" id="close_btn" onclick="document.getElementById('mobile-menu').style.marginLeft = '-100%';">
+
+<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M26.9166 9.081L24.9191 7.0835L17 15.0027L9.08081 7.0835L7.08331 9.081L15.0025 17.0002L7.08331 24.9193L9.08081 26.9168L17 18.9977L24.9191 26.9168L26.9166 24.9193L18.9975 17.0002L26.9166 9.081Z" fill="#323232"/>
+</svg>
+        </button>
 				<a class="mobile-menu-link"  href="./index.html">What we do</a>
 				<a class="mobile-menu-link" onclick="document.getElementById('mobile-menu').style.marginLeft = '-100%';" href="./index.html#whoweare">Who we are</a>
 				<a class="mobile-menu-link" href="./contact-us.html">Contact us</a>
@@ -58,6 +64,8 @@
 			</div>
 		</div>
 		<!-- end of moblie menu-->
+    <div id="navber-scroll">
+
 		<nav class="navbar navbar-expand-md main-nav">
 			<div class="spacer"></div>
 
@@ -74,15 +82,16 @@
 			</div>
 
 			<a class="logo navbar-brand order-first order-md-0 mx-0" href="./index.html">
-			Sphera</a>
+        <img class="desktop-nav-logo" src="images/LOGOdeskt_nav.png">
+			</a>
 
 			<div class="collapse navbar-collapse w-100">
-				<ul class="nav navbar-nav w-100 ">
+				<ul class="nav navbar-nav w-100 " id="navbar">
 					<li class="nav-item menu-main-link active">
-						<a class="nav-link" href="./index.html">What we do</a>
+						<a class="nav-link" href="#whatwedo" onclick="switch_design('whatwedo')">What we do</a>
 					</li>
 					<li class="nav-item menu-main-link">
-						<a class="nav-link" href="./index.html#whoweare">Who we are</a>
+						<a class="nav-link" href="#whoweare" onclick="switch_design('whoweare')">Who we are</a>
 					</li>
 					<li class="nav-item menu-main-link">
 						<a class="nav-link" href="./join-our-team.html">Join our team</a>
@@ -101,6 +110,7 @@
 			</div>
 			<div class="spacer"></div>
 		</nav>
+        </div>
 
 		<div class="section-middle">
 			<!-- start the center section for desktop-->
@@ -111,7 +121,7 @@
 							A new era of  <br> academic websites
 						</h2>
 						<p>
-							Maintaining an academic online presence is not easy. That's why we created our one-stop-shop solution: a free, customizable and easy-to-use template for a personal website, that contains your entire academic life in one place. And yes, it’s mobile friendly too!
+							Maintaining an academic online presence is not easy. That's why we created our one-stop-shop solution: <span class="purple-text">Sphera</span>. a free, customizable and easy-to-use template for a personal website, that contains your entire academic life in one place. And yes, it’s mobile friendly too!
 						</p>
 						<a class="link-btn-big width-300-px" href="join-our-team.html">
 							Join our team
@@ -122,19 +132,19 @@
 					</div>
 				</div>
 
-				<div class="section-container">
+				<div class="section-container" id="whatwedo">
 					<div class="section">
 						<h3>
 							You’ll choose what information to share. We’ll do all the rest.
 						</h3>
-						<div class="personal-row space-evenly">
-							<div class="section-item font-26">
+						<div class="personal-row space-evenly"  style="padding-left:20px;">
+							<div class="section-item font-20">
 								<span class="big-number">1</span> Tell us about yourself, and share your research interests, publications and course information.
 							</div>
-							<div class="section-item font-26">
+							<div class="section-item font-20">
 								<span class="big-number">2</span> Get a free personal website that showcases your research and helps your students succeed.
 							</div>
-							<div class="section-item font-26">
+							<div class="section-item font-20">
 								<span class="big-number">3</span> Update and maintain your website easily and quickly, anytime and from any device.
 							</div>
 						</div>
@@ -144,7 +154,7 @@
 				<div class="section-container white-bg">
 					<div class="section">
 						<div class="personal-row space-evenly items-vertical-center">
-							<div class="section-item w-100 space-evenly ">
+							<div class="section-item w-100 space-evenly "  style="padding-left:20px;">
 								<h4>
 									A one-stop-shop solution for all your academic needs
 								</h4>
@@ -152,7 +162,7 @@
 									Access and share everything you need from one convenient personal website: publications, course materials, information for research students, side projects, online class recordings and much more. It’s customizable, accessible and available on desktop and mobile devices.
 								</p>
 							</div>
-							<div class="section-item w-100 space-evenly ">
+							<div class="section-item w-100 space-evenly remove-under-1440">
 								<img class="desktop" src="./images/index_desktop.png" alt="desktop sample website view" />
 							</div>
 						</div>
@@ -162,10 +172,10 @@
 				<div class="section-container">
 					<div class="section">
 						<div class="personal-row space-evenly items-vertical-center">
-							<div class="section-item w-100 space-evenly " style="padding-bottom: 80px; padding-right: 100px;">
+							<div class="section-item w-100 space-evenly remove-under-1440" style="padding-bottom: 80px; padding-right: 100px;">
 								<img src="./images/index_mobile_2.png" alt="mobile sample website view" class="mobile"/>
 							</div>
-							<div class="section-item w-100 space-evenly" style="margin-right: 80px;">
+							<div class="section-item w-100 space-evenly">
 								<h4>
 									Simple, easy-to-use and intuitive
 								</h4>
@@ -275,7 +285,7 @@
 						A new era of  <br> academic websites
 					</h2>
 					<p>
-						Maintaining an academic online presence is not easy. That's why we created our one-stop-shop solution: a free, customizable and easy-to-use template for a personal website, that contains your entire academic life in one place. And yes, it’s mobile friendly too!
+						Maintaining an academic online presence is not easy. That's why we created our one-stop-shop solution: <span class="purple-text">Sphera</span>. a free, customizable and easy-to-use template for a personal website, that contains your entire academic life in one place. And yes, it’s mobile friendly too!
 					</p>
 					<a class="main-btn-big width-300-px" href="sign-for-beta.html">
 						Sign up for beta access
@@ -422,9 +432,7 @@
 		<div class="footer-section">
 		  <div id="direction" class="space-between">
 			<div class="footer-menu">
-			  <h1>
-				Sphera
-			  </h1>
+			  <img class="desktop-nav-logo" src="images/LOGOdeskt_nav.png" style="margin-left: -17px;">
 			</div>
 			<div id="line-plit" class="footer-menu">
 			  <p>
