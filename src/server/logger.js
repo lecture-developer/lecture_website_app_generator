@@ -1,7 +1,7 @@
 import pino from 'pino';
 
 // Logger configuration
-const logger = pino({ level: process.env.LOG_LEVEL, 
+const logger = pino({  
   prettyPrint: true,
 });
 

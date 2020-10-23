@@ -54,16 +54,15 @@
     "nodemailer": "^6.4.11",
     "react-validation": "^3.0.7",
     "uuid": "^8.3.0",
-    "pinp": "^6.7.0",
-    "validator": "^13.1.1"
-  },
-  "devDependencies": {
     "@babel/node": "^7.0.0",
     "babel-node": "0.0.1-security",
     "express-pino-logger": "^5.0.0",
     "nodemon": "^2.0.4",
     "pino": "^6.7.0",
-    "pino-pretty": "^4.2.0"
+    "pino-pretty": "^4.2.0",
+    "validator": "^13.1.1"
+  },
+  "devDependencies": {
   },
   "nodemonConfig": {
     "ignore": [
