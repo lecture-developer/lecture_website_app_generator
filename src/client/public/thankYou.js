@@ -65,7 +65,7 @@ function toggleMobileShareMenu(e) {
     document.getElementsByClassName('social-buttons-menu-mobile')[0].classList.toggle("active-social-menu");
 
     thankYouPageType2Fit();
-    
+
     e.stopPropagation();
 }
 
@@ -86,7 +86,7 @@ function thankYouPageType2Fit() {
                     // in type 2 thank you page, we need to move the image up in order to cover everything.
                     var topMargin = '0';
                     if(winWidth <= 480 && winWidth > 409) {
-                        topMargin = '-2';
+                        topMargin = '-4';
                     } else if(winWidth <= 409 && winWidth > 395) {
                         topMargin = '-5';
                     } else if(winWidth <= 395) {

@@ -88,7 +88,7 @@
 			</a>
 
       <div class="collapse navbar-collapse w-100">
-        <ul class="nav navbar-nav w-100 ">
+        <ul class="nav navbar-nav w-100 " id="navbar">
           <li class="nav-item menu-main-link active">
             <a class="nav-link" href="./index.html">What we do</a>
           </li>
@@ -133,20 +133,36 @@
     <div class="desktop-version-join-us">
       <div class="section-container white-bg">
         <div class="section no-padding-top">
+
           <div class="personal-row space-evenly start">
             <div class="section-item w-100 space-evenly">
               <div class="join-us-panel">
                 <h3 class="start">
-                  iOS developer
+                  UX/UI designer
                 </h3>
                 <p>
-                  We need to develop an IOS app that’s identical to the Android version (no need to deploy).
+                  We need a designer to help with the lecturer's site template and back office product.
                 </p>
                 <div class="end">
                   <a class="secondary-btn big-margin font-and-width" href="#join-us-form">Talk to us</a>
                 </div>
               </div>
             </div>
+
+            <div class="section-item w-100 space-evenly">
+              <div class="join-us-panel">
+                <h3 class="start">
+                  Mobile developer
+                </h3>
+                <p>
+                  We need to develop an Android and IOS app that’s similar to the webapp but extends some features (no need to deploy).
+                </p>
+                <div class="end">
+                  <a class="secondary-btn font-and-width" href="#join-us-form" style="margin-top:7px;">Talk to us</a>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -281,17 +297,30 @@
       <div class="section-container white-bg form-page section-spacing">
         <div class="personal-row center">
           <div class="section-item w-100 center no-padding">
-            <a data-toggle="collapse" href="#ios-position" role="button" aria-expanded="false" aria-controls="ios-position" class="expand-content" id="ios">
+            <a data-toggle="collapse" href="#design-position" role="button" aria-expanded="false" aria-controls="design-position" class="expand-content" id="design">
               <div class="join-us-panel-mobile">
-              <h3>iOS developer</h3><i class="fa fa-angle-down" aria-hidden="true"></i>
+              <h3>UX/UI designer</h3><i class="fa fa-angle-down" aria-hidden="true"></i>
             </div>
           </a>
-            <div class="collapse hidden-content" id="ios-position">
+            <div class="collapse hidden-content" id="design-position">
               <p>
-                We need to develop an IOS app that’s identical to the Android version (no need to deploy).
+                  We need a designer to help with the lecturer's site template and back office product.
               </p>
-              <a class="talk-to-us-mobile" href="join-us-as.html?page=ios">Talk to us</a>
+              <a class="talk-to-us-mobile" href="join-us-as.html?page=design">Talk to us</a>
             </div>
+
+            <a data-toggle="collapse" href="#mobile-position" role="button" aria-expanded="false" aria-controls="mobile-position" class="expand-content" id="mobile">
+              <div class="join-us-panel-mobile">
+              <h3>Mobile developer</h3><i class="fa fa-angle-down" aria-hidden="true"></i>
+            </div>
+            </a>
+            <div class="collapse hidden-content" id="mobile-position">
+              <p>
+                  We need to develop an Android and IOS app that’s similar to the webapp but extends some features (no need to deploy).
+              </p>
+              <a class="talk-to-us-mobile" href="join-us-as.html?page=mobile">Talk to us</a>
+            </div>
+
               <a data-toggle="collapse" href="#biu-position" role="button" aria-expanded="false" aria-controls="biu-position" class="expand-content" id="biu">
             <div class="join-us-panel-mobile join-us-panel-mobile-big">
                 <h3>BIU computer science students (3rd year)</h3>
@@ -369,8 +398,9 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-  <script src="./join-our-team.js"></script>
   <script src="./main.js"></script>
+  <script src="./join-our-team.js"></script>
+
 </body>
 
 </html>
