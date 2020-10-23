@@ -1,6 +1,6 @@
 
 /* dynamic headline for the page */
-var headlines = ["Join as an iOS developer", "Join as a Website generator (SaaS)"]; //possible headlines.
+var headlines = ["Join as mobile developer", "Join as a Website generator (SaaS)", "Join as UX/UI designer"]; //possible headlines.
 var headline = document.getElementById("dynamic-title");
 const urlParams = new URLSearchParams(window.location.search);
 let text = urlParams.get('page');
@@ -13,11 +13,14 @@ var linkText = text.replace(/&/g, "&amp;")
 
 // switching to possible parameters. if not found go to 404 -- probably we should replace it with an absolute adress.
 switch (linkText) {
-  case "ios":
+  case "mobile":
     headline.textContent += headlines[0];
     break;
   case "biu":
     headline.textContent += headlines[1];
+    break;
+  case "design":
+    headline.textContent += headlines[2];
     break;
   default:
   //redirecting to 404
