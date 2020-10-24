@@ -607,7 +607,7 @@ footer {
     width: 100%;
     background-color: white;
     padding: 0 10rem 12.5rem;
-    background: url(/lecture_website_app_generator/src/client/public/images/index-header.png);
+    background: url(/images/index-header.png);
     background-size: cover;
   }
 }
