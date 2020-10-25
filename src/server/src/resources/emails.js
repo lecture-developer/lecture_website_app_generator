@@ -1,9 +1,9 @@
 import dotenv from "dotenv";
-dotenv.config();
+dotenv. ();
 
 export const generateRegistrationEmail = (email, name, token) => {
   return {
-    from: "Lecture Website App Generator <me@samples.mailgun.org>",
+    from: "Generator Admin <lecturers.generator@gmail.com>",
     to: email,
     subject: `Hi ${name}, please verify your Lecture Website App Generator account`,
     html: `<h1>Hi,</h1>
@@ -17,8 +17,8 @@ export const generateRegistrationEmail = (email, name, token) => {
 
 export const generateDbConnectionFailedEmail = (err) => {
   return {
-    from: "Lecture Website App Generator <me@samples.mailgun.org>",
-    to: "eyalgolan96@gmail.com",
+    from: "Generator Admin <lecturers.generator@gmail.com>",
+    to: "lecturers.generator@gmail.com",
     subject: "DB connection failed",
     html: `<h1>Hi,</h1>
             <p>DB connection failed with error:</p>
@@ -28,7 +28,7 @@ export const generateDbConnectionFailedEmail = (err) => {
 
 export const generateForgotPasswordEmail = (email, name, token) => {
   return {
-    from: "Lecture Website App Generator <me@samples.mailgun.org>",
+    from: "Generator Admin <lecturers.generator@gmail.com>",
     to: email,
     subject: "Forgot your password?",
     html: `<h1>Hi ${name}, </h1>
@@ -42,7 +42,7 @@ export const generateForgotPasswordEmail = (email, name, token) => {
 
 export const generateNewNotActivatedEmail = (email, name, token) => {
   return {
-    from: "Lecture Website App Generator <eyalgolan96@gmail.com>",
+    from: "Generator Admin <lecturers.generator@gmail.com>",
     to: email,
     subject: `Hi ${name}, please verify your Lecture Website App Generator account`,
     html: `<h1>Hi,</h1>
@@ -56,8 +56,8 @@ export const generateNewNotActivatedEmail = (email, name, token) => {
 
 export const generateUserSignedForBetaEmail = (name, email, institution, research) => {
   return {
-    from: "Lecture Website App Generator <me@samples.mailgun.org>",
-    to: "eyalgolan96@gmail.com",
+    from: "Generator Admin <lecturers.generator@gmail.com>",
+    to: "lecturers.generator@gmail.com",
     subject: `${name} signed up for beta access`,
     html: `<h1> Hi, </h1>
         <p> A user has signed up for beta access. Here are his deatils: </p>
@@ -70,8 +70,8 @@ export const generateUserSignedForBetaEmail = (name, email, institution, researc
 
 export const generateUserJoinsOurTeamEmail = (name, phone, email, shortBio) => {
   return {
-    from: "Lecture Website App Generator <me@samples.mailgun.org>",
-    to: "eyalgolan96@gmail.com",
+    from: "Generator Admin <lecturers.generator@gmail.com>",
+    to: "lecturers.generator@gmail.com",
     subject: `${name} wants to join our team`,
     html: `<h1> Hi, </h1>
         <p> A user wants to join our team. Here are his details: </p>
@@ -84,8 +84,8 @@ export const generateUserJoinsOurTeamEmail = (name, phone, email, shortBio) => {
 
 export const generateUserContactsUsEmail = (name, email, message) => {
   return {
-    from: "Lecture Website App Generator <me@samples.mailgun.org>",
-    to: "eyalgolan96@gmail.com",
+    from: "Generator Admin <lecturers.generator@gmail.com>",
+    to: "lecturers.generator@gmail.com",
     subject: `${name} wants to contact us`,
     html: `<h1> Hi, </h1>
         <p> A user wants to contact us. Here are his details: </p>

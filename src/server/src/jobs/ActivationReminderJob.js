@@ -25,7 +25,7 @@ const removeOldNotActivated = async () => {
     // calculate the min time - current time minus
     // the number of milliseconds in a day times the number of days
     let min = new Date(); 
-    const numMillisecondsInDay = 24*60*60 * 1000;
+    const numMillisecondsInDay = 86400000; // 24*60*60*1000;
     const gracePeriod = numMillisecondsInDay * process.env.DAYS_DELETE_UNACTIVED_USERS;
     min.setTime(now.getTime() - gracePeriod);
 
