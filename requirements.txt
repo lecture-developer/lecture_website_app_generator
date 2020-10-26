@@ -1,0 +1,11 @@
+pillow==5.4.1
+requests==2.21.0
+numpy==1.16.1
+pandas==0.24.1
+Flask==1.1.1
+gunicorn==19.6.0
+Flask-Login==0.5.0
+Flask-SocketIO==4.2.1
+APScheduler==3.6.3
+Flask-PyMongo==2.3.0
+Flask-APScheduler

@@ -1,0 +1,256 @@
+{% extends 'landing_base.html' %}
+{% block content %}
+
+    <!-- main - promo text -->
+    <div class="section-container white-bg form-page">
+      <div class="personal-row space-evenly start">
+        <div class="section-item w-100 space-evenly  no-padding">
+          <h2 class="form-page-title">
+            Join our team
+          </h2>
+          <p class="form-page-text form-page-text-mobile always-display">
+            Our project is run by volunteers, and we’re always looking for more help.
+            Right now we’re mostly looking for these roles, but don’t hesitate to get in touch if you’d like to help with anything else.
+          </p>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- desktop version -->
+    <div class="desktop-version-join-us">
+      <div class="section-container white-bg">
+        <div class="section no-padding-top">
+
+          <div class="personal-row space-evenly start">
+            <div class="section-item w-100 space-evenly">
+              <div class="join-us-panel">
+                <h3 class="start">
+                  UX/UI designer
+                </h3>
+                <p>
+                  We need a designer to help with the lecturer's site template and back office product.
+                </p>
+                <div class="end">
+                  <a class="secondary-btn big-margin font-and-width" href="#join-us-form">Talk to us</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="section-item w-100 space-evenly">
+              <div class="join-us-panel">
+                <h3 class="start">
+                  Mobile developer
+                </h3>
+                <p>
+                  We need to develop an Android and IOS app that’s similar to the webapp but extends some features (no need to deploy).
+                </p>
+                <div class="end">
+                  <a class="secondary-btn font-and-width" href="#join-us-form" style="margin-top:7px;">Talk to us</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="section-container white-bg">
+        <div class="section no-padding-top">
+          <div class="personal-row space-evenly start">
+            <div class="section-item w-100 space-evenly">
+              <h2 class="form-page-title">Are you a computer science student at BIU?
+              </h2>
+              <p class="form-page-text">
+                If you’re a 3rd year C.S. student at Bar Ilan Univerity who’s looking for a cool final year project, you’ve come to the right place! You can join our open-source initative and work on the following projects:
+              </p>
+              <div class="join-us-panel height-380">
+                <h3 class="start">
+                  Website generator (SaaS)
+                </h3>
+                <p>
+                  This project requires advanced web skills and an open-mind for auto-code generation.
+                  You will develop a website app that manages users, collects information, and generates a full website (maybe even auto-deploy it).
+                  The key tools for this are MongoDB, Node.js, and React which will make you a desirable web developer in many companies.
+                </p>
+                <div class="end">
+                  <a class="secondary-btn small-margin font-and-width" href="#join-us-form">Talk to us</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="join-us-form" class="section-container white-bg form-page no-padding-top">
+        <div class="personal-row center">
+          <div class="section-item w-100 center">
+            <div class="section no-padding-top" style="margin: auto;">
+              <h5 class="get-in-touch">
+                Want to join us? <br><br> Get in touch
+              </h5>
+              <form class="project-form">
+                <div id="container1">
+                  <label class="form-titles" for="name">
+                    Full name <span class="red-star">*</span>
+                  </label>
+                  <div class="input-container">
+                    <div class="input-field">
+                      <input name="name" id="input1" type="text" required>
+                    </div>
+                    <div id="check-1" class="green-check end">
+                      <i class="fa fa-check check-position"></i>
+                    </div>
+                    <div id="x-1" class="red-x end">
+                      <i class="fa fa-times"></i>
+                    </div>
+                  </div>
+                  <p id="error-1" class="error-message">
+                    Please enter your full name
+                  </p>
+                </div>
+                <div id="container2">
+                  <label class="form-titles" for="email">
+                    Phone number<span class="red-star">*</span>
+                  </label>
+                  <div class="input-container">
+                    <div class="input-field">
+                      <input name="phone" id="input2" class="phone-field" type="number" required>
+                    </div>
+                    <div id="check-2" class="green-check end">
+                      <i class="fa fa-check check-position"></i>
+                    </div>
+                    <div id="x-2" class="red-x end">
+                      <i class="fa fa-times"></i>
+                    </div>
+                  </div>
+                  <p id="error-2" class="error-message">
+                    Please enter your phone number, numbers only
+                  </p>
+                </div>
+
+                <div id="container3">
+                  <label class="form-titles" for="email">
+                    Email <span class="red-star">*</span>
+                  </label>
+                  <div class="input-container">
+                    <div class="input-field">
+                      <input name="email" id="input3" type="text" required>
+                    </div>
+                    <div id="check-3" class="green-check end">
+                      <i class="fa fa-check check-position"></i>
+                    </div>
+                    <div id="x-3" class="red-x end">
+                      <i class="fa fa-times"></i>
+                    </div>
+                  </div>
+                  <p id="error-3" class="error-message">
+                    Please enter a valid email address (e.g. you@email.com)
+                  </p>
+                </div>
+                <div id="container4">
+                  <label class="form-titles" for="email">
+                    Tell us a little about yourself<span class="red-star">*</span>
+                  </label>
+                  <div class="input-container">
+                    <div class="input-field">
+                      <textarea class="free-text" name="message" id="input4" rows="5" required ></textarea>
+                    </div>
+                    <div id="check-4" class="green-check end">
+                      <i class="fa fa-check check-position"></i>
+                    </div>
+                    <div id="x-4" class="red-x end">
+                      <i class="fa fa-times"></i>
+                    </div>
+                  </div>
+                  <p id="error-4" class="error-message">
+                    Please tell us about yourself
+                  </p>
+                </div>
+                <div class="personal-row end">
+                  <input id="submit-btn" type="button" class="secondary-btn secondary-btn-sizes submit-margin-join-us" value="Send" onclick="submitForm()">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of desktop version -->
+
+    <!-- mobile version -->
+    <div class="mobile-version-join-us">
+      <div class="section-container white-bg form-page section-spacing">
+        <div class="personal-row center">
+          <div class="section-item w-100 center no-padding">
+            <a data-toggle="collapse" href="#design-position" role="button" aria-expanded="false" aria-controls="design-position" class="expand-content" id="design">
+              <div class="join-us-panel-mobile">
+              <h3>UX/UI designer</h3><i class="fa fa-angle-down" aria-hidden="true"></i>
+            </div>
+          </a>
+            <div class="collapse hidden-content" id="design-position">
+              <p>
+                  We need a designer to help with the lecturer's site template and back office product.
+              </p>
+              <a class="talk-to-us-mobile" href="join-us-as.html?page=design">Talk to us</a>
+            </div>
+
+            <a data-toggle="collapse" href="#mobile-position" role="button" aria-expanded="false" aria-controls="mobile-position" class="expand-content" id="mobile">
+              <div class="join-us-panel-mobile">
+              <h3>Mobile developer</h3><i class="fa fa-angle-down" aria-hidden="true"></i>
+            </div>
+            </a>
+            <div class="collapse hidden-content" id="mobile-position">
+              <p>
+                  We need to develop an Android and IOS app that’s similar to the webapp but extends some features (no need to deploy).
+              </p>
+              <a class="talk-to-us-mobile" href="join-us-as.html?page=mobile">Talk to us</a>
+            </div>
+
+              <a data-toggle="collapse" href="#biu-position" role="button" aria-expanded="false" aria-controls="biu-position" class="expand-content" id="biu">
+            <div class="join-us-panel-mobile join-us-panel-mobile-big">
+                <h3>BIU computer science students (3rd year)</h3>
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </div>
+          </a>
+            <div class="collapse hidden-content" id="biu-position">
+              <p>
+                3rd year C.S. students at Bar Ilan Univerity who are looking for a cool final year project,
+                can join our open-source initative and work on the following projects:
+              </p>
+              <h2>
+                Website generator (SaaS)
+              </h2>
+              <p>
+                This project requires advanced web skills and an open-mind for auto-code generation.
+                You will develop a website app that manages users, collects information, and generates a full website (maybe even auto-deploy it).
+                The key tools for this are MongoDB, Node.js, and React which will make you a desirable web developer in many companies.
+              </p>
+              <a class="talk-to-us-mobile" href="join-us-as.html?page=biu">Talk to us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-container white-bg form-page section-spacing">
+        <div class="personal-row center">
+          <div class="section-item w-100 center">
+            <p class="ask-us">
+              Couldn’t find what you’re looking for?
+            </br><a href="contact-us.html">Ask us anything</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+  <!-- end of mobile version -->
+{% endblock %}
+
+{% block js %}
+  <script src="../static/js/join-our-team.js"></script>
+{% endblock %}

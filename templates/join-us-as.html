@@ -1,0 +1,108 @@
+{% extends 'landing_base.html' %}
+{% block content %}
+
+    <div class="section-container white-bg form-page">
+      <div class="personal-row space-evenly start">
+        <div class="section-item w-100 space-evenly">
+          <div class="back">
+            <a href="join-our-team.html">
+              <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M28.3334 15.5833H11.0926L19.0117 7.66413L17.0001 5.66663L5.66675 17L17.0001 28.3333L18.9976 26.3358L11.0926 18.4166H28.3334V15.5833Z" fill="#323232"/>
+              </svg>
+              <p>
+                back
+              </p>
+            </a>
+          </div>
+          <h2 id="dynamic-title" class="form-page-title"></h2>
+          <form class="project-form">
+            <div id="container1">
+              <label class="form-titles" for="name">
+                Full name <span class="red-star">*</span>
+              </label>
+              <div class="input-container">
+                <div class="input-field">
+                  <input name="name" id="input1" type="text" required>
+                </div>
+                <div id="check-1" class="green-check end">
+                  <i class="fa fa-check check-position"></i>
+                </div>
+                <div id="x-1" class="red-x end">
+                  <i class="fa fa-times"></i>
+                </div>
+              </div>
+              <p id="error-1" class="error-message">
+                Please enter your full name
+              </p>
+            </div>
+            <div id="container2">
+              <label class="form-titles" for="email">
+                Phone number<span class="red-star">*</span>
+              </label>
+              <div class="input-container">
+                <div class="input-field">
+                  <input name="phone" id="input2" class="phone-field" type="number" required>
+                </div>
+                <div id="check-2" class="green-check end">
+                  <i class="fa fa-check check-position"></i>
+                </div>
+                <div id="x-2" class="red-x end">
+                  <i class="fa fa-times"></i>
+                </div>
+              </div>
+              <p id="error-2" class="error-message">
+                Please enter your phone number
+              </p>
+            </div>
+            <div id="container3">
+              <label class="form-titles" for="email">
+                Email
+              </label>
+              <div class="input-container">
+                <div class="input-field">
+                  <input name="email" id="input3" type="text" required>
+                </div>
+                <div id="check-3" class="green-check end">
+                  <i class="fa fa-check check-position"></i>
+                </div>
+                <div id="x-3" class="red-x end">
+                  <i class="fa fa-times"></i>
+                </div>
+              </div>
+              <p id="error-3" class="error-message">
+                Please enter a valid email address (e.g. you@email.com)
+              </p>
+            </div>
+            <div id="container4">
+              <label class="form-titles" for="email">
+                Tell us a little about yourself<span class="red-star">*</span>
+              </label>
+              <div class="input-container">
+                <div class="input-field">
+                  <textarea class="free-text" name="message" id="input4" rows="5" required ></textarea>
+                </div>
+                <div id="check-4" class="green-check end">
+                  <i class="fa fa-check check-position"></i>
+                </div>
+                <div id="x-4" class="red-x end">
+                  <i class="fa fa-times"></i>
+                </div>
+              </div>
+              <p id="error-4" class="error-message">
+                Please tell us about yourself
+              </p>
+            </div>
+            <div class="personal-row end">
+              <input id="submit-btn" type="button" class="secondary-btn secondary-btn-sizes submit-margin-join-us" value="Send" onclick="submitForm()">
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- </div> -->
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="../static/js/join-our-team.js"></script>
+    <script src="../static/js/join-us-as.js"></script>
+{% endblock %}
