@@ -32,16 +32,16 @@ def generate_new_not_activated_email(email, name, token):
 def generate_user_signed_for_beta_email(name, email, institution, research):
     EmailSenderGmail.send_email_via_gmail(to=None,
                                           subject="{} signed up for beta access".format(name),
-                                          text="A user has signed up for beta access. Here are his details:\n\nName: {}\nEmail = {}\nMain academic institution: {}\nMain research intrest: {} ".format(name, email, institution, research))
+                                          text="A user has signed up for beta access. Here are his details:\n\nName: {}\nEmail: {}\nMain academic institution: {}\nMain research intrest: {} ".format(name, email, institution, research))
 
 
 def generate_user_joins_our_team_email(name, phone, email, short_bio):
     EmailSenderGmail.send_email_via_gmail(to=None,
                                           subject="{} wants to join our team".format(name),
-                                          text="A user wants to join our team. Here are his details:n\nName: {}\nEmail = {}\nPhone: {}\nShort bio: {} ".format(name, email, phone, short_bio))
+                                          text="A user wants to join our team. Here are his details:n\nName: {}\nEmail: {}\nPhone: {}\nShort bio: {} ".format(name, email, phone, short_bio))
 
 
 def generate_user_contacts_us_email(name, email, message):
     EmailSenderGmail.send_email_via_gmail(to=None,
                                           subject="{} - contact us".format(name),
-                                          text="A user wants to contact us. Here are his details: n\nName: {}\nEmail = {}\nmessage: {}".format(name, email, message))
+                                          text="A user wants to contact us. Here are his details: n\nName: {}\nEmail: {}\nmessage: {}".format(name, email, message))

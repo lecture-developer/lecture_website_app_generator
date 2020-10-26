@@ -11,7 +11,7 @@ var linkText = text.replace(/&/g, "&amp;")
   .replace(/"/g, "&quot;")
   .replace(/'/g, "&#039;");
 
-// switching to possible parameters. if not found go to 404 -- probably we should replace it with an absolute adress.
+// switching to possible parameters. if not found go to 404 -- probably we should replace it with an absolute address.
 switch (linkText) {
   case "mobile":
     headline.textContent += headlines[0];

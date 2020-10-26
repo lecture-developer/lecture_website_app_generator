@@ -1,9 +1,9 @@
 {% extends 'landing_base.html' %}
 
 {% block content %}
-<div class="section-middle" id="section-middle" onresize="update_style()">
+<div class="section-middle" id="section-middle">
 	<!-- start the center section for desktop-->
-	<div class="section-middle-desktop" id="desktop" style="display: none;">
+	<div class="section-middle-desktop" id="desktop">
 		<div class="index-header-container">
 			<div class="index-header-section">
 				<h2>
@@ -299,6 +299,7 @@
 	window.onload = function() {
 		update_style();
 	};
+	window.onresize = update_style;
 
 	function update_style()
 	{

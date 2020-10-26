@@ -42,8 +42,8 @@ class EmailSenderGmail:
             )
             # close connection
             server.close()
-        except ConnectionError:
-            print("Could not get the Gmail SMTP connection")
+        except ConnectionError as error:
+            print("Could not get the Gmail SMTP connection cause: {}".format(error))
 
     @staticmethod
     def send_email_via_gmail_list(to_list, subject, text):

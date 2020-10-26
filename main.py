@@ -96,16 +96,28 @@ def sign_for_beta():
     return render_template("sign-for-beta.html")
 
 
-@app.route("/thank-you", methods=["POST"])
+@app.route("/thank-you", methods=["GET", "POST"])
 def thank_you():
     # GET data from forms to be able to process and send email
-    if True:
-        generate_user_contacts_us_email()
-    if True:
-        generate_user_signed_for_beta_email()
-    if True:
-        generate_user_joins_our_team_email()
-    return render_template("thank-you.html")
+    if request.method == 'POST':
+        json_data = request.get_json(silent=True)
+        if json_data["type"] == "contact-us":
+            generate_user_contacts_us_email(name=json_data["name"],
+                                            email=json_data["email"],
+                                            message=json_data["message"])
+        elif json_data["type"] == "sign-for-beta":
+            generate_user_signed_for_beta_email(name=json_data["name"],
+                                                email=json_data["email"],
+                                                institution=json_data["institution"],
+                                                research=json_data["research"])
+        elif json_data["type"] == "join-our-team":
+            generate_user_joins_our_team_email(name=json_data["name"],
+                                               phone=json_data["phone"],
+                                               email=json_data["email"],
+                                               short_bio=json_data["shortBio"])
+        return jsonify({"status": 200})
+    else:
+        return render_template("thank-you.html", text_type=request.args.get('type'))
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -226,6 +238,5 @@ class User(UserMixin):
     # ---> end - python methods <--- #
 
 
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
