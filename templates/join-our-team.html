@@ -185,37 +185,37 @@
       <div class="section-container white-bg form-page section-spacing">
         <div class="personal-row center">
           <div class="section-item w-100 center no-padding">
-            <a data-toggle="collapse" href="#design-position" role="button" aria-expanded="false" aria-controls="design-position" class="expand-content" id="design">
+            <a data-toggle="collapse" href="#design-position" role="button" aria-expanded="True" aria-controls="design-position active" class="expand-content active" id="design">
               <div class="join-us-panel-mobile">
               <h3>UX/UI designer</h3><i class="fa fa-angle-down" aria-hidden="true"></i>
             </div>
           </a>
-            <div class="collapse hidden-content" id="design-position">
+            <div class="hidden-content" id="design-position">
               <p>
                   We need a designer to help with the lecturer's site template and back office product.
               </p>
-              <a class="talk-to-us-mobile" href="join-us-as.html?page=design">Talk to us</a>
+              <a class="talk-to-us-mobile" href="{{ url_for('join_us_as') }}?page=design">Talk to us</a>
             </div>
 
-            <a data-toggle="collapse" href="#mobile-position" role="button" aria-expanded="false" aria-controls="mobile-position" class="expand-content" id="mobile">
+            <a data-toggle="collapse" href="#mobile-position" role="button" aria-expanded="True" aria-controls="mobile-position" class="expand-content active" id="mobile">
               <div class="join-us-panel-mobile">
               <h3>Mobile developer</h3><i class="fa fa-angle-down" aria-hidden="true"></i>
             </div>
             </a>
-            <div class="collapse hidden-content" id="mobile-position">
+            <div class="hidden-content" id="mobile-position">
               <p>
                   We need to develop an Android and IOS app that’s similar to the webapp but extends some features (no need to deploy).
               </p>
-              <a class="talk-to-us-mobile" href="join-us-as.html?page=mobile">Talk to us</a>
+              <a class="talk-to-us-mobile" href="{{ url_for('join_us_as') }}?page=mobile">Talk to us</a>
             </div>
 
-              <a data-toggle="collapse" href="#biu-position" role="button" aria-expanded="false" aria-controls="biu-position" class="expand-content" id="biu">
+              <a data-toggle="collapse" href="#biu-position" role="button" aria-expanded="True" aria-controls="biu-position" class="expand-content active" id="biu">
             <div class="join-us-panel-mobile join-us-panel-mobile-big">
                 <h3>BIU computer science students (3rd year)</h3>
                 <i class="fa fa-angle-down" aria-hidden="true"></i>
             </div>
           </a>
-            <div class="collapse hidden-content" id="biu-position">
+            <div class="hidden-content" id="biu-position">
               <p>
                 3rd year C.S. students at Bar Ilan Univerity who are looking for a cool final year project,
                 can join our open-source initative and work on the following projects:
@@ -228,7 +228,7 @@
                 You will develop a website app that manages users, collects information, and generates a full website (maybe even auto-deploy it).
                 The key tools for this are MongoDB, Node.js, and React which will make you a desirable web developer in many companies.
               </p>
-              <a class="talk-to-us-mobile" href="join-us-as.html?page=biu">Talk to us</a>
+              <a class="talk-to-us-mobile" href="{{ url_for('join_us_as') }}?page=biu">Talk to us</a>
             </div>
           </div>
         </div>
@@ -238,7 +238,7 @@
           <div class="section-item w-100 center">
             <p class="ask-us">
               Couldn’t find what you’re looking for?
-            </br><a href="contact-us.html">Ask us anything</a>
+            </br><a href="{{ url_for('contact_us') }}">Ask us anything</a>
             </p>
           </div>
         </div>

@@ -83,7 +83,7 @@ def join_our_team():
 
 @app.route("/join-us-as", methods=["GET", "POST"])
 def join_us_as():
-    return render_template("join-us-as.html")
+    return render_template("join-us-as.html", page=request.args.get('page'))
 
 
 @app.route("/legal", methods=["GET", "POST"])
@@ -106,10 +106,14 @@ def thank_you():
                                             email=json_data["email"],
                                             message=json_data["message"])
         elif json_data["type"] == "sign-for-beta":
+            # email us with the data
             generate_user_signed_for_beta_email(name=json_data["name"],
                                                 email=json_data["email"],
                                                 institution=json_data["institution"],
                                                 research=json_data["research"])
+            # email the user a response
+            generate_signed_for_beta_feedback(name=json_data["name"],
+                                              email=json_data["email"])
         elif json_data["type"] == "join-our-team":
             generate_user_joins_our_team_email(name=json_data["name"],
                                                phone=json_data["phone"],
@@ -239,4 +243,4 @@ class User(UserMixin):
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)

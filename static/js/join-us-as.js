@@ -2,8 +2,6 @@
 /* dynamic headline for the page */
 var headlines = ["Join as mobile developer", "Join as a Website generator (SaaS)", "Join as UX/UI designer"]; //possible headlines.
 var headline = document.getElementById("dynamic-title");
-const urlParams = new URLSearchParams(window.location.search);
-let text = urlParams.get('page');
 // escape &, <, >, " and '
 var linkText = text.replace(/&/g, "&amp;")
   .replace(/</g, "&lt;")
@@ -24,7 +22,7 @@ switch (linkText) {
     break;
   default:
   //redirecting to 404
-    window.location.replace("404.html");
+    window.location.replace("404");
 }
 
 /* end of dynamic headline */

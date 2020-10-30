@@ -210,6 +210,14 @@ var design = document.getElementById("design");
 
 mobile.addEventListener("click", function(){
 		mobile.classList.add("active");
+		if (document.getElementById("mobile-position").display != "")
+		{
+		    document.getElementById("mobile-position").display = "";
+		}
+		else
+		{
+		    document.getElementById("mobile-position").display = "none";
+		}
 });
 
 biu.addEventListener("click", function(){
