@@ -1,4 +1,4 @@
-from web_logic.pages.ipage import IPage
+from website_generator.pages.ipage import IPage
 
 
 class CoursePage(IPage):
