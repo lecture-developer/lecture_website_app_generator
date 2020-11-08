@@ -17,14 +17,14 @@ class SearchEntry:
 
     @staticmethod
     def print_search_list(search_entry_list: list) -> str:
-        return "{}\n\n".join([str(item) for item in search_entry_list])
+        return "\n\n".join([str(item) for item in search_entry_list])
 
     def __repr__(self) -> str:
         return "Search Entry (id = {})".format(self.id)
 
     def __str__(self) -> str:
         return 'var doc' + str(self.id) + ' = {\n    "id": "' + str(self.id)\
-               + '",\n    "body": "' + self.body + '",'\
-               + '\n    "shortBody": "' + self.short_body + '",'\
-               + '\n    "title": "' + self.title + '",'\
-               + '\n    "url": "' + self.url + '"\n};'
+               + '",\n    "body": "' + self.body.replace("\"", "'").replace("\n", " ") + '",'\
+               + '\n    "shortBody": "' + self.short_body.replace("\"", "'").replace("\n", " ") + '",'\
+               + '\n    "title": "' + self.title.replace("\"", "'").replace("\n", " ") + '",'\
+               + '\n    "url": "' + self.url + '"\n};\ndocs.push(doc' + str(self.id) + ');\n'
