@@ -1,6 +1,8 @@
 # library imports
+import os
 import json
 from glob import glob
+
 
 # project imports
 from website_generator.components.search_entry import SearchEntry
@@ -12,7 +14,8 @@ class WebsiteGeneratorManager:
     """
 
     # files paths #
-    JSONS_DATA_FOLDERS = r"C:\Users\user\Desktop\academic_website_creator\lecture_website_template\data\jsons"
+    ROOT_FOLDER = r"C:\Users\lazeb\Desktop\lecture_website_template"
+    JSONS_DATA_FOLDERS = os.path.join(ROOT_FOLDER, "data", "jsons")
     # end - files paths #
 
     def __init__(self):
@@ -21,6 +24,20 @@ class WebsiteGeneratorManager:
     @staticmethod
     def generate():
         pass
+
+    @staticmethod
+    def fix_all_pathes(repo_name: str):
+        # run over all files and replace the fixing into the normal form path
+        for file in glob(WebsiteGeneratorManager.ROOT_FOLDER + '/**/*', recursive=True):
+            if os.path.isfile(file) and file.split(".")[-1] in ["json", "html", "css", "js", "txt"]:
+                code = ""
+                print("Start fixing file: '{}'".format(file))
+                with open(file, "r", encoding="utf-8") as code_file:
+                    code = code_file.read()
+                with open(file, "w", encoding="utf-8") as code_file:
+                    code_file.write(code.replace("/lecture_website_template", "/{}".format(repo_name)).replace("lecture_website_template", repo_name))
+                print("Finish fixing file: '{}'".format(file))
+
 
     @staticmethod
     def generate_search_js():
@@ -110,4 +127,4 @@ class WebsiteGeneratorManager:
 
 
 if __name__ == '__main__':
-    print(SearchEntry.print_search_list(WebsiteGeneratorManager.generate_search_js()))
+    WebsiteGeneratorManager.fix_all_pathes()
