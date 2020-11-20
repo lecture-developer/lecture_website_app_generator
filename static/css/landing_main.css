@@ -647,6 +647,15 @@ footer {
 	width: 100%;
 }
 
+.alumni{
+    font-family: Roboto;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 150%;
+    letter-spacing: 0.02em;
+    color: #000000;
+}
+
 .section img {
   width: 100%;
   padding: 20px 20px;

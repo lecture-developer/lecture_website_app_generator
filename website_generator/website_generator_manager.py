@@ -26,7 +26,7 @@ class WebsiteGeneratorManager:
         pass
 
     @staticmethod
-    def fix_all_pathes(repo_name: str):
+    def fix_all_pathes(repo_name: str = ""):
         # run over all files and replace the fixing into the normal form path
         for file in glob(WebsiteGeneratorManager.ROOT_FOLDER + '/**/*', recursive=True):
             if os.path.isfile(file) and file.split(".")[-1] in ["json", "html", "css", "js", "txt"]:
@@ -35,7 +35,7 @@ class WebsiteGeneratorManager:
                 with open(file, "r", encoding="utf-8") as code_file:
                     code = code_file.read()
                 with open(file, "w", encoding="utf-8") as code_file:
-                    code_file.write(code.replace("/lecture_website_template", "/{}".format(repo_name)).replace("lecture_website_template", repo_name))
+                    code_file.write(code.replace("/lecture_website_template", repo_name).replace("lecture_website_template", repo_name))
                 print("Finish fixing file: '{}'".format(file))
 
 
