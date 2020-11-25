@@ -2,6 +2,7 @@
 import os
 import json
 from glob import glob
+from bs4 import BeautifulSoup
 
 
 # project imports
@@ -126,5 +127,14 @@ class WebsiteGeneratorManager:
         return search_enteries
 
 
+    @staticmethod
+    def set_lecturer_name_in_header(header_html, lecturer_name):
+        soup = BeautifulSoup(header_html, 'html.parser')
+        appearances = soup.find_all(id="lecturer-name-template")
+        for appearance in appearances:
+            appearance.string.replace_with(lecturer_name)
+        return soup
+
 if __name__ == '__main__':
     WebsiteGeneratorManager.fix_all_pathes()
+
