@@ -135,6 +135,22 @@ class WebsiteGeneratorManager:
             appearance.string.replace_with(lecturer_name)
         return soup
 
+    @staticmethod
+    def delete_research_by_id(root, id):
+        json_path = root + "/data/jsons/research.json"
+        obj = json.load(open(json_path))
+        projects = obj["projects"]
+        found = False
+        for i in range(len(projects)):
+            if projects[i]["id"] == id:
+                projects.pop(i)
+                found = True
+                break
+        if found:
+            open(json_path, "w").write(json.dumps(obj, indent=4, separators=(',', ': ')))
+        else:
+            raise IOError("a research with an id of {} is not exist".format(id))
+
 if __name__ == '__main__':
     WebsiteGeneratorManager.fix_all_pathes()
 
