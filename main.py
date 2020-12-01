@@ -14,6 +14,8 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from flask import Flask, request, render_template, jsonify, send_from_directory, redirect, url_for, session, abort, make_response
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 
+from website_generator.pages.index_page import IndexPage
+
 
 # init server #
 
@@ -166,6 +168,11 @@ def action_save_results():
 # end - actions methods #
 
 # help functions #
+
+def save_index_data():
+    if request.method == 'POST':
+        json_data = request.get_json(silent=True)
+        index = IndexPage(json.loads(json_data))  # send as a dictionary
 
 # end - help functions #
 
