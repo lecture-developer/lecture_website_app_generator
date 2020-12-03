@@ -47,6 +47,6 @@ class GithubPagesManager:
 
 if __name__ == '__main__':
     checker = GithubPagesManager()
-    checker.login(user_name="lazebnik.teddy@gmail.com",
-                  password="TeddyLizaLazebnik")
+    checker.login(user_name="",
+                  password="")
     checker.add_repository()
