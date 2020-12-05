@@ -46,15 +46,12 @@ class OsGitManager:
         Upload the user's repo
         """
         OsGitManager._run_command(user_id=user_id,
-                                  command='git add ."'.format(github_repo_name))
-        os.system('cmd /c "cd {} & "'.format())
-        os.system('cmd /c "cd {} & git commit -m "auto update by sphera.academy at {}"'.format(datetime.now()))
-        os.system('cmd /c "cd {} & git push"'.format(datetime.now()))
+                                  command='git add . & git commit -m "auto update by sphera.academy at {}" & git push'.format(datetime.now()))
 
     @staticmethod
     def update_repo(user_id: str):
         """
         get all the repos changes, ignoring the changes we currently have
         """
-        os.system('cmd /c "cd {} & git stash -u"')
-        os.system('cmd /c "cd {} & git pull"')
+        OsGitManager._run_command(user_id=user_id,
+                                  command='git stash -u & git pull'.format(datetime.now()))
