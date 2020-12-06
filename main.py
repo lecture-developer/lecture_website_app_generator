@@ -174,8 +174,8 @@ def action_save_results():
 
 def save_index_data():
     if request.method == 'POST':
-        json_data = request.get_json(silent=True)
-        index = IndexPage(json.loads(json_data))  # send as a dictionary
+        # TODO: logic that gets 4 jsons and sets them to IndexPage object
+
 
 # end - help functions #
 
