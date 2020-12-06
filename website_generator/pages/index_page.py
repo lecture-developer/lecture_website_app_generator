@@ -14,46 +14,50 @@ class IndexPage(IPage):
         featuredPublications - {name,description,filelinks=[{}],authors,year,topic,type,publisher,publicationStatus}
         currentProjects - {name,topic,description,link={}}
     """
-    def __init__(self, seo_page, data):  # data is dictionary
+    def __init__(self, seo_page):
         IPage.__init__(self, seo_page=seo_page)
         self.biography = ""
-        self.researchInterests = []
-        self.featuredPublications = []
-        self.currentProjects = []
-        if data is not None:
-            json_data = self.generate_page(data)
-            self.load_page(json_data)
+        self.research_interests = []
+        self.featured_publications = []
+        self.current_projects = []
+
+    def set_data(self, biography, researchInterests, featuredPublications, currentProjects):
+        if biography != "" and biography is not None:
+            self.biography = json.loads(biography)["biography"]  # string
+        if researchInterests != "" and researchInterests is not None:
+            self.research_interests = json.loads(researchInterests)["researchInterests"]  # array of strings
+        if featuredPublications != "" and featuredPublications is not None:
+            self.featured_publications = json.loads(featuredPublications)["featuredPublications"]  # array of dictionaries
+        if currentProjects != "" and currentProjects is not None:
+            self.current_projects = json.loads(currentProjects)["currentProjects"]
 
     """
-        Change the JSON to be the right format
-        return JSON
+        make index.json
     """
-    def generate_page(self,data):  # TODO
-
+    def generate_page(self):
+        json_object = {
+            "biography": self.biography,
+            "researchInterests": self.research_interests,
+            "featuredPublications": self.featured_publications,
+            "currentProjects": self.current_projects
+        }
+        return json.dumps(json_object)
 
 
     """
-        Loads new data to object fields
-        can be used for init and future edits of data
+        TODO: define and implement
     """
-    def load_page(self, data):  # data as dictionary
-        if data is None:
-            log.debug("data is None")
-            return;
-        bio = data["biography"]
-        res = data["researchInterests"]
-        pub = data["featuredPublications"]
-        prj = data["currentProjects"]
-        if bio is not None:
-            if bio != "" and bio != self.biography:
-                self.biography = data["biography"]  # string
-        if res is not None:
-            if res:  # if res not empty
-                self.researchInterests = res
-        if pub is not None and pub != []:
-            self.featuredPublications = pub
-        if prj is not None and prj != []:
-            self.currentProjects = prj
+    def load_page(self):
+        return
 
+    def set_biography(self, new_biography):
+        if new_biography is not None:
+            if new_biography != self.biography:
+                self.biography = new_biography
+
+    def set_researches(self, new_biography):
+        if new_biography is not None:
+            if new_biography != self.biography:
+                self.biography = new_biography
 
 
