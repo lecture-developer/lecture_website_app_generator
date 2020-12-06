@@ -3,6 +3,7 @@
 
 class Gen_index{
 
+    /* creates 4 objects for each title in index.json*/
     constructor() {
         this.biography = this.makeBiography();
         this.researches = this.makeResearch();
@@ -10,17 +11,18 @@ class Gen_index{
         this.projects = this.makeProjects();
 
     }
-
+    /* takes biography field from html and returns bio object */
     makeBiography(){
-        let bio = ""; // request Bio field from HTML
+        let bio = ""; // TODO: request Bio field from HTML
         return {
             biography: bio
         };
     }
 
+    /* takes researches field from html and returns bio object */
     makeResearch(){
         // assuming that for each research interest there's going to be a single text input
-        let researchIntrests = []; // taken from html
+        let researchIntrests = []; // TODO: taken from html
         for(let res in researchIntrests){
             res = res.trim();
         }
@@ -29,9 +31,11 @@ class Gen_index{
         };
     }
 
+    /* takes all publications and make object with array of publications */
     makePublication(){
         // assuming each publication consists of the following fields:
         // {name,description,filelinks=[{}],authors,year,topic,type,publisher,publicationStatus}
+        // TODO: request all from HTML
         let name = [];
         let description =[];
         let filelinks = this.makeFileLinksArr(false);
@@ -53,6 +57,7 @@ class Gen_index{
         };
     }
 
+    /* helper function for makePublication and makeProjects */
     makeFileLinksArr(isProj = true){
         // needs to constraint the requests according to project\publication
         let info =[]; // request from html
@@ -77,6 +82,7 @@ class Gen_index{
         return fl;
     }
 
+    /* helper function - creates one publication based on the fields */
     makeOnePublication(name,description, filelinks, authors, year, topic,type, publisher, status){
         return {
             name: name,
@@ -91,6 +97,7 @@ class Gen_index{
         }
     }
 
+    /* takes projects list and returns an object that saves all projects in an array */
     makeProjects(){
         let name =[];
         let topic = [];
@@ -111,18 +118,16 @@ class Gen_index{
         };
     }
 
+    /* for each field, return as json */
     getJSONbiography(){
         return JSON.stringify(this.biography);
     }
-
     getJSONresearches(){
         return JSON.stringify(this.researches);
     }
-
     getJSONpublications(){
         return JSON.stringify(this.publications);
     }
-
     getJSONprojects(){
         return JSON.stringify(this.projects);
     }
