@@ -67,7 +67,6 @@ class WebsiteGeneratorManager:
                     code_file.write(code.replace("/lecture_website_template", repo_name).replace("lecture_website_template", repo_name))
                 print("Finish fixing file: '{}'".format(file))
 
-
     @staticmethod
     def generate_search_js():
         """
@@ -153,7 +152,6 @@ class WebsiteGeneratorManager:
                                                            url="/course-page.html?course_id={}".format(courese["code"])))
                         id += 1
         return search_enteries
-
 
     @staticmethod
     def set_lecturer_name_in_header(header_html, lecturer_name):
