@@ -2,6 +2,7 @@
 import os
 import json
 from glob import glob
+from bs4 import BeautifulSoup
 
 
 # project imports
@@ -18,11 +19,39 @@ class WebsiteGeneratorManager:
     JSONS_DATA_FOLDERS = os.path.join(ROOT_FOLDER, "data", "jsons")
     # end - files paths #
 
-    def __init__(self):
+    def __init__(self,
+                 indexPage,
+                 teachingPage,
+                 academicStudentsPage,
+                 academicPublicationsPage,
+                 blogPage,
+                 openResourcesPage,
+                 errorPage,
+                 coursesPage,
+                 SEOglobal):
+        self.indexPage = indexPage
+        self.teachingPage = teachingPage
+        self.academicStudentsPage = academicStudentsPage
+        self.academicPublicationsPage = academicPublicationsPage
+        self.blogPage = blogPage
+        self.openResourcesPage = openResourcesPage
+        self.errorPage = errorPage
+        self.coursesPage = coursesPage
+        self.SEOglobal = SEOglobal
+
+    def generate_website(self):
         pass
 
-    @staticmethod
-    def generate():
+    def deploy_website(self):
+        pass
+
+    def download_website_as_zip(self):
+        pass
+
+    def load_website_from_github(self):
+        pass
+
+    def load_website_from_file(self):
         pass
 
     @staticmethod
@@ -126,5 +155,30 @@ class WebsiteGeneratorManager:
         return search_enteries
 
 
+    @staticmethod
+    def set_lecturer_name_in_header(header_html, lecturer_name):
+        soup = BeautifulSoup(header_html, 'html.parser')
+        appearances = soup.find_all(id="lecturer-name-template")
+        for appearance in appearances:
+            appearance.string.replace_with(lecturer_name)
+        return soup
+
+    @staticmethod
+    def delete_research_by_id(root, id):
+        json_path = root + "/data/jsons/research.json"
+        obj = json.load(open(json_path))
+        projects = obj["projects"]
+        found = False
+        for i in range(len(projects)):
+            if projects[i]["id"] == id:
+                projects.pop(i)
+                found = True
+                break
+        if found:
+            open(json_path, "w").write(json.dumps(obj, indent=4, separators=(',', ': ')))
+        else:
+            raise IOError("a research with an id of {} is not exist".format(id))
+
 if __name__ == '__main__':
     WebsiteGeneratorManager.fix_all_pathes()
+

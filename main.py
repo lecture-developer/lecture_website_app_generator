@@ -16,6 +16,13 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 
 from website_generator.pages.index_page import IndexPage
 
+# project imports
+from installer import install_server
+from web_logic.enums import *
+from web_logic.email_templates import *
+
+# install on the running server anything we need
+install_server()
 
 # init server #
 
@@ -28,10 +35,6 @@ login_manager.init_app(app)
 login_manager.login_view = 'login'
 
 sched = BackgroundScheduler(daemon=True)
-
-# project imports
-from web_logic.enums import *
-from web_logic.email_templates import *
 
 # end - init server #
 
@@ -247,7 +250,6 @@ class User(UserMixin):
         return "<User | id: {}>".format(self.get_id())
 
     # ---> end - python methods <--- #
-
 
 if __name__ == '__main__':
     app.run(debug=True)
