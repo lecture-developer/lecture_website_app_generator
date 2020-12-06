@@ -14,17 +14,9 @@ SaaS project to generate, maintenance and deploy academic lectures' websites and
 
 Inside this repo we are using the following open-source projects:
 
-1. [Node.js](https://github.com/nodejs/node)
-2. [React](https://github.com/facebook/react)
-3. [nodemon](https://github.com/remy/nodemon)
-4. [axios](https://github.com/axios/axios)
-5. [mongoose](https://github.com/Automattic/mongoose)
-6. [octonode](https://github.com/pksunkara/octonode)
-7. [eslint](https://github.com/eslint/eslint)
-8. [mailgun](https://github.com/mailgun/mailgun-js)
-9. [pino](https://github.com/pinojs/pino)
-10. [pino-pretty](https://github.com/pinojs/pino-pretty)
-11. [Flickity](https://flickity.metafizzy.co)
+1. [React](https://github.com/facebook/react)
+2. [mongoose](https://github.com/Automattic/mongoose)
+3. [Flickity](https://flickity.metafizzy.co)
 
 
 ### Contributing

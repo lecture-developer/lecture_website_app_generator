@@ -1,0 +1,92 @@
+{% extends 'landing_base.html' %}
+{% block content %}
+<div class="section-container white-bg form-page main-form">
+	<div class="personal-row space-evenly start">
+		<div class="section-item w-100 space-evenly">
+			<h2 class="contact-us-title form-page-title">Contact us</h2>
+			<p class="form-page-text form-page-text-mobile always-display">
+				Couldn’t find what you’re looking for? Want to share your thoughts
+				about our platform? We’d love to hear from you.
+			</p>
+			<form class="project-form" method="POST">
+				<div id="container1">
+					<label class="form-titles" for="name">
+						Full name <span class="red-star">*</span>
+					</label>
+					<div class="input-container">
+						<div class="input-field">
+							<input name="name" id="input1" type="text" required />
+						</div>
+						<div id="check-1" class="green-check end">
+							<i class="fa fa-check check-position"></i>
+						</div>
+						<div id="x-1" class="red-x end">
+							<i class="fa fa-times"></i>
+						</div>
+					</div>
+					<p id="error-1" class="error-message">
+						Please enter your full name
+					</p>
+				</div>
+				<div id="container2">
+					<label class="form-titles" for="email">
+						Email <span class="red-star">*</span>
+					</label>
+					<div class="input-container">
+						<div class="input-field">
+							<input name="email" id="input2" type="text" />
+						</div>
+						<div id="check-2" class="green-check end">
+							<i class="fa fa-check check-position"></i>
+						</div>
+						<div id="x-2" class="red-x end">
+							<i class="fa fa-times"></i>
+						</div>
+					</div>
+					<p id="error-2" class="error-message">
+						Please enter your email address
+					</p>
+				</div>
+				<div id="container3">
+					<label class="form-titles" for="email">
+						Tell us what you have in mind<span class="red-star">*</span>
+					</label>
+					<div class="input-container">
+						<div class="input-field">
+							<textarea
+								class="free-text"
+								name="message"
+								id="input3"
+								rows="5"
+								required
+							></textarea>
+						</div>
+						<div id="check-3" class="green-check end">
+							<i class="fa fa-check check-position"></i>
+						</div>
+						<div id="x-3" class="red-x end">
+							<i class="fa fa-times"></i>
+						</div>
+					</div>
+					<p id="error-3" class="error-message">
+						Let us know why you’re getting in touch
+					</p>
+				</div>
+				<div class="personal-row end">
+					<input
+						id="submit-btn"
+						type="button"
+						class="secondary-btn-sizes secondary-btn"
+						value="Send"
+						onclick="submitForm()"
+					/>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block js %}
+		<script src="../static/js/contact-us.js"></script>
+{% endblock %}
