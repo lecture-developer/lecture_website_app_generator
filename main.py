@@ -14,6 +14,8 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from flask import Flask, request, render_template, jsonify, send_from_directory, redirect, url_for, session, abort, make_response
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 
+from web_logic import user_manipulator
+
 # project imports
 from installer import install_server
 from web_logic.enums import *
@@ -165,6 +167,18 @@ def load_user(user_id: str):
 def action_save_results():
     return send_from_directory(directory="",
                                filename="")
+
+
+@app.route("/action/create_user", methods=["GET", "POST"])
+def create_user():
+    user_manipulator.create_new_user('test_user')
+    return 'user created'
+
+
+@app.route("/action/update_user", methods=["GET", "POST"])
+def update_user():
+    user_manipulator.update_user_data('test_user')
+    return 'user updated'
 
 # end - actions methods #
 
