@@ -2,6 +2,7 @@
 import os
 import json
 from glob import glob
+from bs4 import BeautifulSoup
 
 
 # project imports
@@ -126,5 +127,62 @@ class WebsiteGeneratorManager:
         return search_enteries
 
 
+    @staticmethod
+    def set_lecturer_name_in_header(header_html, lecturer_name):
+        soup = BeautifulSoup(header_html, 'html.parser')
+        appearances = soup.find_all(id="lecturer-name-template")
+        for appearance in appearances:
+            appearance.string.replace_with(lecturer_name)
+        return soup
+
+    @staticmethod
+    def delete_research_by_id(root, id):
+        json_path = root + "/data/jsons/research.json"
+        obj = json.load(open(json_path))
+        projects = obj["projects"]
+        found = False
+        for i in range(len(projects)):
+            if projects[i]["id"] == id:
+                projects.pop(i)
+                found = True
+                break
+        if found:
+            open(json_path, "w").write(json.dumps(obj, indent=4, separators=(',', ': ')))
+        else:
+            raise IOError("a research with an id of {} is not exist".format(id))
+
+    @staticmethod
+    def delete_course_by_code(root, code):
+        json_path = root + "/data/jsons/teaching.json"
+        obj = json.load(open(json_path))
+        projects = obj["courses"]
+        found = False
+        for i in range(len(projects)):
+            if projects[i]["code"] == code:
+                projects.pop(i)
+                found = True
+                break
+        if found:
+            open(json_path, "w").write(json.dumps(obj, indent=4, separators=(',', ': ')))
+        else:
+            raise IOError("a course with a code of {} is not exist".format(id))
+
+    @staticmethod
+    def delete_publication_by_id(root, id):
+        json_path = root + "/data/jsons/academic-publications.json"
+        obj = json.load(open(json_path))
+        projects = obj["publications"]
+        found = False
+        for i in range(len(projects)):
+            if projects[i]["id"] == id:
+                projects.pop(i)
+                found = True
+                break
+        if found:
+            open(json_path, "w").write(json.dumps(obj, indent=4, separators=(',', ': ')))
+        else:
+            raise IOError("a publication with an id of {} is not exist".format(id))
+
 if __name__ == '__main__':
     WebsiteGeneratorManager.fix_all_pathes()
+
