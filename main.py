@@ -15,6 +15,7 @@ from flask import Flask, request, render_template, jsonify, send_from_directory,
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 
 from website_generator.pages.index_page import IndexPage
+from web_logic import user_manipulator
 
 # project imports
 from installer import install_server
@@ -168,6 +169,18 @@ def action_save_results():
     return send_from_directory(directory="",
                                filename="")
 
+
+@app.route("/action/create_user", methods=["GET", "POST"])
+def create_user():
+    user_manipulator.create_new_user('test_user')
+    return 'user created'
+
+
+@app.route("/action/update_user", methods=["GET", "POST"])
+def update_user():
+    user_manipulator.update_user_data('test_user')
+    return 'user updated'
+
 # end - actions methods #
 
 # help functions #
@@ -250,6 +263,7 @@ class User(UserMixin):
         return "<User | id: {}>".format(self.get_id())
 
     # ---> end - python methods <--- #
+
 
 if __name__ == '__main__':
     app.run(debug=True)
