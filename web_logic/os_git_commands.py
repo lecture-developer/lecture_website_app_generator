@@ -49,7 +49,7 @@ class OsGitManager:
                                   command='git add . & git commit -m "auto update by sphera.academy at {}" & git push'.format(datetime.now()))
 
     @staticmethod
-    def update_repo(user_id: str):
+    def update_local_repo(user_id: str):
         """
         get all the repos changes, ignoring the changes we currently have
         """

@@ -2,10 +2,11 @@
 import re
 import os
 import uuid
-import hashlib
 import enum
 import json
 import atexit
+import hashlib
+import zipfile
 import requests
 from flask_login import UserMixin
 from flask_pymongo import PyMongo
@@ -14,12 +15,19 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from flask import Flask, request, render_template, jsonify, send_from_directory, redirect, url_for, session, abort, make_response
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 
-from web_logic import user_manipulator
 
 # project imports
-from installer import install_server
 from web_logic.enums import *
+from installer import install_server
+from web_logic import user_manipulator
 from web_logic.email_templates import *
+from web_logic.os_git_commands import OsGitManager
+from web_logic.github_pages_manager import GithubPagesManager
+
+# project utils
+from utils.io.file_hadler import FileHandler
+from utils.io.path_handler import PathHandler
+from utils.io.folder_handler import FolderHandler
 
 # install on the running server anything we need
 install_server()
@@ -40,11 +48,14 @@ sched = BackgroundScheduler(daemon=True)
 
 # global vars #
 
-
 # end - global vars #
 
 # global consts #
-
+TEMPLATE_GITHUB_REPO_USERNAME = ""
+TEMPLATE_GITHUB_REPO_EMAIL = ""
+TEMPLATE_GITHUB_REPO_PASSWORD = ""
+USER_REPO_DESCRIPTION = "The academic website of {}, created by sphera.academy"
+USER_REPO_NAME = "academic_website_{}"
 # end - global consts #
 
 # jobs execute each few hours consts #
@@ -149,6 +160,45 @@ def login():
             return render_template("login.html")
 
 
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if request.method == 'POST':
+        # ---> we assume the data is fully provided at this point and the username & email is unique <--- #
+        # 0. create user
+        new_user = User(username=request.form.get('username'),
+                        password=User.hash_password(password=request.form.get('password')),
+                        name=request.form.get('name'),
+                        email=request.form.get('email'),
+                        creation_date=datetime.now(),
+                        activated=False)
+        # 1. update the db
+        User.save(user=new_user)
+        # 2. create user folder to get all the data into
+        FolderHandler.create_folder(folder_path=new_user.get_user_folder_path())
+        # 3. download template code into the folder
+        github_manager = GithubPagesManager()
+        github_manager.login(user_name=TEMPLATE_GITHUB_REPO_EMAIL,
+                             password=TEMPLATE_GITHUB_REPO_PASSWORD)
+        github_manager.download_template(download_dir=new_user.get_user_folder_path())
+        # 4. send email to approve email in the user
+        generate_registration_email(email=new_user.email,
+                                    name=new_user.username,
+                                    token=new_user.get_id())
+        # Login new new user
+        user = User.try_login(username=request.form["username"],
+                              password=request.form["password"])
+        login_user(user)
+        # go to the next page after register
+        return redirect(url_for('index'))
+    else:  # if request.method == 'GET'
+        try:
+            if current_user.get_id() is not None:
+                return redirect(url_for("index"))
+            else:
+                return render_template("login.html")
+        except Exception as error:
+            return render_template("login.html")
+
 # end - website pages #
 
 # users methods #
@@ -162,11 +212,90 @@ def load_user(user_id: str):
 # actions methods #
 
 
-@app.route("/action/save_results", methods=["GET", "POST"])
+@app.route("/action/save_results", methods=["POST"])
 @login_required
 def action_save_results():
-    return send_from_directory(directory="",
-                               filename="")
+    file_name = 'sphera_academy_personal_website.zip'
+    user_data_file = User.get_user_folder_path_by_id(id=current_user.get_id())
+    # try to delete zip to make sure we override it
+    try:
+        FileHandler.delete_file(path=os.path.join(user_data_file, file_name))
+    except Exception as error:
+        # if we get here that means we do not have such file
+        pass
+    # zip object
+    zipf = zipfile.ZipFile(file_name, 'w', zipfile.ZIP_DEFLATED)
+    # zip the files in the folder
+    for base, dirs, files in os.walk(user_data_file):
+        for file in files:
+            fn = os.path.join(base, file)
+            # make sure this is not zip file - should not happen but in case
+            if not file.endswith(".zip"):
+                zipf.write(os.path.join(fn, file))
+    return send_from_directory(os.path.join(user_data_file, file_name),
+                               file_name,
+                               mimetype="zip",
+                               attachment_filename=file_name,
+                               as_attachment=True)
+
+
+@app.route("/action/upload_to_our_github_repo", methods=["POST"])
+@login_required
+def upload_to_our_github_repo():
+    try:
+        # get the account from the db
+        user = User.get(user_id=current_user.get_id())
+
+        github_manager = GithubPagesManager()
+        # login to our account
+        github_manager.login(user_name=TEMPLATE_GITHUB_REPO_EMAIL,
+                             password=TEMPLATE_GITHUB_REPO_PASSWORD)
+        # if first time, open repo
+        if not user.uploaded_to_our_github:
+            # open repo
+            github_manager.add_repository(repo_name=USER_REPO_NAME.format(user.id),
+                                          description=USER_REPO_DESCRIPTION.format(user.name))
+            # open github pages
+            github_manager.start_github_pages(user_name=TEMPLATE_GITHUB_REPO_USERNAME,
+                                              repo_name=USER_REPO_NAME.format(user.id))
+            # update DB about this
+            user.uploaded_to_our_github = True
+            User.update_user(user=user)
+        # upload the code into the repo
+        OsGitManager.upload_repo(user.id)
+        # return all good
+        return jsonify({"update_repo": USER_REPO_NAME.format(user.id)}), 200
+    except Exception as error:
+        return jsonify("error", error), 400
+
+
+@app.route("/action/upload_to_own_github_repo", methods=["POST"])
+@login_required
+def upload_to_own_github_repo():
+    try:
+        # get the account from the db
+        user = User.get(user_id=current_user.get_id())
+        github_manager = GithubPagesManager()
+        # login to our account
+        github_manager.login(user_name=request.form.get("username"),
+                             password=request.form.get("password"))
+        # if first time, open repo
+        if not user.uploaded_to_own_github:
+            # open repo
+            github_manager.add_repository(repo_name=USER_REPO_NAME.format(user.id),
+                                          description=USER_REPO_DESCRIPTION.format(user.name))
+            # open github pages
+            github_manager.start_github_pages(user_name=TEMPLATE_GITHUB_REPO_USERNAME,
+                                              repo_name=USER_REPO_NAME.format(user.id))
+            # update DB about this
+            user.uploaded_to_own_github = True
+            User.update_user(user=user)
+        # upload the code into the repo
+        OsGitManager.upload_repo(user.id)
+        # return all good
+        return jsonify({"update_repo": USER_REPO_NAME.format(user.id)}), 200
+    except Exception as error:
+        return jsonify("error", error), 400
 
 
 @app.route("/action/create_user", methods=["GET", "POST"])
@@ -198,26 +327,45 @@ class User(UserMixin):
                  username: str,
                  password: str,
                  email: str,
-                 creationDate: datetime,
+                 name: str,
+                 creation_date: datetime,
+                 reset_link: str = "",
                  activated: bool = False,
-                 resetLink: str = "",
+                 uploaded_to_our_github: bool = False,
+                 uploaded_to_own_github: bool = False,
                  id: str = None):
         super().__init__()
         self.id = uuid.uuid1().hex if id is None else id
         self.username = username
         self.email = email
-        self.resetLink = resetLink
-        self.creationDate = creationDate
+        self.name = name
+        self.reset_link = reset_link
+        self.creation_date = creation_date
         self.activated = activated
+        self.uploaded_to_our_github = uploaded_to_our_github
+        self.uploaded_to_own_github = uploaded_to_own_github
 
         salt, hashed_password = User.hash_password(password)
         self.password = hashed_password
         self.salt = salt
 
+    def get_user_folder_path(self) -> str:
+        return PathHandler.get_relative_path_from_project_inner_folders(["users_websites", self.id])
+
+    @staticmethod
+    def get_user_folder_path_by_id(id: str) -> str:
+        return PathHandler.get_relative_path_from_project_inner_folders(["users_websites", id])
+
     @staticmethod
     def get(user_id):
         return mongo.db.users.find_one_or_404({"user_id": user_id})
 
+    @staticmethod
+    def update_user(user):
+        # TODO: update the user's data
+        pass
+
+    # TODO: maybe delete it
     @staticmethod
     def create_user_data_dir(user_id: str) -> bool:
         try:
@@ -227,6 +375,7 @@ class User(UserMixin):
             print("Already have file for user with id: {}".format(user_id))
             return False
 
+    # TODO: maybe delete it
     @staticmethod
     def get_user_data_dir(user_id: str) -> str:
         wanted_path = os.path.abspath(r"../data/users/{}".format(re.sub(r'[^\w\d-]', '_', user_id)))
@@ -241,7 +390,7 @@ class User(UserMixin):
                                                "password": User.hash_password(password)})
 
     @staticmethod
-    def hash_password(password: str) -> tuple:
+    def hash_password(password: str) -> str:
         return hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), User.password_salt, 100000)
 
     @staticmethod

@@ -1,10 +1,12 @@
+# library imports
+import os
 import time
+import zipfile
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import os
-import zipfile
 
 # project imports
+from utils.io.file_hadler import FileHandler
 from utils.io.path_handler import PathHandler
 
 
@@ -73,7 +75,8 @@ class GithubPagesManager:
         self.browser.find_element_by_class_name("btn ml-2 js-update-page-source-btn").click()
         self.browser.find_element_by_class_name("SelectMenu-item text-normal").click()
 
-    def download_template(self, download_dir) -> None:
+    def download_template(self,
+                          download_dir: str) -> None:
         # close any previous open windows of selenium
         self.browser.quit()
 
@@ -82,8 +85,6 @@ class GithubPagesManager:
         # To prevent download dialog
         profile = webdriver.ChromeOptions()
         profile.set_capability('browser.download.manager.showWhenStarting', False)
-        # profile.set_capability('browser.download.folderList', 2)# custom location
-        # profile.set_capability('browser.download.dir', download_dir)
         profile.set_capability('browser.helperApps.neverAsk.saveToDisk', 'text/csv/zip')
 
         prefs = {'download.default_directory': download_dir}
@@ -97,6 +98,7 @@ class GithubPagesManager:
         empty_dir_flag = True
         is_zip_file_flag = False
 
+        # keep the process alive until the file is downloaded currectly
         while empty_dir_flag and not is_zip_file_flag:
             # check if the directory is empty
             if len(os.listdir(download_dir)) != 0:
@@ -106,10 +108,14 @@ class GithubPagesManager:
                 for file in os.listdir(download_dir):
                     if zipfile.is_zipfile(file):
                         is_zip_file_flag = True
-                        print(f'the file is: {file}')
-
+                        # unzip the file in the same folder
+                        with zipfile.ZipFile(file, 'r') as zip_ref:
+                            zip_ref.extractall(download_dir)
+                        # delete original zip - we do not need it anymore
+                        FileHandler.delete_file(path=file)
+            # wait a second each time so we won't abuse the process
             time.sleep(1)
-
+        # close so we do not have open processes we do not use
         new_browser.quit()
 
 
