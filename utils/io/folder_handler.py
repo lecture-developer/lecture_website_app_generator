@@ -5,7 +5,6 @@ from glob import glob
 
 # projects
 from utils.io.file_hadler import FileHandler
-from utils.exceptions.exception_class import ClassException
 
 
 class FolderHandler:
@@ -21,9 +20,7 @@ class FolderHandler:
         if os.path.isdir(folder_path):
             return sum([1 for path in glob(os.path.join(folder_path, "*"))])
         else:
-            raise ClassException(class_name=FolderHandler.__class__.__name__,
-                                 method_name=FolderHandler.count_files_in_folder.__name__,
-                                 message="Not a valid path for a folder")
+            raise Exception("Not a valid path for a folder")
 
     @staticmethod
     def delete_all_files_in_folder(folder_path: str) -> None:
@@ -31,9 +28,7 @@ class FolderHandler:
         if os.path.isdir(folder_path):
             [FileHandler.delete_file(path=path) for path in glob(os.path.join(folder_path, "*"))]
         else:
-            raise ClassException(class_name=FolderHandler.__class__.__name__,
-                                 method_name=FolderHandler.count_files_in_folder.__name__,
-                                 message="Not a valid path for a folder")
+            raise Exception("Not a valid path for a folder")
 
     @staticmethod
     def create_folder(folder_path: str) -> None:

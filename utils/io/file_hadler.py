@@ -5,9 +5,6 @@ A file to manage write and read to files
 import os
 import sys
 
-# our imports
-from utils.exceptions.exception_class import ClassException
-
 
 class FileHandler:
     """ an interface to handle all things we wish to do with basic files """
@@ -100,12 +97,8 @@ class FileHandler:
                 except:
                     pass
         except OSError as os_err:
-            raise ClassException(class_name="FileHandler",
-                                 method_name=FileHandler._is_pathname_valid.__name__,
-                                 message="OS Error: {}".format(os_err))
+            raise os_err
         except TypeError as type_err:
-            raise ClassException(class_name="FileHandler",
-                                 method_name=FileHandler._is_pathname_valid .__name__,
-                                 message="Type Error: {}".format(type_err))
+            raise type_err
         else:
             return True
