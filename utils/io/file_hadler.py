@@ -4,6 +4,7 @@ A file to manage write and read to files
 # library imports
 import os
 import sys
+import json
 
 
 class FileHandler:
@@ -28,6 +29,22 @@ class FileHandler:
                     csv_file.write(row)
                 else:
                     csv_file.write("{}\n".format(row))
+
+    @staticmethod
+    def append_to_json(data_obj_to_append, key: str, path: str):
+        """
+        Append new data to a specific key in a json file.
+        """
+        with open(path) as json_file:
+            data = json.load(json_file)  # set data as python object
+            temp = data[key]
+            # appending data
+            temp.append(data_obj_to_append)
+        json_file.close()
+        # write the updated json data to file. -Rewrite the whole file
+        with open(path, 'w') as json_file:
+            json.dump(data, json_file, indent=4)
+        json_file.close()
 
     @staticmethod
     def write_lines(path: str, text_lines: list):

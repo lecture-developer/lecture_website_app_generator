@@ -212,6 +212,18 @@ def load_user(user_id: str):
 # actions methods #
 
 
+@app.route("/action/add_new_course", methods=["POST"])
+@login_required
+def add_new_course():
+    json_data = request.get_json(silent=True)
+    # TODO: Check if json data correct
+    folder_path = User.get_user_folder_path_by_id(user_id=current_user.get_id())
+    FileHandler.append_to_json(data_obj_to_append=json_data,
+                               key='coureses',
+                               path=folder_path+"/data/jsons/teaching.json")
+    return jsonify({"status": 200})
+
+
 @app.route("/action/save_results", methods=["POST"])
 @login_required
 def action_save_results():
