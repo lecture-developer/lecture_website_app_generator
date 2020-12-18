@@ -28,6 +28,7 @@ from web_logic.github_pages_manager import GithubPagesManager
 from utils.io.file_hadler import FileHandler
 from utils.io.path_handler import PathHandler
 from utils.io.folder_handler import FolderHandler
+from utils.validators.json_validator import JsonValidator
 
 # install on the running server anything we need
 install_server()
@@ -215,13 +216,24 @@ def load_user(user_id: str):
 @app.route("/action/add_new_course", methods=["POST"])
 @login_required
 def add_new_course():
-    json_data = request.get_json(silent=True)
-    # TODO: Check if json data correct
-    folder_path = User.get_user_folder_path_by_id(user_id=current_user.get_id())
-    FileHandler.append_to_json(data_obj_to_append=json_data,
-                               key='coureses',
-                               path=folder_path+"/data/jsons/teaching.json")
-    return jsonify({"status": 200})
+    """
+    Try to add new course to the json courses file of current user.
+    If received data not contain all needed info or not json type - return error.
+    note: User must be logged.
+    """
+    try:
+        json_data = request.get_json(silent=True)
+        # check if the new data correct and contains all needed data
+        JsonValidator.validates('add_new_course', json_data)
+        # add the new course data to current_user json  courses file.
+        folder_path = User.get_user_folder_path_by_id(user_id=current_user.get_id())
+        FileHandler.append_to_json(data_obj_to_append=json_data,
+                                   key='coureses',
+                                   path=folder_path + "/data/jsons/teaching.json")
+        return jsonify({"status": 200})
+    except Exception as error:
+        return jsonify("error", error), 400
+
 
 
 @app.route("/action/save_results", methods=["POST"])

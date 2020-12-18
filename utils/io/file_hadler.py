@@ -31,12 +31,15 @@ class FileHandler:
                     csv_file.write("{}\n".format(row))
 
     @staticmethod
-    def append_to_json(data_obj_to_append, key: str, path: str):
+    def append_to_json(data_obj_to_append:dict, key: str, path: str):
         """
         Append new data to a specific key in a json file.
         """
         with open(path) as json_file:
             data = json.load(json_file)  # set data as python object
+            if key not in data:
+                print(f'Error: can not find {key} in the Json file:{path}')
+                return
             temp = data[key]
             # appending data
             temp.append(data_obj_to_append)
