@@ -1,10 +1,11 @@
 import json
 from jsonschema import validate, SchemaError, ValidationError
 from utils.io.file_hadler import FileHandler
+from utils.io.path_handler import PathHandler
 
 # dict of all schemas files
 json_schema_files_dict = {
-    "add_new_course": "course_schema.json"
+    "add_new_course": "utils/validators/course_schema.json"
 }
 
 
@@ -23,8 +24,10 @@ class JsonValidator:
         """
         # get the path to the schema
         path_schema = json_schema_files_dict[schema_key]
+        full_path_schema = PathHandler.get_relative_path_from_project(path_schema)
+
         # read the json file and create a dict
-        schema_data = FileHandler.read_all(path_schema)
+        schema_data = FileHandler.read_all(full_path_schema)
         schema = json.loads(schema_data)
         try:
             validate(json_data, schema)
