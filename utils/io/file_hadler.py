@@ -31,7 +31,7 @@ class FileHandler:
                     csv_file.write("{}\n".format(row))
 
     @staticmethod
-    def append_to_json(data_obj_to_append:dict, key: str, path: str):
+    def append_to_json(data_obj_to_append: dict, key: str, path: str):
         """
         Append new data to a specific key in a json file.
         """

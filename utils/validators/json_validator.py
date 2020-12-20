@@ -4,12 +4,12 @@ from utils.io.file_hadler import FileHandler
 
 # dict of all schemas files
 json_schema_files_dict = {
-    "new_course": "course_schema.json"
+    "add_new_course": "course_schema.json"
 }
 
 
 class JsonValidator:
-    """ an interface to handle all things we wish to do with basic files """
+    """ an interface to handle all jsons we wish to do check  """
 
     def __init__(self):
         pass
