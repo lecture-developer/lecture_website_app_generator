@@ -28,6 +28,7 @@ from web_logic.github_pages_manager import GithubPagesManager
 from utils.io.file_hadler import FileHandler
 from utils.io.path_handler import PathHandler
 from utils.io.folder_handler import FolderHandler
+from utils.validators.json_validator import JsonValidator
 
 # install on the running server anything we need
 install_server()
@@ -166,7 +167,7 @@ def register():
         # ---> we assume the data is fully provided at this point and the username & email is unique <--- #
         # 0. create user
         new_user = User(username=request.form.get('username'),
-                        password=User.hash_password(password=request.form.get('password')),
+                        password=request.form.get('password'),
                         name=request.form.get('name'),
                         email=request.form.get('email'),
                         creation_date=datetime.now(),
@@ -210,6 +211,29 @@ def load_user(user_id: str):
 # end - users methods #
 
 # actions methods #
+
+
+@app.route("/action/add_new_course", methods=["POST"])
+@login_required
+def add_new_course():
+    """
+    Try to add new course to the json courses file of current user.
+    If received data not contain all needed info or not json type - return error.
+    note: User must be logged.
+    """
+    try:
+        json_data = request.get_json(silent=True)
+        # check if the new data correct and contains all needed data
+        JsonValidator.validates('add_new_course', json_data)
+        # add the new course data to current_user json  courses file.
+        folder_path = User.get_user_folder_path_by_id(user_id=current_user.get_id())
+        FileHandler.append_to_json(data_obj_to_append=json_data,
+                                   key='coureses',
+                                   path=folder_path + "/data/jsons/teaching.json")
+        return jsonify({"status": 200})
+    except Exception as error:
+        return jsonify("error", error), 400
+
 
 
 @app.route("/action/save_results", methods=["POST"])
@@ -345,9 +369,10 @@ class User(UserMixin):
         self.uploaded_to_our_github = uploaded_to_our_github
         self.uploaded_to_own_github = uploaded_to_own_github
 
-        salt, hashed_password = User.hash_password(password)
+        # salt, hashed_password = User.hash_password(password) ->> not working. hash return only password
+        hashed_password = User.hash_password(password)
         self.password = hashed_password
-        self.salt = salt
+        # self.salt = salt
 
     def get_user_folder_path(self) -> str:
         return PathHandler.get_relative_path_from_project_inner_folders(["users_websites", self.id])
@@ -390,7 +415,7 @@ class User(UserMixin):
                                                "password": User.hash_password(password)})
 
     @staticmethod
-    def hash_password(password: str) -> str:
+    def hash_password(password: str):
         return hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), User.password_salt, 100000)
 
     @staticmethod
