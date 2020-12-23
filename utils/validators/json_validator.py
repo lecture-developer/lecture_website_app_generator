@@ -5,7 +5,8 @@ from utils.io.path_handler import PathHandler
 
 # dict of all schemas files
 json_schema_files_dict = {
-    "add_new_course": "utils/validators/course_schema.json"
+    "add_new_course": "utils/validators/course_schema.json",
+    "add_global_seo": "utils/validators/global-seo-schema.json"
 }
 
 
