@@ -225,13 +225,13 @@ def set_global_seo():
         json_data = request.get_json(silent=True)
         # check if the new data correct and contains all needed data
         JsonValidator.validates('add_global_seo', json_data)
-        # add the new course data to current_user json  courses file.
+        # add the new data to current_user json seo global file.
         folder_path = User.get_user_folder_path_by_id(user_id=current_user.get_id())
-        FileHandler.write_to_json(data_obj_to_append=json_data,
-                                   path=folder_path + "/data/jsons/global-seo.json")
+        FileHandler.write_to_json(json_data=json_data, path=folder_path + "/data/jsons/global-seo.json")
         return jsonify({"status": 200})
     except Exception as error:
         return jsonify("error", error), 400
+
 
 @app.route("/action/add_new_course", methods=["POST"])
 @login_required
