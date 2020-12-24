@@ -178,7 +178,7 @@ def register():
         FolderHandler.create_folder(folder_path=new_user.get_user_folder_path())
         # 3. download template code into the folder
         github_manager = GithubPagesManager()
-        github_manager.login(user_name=TEMPLATE_GITHUB_REPO_EMAIL,
+        github_manager.login(user_name=TEMPLATE_GITHUB_REPO_USERNAME,
                              password=TEMPLATE_GITHUB_REPO_PASSWORD)
         github_manager.download_template(download_dir=new_user.get_user_folder_path())
         # 4. send email to approve email in the user
@@ -211,6 +211,26 @@ def load_user(user_id: str):
 # end - users methods #
 
 # actions methods #
+
+
+@app.route("/action/set_global_seo", methods=["POST"])
+@login_required
+def set_global_seo():
+    """
+    Try to add seo info to the json global seo file of current user.
+    If receiced as POST data not contain all needed info or not json type- return error.
+    note: User must be logged.
+    """
+    try:
+        json_data = request.get_json(silent=True)
+        # check if the new data correct and contains all needed data
+        JsonValidator.validates('add_global_seo', json_data)
+        # add the new data to current_user json seo global file.
+        folder_path = User.get_user_folder_path_by_id(user_id=current_user.get_id())
+        FileHandler.write_to_json(json_data=json_data, path=folder_path + "/data/jsons/global-seo.json")
+        return jsonify({"status": 200})
+    except Exception as error:
+        return jsonify("error", error), 400
 
 
 @app.route("/action/add_new_course", methods=["POST"])

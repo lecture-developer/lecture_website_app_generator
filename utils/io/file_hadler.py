@@ -50,6 +50,16 @@ class FileHandler:
         json_file.close()
 
     @staticmethod
+    def write_to_json(json_data: dict, path: str):
+        """
+        Write data to a specific key in a json file.
+        """
+        # write the updated json data to file. -Rewrite the whole file
+        with open(path, 'w') as json_file:
+            json.dump(json_data, json_file, indent=4)
+        json_file.close()
+
+    @staticmethod
     def write_lines(path: str, text_lines: list):
         """ write text to path """
         with open(path, "w+", encoding="utf-8") as file:
