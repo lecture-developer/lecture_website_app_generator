@@ -56,10 +56,11 @@ class FileHandler:
         """
         with open(path) as json_file:
             data = json.load(json_file)  # set data as python object
-            for key, val in data_obj_to_append:
+            for key in data_obj_to_append:
                 # if the key inside dict and contains list value
+                val = data_obj_to_append[key]
                 if key in data and isinstance(val, list):
-                    data[key].extand(val)
+                    data[key].extend(val)
                 else:
                     data[key] = val
         json_file.close()

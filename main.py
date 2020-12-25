@@ -17,6 +17,8 @@ from flask import Flask, request, render_template, jsonify, send_from_directory,
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 
 # project imports
+from jsonschema import ValidationError
+
 from web_logic.enums import *
 from installer import install_server
 from web_logic import user_manipulator
@@ -230,9 +232,9 @@ def set_global_seo_file():
     if not request.is_json:
         return jsonify("Error", "No json data received"), 400
     # Parse the JSON into a Python dictionary
-    req = request.get_json(silent=True)
-    return update_json_file(data=req,
-                            schema_name="add_global_seo",
+    data = request.get_json(silent=True)
+    return update_json_file(data=data,
+                            schema_name="set_global_seo",
                             target_file_path="/data/jsons/global-seo.json",
                             current_user_id=current_user.get_id(),
                             full_file=True)
@@ -250,8 +252,8 @@ def set_research_file():
     if not request.is_json:
         return jsonify("Error", "No json data received"), 400
     # Parse the JSON into a Python dictionary
-    req = request.get_json(silent=True)
-    return update_json_file(data=req,
+    data = request.get_json(silent=True)
+    return update_json_file(data=data,
                             schema_name="set_research_file",
                             target_file_path="/data/jsons/research.json",
                             current_user_id=current_user.get_id(),
@@ -290,8 +292,8 @@ def set_academic_publication_file():
     if not request.is_json:
         return jsonify("Error", "No json data received"), 400
     # Parse the JSON into a Python dictionary
-    req = request.get_json(silent=True)
-    return update_json_file(data=req,
+    data = request.get_json(silent=True)
+    return update_json_file(data=data,
                             schema_name="set_academic_publications",
                             target_file_path="/data/jsons/academic-publications.json",
                             current_user_id=current_user.get_id(),
@@ -310,8 +312,8 @@ def add_academic_publication_file():
     if not request.is_json:
         return jsonify("Error", "No json data received"), 400
     # Parse the JSON into a Python dictionary
-    req = request.get_json(silent=True)
-    return update_json_file(data=req,
+    data = request.get_json(silent=True)
+    return update_json_file(data=data,
                             schema_name="set_academic_publications",
                             target_file_path="/data/jsons/academic-publications.json",
                             current_user_id=current_user.get_id(),
@@ -330,8 +332,8 @@ def set_teaching_file():
     if not request.is_json:
         return jsonify("Error", "No json data received"), 400
     # Parse the JSON into a Python dictionary
-    req = request.get_json(silent=True)
-    return update_json_file(data=req,
+    data = request.get_json(silent=True)
+    return update_json_file(data=data,
                             schema_name="set_teaching",
                             target_file_path="/data/jsons/teaching.json",
                             current_user_id=current_user.get_id(),
@@ -340,9 +342,9 @@ def set_teaching_file():
 
 @app.route("/action/add_new_course", methods=["POST"])
 @login_required
-def add_new_course():
+def add_teaching_file():
     """
-    Try to add new course to the json courses file of current user.
+    Try to add or change data in teaching  json file of current user.
     Format must contain at least 1 primary key to append.
     for example: {"courses": [<new course data>] }
     If received data not contain all needed info or not json type - return error.
@@ -467,14 +469,17 @@ def update_json_file(data: dict, schema_name: str, target_file_path: str, curren
         # check if the new data correct and contains all needed data
         JsonValidator.validates(schema_name, data)
         # add the new course data to current_user json  courses file.
-        folder_path = User.get_user_folder_path_by_id(user_id=current_user_id)
+        folder_path = User.get_user_folder_path_by_id(id=current_user_id)
         if full_file:
             FileHandler.write_to_json(json_data=data, path=folder_path + target_file_path)
         else:
             FileHandler.append_to_json(data_obj_to_append=data, path=folder_path + target_file_path)
         return jsonify({"status": 200})
-    except Exception as error:
-        return jsonify("error", error), 400
+    except ValidationError as validation_error:
+        return jsonify({"Error": validation_error.message}), 400
+    except Exception as e:
+        print(e)
+        return jsonify({"Error": "Server internal error, check server"}), 400
 
 
 # end - help functions #
@@ -574,4 +579,4 @@ class User(UserMixin):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

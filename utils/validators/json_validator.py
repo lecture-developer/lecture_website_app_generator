@@ -8,7 +8,7 @@ json_schema_files_dict = {
     "set_teaching": "utils/validators/teaching_schema.json",
     "set_global_seo": "utils/validators/global_seo_schema.json",
     "set_academic_publications": "utils/validators/academic_publications_schema.json",
-    "set_research_file": "utils/validators/academic_publications_schema.json"
+    "set_research_file": "utils/validators/research_schema.json"
 }
 
 
