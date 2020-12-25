@@ -31,7 +31,7 @@ class FileHandler:
                     csv_file.write("{}\n".format(row))
 
     @staticmethod
-    def append_to_json(data_obj_to_append: dict, key: str, path: str):
+    def append_to_json_by_key(data_obj_to_append: dict, key: str, path: str):
         """
         Append new data to a specific key in a json file.
         """
@@ -50,9 +50,28 @@ class FileHandler:
         json_file.close()
 
     @staticmethod
+    def append_to_json(data_obj_to_append: dict, path: str):
+        """
+        Append new data to a specific key in a json file.
+        """
+        with open(path) as json_file:
+            data = json.load(json_file)  # set data as python object
+            for key, val in data_obj_to_append:
+                # if the key inside dict and contains list value
+                if key in data and isinstance(val, list):
+                    data[key].extand(val)
+                else:
+                    data[key] = val
+        json_file.close()
+        # write the updated json data to file. -Rewrite the whole file
+        with open(path, 'w') as json_file:
+            json.dump(data, json_file, indent=4)
+        json_file.close()
+
+    @staticmethod
     def write_to_json(json_data: dict, path: str):
         """
-        Write data to a specific key in a json file.
+        Write data to a specific json file.
         """
         # write the updated json data to file. -Rewrite the whole file
         with open(path, 'w') as json_file:

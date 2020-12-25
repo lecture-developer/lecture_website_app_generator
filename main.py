@@ -12,9 +12,9 @@ from flask_login import UserMixin
 from flask_pymongo import PyMongo
 from datetime import datetime, timedelta
 from apscheduler.schedulers.background import BackgroundScheduler
-from flask import Flask, request, render_template, jsonify, send_from_directory, redirect, url_for, session, abort, make_response
+from flask import Flask, request, render_template, jsonify, send_from_directory, redirect, url_for, session, abort, \
+    make_response
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
-
 
 # project imports
 from web_logic.enums import *
@@ -57,6 +57,8 @@ TEMPLATE_GITHUB_REPO_EMAIL = ""
 TEMPLATE_GITHUB_REPO_PASSWORD = ""
 USER_REPO_DESCRIPTION = "The academic website of {}, created by sphera.academy"
 USER_REPO_NAME = "academic_website_{}"
+
+
 # end - global consts #
 
 # jobs execute each few hours consts #
@@ -72,6 +74,7 @@ sched.add_job(send_remind_emails, 'interval', minutes=1)
 sched.start()
 # Shutdown your cron thread if the web process is stopped
 atexit.register(lambda: sched.shutdown(wait=False))
+
 
 # end - jobs execute each few hours consts #
 
@@ -200,6 +203,7 @@ def register():
         except Exception as error:
             return render_template("login.html")
 
+
 # end - website pages #
 
 # users methods #
@@ -208,29 +212,130 @@ def register():
 def load_user(user_id: str):
     return User.get(user_id)
 
+
 # end - users methods #
 
 # actions methods #
 
 
-@app.route("/action/set_global_seo", methods=["POST"])
+@app.route("/action/set_global_seo_file", methods=["POST"])
 @login_required
-def set_global_seo():
+def set_global_seo_file():
     """
     Try to add seo info to the json global seo file of current user.
-    If receiced as POST data not contain all needed info or not json type- return error.
+    If received data as POST data not contain all needed info or not json type- return error.
     note: User must be logged.
     """
-    try:
-        json_data = request.get_json(silent=True)
-        # check if the new data correct and contains all needed data
-        JsonValidator.validates('add_global_seo', json_data)
-        # add the new data to current_user json seo global file.
-        folder_path = User.get_user_folder_path_by_id(user_id=current_user.get_id())
-        FileHandler.write_to_json(json_data=json_data, path=folder_path + "/data/jsons/global-seo.json")
-        return jsonify({"status": 200})
-    except Exception as error:
-        return jsonify("error", error), 400
+    # Validate the request body contains JSON
+    if not request.is_json:
+        return jsonify("Error", "No json data received"), 400
+    # Parse the JSON into a Python dictionary
+    req = request.get_json(silent=True)
+    return update_json_file(data=req,
+                            schema_name="add_global_seo",
+                            target_file_path="/data/jsons/global-seo.json",
+                            current_user_id=current_user.get_id(),
+                            full_file=True)
+
+
+@app.route("/action/set_research_file", methods=["POST"])
+@login_required
+def set_research_file():
+    """
+    Try to add whole research file info to the json research file of current user-rewrite current file.
+    If the received info as POST data, not contain all needed info or not json type- return error.
+    note: User must be logged.
+    """
+    # Validate the request body contains JSON
+    if not request.is_json:
+        return jsonify("Error", "No json data received"), 400
+    # Parse the JSON into a Python dictionary
+    req = request.get_json(silent=True)
+    return update_json_file(data=req,
+                            schema_name="set_research_file",
+                            target_file_path="/data/jsons/research.json",
+                            current_user_id=current_user.get_id(),
+                            full_file=True)
+
+
+@app.route("/action/add_to_research_file", methods=["POST"])
+@login_required
+def add_to_research_file():
+    """
+    Try to add specific new data for specific keys to research file of current user.
+    If the received info as POST data, not contain all needed info or not json type- return error.
+    note: User must be logged.
+    """
+    # Validate the request body contains JSON
+    if not request.is_json:
+        return jsonify("Error", "No json data received"), 400
+    # Parse the JSON into a Python dictionary
+    req = request.get_json(silent=True)
+    return update_json_file(data=req,
+                            schema_name="set_research_file",
+                            target_file_path="/data/jsons/research.json",
+                            current_user_id=current_user.get_id(),
+                            full_file=False)
+
+
+@app.route("/action/set_academic_publication_file", methods=["POST"])
+@login_required
+def set_academic_publication_file():
+    """
+    Try to set new academic publications file. Re-write current file of current user.
+    If received data not contain all needed info or not json type - return error.
+    note: User must be logged.
+    """
+    # Validate the request body contains JSON
+    if not request.is_json:
+        return jsonify("Error", "No json data received"), 400
+    # Parse the JSON into a Python dictionary
+    req = request.get_json(silent=True)
+    return update_json_file(data=req,
+                            schema_name="set_academic_publications",
+                            target_file_path="/data/jsons/academic-publications.json",
+                            current_user_id=current_user.get_id(),
+                            full_file=True)
+
+
+@app.route("/action/add_academic_publication_file", methods=["POST"])
+@login_required
+def add_academic_publication_file():
+    """
+    Try to set new academic publications file. Re-write current file of current user.
+    If received data not contain all needed info or not json type - return error.
+    note: User must be logged.
+    """
+    # Validate the request body contains JSON
+    if not request.is_json:
+        return jsonify("Error", "No json data received"), 400
+    # Parse the JSON into a Python dictionary
+    req = request.get_json(silent=True)
+    return update_json_file(data=req,
+                            schema_name="set_academic_publications",
+                            target_file_path="/data/jsons/academic-publications.json",
+                            current_user_id=current_user.get_id(),
+                            full_file=False)
+
+
+@app.route("/action/set_teaching_file", methods=["POST"])
+@login_required
+def set_teaching_file():
+    """
+    Try to add whole teaching file. Re-write the current file with new data.
+    If received data not contain all needed info or not json type - return error.
+    note: User must be logged.
+    """
+    # Validate the request body contains JSON
+    if not request.is_json:
+        return jsonify("Error", "No json data received"), 400
+    # Parse the JSON into a Python dictionary
+    req = request.get_json(silent=True)
+    return update_json_file(data=req,
+                            schema_name="set_teaching",
+                            target_file_path="/data/jsons/teaching.json",
+                            current_user_id=current_user.get_id(),
+                            full_file=True)
 
 
 @app.route("/action/add_new_course", methods=["POST"])
@@ -238,22 +343,21 @@ def set_global_seo():
 def add_new_course():
     """
     Try to add new course to the json courses file of current user.
+    Format must contain at least 1 primary key to append.
+    for example: {"courses": [<new course data>] }
     If received data not contain all needed info or not json type - return error.
     note: User must be logged.
     """
-    try:
-        json_data = request.get_json(silent=True)
-        # check if the new data correct and contains all needed data
-        JsonValidator.validates('add_new_course', json_data)
-        # add the new course data to current_user json  courses file.
-        folder_path = User.get_user_folder_path_by_id(user_id=current_user.get_id())
-        FileHandler.append_to_json(data_obj_to_append=json_data,
-                                   key='coureses',
-                                   path=folder_path + "/data/jsons/teaching.json")
-        return jsonify({"status": 200})
-    except Exception as error:
-        return jsonify("error", error), 400
-
+    # Validate the request body contains JSON
+    if not request.is_json:
+        return jsonify("Error", "No json data received"), 400
+    # Parse the JSON into a Python dictionary
+    req = request.get_json(silent=True)
+    return update_json_file(data=req,
+                            schema_name="set_teaching",
+                            target_file_path="/data/jsons/teaching.json",
+                            current_user_id=current_user.get_id(),
+                            full_file=False)
 
 
 @app.route("/action/save_results", methods=["POST"])
@@ -353,9 +457,25 @@ def update_user():
     user_manipulator.update_user_data('test_user')
     return 'user updated'
 
+
 # end - actions methods #
 
 # help functions #
+
+def update_json_file(data: dict, schema_name: str, target_file_path: str, current_user_id: str, full_file: bool):
+    try:
+        # check if the new data correct and contains all needed data
+        JsonValidator.validates(schema_name, data)
+        # add the new course data to current_user json  courses file.
+        folder_path = User.get_user_folder_path_by_id(user_id=current_user_id)
+        if full_file:
+            FileHandler.write_to_json(json_data=data, path=folder_path + target_file_path)
+        else:
+            FileHandler.append_to_json(data_obj_to_append=data, path=folder_path + target_file_path)
+        return jsonify({"status": 200})
+    except Exception as error:
+        return jsonify("error", error), 400
+
 
 # end - help functions #
 
