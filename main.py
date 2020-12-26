@@ -224,7 +224,7 @@ def load_user(user_id: str):
 @login_required
 def set_global_seo_file():
     """
-    Try to add seo info to the json global seo file of current user.
+    Try to set seo info to the json global seo file of current user.
     If received data as POST data not contain all needed info or not json type- return error.
     note: User must be logged.
     """
@@ -284,7 +284,7 @@ def add_to_research_file():
 @login_required
 def set_academic_publication_file():
     """
-    Try to set new academic publications file. Re-write current file of current user.
+    Try to set academic publications file. Re-write current file of current user.
     If received data not contain all needed info or not json type - return error.
     note: User must be logged.
     """
@@ -304,7 +304,7 @@ def set_academic_publication_file():
 @login_required
 def add_academic_publication_file():
     """
-    Try to set new academic publications file. Re-write current file of current user.
+    Try to add new academic publications file. Re-write current file of current user.
     If received data not contain all needed info or not json type - return error.
     note: User must be logged.
     """
@@ -324,7 +324,7 @@ def add_academic_publication_file():
 @login_required
 def set_teaching_file():
     """
-    Try to add whole teaching file. Re-write the current file with new data.
+    Try to set whole teaching file. Re-write the current file with new data.
     If received data not contain all needed info or not json type - return error.
     note: User must be logged.
     """
@@ -465,10 +465,23 @@ def update_user():
 # help functions #
 
 def update_json_file(data: dict, schema_name: str, target_file_path: str, current_user_id: str, full_file: bool):
+    """
+    Try to Update json file with recived data. If full-file, re write the file. else: add or change only specific data
+    inside the json file.
+    If the data in incorrect format or not contain all needed info, return error.
+    note: when full file is false, data must contain at least one key.
+    You cant change specific inner sub key inside json file.
+    :param data: Json data received from user in dict type.
+    :param schema_name: key to untils/validators json scheme file. see json_validator.py
+    :param target_file_path: target path of the user's local json file needed update.
+    :param current_user_id:
+    :param full_file: true if full file needs to re-write.
+    :return: status.
+    """
     try:
         # check if the new data correct and contains all needed data
         JsonValidator.validates(schema_name, data)
-        # add the new course data to current_user json  courses file.
+        # add the new data to current_user json file.
         folder_path = User.get_user_folder_path_by_id(id=current_user_id)
         if full_file:
             FileHandler.write_to_json(json_data=data, path=folder_path + target_file_path)
