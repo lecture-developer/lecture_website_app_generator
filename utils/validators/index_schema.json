@@ -1,0 +1,124 @@
+{
+  "type": "object",
+  "required": [],
+  "properties": {
+    "biography": {
+      "type": "string"
+    },
+    "researchInterests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "featuredPublications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "description",
+          "authors",
+          "year",
+          "topic",
+          "type",
+          "publisher",
+          "publicationStatus"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "fileLinks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "info",
+                "type",
+                "link"
+              ],
+              "properties": {
+                "info": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "number"
+                },
+                "link": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "authors": {
+            "type": "string"
+          },
+          "year": {
+            "type": "number"
+          },
+          "topic": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "publicationStatus": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "currentProjects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "topic",
+          "description"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "topic": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "link": {
+            "type": "object",
+            "required": [
+              "info",
+              "type",
+              "link",
+              "example"
+            ],
+            "properties": {
+              "info": {
+                "type": "string"
+              },
+              "type": {
+                "type": "number"
+              },
+              "link": {
+                "type": "string"
+              },
+              "example": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
