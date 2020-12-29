@@ -627,7 +627,7 @@ def update_json_file(data: dict, schema_name: str, target_file_path: str, curren
         return jsonify({"Error": validation_error.message}), 400
     except Exception as e:
         print(e)
-        return jsonify({"Error": "Server internal error, check server"}), 400
+        return jsonify({"Error": str(e)}), 400
 
 
 # end - help functions #
