@@ -1,0 +1,147 @@
+{
+  "type": "object",
+  "required": [
+  ],
+  "properties": {
+    "work_with_me_opening": {
+      "type": "string"
+    },
+    "open_positions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "description",
+          "requierments",
+          "applay_text",
+          "position_type",
+          "connect_email"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "requierments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "applay_text": {
+            "type": "string"
+          },
+          "position_type": {
+            "type": "string"
+          },
+          "connect_email": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "participants",
+          "description",
+          "start_month",
+          "start_year",
+          "end_month",
+          "end_year",
+          "team_members",
+          "relevant_resources"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "participants": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "title",
+                "role",
+                "websiteLink",
+                "googleLink",
+                "linkedinLink"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "websiteLink": {
+                  "type": "string"
+                },
+                "googleLink": {
+                  "type": "string"
+                },
+                "linkedinLink": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "description": {
+            "type": "string"
+          },
+          "start_month": {
+            "type": "number"
+          },
+          "start_year": {
+            "type": "number"
+          },
+          "end_month": {
+            "type": "number"
+          },
+          "end_year": {
+            "type": "number"
+          },
+          "team_members": {
+            "type": "number"
+          },
+          "relevant_resources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "link",
+                "description"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "link": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

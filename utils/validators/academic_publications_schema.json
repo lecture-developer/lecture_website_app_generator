@@ -1,0 +1,76 @@
+{
+  "type": "object",
+  "required": [
+    "publications"
+  ],
+  "properties": {
+    "publications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "description",
+          "authors",
+          "year",
+          "topic",
+          "type",
+          "publisher",
+          "publicationStatus"
+        ],
+        "properties": {
+          "id": {
+            "type": ["string", "number"]
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "fileLinks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "info",
+                "type",
+                "link"
+              ],
+              "properties": {
+                "info": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "number"
+                },
+                "link": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "authors": {
+            "type": "string"
+          },
+          "year": {
+            "type": "number"
+          },
+          "topic": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "publicationStatus": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

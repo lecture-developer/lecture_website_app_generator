@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "required": [],
+  "properties": {
+    "position": {
+      "type": "string"
+    },
+    "field": {
+      "type": "string"
+    },
+    "addresses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "university",
+          "location",
+          "hours"
+        ],
+        "properties": {
+          "university": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "hours": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "linkedin_link": {
+      "type": "string"
+    },
+    "google_scholar_link": {
+      "type": "string"
+    },
+    "facebook_link": {
+      "type": "string"
+    },
+    "github_link": {
+      "type": "string"
+    },
+    "bitbucket_link": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "cvfile": {
+      "type": "string"
+    }
+  }
+}

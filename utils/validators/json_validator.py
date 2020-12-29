@@ -3,10 +3,19 @@ from jsonschema import validate, SchemaError, ValidationError
 from utils.io.file_hadler import FileHandler
 from utils.io.path_handler import PathHandler
 
+"""
+All schemas created with online tool:
+https://easy-json-schema.github.io/
+"""
 # dict of all schemas files
 json_schema_files_dict = {
-    "add_new_course": "utils/validators/course_schema.json",
-    "add_global_seo": "utils/validators/global_seo_schema.json"
+    "set_teaching": "utils/validators/teaching_schema.json",
+    "set_global_seo": "utils/validators/global_seo_schema.json",
+    "set_academic_publications": "utils/validators/academic_publications_schema.json",
+    "set_research_file": "utils/validators/research_schema.json",
+    "set_lecturer": "utils/validators/lecturer_schema.json",
+    "set_index": "utils/validators/index_schema.json",
+    "set_resources": "utils/validators/resources_schema.json",
 }
 
 
