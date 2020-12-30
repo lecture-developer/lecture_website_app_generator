@@ -219,6 +219,20 @@ def load_user(user_id: str):
 
 # actions methods #
 
+@app.route("/action/set_notifications_file", methods=["POST"])
+@login_required
+def set_notifications_file():
+    if request.method == 'POST':
+        if request.form["notifications"] != "":
+            notifications = request.form["notifications"]
+            folder_path = User.get_user_folder_path_by_id(id=current_user.get_id()) + "/data/notifications.txt"
+            FileHandler.write(path=folder_path, text=notifications)
+            return jsonify({"status": 200})
+        else:
+            jsonify({"Error": "No notifications data received"}), 400
+    else:
+        jsonify({"Error": "Only POST request"}), 400
+
 
 @app.route("/action/set_global_seo_file", methods=["POST"])
 @login_required
