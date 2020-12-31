@@ -219,8 +219,29 @@ def load_user(user_id: str):
 
 # actions methods #
 @app.route("/action/upload_file_to_server_file_system", methods=["POST"])
+@login_required
 def upload_file_to_server_file_system():
-    return
+    """
+    Upload file to user's files folder.
+    If file format not allowed return error.
+    :return:
+    """
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            return jsonify({"Error": "No file part in request"}), 400
+        file = request.files['file']
+        # if empty request return error
+        if file.filename == '':
+            return jsonify({"Error": "No file received."}), 400
+        # if the file type allowed, save the file.
+        if file and Validators.allowed_file(file.filename):
+            folder_path = User.get_user_folder_path_by_id(id=current_user.get_id()) + "/files/"
+            FileHandler.save_new_file(path=folder_path, file=file)
+            return jsonify({"status": "file uploaded successfully"}), 200
+        else:
+            return jsonify({"Error": "Type of file not allowed."}), 400
+    return jsonify({"Error": "Only POST request"}), 400
 
 
 @app.route("/action/set_notifications_file", methods=["POST"])
