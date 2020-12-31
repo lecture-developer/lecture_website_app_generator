@@ -108,6 +108,12 @@ class FileHandler:
             answer = file.readlines()
         return answer
 
+
+    @staticmethod
+    def save_new_file(path:str, file):
+        return
+
+
     @staticmethod
     def delete_file(path: str) -> bool:
         """ if file exsits delete it """
