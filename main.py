@@ -30,7 +30,7 @@ from web_logic.github_pages_manager import GithubPagesManager
 from utils.io.file_hadler import FileHandler
 from utils.io.path_handler import PathHandler
 from utils.io.folder_handler import FolderHandler
-from utils.validators.json_validator import JsonValidator
+from utils.validators.validators import Validators
 
 # install on the running server anything we need
 install_server()
@@ -218,13 +218,27 @@ def load_user(user_id: str):
 # end - users methods #
 
 # actions methods #
+@app.route("/action/upload_file_to_server_file_system", methods=["POST"])
+def upload_file_to_server_file_system():
+    return
+
 
 @app.route("/action/set_notifications_file", methods=["POST"])
 @login_required
 def set_notifications_file():
+    """
+    Set all notification file.
+    Function validates if all notifications contains needed data and re-writes old file.
+    If one of the notification incorrect, return error without changing the file.
+    """
     if request.method == 'POST':
         if request.form["notifications"] != "":
             notifications = request.form["notifications"]
+            # validate the notifications
+            valid, message = Validators.validate_notifications(notifications)
+            if not valid:
+                jsonify({"Error": message}), 400
+            # write to file
             folder_path = User.get_user_folder_path_by_id(id=current_user.get_id()) + "/data/notifications.txt"
             FileHandler.write(path=folder_path, text=notifications)
             return jsonify({"status": 200})
@@ -621,7 +635,7 @@ def update_json_file(data: dict, schema_name: str, target_file_path: str, curren
     note: when full file is false, data must contain at least one key.
     You cant change specific inner sub key inside json file.
     :param data: Json data received from user in dict type.
-    :param schema_name: key to untils/validators json scheme file. see json_validator.py
+    :param schema_name: key to untils/validators json scheme file. see validators.py
     :param target_file_path: target path of the user's local json file needed update.
     :param current_user_id:
     :param full_file: true if full file needs to re-write.
@@ -629,7 +643,7 @@ def update_json_file(data: dict, schema_name: str, target_file_path: str, curren
     """
     try:
         # check if the new data correct and contains all needed data
-        JsonValidator.validates(schema_name, data)
+        Validators.json_validates(schema_name, data)
         # add the new data to current_user json file.
         folder_path = User.get_user_folder_path_by_id(id=current_user_id)
         if full_file:
