@@ -79,14 +79,14 @@ class Validators:
             notification_data = notification.split(" ")
             # if one notification contains only date or data, return error.
             if len(notification_data) == 1:
-                return False, f"The {index} notification missing data.\n" \
+                return False, f"The {index} index notification missing data. " \
                               f"Received only {notification_data}"
             # if date not in needed format, return error.
             date = notification_data[0]
             try:
                 datetime.datetime.strptime(date, DATE_FORMAT)
             except ValueError:
-                return False, f"The {index} has incorrect date string format.\n" \
-                              f"Received {date} It should be {DATE_FORMAT}."
+                return False, f"The {index} index has incorrect date string format. " \
+                              f"Received {date} It should be in format: {DATE_FORMAT}."
         return True, "OK"
 

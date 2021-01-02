@@ -258,15 +258,15 @@ def set_notifications_file():
             # validate the notifications
             valid, message = Validators.validate_notifications(notifications)
             if not valid:
-                jsonify({"Error": message}), 400
+                return jsonify({"Error": message}), 400
             # write to file
             folder_path = User.get_user_folder_path_by_id(id=current_user.get_id()) + "/data/notifications.txt"
             FileHandler.write(path=folder_path, text=notifications)
             return jsonify({"status": 200})
         else:
-            jsonify({"Error": "No notifications data received"}), 400
+            return jsonify({"Error": "No notifications data received"}), 400
     else:
-        jsonify({"Error": "Only POST request"}), 400
+        return jsonify({"Error": "Only POST request"}), 400
 
 
 @app.route("/action/set_global_seo_file", methods=["POST"])
@@ -545,6 +545,7 @@ def add_resources_file():
                             full_file=False)
 
 # end of updating about.html json files
+
 
 @app.route("/action/save_results", methods=["POST"])
 @login_required
