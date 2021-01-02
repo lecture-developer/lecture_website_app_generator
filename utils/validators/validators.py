@@ -19,7 +19,7 @@ JSON_SCHEMA_FILES_DICT = {
     "set_resources": "utils/validators/resources_schema.json",
 }
 
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'zip', 'docx', 'doc', 'ppt'}
 
 DATE_FORMAT = "%d.%m.%Y"
 
