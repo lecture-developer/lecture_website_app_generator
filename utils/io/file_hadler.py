@@ -5,6 +5,8 @@ A file to manage write and read to files
 import os
 import sys
 import json
+from werkzeug.utils import secure_filename
+
 
 
 class FileHandler:
@@ -107,6 +109,21 @@ class FileHandler:
         with open(path, "r", encoding="utf-8") as file:
             answer = file.readlines()
         return answer
+
+
+    @staticmethod
+    def save_new_file(path:str, file):
+        """
+        Save file in given path.
+        note: If file name in form ".../.../name.type", keep only "name.type"
+        :param path: To save the file
+        :param file:
+        :return:
+        """
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(path, filename))
+        return
+
 
     @staticmethod
     def delete_file(path: str) -> bool:

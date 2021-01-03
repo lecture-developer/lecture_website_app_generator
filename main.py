@@ -30,7 +30,7 @@ from web_logic.github_pages_manager import GithubPagesManager
 from utils.io.file_hadler import FileHandler
 from utils.io.path_handler import PathHandler
 from utils.io.folder_handler import FolderHandler
-from utils.validators.json_validator import JsonValidator
+from utils.validators.validators import Validators
 
 # install on the running server anything we need
 install_server()
@@ -218,6 +218,55 @@ def load_user(user_id: str):
 # end - users methods #
 
 # actions methods #
+@app.route("/action/upload_file_to_server_file_system", methods=["POST"])
+@login_required
+def upload_file_to_server_file_system():
+    """
+    Upload file to user's files folder.
+    If file format not allowed return error.
+    :return:
+    """
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            return jsonify({"Error": "No file part in request"}), 400
+        file = request.files['file']
+        # if empty request return error
+        if file.filename == '':
+            return jsonify({"Error": "No file received."}), 400
+        # if the file type allowed, save the file.
+        if file and Validators.allowed_file(file.filename):
+            folder_path = User.get_user_folder_path_by_id(id=current_user.get_id()) + "/files/"
+            FileHandler.save_new_file(path=folder_path, file=file)
+            return jsonify({"status": "file uploaded successfully"}), 200
+        else:
+            return jsonify({"Error": "Type of file not allowed."}), 400
+    return jsonify({"Error": "Only POST request"}), 400
+
+
+@app.route("/action/set_notifications_file", methods=["POST"])
+@login_required
+def set_notifications_file():
+    """
+    Set all notification file.
+    Function validates if all notifications contains needed data and re-writes old file.
+    If one of the notification incorrect, return error without changing the file.
+    """
+    if request.method == 'POST':
+        if request.form["notifications"] != "":
+            notifications = request.form["notifications"]
+            # validate the notifications
+            valid, message = Validators.validate_notifications(notifications)
+            if not valid:
+                return jsonify({"Error": message}), 400
+            # write to file
+            folder_path = User.get_user_folder_path_by_id(id=current_user.get_id()) + "/data/notifications.txt"
+            FileHandler.write(path=folder_path, text=notifications)
+            return jsonify({"status": 200})
+        else:
+            return jsonify({"Error": "No notifications data received"}), 400
+    else:
+        return jsonify({"Error": "Only POST request"}), 400
 
 
 @app.route("/action/set_global_seo_file", methods=["POST"])
@@ -497,6 +546,7 @@ def add_resources_file():
 
 # end of updating about.html json files
 
+
 @app.route("/action/save_results", methods=["POST"])
 @login_required
 def action_save_results():
@@ -607,7 +657,7 @@ def update_json_file(data: dict, schema_name: str, target_file_path: str, curren
     note: when full file is false, data must contain at least one key.
     You cant change specific inner sub key inside json file.
     :param data: Json data received from user in dict type.
-    :param schema_name: key to untils/validators json scheme file. see json_validator.py
+    :param schema_name: key to untils/validators json scheme file. see validators.py
     :param target_file_path: target path of the user's local json file needed update.
     :param current_user_id:
     :param full_file: true if full file needs to re-write.
@@ -615,7 +665,7 @@ def update_json_file(data: dict, schema_name: str, target_file_path: str, curren
     """
     try:
         # check if the new data correct and contains all needed data
-        JsonValidator.validates(schema_name, data)
+        Validators.json_validates(schema_name, data)
         # add the new data to current_user json file.
         folder_path = User.get_user_folder_path_by_id(id=current_user_id)
         if full_file:
