@@ -663,18 +663,6 @@ def upload_to_own_github_repo():
         return jsonify("error", error), 400
 
 
-@app.route("/action/create_user", methods=["GET", "POST"])
-def create_user():
-    user_manipulator.create_new_user('test_user')
-    return 'user created'
-
-
-@app.route("/action/update_user", methods=["GET", "POST"])
-def update_user():
-    user_manipulator.update_user_data('test_user')
-    return 'user updated'
-
-
 @app.route("/users/activation", methods=["GET"])
 def activate_user_from_email():
     """
@@ -850,7 +838,7 @@ class User(UserMixin):
 
     @staticmethod
     def save(user):
-        mongo.db.users.insert(vars(user))
+        mongo.db.users.insert_one(vars(user))
 
     # ---> python methods <--- #
 
