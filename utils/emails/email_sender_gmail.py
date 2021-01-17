@@ -1,4 +1,7 @@
+import ssl
 import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 
 class EmailSenderGmail:
@@ -18,6 +21,34 @@ class EmailSenderGmail:
 
     def __init__(self):
         pass
+
+    @staticmethod
+    def send_email_via_gmail_with_html(to, subject, text):
+
+        if to is None:
+            to = EmailSenderGmail.GMAIL_USER
+
+        try:
+            message = MIMEMultipart("alternative")
+            message["Subject"] = subject
+            message["From"] = EmailSenderGmail.GMAIL_USER
+            message["To"] = to
+
+            # Create the plain-text and HTML version of your message
+
+            # Turn these into plain/html MIMEText objects
+            text_part = MIMEText(text, "html")
+            message.attach(text_part)
+
+            # Create secure connection with server and send email
+            context = ssl.create_default_context()
+            with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+                server.login(EmailSenderGmail.GMAIL_USER, EmailSenderGmail.GMAIL_PASSWORD)
+                server.sendmail(
+                    EmailSenderGmail.GMAIL_USER, to, message.as_string()
+                )
+        except ConnectionError as error:
+            print("Could not get the Gmail SMTP connection cause: {}".format(error))
 
     @staticmethod
     def send_email_via_gmail(to, subject, text):

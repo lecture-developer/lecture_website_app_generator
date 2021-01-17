@@ -189,7 +189,8 @@ def register():
         # 4. send email to approve email in the user
         generate_registration_email(email=new_user.email,
                                     name=new_user.username,
-                                    token=new_user.get_id())
+                                    token=User.get_token(user_id=new_user.id),
+                                    id=new_user.id)
         # Login new new user
         user = User.try_login(username=request.form["username"],
                               password=request.form["password"])
@@ -204,6 +205,35 @@ def register():
                 return render_template("login.html")
         except Exception as error:
             return render_template("login.html")
+
+
+@app.route("/forget_password", methods=["GET"])
+def forget_password():
+    # if from the view, requested to send an email
+    if request.method == 'POST':
+        try:
+            this_user = User.get_user_by_email(email=request.form.get("email"))
+            generate_forgot_password_email(email=this_user.email,
+                                           token=User.get_token_password(user_id=this_user.id),
+                                           user_id=this_user.id)
+            return render_template("forget_password.html",
+                                   state="sent")
+        except:  # was not find such user
+            return render_template("forget_password.html",
+                                   state="not_legit_attempt")
+    else:  # if request.method == 'GET'
+        try:
+            # if getting to this page from the email
+            token = request.args.get("token")
+            user_id = request.args.get("user")
+            if token.strip().lower() == User.get_token_password(user_id=user_id).lower():
+                return redirect(url_for("change_password"))
+            # if not find, do not active the user
+            return render_template("forget_password.html",
+                                   state="not_legit_attempt")
+        except:  # if not from email, just open the view
+            return render_template("forget_password.html",
+                                   state="new")
 
 
 # end - website pages #
@@ -633,16 +663,22 @@ def upload_to_own_github_repo():
         return jsonify("error", error), 400
 
 
-@app.route("/action/create_user", methods=["GET", "POST"])
-def create_user():
-    user_manipulator.create_new_user('test_user')
-    return 'user created'
-
-
-@app.route("/action/update_user", methods=["GET", "POST"])
-def update_user():
-    user_manipulator.update_user_data('test_user')
-    return 'user updated'
+@app.route("/users/activation", methods=["GET"])
+def activate_user_from_email():
+    """
+    Activate the user's token from email
+    :return:
+    """
+    try:
+        token = request.args.get("token")
+        user_id = request.args.get("user")
+        if token.strip().lower() == User.get_token(user_id=user_id).lower():
+            User.active_email(user_id=user_id)
+            return redirect(url_for("login"))
+        # if not find, do not active the user
+        return redirect(url_for("page_not_found"))
+    except Exception as error:
+        return redirect(url_for("page_not_found"))
 
 
 # end - actions methods #
@@ -729,9 +765,48 @@ class User(UserMixin):
         return mongo.db.users.find_one_or_404({"user_id": user_id})
 
     @staticmethod
+    def get_user_by_email(email: str):
+        return mongo.db.users.find_one_or_404({"email": email})
+
+    @staticmethod
     def update_user(user):
         # TODO: update the user's data
-        pass
+        mongo.db.users.update_one({
+            'id': user.id
+        },
+            {
+            '$set': {
+                'field': "new_value_from_user_argument_object"
+            }
+        },
+            upsert=False)
+
+    @staticmethod
+    def get_token(user_id: str):
+        try:
+            picked_user = User.get(user_id=user_id)
+            return User.hash_password("{}{}".format(picked_user.email, picked_user.creation_date.isoformat()))
+        except Exception as error:
+            return "error"
+
+    @staticmethod
+    def get_token_password(user_id: str):
+        try:
+            picked_user = User.get(user_id=user_id)
+            return "{}{}".format(picked_user.password,
+                                 User.hash_password("{}{}".format(picked_user.email,
+                                                                  picked_user.creation_date.isoformat())))
+        except Exception as error:
+            return "error"
+
+    @staticmethod
+    def active_email(user_id: str):
+        try:
+            mongo.db.users.update_one({"id": user_id},
+                                      {"$set": {"activated": True}})
+            return True
+        except Exception as error:
+            return False
 
     # TODO: maybe delete it
     @staticmethod
@@ -763,7 +838,7 @@ class User(UserMixin):
 
     @staticmethod
     def save(user):
-        mongo.db.users.insert(vars(user))
+        mongo.db.users.insert_one(vars(user))
 
     # ---> python methods <--- #
 

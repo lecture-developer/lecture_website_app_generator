@@ -16,7 +16,7 @@ class EmailProvider:
         """ Send an email to someone with given title and text """
         provider = provider.strip().lower()
         if provider == EmailProvider.GOOGLE_PROVIDER:
-            EmailSenderGmail.send_email_via_gmail(to, subject, text)
+            EmailSenderGmail.send_email_via_gmail_with_html(to, subject, text)
             self.sent_count_google = self.sent_count_google + 1
         else:
             raise AttributeError("please pick on of the providers we have")
